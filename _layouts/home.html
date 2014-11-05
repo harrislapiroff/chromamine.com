@@ -4,7 +4,7 @@
 		<title>Harris Lapiroff</title>
 		<style type="text/css">
 			body {
-				font-family: Helvetica;
+				font-family: Helvetica, Arial, sans-serif;
 				font-weight: bold;
 				color: #222;
 			}
@@ -14,10 +14,12 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
+				display: -ms-flexbox;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				flex-direction: column
+				-ms-flex-direction: column;
+				flex-direction: column;
 			}
 			.name {
 				border: 10px solid #222;
