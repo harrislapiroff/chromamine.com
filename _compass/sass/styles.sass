@@ -1,1 +1,48 @@
+$font-size-base: 18px
+$line-height-base: 1.333 // 24px
+$font-family-base: "chaparral-pro", Georgia, serif
+$link-color: #8b5d9c
+$text-color: #4C4C4C
+
 @import bootstrap-custom
+@import compass/css3/images
+
+body
+    +background(linear-gradient(#EEE 0, #F5F5F5 500px))
+    background-color: #F5F5F5
+    color: $text-color
+
+#hd
+    font-family:  "franklin-gothic-ext-comp-urw", "HelveticaNeue-CondensedBold", Helvetica, Arial, sans-serif
+    font-weight: regular
+    text-transform: uppercase
+    letter-spacing: 1px
+    margin-bottom: $line-height-computed / 2
+    > .name, & > .position
+        display: inline-block
+        margin: 0
+        margin-right: 8px
+        padding: 0
+        font-size: 56px
+        line-height: $line-height-computed * 2.5
+    & > .position
+        color: #888
+
+#all
+    max-width: 800px
+    padding: 20px
+    @media (min-width: 840px)
+        padding: 0
+        margin: #{$line-height-computed * 2.5} auto
+
+.extra
+    font-style: italic
+    color: #888
+
+.unstyled-link
+    color: $text-color
+    text-decoration: none
+
+.unstyled-link:hover
+    color: darken($text-color, 10%)
+    text-decoration: none
