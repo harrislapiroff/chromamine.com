@@ -6,9 +6,10 @@ $text-color: #4C4C4C
 
 @import bootstrap-custom
 @import compass/css3/images
+@import compass/css3/flexbox
 
 body
-    +background(linear-gradient(#EEE 0, #F5F5F5 500px))
+    +background(linear-gradient(#EEE 0, #F5F5F5 500px) repeat-x)
     background-color: #F5F5F5
     color: $text-color
 
@@ -28,12 +29,21 @@ body
     & > .position
         color: #888
 
-#all
+.navbar-chromamine
+    background: #333
+    margin-bottom: #{$line-height-computed * 1.5}
+    text-align: center
+    a
+        display: inline-block
+        color: #CCC
+        padding: #{$line-height-computed / 2}
+
+.container-800
     max-width: 800px
-    padding: 20px
+    padding: 0 20px
     @media (min-width: 840px)
         padding: 0
-        margin: #{$line-height-computed * 2.5} auto
+        margin: 0 auto
 
 .extra
     font-style: italic
