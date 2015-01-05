@@ -19,15 +19,24 @@ body
     text-transform: uppercase
     letter-spacing: 1px
     margin-bottom: $line-height-computed / 2
+    font-size: 56px
+    line-height: $line-height-computed * 2.5
+    @media (min-width: 840px)
+        font-size: 67px
+        line-height: $line-height-computed * 3
     > .name, & > .position
         display: inline-block
         margin: 0
         margin-right: 8px
         padding: 0
-        font-size: 56px
-        line-height: $line-height-computed * 2.5
+        font-size: inherit
+        line-height: inherit
+        @media (min-width: 840px)
+            margin-right: 0
     & > .position
         color: #888
+        @media (min-width: 840px)
+            float: right
 
 .navbar-chromamine
     background: #333

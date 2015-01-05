@@ -2,7 +2,7 @@
 layout: home
 ---
 
-My name's Harris Lapiroff. I live in Washington DC.
+**My name's Harris Lapiroff. I write code and live in DC.**
 
 Since 2014 I have been a co-founder and worker-owner at [Little Weaver Web Collective](http://littleweaverweb.com/), a web development agency with principles.
 
@@ -12,4 +12,4 @@ In 2011 Ma'ayan Plaut and I made a [splash](https://www.insidehighered.com/news/
 
 In 2010 I graduated from Oberlin College with a B.A. in Mathematics (with a concentration in Applied Mathematics) and a minor in Creative Writing.
 
-I built my first website in 1999 and it had an animated GIF of a computer with my name on it. I've been trying to make something as satisfying ever since.
+I built my first website in 1999. Is had an animated GIF of a computer with my name on it. I've been trying to make something as satisfying ever since.
