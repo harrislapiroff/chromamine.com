@@ -1,6 +1,8 @@
 $font-size-base: 18px
 $line-height-base: 1.333 // 24px
-$font-family-base: "chaparral-pro", Georgia, serif
+$font-family-base: Georgia, serif
+$font-family-headings:  "franklin-gothic-ext-comp-urw", "HelveticaNeue-CondensedBold", sans-serif
+$font-family-subheadings: "superclarendon", Georgia, serif
 $link-color: #8b5d9c
 $text-color: #4C4C4C
 
@@ -9,50 +11,54 @@ $text-color: #4C4C4C
 @import compass/css3/flexbox
 
 body
-    +background(linear-gradient(#EEE 0, #F5F5F5 500px) repeat-x)
     background-color: #F5F5F5
     color: $text-color
 
 #hd
-    font-family:  "franklin-gothic-ext-comp-urw", "HelveticaNeue-CondensedBold", Helvetica, Arial, sans-serif
-    font-weight: regular
-    text-transform: uppercase
-    letter-spacing: 1px
-    margin-bottom: $line-height-computed / 2
-    font-size: 56px
-    line-height: $line-height-computed * 2.5
-    @media (min-width: 840px)
-        font-size: 67px
-        line-height: $line-height-computed * 3
+    background: #333
+    text-align: center
+    padding: #{$line-height-computed * 4} 0
+    margin-bottom: 60px
     > .name, & > .position
-        display: inline-block
+        text-transform: uppercase
         margin: 0
-        margin-right: 8px
-        padding: 0
-        font-size: inherit
-        line-height: inherit
-        @media (min-width: 840px)
-            margin-right: 0
-    & > .position
-        color: #888
-        @media (min-width: 840px)
-            float: right
+    > .name
+        font-family: $font-family-headings
+        font-size: $font-size-base * 4
+        color: #F5F5F5
+        text-shadow: 1px 1px 0 #333, 2px 2px 0 #666
+        letter-spacing: 2px
+    > .position
+        font-family: $font-family-subheadings
+        color: #AAA
+        letter-spacing: 1px
+        font-size: $font-size-base * .9
+        text-shadow: 1px 1px 0 #333, 2px 2px 0 #444
 
 .navbar-chromamine
-    background: #333
-    margin-bottom: #{$line-height-computed * 1.5}
-    text-align: center
+    font-family: $font-family-subheadings
+    text-transform: uppercase
+    font-size: 12px
+    line-height: $line-height-computed
+    margin-top: $line-height-computed / 4
     a
         display: inline-block
         color: #CCC
-        padding: #{$line-height-computed / 2}
-
-.container-800
-    max-width: 800px
-    padding: 0 20px
-    @media (min-width: 840px)
-        padding: 0
-        margin: 0 auto
+        letter-spacing: 2px
+        text-shadow: 1px 1px 0 #333, 2px 2px 0 #444
+        margin-right: 20px
+    a:last-child
+        margin-right: 0
+    a:hover
+        text-decoration: none
+        color: #FFF
+    @media (min-width: $screen-md-min)
+        position: absolute
+        top: 137px
+        left: 0
+        right: 0
+        #n2
+            margin-right: 384px
 
 .extra
     font-style: italic

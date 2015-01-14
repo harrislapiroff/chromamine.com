@@ -2,8 +2,6 @@
 layout: home
 ---
 
-**My name's Harris Lapiroff. I write code and live in DC.**
-
 Since 2014 I have been a co-founder and worker-owner at [Little Weaver Web Collective](http://littleweaverweb.com/), a web development agency with principles.
 
 From 2011 through 2013 I was a web developer at Oberlin College where I led a team developing websites such as the [Oberlin homepage](http://home.oberlin.edu/) and the [Oberlin News Center](http://news.oberlin.edu/) as well as a [joke](http://oberlin.edu/kittens/) or [two](https://new.oberlin.edu/home/nyan/).
