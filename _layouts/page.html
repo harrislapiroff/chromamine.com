@@ -1,0 +1,19 @@
+---
+layout: base
+---
+
+<header class="hd">
+	<h1 class="name">Harris Lapiroff</h1>
+	<div class="navbar-chromamine">
+		<a id="n1" {% if page.active == "home" %}class="active"{% endif %} href="/">Home</a>
+		<a id="n2" {% if page.active == "portfolio" %}class="active"{% endif %} href="/portfolio/">Portfolio</a>
+		<a id="n3" {% if page.active == "resume" %}class="active"{% endif %} href="/resume/">Resume</a>
+		<a id="n4" {% if page.active == "hobbies" %}class="active"{% endif %} href="/hobbies/">Hobbies</a>
+	</div>
+</header>
+
+<main id="bd">
+	<div class="container">
+		{{ content }}
+	</div>
+</main>

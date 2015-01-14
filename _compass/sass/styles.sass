@@ -14,20 +14,26 @@ body
     background-color: #F5F5F5
     color: $text-color
 
-#hd
+.hd
     background: #333
-    text-align: center
-    padding: #{$line-height-computed * 4} 0
     margin-bottom: 60px
+    padding: $line-height-computed / 4
+    text-align: center
     > .name, & > .position
         text-transform: uppercase
         margin: 0
     > .name
+        font-size: $font-size-base * 2
         font-family: $font-family-headings
-        font-size: $font-size-base * 4
         color: #F5F5F5
         text-shadow: 1px 1px 0 #333, 2px 2px 0 #666
         letter-spacing: 2px
+
+.hd-home
+    text-align: center
+    padding: #{$line-height-computed * 4} 0
+    > .name
+        font-size: $font-size-base * 4
     > .position
         font-family: $font-family-subheadings
         color: #AAA
@@ -39,8 +45,7 @@ body
     font-family: $font-family-subheadings
     text-transform: uppercase
     font-size: 12px
-    line-height: $line-height-computed
-    margin-top: $line-height-computed / 4
+    line-height: $font-size-base * 2
     a
         display: inline-block
         color: #CCC
@@ -52,9 +57,11 @@ body
     a:hover
         text-decoration: none
         color: #FFF
+
+.navbar-home
     @media (min-width: $screen-md-min)
         position: absolute
-        top: 137px
+        top: 135px
         left: 0
         right: 0
         #n2
