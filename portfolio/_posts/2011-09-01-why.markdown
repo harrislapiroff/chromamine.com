@@ -1,0 +1,8 @@
+---
+title: Why The Fuck Should I Choose Oberlin?
+link: http://whythefuckshouldichooseoberlin.com/
+image: /media/portfolio/why.png
+thumb: /media/portfolio/why-thumb.jpg
+---
+
+Designed and implemented an independent social website extolling the virtues of Oberlin College. It caused a splash in education marketing circles and garnered praise in [Inside Higher Ed](http://www.insidehighered.com/news/2011/11/08/marketing-experts-praise-unusual-website-about-oberlin) and other publications.
