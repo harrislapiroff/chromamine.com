@@ -10,4 +10,4 @@ In **2011** Ma'ayan Plaut and I made a [splash](https://www.insidehighered.com/n
 
 In **2010** I graduated from **Oberlin College** with a B.A. in Mathematics (with a concentration in Applied Mathematics) and a minor in Creative Writing.
 
-I built my first website in **1999**. Is had an animated GIF of a computer with my name on it. I've been trying to make something as satisfying ever since.
+I built my first website in **1999**. It had an animated GIF of a computer with my name on it. I've been trying to make something as satisfying ever since.
