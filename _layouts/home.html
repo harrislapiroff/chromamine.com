@@ -1,53 +1,31 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Harris Lapiroff</title>
-		<style type="text/css">
-			body {
-				font-family: Helvetica, Arial, sans-serif;
-				font-weight: bold;
-				color: #222;
-			}
-			.outer {
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				display: -ms-flexbox;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				-ms-flex-direction: column;
-				flex-direction: column;
-			}
-			.name {
-				border: 10px solid #222;
-				padding: 15px;
-				font-size: 30px;
-				line-height: 30px;
-				text-transform: uppercase;
-				font-weight: bold;
-				letter-spacing: 1px;
-			}
-			.position {
-				font-size: 18px;
-				line-height: 20px;
-				padding: 5px;
-				padding-top: 15px;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="outer">
-			<div class="name">
-				Harris Lapiroff
-			</div>
-			<div class="position">
-				Full-stack web developer
-			</div>
-		</div>
-	</body>
-</html>
+---
+layout: base
+---
+
+<div class="row">
+	<div class="col-sm-7">
+		{{ content }}
+	</div>
+	<div class="col-sm-5">
+		<p>
+			My skills include Python, Django, HTML5, CSS3, javascript, jQuery,
+			responsive design, UI/UX, and more. (Just ask.)
+		</p>
+		<p>
+			If you’re ready to hire me or want to chat, get in touch
+			through <a href="http://littleweaverweb.com/">Little Weaver</a> or
+			drop me a line personally:
+		<a href="mailto:harris@littleweaverweb.com">harris@littleweaverweb.com</a>
+		</p>
+		<p>
+			If you need more reading material, check out my
+			<a href="/resume/">resume</a>, my <a href="/portfolio/">portfolio</a>, or some of my
+			<a href="/hobbies/">hobbies</a>.
+		</p>
+		<p>
+			<a class="unstyled-link" href="http://github.com/harrislapiroff"><i class="fa fa-fw fa-github"></i> GitHub</a><br />
+			<a class="unstyled-link" href="http://twitter.com/harrislapiroff"><i class="fa fa-fw fa-twitter"></i> Twitter</a><br />
+			<a class="unstyled-link" href="mailto:harris@littleweaverweb.com"><i class="fa fa-fw fa-envelope-o"></i> Email</a><br />
+		</p>
+	</div>
+</div>
