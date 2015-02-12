@@ -1,0 +1,7 @@
+---
+title: Oberlin Student Cooperative Association
+image: /media/portfolio/osca.png
+thumb: /media/portfolio/osca-thumb.jpg
+---
+
+Designed and implemented a custom PHP website for the Oberlin Student Cooperative Association. The website has since been retired and is no longer in use.

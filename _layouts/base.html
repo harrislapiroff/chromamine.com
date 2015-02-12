@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title>{% if page.title %}{{ page.title }} | {% endif %}Harris Lapiroff{% if page.title == nil %} | Full-Stack Web Developer{% endif %}</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/styles/styles.css">
+
+		<script src="//use.typekit.net/brh7efc.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+
+	<body>
+		<div class="container">
+			<header id="hd" class="site-header page-header">
+				<div class="row">
+					<div class="col-sm-7">
+						<h1>
+							<a href="/">
+								Harris Lapiroff
+							</a>
+						</h1>
+						<h1 class="text-muted text-regular">Full-Stack Web&nbsp;Developer</h1>
+					</div>
+					<div class="col-sm-5 visible-md visible-lg">
+						<ul class="nav nav-stacked nav-pills text-right">
+							<li><a href="/portfolio/">Porfolio</a></li>
+							<li><a href="/resume/">Resume</a></li>
+						</ul>
+					</div>
+				</div>
+			</header>
+			<main id="bd">
+				{{ content }}
+			</main>
+			<footer id="ft">
+			</footer>
+		</div>
+	</body>
+</html>

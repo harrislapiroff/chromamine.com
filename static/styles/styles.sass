@@ -1,0 +1,65 @@
+---
+---
+
+$accent-color: #4c5f73
+$font-family: "myriad-pro", "Myriad Pro", Myriad, Helvetica, Arial, sans-serif
+
+a
+	color: $accent-color
+
+a:hover, a:active, a:focus
+	color: darken($accent-color, 10%)
+
+body, html
+	min-height: 100%
+
+body
+	font-family: $font-family
+	font-size: 18px
+	line-height: 1.3889 // 25px
+	background: #FFF linear-gradient(0deg, #EEE, #FFF)
+
+h1, h2, h3, h4, h5, h6
+	margin-top: 0
+	font-weight: 600
+	> a, & > a:active, & > a:hover, & > a:focus
+		color: inherit
+
+strong, b
+	font-weight: 600
+
+.text-regular
+	font-weight: 400
+
+.nav-pills
+	> li > a:hover
+		background: none
+
+// Resume & Portfolio
+.resume-section, .portfolio-item
+	margin-bottom: 25px
+	border-bottom: 1px solid #E5E5E5
+
+.resume-item, .resume-section-title
+	margin-bottom: 25px
+
+.resume-section-title
+	@media (min-width: 768px)
+		text-align: right
+
+.portfolio-thumb
+	margin-bottom: 25px
+	overflow: hidden
+	position: relative
+	&::after
+		content: " "
+		display: block
+		border: 1px solid rgba(0,0,0,.35)
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		border-radius: 5px
+	> img
+		border-radius: 5px

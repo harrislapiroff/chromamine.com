@@ -1,0 +1,78 @@
+---
+layout: base
+title: Resume
+---
+
+<div class="row resume-section">
+    <div class="col-sm-3">
+        <h2 class="resume-section-title">Employment Experience</h2>
+    </div>
+    <div class="col-sm-9">
+        {% for item in site.data.resume.employment %}
+            <div class="resume-item">
+                <header class="resume-item-title">
+                    <strong>{{ item.title }}</strong>
+                    <em class="text-muted">{{ item.org}}</em>
+                    {% if item.url %}
+                        <a href="{{ item.url }}">{{ item.url }}</a>
+                    {% endif %}
+                    <span class="pull-right text-muted">{{ item.dates }}</span>
+                </header>
+                <p class="resume-item-description">
+                    {{ item.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="row resume-section">
+    <div class="col-sm-3">
+        <h2 class="resume-section-title">Other Experience</h2>
+    </div>
+    <div class="col-sm-9">
+        {% for item in site.data.resume.other %}
+            <div class="resume-item">
+                <header class="resume-item-title">
+                    <strong>{{ item.title }}</strong>
+                    <em class="text-muted">{{ item.org}}</em>
+                    {% if item.url %}
+                    <a href="{{ item.url }}">{{ item.url }}</a>
+                    {% endif %}
+                    <span class="pull-right text-muted">{{ item.dates }}</span>
+                </header>
+                <p class="resume-item-description">
+                    {{ item.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="row resume-section">
+    <div class="col-sm-3">
+        <h2 class="resume-section-title">Skills</h2>
+    </div>
+    <div class="col-sm-9">
+        <div class="resume-item">
+            {% for item in site.data.resume.skills %}
+                {{ item.skill }} <span class="text-muted">({{ item.years }} year{% if item.years != "1" %}s{% endif %})</span>{% if forloop.last == false %},{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="row resume-section">
+    <div class="col-sm-3">
+        <h2 class="resume-section-title">Education</h2>
+    </div>
+    <div class="col-sm-9">
+        <p><strong>Oberlin College</strong>, Oberlin OH — B.A. Mathematics, 2010</p>
+    </div>
+</div>
+
+<div class="row resume-section">
+    <div class="col-xs-12">
+        <p class="text-center resume-item">References available upon request.</p>
+    </div>
+</div>

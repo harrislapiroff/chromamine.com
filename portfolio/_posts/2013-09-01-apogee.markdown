@@ -1,0 +1,9 @@
+---
+title: Apogee Journal Issue Two
+link: http://issuu.com/apogeejournal/docs/apogeeissue2/1?e=4828652/5126549
+image: /media/portfolio/apogee.png
+thumb: /media/portfolio/apogee-thumb.jpg
+button_text: "Browse Journal Online"
+---
+
+Designed an issue of Apogee Journal, a printed magazine that features fiction, creative nonfiction and poetry by writers of color, as well as non-hegemonic perspectives on racial, social and political issues by writers of all races. 

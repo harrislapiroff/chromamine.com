@@ -1,0 +1,8 @@
+---
+title: Peter Takács Plays Beethoven
+link: http://petertakacsplaysbeethoven.com/
+image: /media/portfolio/peter-takacs.png
+thumb: /media/portfolio/peter-takacs-thumb.jpg
+---
+
+Designed and implemented a website for Peter Takács's album of Beethoven piano sonatas.
