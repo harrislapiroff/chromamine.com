@@ -14,37 +14,19 @@
 
 	<body>
 		<div class="container">
-			<header id="hd" class="site-header page-header">
-				<nav class="hidden-lg hidden-md">
-					<div class="row">
-						<div class="col-xs-6">
-							<p><a href="/portfolio/" class="btn btn-block btn-default">Porfolio</a></p>
-						</div>
-						<div class="col-xs-6">
-							<p><a href="/resume/" class="btn btn-block btn-default">Resume</a></p>
-						</div>
-					</div>
-				</nav>
-				<div class="row">
-					<div class="col-sm-7">
-						<h1>
-							<a href="/">
-								Harris Lapiroff
-							</a>
-						</h1>
-						<h1 class="text-muted text-regular">Full-Stack Web&nbsp;Developer</h1>
-					</div>
-					<div class="col-sm-5 visible-md visible-lg">
-						<ul class="nav nav-stacked nav-pills text-right">
-							<li><a href="/portfolio/">Porfolio</a></li>
-							<li><a href="/resume/">Resume</a></li>
-						</ul>
+			<div class="row">
+				<div class="col-lg-4 col-md-5 col-sm-6 bg-watercolor">
+					<h1 class="site-title">Harris<br />Lapiroff</h1>
+					<div class="list-group">
+						<a class="list-group-item" href="/">Home</a>
+						<a class="list-group-item" href="/portfolio/">Portfolio</a>
+						<a class="list-group-item" href="/resume/">Resume</a>
 					</div>
 				</div>
-			</header>
-			<main id="bd">
-				{{ content }}
-			</main>
+				<main id="bd" class="col-lg-8 col-md-7 col-sm-6 margin-leader">
+					{{ content }}
+				</main>
+			</div>
 			<footer id="ft">
 			</footer>
 		</div>

@@ -4,10 +4,6 @@
 $accent-color: #4c5f73
 $font-family: "myriad-pro", "Myriad Pro", Myriad, Helvetica, Arial, sans-serif
 
-.container
-	@media (min-width: 1200px)
-		width: 970px
-
 a
 	color: $accent-color
 
@@ -21,7 +17,7 @@ body
 	font-family: $font-family
 	font-size: 18px
 	line-height: 1.3889 // 25px
-	background: #FFF linear-gradient(0deg, #EEE, #FFF)
+	background: #FFF
 
 h1, h2, h3, h4, h5, h6
 	margin-top: 0
@@ -32,6 +28,9 @@ h1, h2, h3, h4, h5, h6
 strong, b
 	font-weight: 600
 
+.margin-leader
+	margin-top: 25px
+
 .text-regular
 	font-weight: 400
 
@@ -39,8 +38,25 @@ strong, b
 	> li > a:hover
 		background: none
 
-.site-header
-	margin-top: 25px
+.site-title
+	height: 250px
+	padding: 50px 0
+	font-size: 48px
+	margin: 0
+	text-align: center
+	color: #FFF
+	font-family:  "ff-providence-web-pro", serif
+	text-transform: uppercase
+	font-weight: 400
+	letter-spacing: -.1em
+	@media (max-width: 340px)
+		font-size: 36px
+
+.bg-watercolor
+	background: transparent url("/static/images/watercolor.gif") no-repeat center top
+	background-size: 400px
+	@media (min-width: 768px)
+		background-size: contain
 
 // Resume & Portfolio
 .resume-section, .portfolio-item
