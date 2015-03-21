@@ -4,10 +4,10 @@ title: Resume
 ---
 
 <div class="row resume-section">
-    <div class="col-sm-3">
+    <div class="col-lg-3 col-xs-12">
         <h2 class="resume-section-title">Employment Experience</h2>
     </div>
-    <div class="col-sm-9">
+    <div class="col-lg-9 col-xs-12">
         {% for item in site.data.resume.employment %}
             <div class="resume-item">
                 <header class="resume-item-title">
@@ -27,10 +27,10 @@ title: Resume
 </div>
 
 <div class="row resume-section">
-    <div class="col-sm-3">
+    <div class="col-lg-3 col-xs-12">
         <h2 class="resume-section-title">Other Experience</h2>
     </div>
-    <div class="col-sm-9">
+    <div class="col-lg-9 col-xs-12">
         {% for item in site.data.resume.other %}
             <div class="resume-item">
                 <header class="resume-item-title">
@@ -50,10 +50,10 @@ title: Resume
 </div>
 
 <div class="row resume-section">
-    <div class="col-sm-3">
+    <div class="col-lg-3 col-xs-12">
         <h2 class="resume-section-title">Skills</h2>
     </div>
-    <div class="col-sm-9">
+    <div class="col-lg-9 col-xs-12">
         <div class="resume-item">
             {% for item in site.data.resume.skills %}
                 {{ item.skill }} <span class="text-muted">({{ item.years }} year{% if item.years != "1" %}s{% endif %})</span>{% if forloop.last == false %},{% endif %}
@@ -63,10 +63,10 @@ title: Resume
 </div>
 
 <div class="row resume-section">
-    <div class="col-sm-3">
+    <div class="col-lg-3 col-xs-12">
         <h2 class="resume-section-title">Education</h2>
     </div>
-    <div class="col-sm-9">
+    <div class="col-lg-9 col-xs-12">
         <p><strong>Oberlin College</strong>, Oberlin OH — B.A. Mathematics, 2010</p>
     </div>
 </div>
