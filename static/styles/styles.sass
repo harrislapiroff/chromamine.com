@@ -38,12 +38,9 @@ strong, b
 	> li > a:hover
 		background: none
 
-.site-title
+.site-header
 	color: #FFF
-	font-family: "alternate-gothic-no-1-d", serif
-	font-size: 64px
 	text-align: center
-	text-transform: uppercase
 	font-weight: normal
 	background: linear-gradient(180deg, $accent-color, darken($accent-color, 5%))
 	box-shadow: 0 4px 0 0 darken($accent-color, 15%)
@@ -53,6 +50,20 @@ strong, b
 	margin-bottom: 40px
 	@media (max-width: 340px)
 		font-size: 36px
+
+.site-title
+	font-family: "alternate-gothic-no-1-d", serif
+	font-size: 64px
+	font-weight: normal
+	text-transform: uppercase
+	margin: 0
+	line-height: .8
+
+.site-subtitle
+	font-size: 20px
+	text-transform: uppercase
+	letter-spacing: .08em
+	margin: 0
 
 // Resume & Portfolio
 .resume-section, .portfolio-item
