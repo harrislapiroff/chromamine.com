@@ -2,9 +2,9 @@
 layout: home
 ---
 
-I am **currently** a co-founder and worker-owner at [**Little Weaver Web Collective**](http://littleweaverweb.com/), a web development agency with principles.
+Since **2014** I have been a co-founder and worker-owner at [**Little Weaver Web Collective**](http://littleweaverweb.com/), where I've designed and developed websites for clients such as [Freedom of the Press Foundation](http://freedom.press/) and [Detroit Public Radio](http://wdet.org/).
 
-From **2011 through 2013** I was a web developer at **Oberlin College** where I led a team developing websites such as the [Oberlin homepage](http://home.oberlin.edu/) and the [Oberlin News Center](http://news.oberlin.edu/) as well as a [joke](http://oberlin.edu/kittens/) or [two](https://new.oberlin.edu/home/nyan/).
+From **2011 through 2013** I was a web developer at **Oberlin College** where I led a team developing the [Oberlin homepage](http://home.oberlin.edu/) and the [Oberlin News Center](http://news.oberlin.edu/) as well as a [joke](http://oberlin.edu/kittens/) or [two](https://new.oberlin.edu/home/nyan/).
 
 In **2011** Ma'ayan Plaut and I made a [splash](https://www.insidehighered.com/news/2011/11/08/marketing-experts-praise-unusual-website-about-oberlin) in higher education marketing with our (unofficial) project [**Why The Fuck Should I Choose Oberlin?**](http://whythefuckshouldichooseoberlin.com/)
 

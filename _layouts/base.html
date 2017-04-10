@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>{% if page.title %}{{ page.title }} | {% endif %}Harris Lapiroff{% if page.title == nil %} | Full-Stack Web Developer{% endif %}</title>
 
@@ -14,24 +15,13 @@
 
 	<body>
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-5 col-sm-6">
-					<div class="site-header">
-						<h1 class="site-title">Harris Lapiroff</h1>
-						<h2 class="site-subtitle">Full-Stack Web Developer</h2>
-					</div>
-					<div class="list-group">
-						<a class="list-group-item" href="/">Home</a>
-						<a class="list-group-item" href="/portfolio/">Portfolio</a>
-						<a class="list-group-item" href="/resume/">Resume</a>
-					</div>
-				</div>
-				<main id="bd" class="col-lg-8 col-md-7 col-sm-6 margin-leader">
-					{{ content }}
-				</main>
+			<div class="site-header">
+				<h1 class="site-title">Harris Lapiroff</h1>
+				<h2 class="site-subtitle">Full-Stack Web Developer</h2>
 			</div>
-			<footer id="ft">
-			</footer>
+			<main class="margin-trailer">
+				{{ content }}
+			</main>
 		</div>
 	</body>
 </html>

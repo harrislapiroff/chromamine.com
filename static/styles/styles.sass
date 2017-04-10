@@ -1,14 +1,17 @@
 ---
 ---
 
-$accent-color: #4e8eaa
+$accent-color: #1e6e9a
 $font-family: "myriad-pro", "Myriad Pro", Myriad, Helvetica, Arial, sans-serif
 
 a
 	color: $accent-color
+	border-bottom: 1px solid #E5E5E5
 
 a:hover, a:active, a:focus
 	color: darken($accent-color, 10%)
+	text-decoration: none
+	border-bottom-color: darken(#E5E5E5, 10%)
 
 body, html
 	min-height: 100%
@@ -39,31 +42,33 @@ strong, b
 		background: none
 
 .site-header
-	color: #FFF
+	margin-top: 40px
 	text-align: center
 	font-weight: normal
-	background: linear-gradient(180deg, $accent-color, darken($accent-color, 5%))
-	box-shadow: 0 4px 0 0 darken($accent-color, 15%)
-	padding: 30px 0 20px 0
-	border-radius: 0 0 5px 5px
-	text-shadow: 0 1px 0 darken($accent-color, 15%)
+	padding-bottom: 39px
 	margin-bottom: 40px
-	@media (max-width: 340px)
-		font-size: 36px
+	border-bottom: 1px solid #E5E5E5
+	@media (max-width: 360px)
+		padding-bottom: 19px
+		margin-bottom: 20px
 
 .site-title
 	font-family: "alternate-gothic-no-1-d", serif
-	font-size: 64px
+	font-size: 72px
 	font-weight: normal
 	text-transform: uppercase
 	margin: 0
 	line-height: .8
+	@media (max-width: 360px)
+		font-size: 20vw
 
 .site-subtitle
-	font-size: 20px
+	font-size: 22px
 	text-transform: uppercase
 	letter-spacing: .08em
 	margin: 0
+	@media (max-width: 360px)
+		font-size: 6.111vw
 
 // Resume & Portfolio
 .resume-section, .portfolio-item
@@ -93,3 +98,6 @@ strong, b
 		border-radius: 5px
 	> img
 		border-radius: 5px
+
+.unstyled-link
+	border-bottom: 0
