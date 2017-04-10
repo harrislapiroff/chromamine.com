@@ -47,10 +47,23 @@ strong, b
 	font-weight: normal
 	padding-bottom: 39px
 	margin-bottom: 40px
-	border-bottom: 1px solid #E5E5E5
+	border-bottom: 1px solid #DDD
+	position: relative
 	@media (max-width: 360px)
 		padding-bottom: 19px
 		margin-bottom: 20px
+
+	&::after
+		content: '\2767'
+		display: block
+		font-size: 50px
+		line-height: 20px
+		position: absolute
+		bottom: -8px
+		left: 50%
+		margin-left: -22px
+		width: 44px
+		background-color: #FFF
 
 .site-title
 	font-family: "alternate-gothic-no-1-d", serif
