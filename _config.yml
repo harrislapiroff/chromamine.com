@@ -1,2 +1,3 @@
 name: Harris Lapiroff
 markdown: kramdown
+include: [".well-known"]
