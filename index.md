@@ -2,6 +2,8 @@
 layout: home
 ---
 
+Starting in **November 2017** I am taking a leave of absence from Little Weaver Web Collective and will be available for independent hire. If you have projects for one skilled developer, please [drop me a line](mailto:harris@chromamine.com). If you have larger projects, I can't recommend my colleagues at [Little Weaver](http://littleweaverweb.com/) highly enough.
+
 Since **2014** I have been a co-founder and worker-owner at [**Little Weaver Web Collective**](http://littleweaverweb.com/), where I've designed and developed websites for clients such as [Freedom of the Press Foundation](http://freedom.press/) and [Detroit Public Radio](http://wdet.org/).
 
 From **2011 through 2013** I was a web developer at **Oberlin College** where I led a team developing the [Oberlin homepage](http://home.oberlin.edu/) and the [Oberlin News Center](http://news.oberlin.edu/) as well as a [joke](http://oberlin.edu/kittens/) or [two](https://new.oberlin.edu/home/nyan/).
