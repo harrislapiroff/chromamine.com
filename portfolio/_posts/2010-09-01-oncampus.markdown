@@ -1,8 +1,0 @@
----
-title: "Oberlin OnCampus"
-link: http://oncampus.oberlin.edu/
-image: /media/portfolio/oncampus.png
-thumb: /media/portfolio/oncampus-thumb.jpg
----
-
-With a coworker, designed and implemented a site for the Oberlin College community on a custom Django-based CMS.
