@@ -1,8 +1,0 @@
----
-title: Philo CMS
-link: http://philocms.org/
-image: /media/portfolio/philo.png
-thumb: /media/portfolio/philo-thumb.jpg
----
-
-Designed and implemented a marketing website for Philo CMS, a custom Django-based CMS.

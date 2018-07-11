@@ -1,8 +1,0 @@
----
-title: Oberlin College
-link: http://home.oberlin.edu/
-image: /media/portfolio/oberlin.png
-thumb: /media/portfolio/oberlin-thumb.jpg
----
-
-Worked with a team to redesign Oberlin College's homepage and implement it on a [Jekyll](http://jekyllrb.com/)-based backend.
