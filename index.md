@@ -2,9 +2,9 @@
 layout: home
 ---
 
-In **2018** I joined [**Freedom of the Press Foundation**](https://freedom.press/) full-time as **Principal Web Developer**.
+Since **2018** I work full-time at [**Freedom of the Press Foundation**](https://freedom.press/) as **Principal Web Developer**.
 
-From **2014** through **2017** I co-founded, managed, and worked at [**Little Weaver Web Collective**](https://littleweaverweb.com/), a worker-cooperative web development agency. There I designed and developed websites for clients such as [Freedom of the Press Foundation](https://freedom.press/) and [Detroit Public Radio](http://wdet.org/).
+From **2014 through 2017** I co-founded, managed, and worked at [**Little Weaver Web Collective**](https://littleweaverweb.com/), a worker-cooperative web development agency. There I designed and developed websites for clients such as [Freedom of the Press Foundation](https://freedom.press/) and [Detroit Public Radio](http://wdet.org/).
 
 From **2011 through 2013** I was a web developer at **Oberlin College** where I led a team developing high profile websites from the homepage to the news center as well as a few [jokes](http://www2.oberlin.edu/kittens/).
 
