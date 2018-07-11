@@ -2,11 +2,11 @@
 layout: home
 ---
 
-Starting in **November 2017** I am taking a leave of absence from Little Weaver Web Collective and will be **looking for new clients**. If you have projects for one skilled developer, please [drop me a line](mailto:harris@chromamine.com). If you have larger projects, I can't recommend my colleagues at [Little Weaver](http://littleweaverweb.com/) highly enough.
+In **2018** I joined [**Freedom of the Press Foundation**](https://freedom.press/) full-time as **Principal Web Developer**.
 
-Since **2014** I have been a co-founder and worker-owner at [**Little Weaver Web Collective**](http://littleweaverweb.com/), where I've designed and developed websites for clients such as [Freedom of the Press Foundation](http://freedom.press/) and [Detroit Public Radio](http://wdet.org/).
+From **2014** through **2017** I co-founded, managed, and worked at [**Little Weaver Web Collective**](https://littleweaverweb.com/), a worker-cooperative web development agency. There I designed and developed websites for clients such as [Freedom of the Press Foundation](https://freedom.press/) and [Detroit Public Radio](http://wdet.org/).
 
-From **2011 through 2013** I was a web developer at **Oberlin College** where I led a team developing the [Oberlin homepage](http://home.oberlin.edu/) and the [Oberlin News Center](http://news.oberlin.edu/) as well as a [joke](http://oberlin.edu/kittens/) or [two](https://new.oberlin.edu/home/nyan/).
+From **2011 through 2013** I was a web developer at **Oberlin College** where I led a team developing high profile websites from the homepage to the news center as well as a few [jokes](http://www2.oberlin.edu/kittens/).
 
 In **2011** Ma'ayan Plaut and I made a [splash](https://www.insidehighered.com/news/2011/11/08/marketing-experts-praise-unusual-website-about-oberlin) in higher education marketing with our (unofficial) project [**Why The Fuck Should I Choose Oberlin?**](http://whythefuckshouldichooseoberlin.com/)
 
