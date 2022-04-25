@@ -2,7 +2,7 @@
 layout: home
 ---
 
-Since **2018** I work full-time at [**Freedom of the Press Foundation**](https://freedom.press/) as **Principal Web Developer**.
+Starting in **2018** I am the full-time **Principal Web Developer** at [**Freedom of the Press Foundation**](https://freedom.press/).
 
 From **2014 through 2017** I co-founded, managed, and worked at [**Little Weaver Web Collective**](https://littleweaverweb.com/), a worker-cooperative web development agency. There I designed and developed websites for clients such as [Freedom of the Press Foundation](https://freedom.press/) and [Detroit Public Radio](http://wdet.org/).
 
