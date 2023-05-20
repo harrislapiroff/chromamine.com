@@ -1,0 +1,67 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Harris Lapiroff | Contra Dance</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <link href="/contra/static/styles/styles.css" rel="stylesheet">
+    <body>
+        <header>
+            <h1>Hi, I'm <span class="name">Harris Lapiroff</span>. I'm a <span class="role">contra dance caller</span> and <span class="role">organizer</span>.</h1>
+        </header>
+        <main>
+            <section class="organizing">
+                <h2>Organizing</h2>
+
+                <div class="current">
+                    <h3 class="sr-only">Current</h3>
+                    <ul>
+                        {% for org in site.data.contra.organizer.current %}
+                            <li>
+                                <a href="{{ org.url }}">
+                                    <h4>{{ org.name }}</h4>
+                                    <p>{{ org.description }}</p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="past">
+                    <h3>Past</h3>
+                    <ul>
+                        {% for org in site.data.contra.organizer.past %}
+                            <li>
+                                <a href="{{ org.url }}">
+                                    <h4>{{ org.name }}</h4>
+                                    <p>{{ org.description }}</p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            <section class="calling">
+                <h2>Calling</h2>
+                <div class="upcoming">
+                    <h3 class="sr-only">Upcoming</h3>
+                    <ul>
+                        {% for dance in site.data.contra.caller.upcoming %}
+                            <li>
+                                <a href="{{ dance.url }}">
+                                    <h4>{{ dance.name }}</h4>
+                                    <p>{{ dance.date|date:"%x" }}</p>
+                                    <p>{{ dance.description }}</p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
