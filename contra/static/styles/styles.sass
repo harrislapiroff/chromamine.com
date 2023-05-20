@@ -1,6 +1,10 @@
 ---
 ---
 
+=small-dn
+    @media (max-width: 60rem)
+        @content
+
 html
     font-size: 10px
 
@@ -8,7 +12,20 @@ body
     font-family: Lato, sans-serif
     font-size: 2rem
     max-width: 80rem
-    margin: 0 auto
+    margin: 5rem auto
+    padding: 0 2rem
+
+header
+    > h1
+        margin: 0 0 5rem 0
+        padding: 0
+        font-weight: 400
+        .name, .role
+            font-weight: 700
+
+main > section > h2
+    margin: 0 0 2rem 0
+    padding: 0
 
 .sr-only
     position: absolute
@@ -23,11 +40,18 @@ body
 
 main
     display: grid
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 2fr
     grid-gap: 5rem
+
+    +small-dn
+        grid-template-columns: 1fr
+        grid-template-rows: auto auto
 
 .organizing
     grid-column: 1 / 2
+
+    +small-dn
+        grid-row: 1 / 2
 
     ul
         margin: 0
@@ -63,3 +87,60 @@ main
 
 .calling
     grid-column: 2 / 3
+
+    +small-dn
+        grid-column: 1 / 2
+        grid-row: 2 / 3
+
+    ul
+        margin: 0
+        padding: 0
+        list-style: none
+        > li
+            padding-left: 7rem
+            position: relative
+
+            margin-bottom: 2rem
+            padding-bottom: 2rem
+
+            &:not(:last-child)
+                border-bottom: 1px solid #CCC
+
+            .date
+                position: absolute
+                top: 0
+                left: 0
+                width: 5rem
+                border-radius: .4rem
+                overflow: hidden
+                text-align: center
+                text-transform: uppercase
+                border: 1px solid #CCC
+                background-color: #FFF
+                > .month
+                    display: block
+                    font-size: 1.2rem
+                    line-height: 1.5rem
+                    font-weight: 700
+                    padding: .5rem
+                    background-color: #EEE
+                > .day
+                    display: block
+                    font-size: 2rem
+                    line-height: 2rem
+                    padding: .5rem
+                    margin-bottom: -0.5rem
+                > .dow
+                    display: block
+                    font-size: 1.2rem
+                    line-height: 1.5rem
+                    padding: .5rem
+
+            h4
+                margin: 0
+                padding: 0
+                > a
+                    color: inherit
+                    text-decoration: none
+                    &:hover
+                        text-decoration: underline

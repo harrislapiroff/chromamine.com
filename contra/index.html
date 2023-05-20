@@ -24,7 +24,7 @@
                             <li>
                                 <a href="{{ org.url }}">
                                     <h4>{{ org.name }}</h4>
-                                    <p>{{ org.description }}</p>
+                                    <p>{{ org.description|markdownify }}</p>
                                 </a>
                             </li>
                         {% endfor %}
@@ -38,7 +38,7 @@
                             <li>
                                 <a href="{{ org.url }}">
                                     <h4>{{ org.name }}</h4>
-                                    <p>{{ org.description }}</p>
+                                    <p>{{ org.description|markdownify }}</p>
                                 </a>
                             </li>
                         {% endfor %}
@@ -52,11 +52,18 @@
                     <ul>
                         {% for dance in site.data.contra.caller.upcoming %}
                             <li>
-                                <a href="{{ dance.url }}">
-                                    <h4>{{ dance.name }}</h4>
-                                    <p>{{ dance.date|date:"%x" }}</p>
-                                    <p>{{ dance.description }}</p>
-                                </a>
+                                <h4><a href="{{ dance.url }}">{{ dance.name }}</a></h4>
+                                <div class="date">
+                                    <span class="month">{{ dance.date | date: "%b" }}</span>
+                                    <span class="day">{{ dance.date | date: "%d" }}</span>
+                                    <span class="dow">{{ dance.date | date: "%a" }}</span>
+                                </div>
+                                {% if dance.band %}
+                                    <div class="band">with {{ dance.band }}</div>
+                                {% endif %}
+                                {% if dance.description %}
+                                    <div class="description">{{ dance.description|markdownify }}</div>
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>
