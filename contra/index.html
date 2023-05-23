@@ -8,13 +8,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
         <link href="/contra/static/styles/styles.css" rel="stylesheet">
+        <script src="/contra/static/scripts/all.js"></script>
     <body>
         <header>
-            <h1>Hi, I'm <span class="name">Harris Lapiroff</span>. I'm a <span class="role">contra dance caller</span> and <span class="role">organizer</span>.</h1>
+            <figure class="heading-video">
+                <video class="heading-video__video" id="heading-video" src="/contra/media/signal-2023-03-26-21-53-39-023.mp4" autoplay loop muted aria-hidden tabindex="-1"></video>
+                <figcaption class="heading-video__caption">
+                    BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.
+                    <a href="#" data-mute-target="heading-video" />Unmute</a>
+                </figcaption>
+            </figure>
+            <h1>I'm <span class="name">Harris Lapiroff</span>, a <span class="role">contra dance caller</span> and <span class="role">organizer</span>.</h1>
         </header>
         <main>
+            <section class="calling">
+                <h2>Calling</h2>
+                <div class="upcoming">
+                    <h3 class="sr-only">Upcoming</h3>
+                    <ul>
+                        {% for dance in site.data.contra.caller.upcoming %}
+                            <li>
+                                <h4><a href="{{ dance.url }}">{{ dance.name }}</a></h4>
+                                <div class="date">
+                                    <span class="month">{{ dance.date | date: "%b" }}</span>
+                                    <span class="day">{{ dance.date | date: "%d" }}</span>
+                                    <span class="dow">{{ dance.date | date: "%a" }}</span>
+                                </div>
+                                {% if dance.band %}
+                                    <div class="band">with {{ dance.band }}</div>
+                                {% endif %}
+                                {% if dance.description %}
+                                    <div class="description">{{ dance.description|markdownify }}</div>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+
             <section class="organizing">
                 <h2>Organizing</h2>
 
@@ -41,30 +74,6 @@
                                     <h4>{{ org.name }}</h4>
                                     <p>{{ org.description|markdownify }}</p>
                                 </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </section>
-            <section class="calling">
-                <h2>Calling</h2>
-                <div class="upcoming">
-                    <h3 class="sr-only">Upcoming</h3>
-                    <ul>
-                        {% for dance in site.data.contra.caller.upcoming %}
-                            <li>
-                                <h4><a href="{{ dance.url }}">{{ dance.name }}</a></h4>
-                                <div class="date">
-                                    <span class="month">{{ dance.date | date: "%b" }}</span>
-                                    <span class="day">{{ dance.date | date: "%d" }}</span>
-                                    <span class="dow">{{ dance.date | date: "%a" }}</span>
-                                </div>
-                                {% if dance.band %}
-                                    <div class="band">with {{ dance.band }}</div>
-                                {% endif %}
-                                {% if dance.description %}
-                                    <div class="description">{{ dance.description|markdownify }}</div>
-                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>
