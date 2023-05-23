@@ -5,6 +5,7 @@ BEGIN:VCALENDAR
 PRODID:-//Harris Lapiroff//Contra Calling Calendar//EN
 VERSION:2.0
 METHOD:PUBLISH
+X-WR-CALNAME:Harris Lapiroff Calling
 {% for dance in site.data.contra.caller.upcoming %}BEGIN:VEVENT
 UID:{{ dance.date | date: "%Y%m%dT%H%M%S" }}-contra-dance@harrislapiroff.com
 ORGANIZER;CN="Harris Lapiroff":MAILTO:harris@harrislapiroff.com
