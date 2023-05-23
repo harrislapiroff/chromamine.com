@@ -1,9 +1,11 @@
 upcoming:
   - name: Common Floor Contra
     date: 2023-07-30T19:30-04:00
+    date_end: 2023-07-30T22:00-04:00
+    tzid: America/New_York
     band: Henry Yoshimura, Gianna Marzilli Ericson and Rebecca Rose Weiss
-    description:
-      Workshop at 7PM<br />
+    description: |1+
+      Workshop at 7PM  
       Dancing from 7:30–10PM
     street: 400 Deering Ave
     city: Portland ME
@@ -11,17 +13,24 @@ upcoming:
 
   - name: Downtown Amherst Contra Dance
     date: 2023-08-16T19:00-04:00
+    date_end: 2023-08-16T22:00-04:00
+    tzid: America/New_York
     band: Casey Murray and Molly Tucker
-    description:
-      Workshop at 7PM<br />
+    description: |1+
+      Workshop at 7PM  
       Dancing from 7:30–10PM
     street: 99 Main Street
     city: Amherst MA
     url: http://amherstcontra.org/Amherst_Contradance/Home.html
 
   - name: Contra Montreal
-    date: 2023-09-09
+    date: 2023-09-09T18:30-04:00
+    date_end: 2023-09-09T21:30-04:00
+    tzid: America/Montreal
     band: Chimney Swift
+    description: |1+
+      Workshop at 6:30PM  
+      Dancing from 7–9:30PM
     url: https://www.contramontreal.org/
 
 
