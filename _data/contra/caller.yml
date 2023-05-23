@@ -4,7 +4,7 @@ upcoming:
     date_end: 2023-07-30T22:00-04:00
     tzid: America/New_York
     band: Henry Yoshimura, Gianna Marzilli Ericson and Rebecca Rose Weiss
-    description: |1+
+    description: |+
       Workshop at 7PM  
       Dancing from 7:30–10PM
     street: 400 Deering Ave
@@ -16,7 +16,7 @@ upcoming:
     date_end: 2023-08-16T22:00-04:00
     tzid: America/New_York
     band: Casey Murray and Molly Tucker
-    description: |1+
+    description: |+
       Workshop at 7PM  
       Dancing from 7:30–10PM
     street: 99 Main Street
@@ -28,7 +28,7 @@ upcoming:
     date_end: 2023-09-09T21:30-04:00
     tzid: America/Montreal
     band: Chimney Swift
-    description: |1+
+    description: |+
       Workshop at 6:30PM  
       Dancing from 7–9:30PM
     url: https://www.contramontreal.org/
