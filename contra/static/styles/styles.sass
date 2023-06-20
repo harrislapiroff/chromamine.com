@@ -1,8 +1,12 @@
 ---
 ---
 
+=medium-dn
+    @media (max-width: 1300px)
+        @content
+
 =small-dn
-    @media (max-width: 60rem)
+    @media (max-width: 800px)
         @content
 
 html
@@ -52,7 +56,7 @@ header
     --neg-margin: 4rem
     margin: 0 calc(-1 * var(--neg-margin)) 4rem calc(-1 * var(--neg-margin))
     position: relative
-    +small-dn
+    +medium-dn
         margin: 0 0 4rem 0
 
 .heading-video__video
@@ -79,7 +83,7 @@ header
         &:hover
             text-decoration: underline
 
-    +small-dn
+    +medium-dn
         transform: none
         position: static
         margin-top: 0.5rem
@@ -168,11 +172,10 @@ main
 
             margin-bottom: 2rem
             padding-bottom: 2rem
-
-            &:not(:last-child)
-                border-bottom: 1px solid #CCC
+            border-bottom: 1px solid #CCC
 
             .date
+                display: block
                 position: absolute
                 top: 0
                 left: 0
@@ -204,8 +207,16 @@ main
             h4
                 margin: 0
                 padding: 0
+                font-weight: normal
                 > a
-                    color: inherit
+                    color: #000
                     text-decoration: none
+                    font-weight: bold
                     &:hover
                         text-decoration: underline
+                > .city
+                    color: #666
+
+.hire-box
+    border-bottom: 1px solid #CCC
+    margin-bottom: 2rem

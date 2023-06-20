@@ -25,18 +25,24 @@
         <main>
             <section class="calling">
                 <h2>Calling</h2>
-                <p>I'm available to call contra dance evenings and private events. Email: <a href="mailto:contra@chromamine.com">contra@chromamine.com</a></p>
+                <div class="hire-box">
+                    <p>I'm available to call contra dances and private events. I strive for an efficient, friendly calling style that adapts to halls of any skill level.</p>
+                    <p>Email me: <a href="mailto:contra@chromamine.com">contra@chromamine.com</a></p>
+                </div>
                 <div class="upcoming">
                     <h3 class="sr-only">Upcoming</h3>
                     <ul>
                         {% for dance in site.data.contra.caller.upcoming %}
                             <li>
-                                <h4><a href="{{ dance.url }}">{{ dance.name }}</a></h4>
-                                <div class="date">
+                                <h4>
+                                    <a href="{{ dance.url }}">{{ dance.name }}</a>
+                                    <span class="city" title="{{ dance.street }}, {{ dance.city }}">({{ dance.city }})</span>
+                                </h4>
+                                <time class="date" datetime="{{ dance.date }}">
                                     <span class="month">{{ dance.date | date: "%b" }}</span>
                                     <span class="day">{{ dance.date | date: "%d" }}</span>
                                     <span class="dow">{{ dance.date | date: "%a" }}</span>
-                                </div>
+                                </time>
                                 {% if dance.band %}
                                     {% if dance.bandURL %}
                                         <div class="band">with <a href="{{ dance.bandURL }}">{{ dance.band }}</a></div>
