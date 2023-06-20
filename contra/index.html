@@ -25,6 +25,7 @@
         <main>
             <section class="calling">
                 <h2>Calling</h2>
+                <p>I'm available to call contra dance evenings and private events. Email: <a href="mailto:contra@chromamine.com">contra@chromamine.com</a></p>
                 <div class="upcoming">
                     <h3 class="sr-only">Upcoming</h3>
                     <ul>
@@ -37,7 +38,11 @@
                                     <span class="dow">{{ dance.date | date: "%a" }}</span>
                                 </div>
                                 {% if dance.band %}
-                                    <div class="band">with {{ dance.band }}</div>
+                                    {% if dance.bandURL %}
+                                        <div class="band">with <a href="{{ dance.bandURL }}">{{ dance.band }}</a></div>
+                                    {% else %}
+                                        <div class="band">with {{ dance.band }}</div>
+                                    {% endif %}
                                 {% endif %}
                                 {% if dance.description %}
                                     <div class="description">{{ dance.description|markdownify }}</div>

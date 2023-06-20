@@ -16,6 +16,7 @@ upcoming:
     date_end: 2023-08-16T22:00-04:00
     tzid: America/New_York
     band: Casey Murray and Molly Tucker
+    bandURL: https://www.caseyandmolly.com/
     description: |+
       Workshop at 7PM  
       Dancing from 7:30–10PM
@@ -28,6 +29,7 @@ upcoming:
     date_end: 2023-09-09T21:30-04:00
     tzid: America/Montreal
     band: Chimney Swift
+    bandURL: https://chimneyswiftband.wixsite.com/2020
     street: 7355 Ave Christophe-Colomb
     city: Montreal QC
     description: |+
