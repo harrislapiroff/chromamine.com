@@ -3,25 +3,15 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<title>{% if page.title %}{{ page.title }} | {% endif %}Harris Lapiroff{% if page.title == nil %} | Full-Stack Web Developer{% endif %}</title>
-
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-		<link rel="stylesheet" href="/static/styles/styles.css">
-
-		<script src="//use.typekit.net/brh7efc.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
-
+		<title>{% if page.title %}{{ page.title }} | {% endif %}Harris Lapiroff</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+        <link href="/static/styles/universal.css" rel="stylesheet">
+        <link href="/static/styles/home.css" rel="stylesheet">
 	<body>
 		<div class="container">
-			<div class="site-header">
-				<h1 class="site-title">Harris Lapiroff</h1>
-				<h2 class="site-subtitle">Full-Stack Web Developer</h2>
-			</div>
-			<main class="margin-trailer">
-				{{ content }}
-			</main>
+			{{ content }}
 		</div>
 	</body>
 </html>
