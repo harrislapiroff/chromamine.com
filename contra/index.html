@@ -4,9 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Harris Lapiroff | Contra Dance Caller and Organizer</title>
+        <title>Harris Lapiroff, Contra Dance Caller and Organizer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta property="og:image" content="/contra/media/still.jpg" />
+		<meta property="og:image" content="/contra/media/still.jpg">
+		<meta property="og:title" content="Harris Lapiroff, Contra Dance Caller and Organizer">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="I'm Harris Lapiroff, a contra dance caller and organizer. Available to book for dances and private events.">
+        <meta property="og:url" content="{{ site.baseurl }}{{ page.url }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +22,7 @@
                 <video class="heading-video__video" id="heading-video" src="/contra/media/signal-2023-03-26-21-53-39-023.mp4" autoplay loop muted aria-hidden playsinline tabindex="-1"></video>
                 <figcaption class="heading-video__caption">
                     BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.
-                    <a href="#" data-mute-target="heading-video" />Unmute</a>
+                    <a href="#" data-mute-target="heading-video">Unmute</a>
                 </figcaption>
             </figure>
             <h1>I'm <span class="name">Harris Lapiroff</span>, a <span class="role">contra dance caller</span> and <span class="role">organizer</span>.</h1>
@@ -75,7 +79,7 @@
                             <li>
                                 <a href="{{ org.url }}">
                                     <h4>{{ org.name }}</h4>
-                                    <p>{{ org.description|markdownify }}</p>
+                                    {{ org.description|markdownify }}
                                 </a>
                             </li>
                         {% endfor %}
@@ -89,7 +93,7 @@
                             <li>
                                 <a href="{{ org.url }}">
                                     <h4>{{ org.name }}</h4>
-                                    <p>{{ org.description|markdownify }}</p>
+                                    {{ org.description|markdownify }}
                                 </a>
                             </li>
                         {% endfor %}

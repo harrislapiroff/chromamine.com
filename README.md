@@ -6,5 +6,5 @@ The personal website of Harris Lapiroff.
 
 ```bash
 bundle install --path vendor/bundle
-jekyll server --livereload
+bundle exec jekyll serve --livereload
 ```
