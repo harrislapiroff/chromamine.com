@@ -1,5 +1,6 @@
 ---
 layout: base
+stylesheets: [home]
 ---
 
 <header class="page-header">
@@ -7,36 +8,49 @@ layout: base
 </header>
 
 <main>
-	<section class="role-block">
-		<header class="role-block__header">
-			<h2>I'm a software engineer and manager.</h2>
-		</header>
-		<div class="role-block__text">
-			<p>By day I'm an engineering manager at Freedom of the Press Foundation, coordinating a team maintaining our web projects.</p>
-			<p>In my free time I work on a variety of projects with an emphasis on design and data visualization.</p>
-			<p>I'm available to hire for short-term contracts.</p>
-		</div>
-		<div class="role-block__actions">
+	<div class="pick-a-pill">
+		<a href="/tech/" class="pill engineer">
+			<h2 class="section-title">I’m a <span class="role">Designer</span>, <span class="role">Software Engineer</span> and&nbsp;<span class="role">Manager</span>.</h2>
+			<p>I work as an engineering manager for web developers and also take on projects focused on data and social good.</p>
+			<span class="pill-button">Read more or hire me &rarr;</span>
+		</a>
+		<a href="/dance/" class="pill dancer">
+			<h2 class="section-title">I’m a <span class="role">Contra Dance Organizer</span> and&nbsp;<span class="role">Caller</span>.</h2>
+			<p>I organize and call folk dances—specifically Contra Dances—for public and private events.</p>
+			<span class="pill-button">Read more or book me &rarr;</span>
+		</a>
+	</div>
 
-		</div>
-	</section>
-	<section class="role-block">
-		<header class="role-block__header">
-			<h2>I'm a contra dance caller and organizer.</h2>
-		</header>
-		<div class="role-block__text">
-			<p>I've been a contra dancer for 17 years and involved in the organizing of dance events for nearly as long.</p>
-			<p>I'm available to hire for dances and private events.</p>
-		</div>
-		<div class="role-block__actions">
-
-		</div>
+	<section class="blog">
+		<h2 class="section-title">This is <span class="role">my blog</span>.</h2>
+		{% for post in site.posts limit:3 %}
+			<article class="blog-post">
+				<header>
+					{% unless post.categories == empty %}
+						<div class="category category-{{ post.categories|first|slugify }}">
+							{{ post.categories|first }}
+						</div>
+					{% else %}
+						<div class="category category-miscellany">
+							Miscellany
+						</div>
+					{% endunless %}
+					<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+				</header>
+				<div class="blog-post-content">
+					{{ post.content }}
+				</div>
+			</article>
+		{% endfor %}
 	</section>
 </main>
 
-<p>
-	<a class="unstyled-link" rel="me" href="http://github.com/harrislapiroff"><i class="fa fa-fw fa-brands fa-github"></i> GitHub</a><br />
-	<a class="unstyled-link" rel="me" href="http://twitter.com/harrislapiroff"><i class="fa fa-fw fa-brands fa-twitter"></i> Twitter</a><br />
-	<a class="unstyled-link" rel="me" href="https://social.coop/@harris"><i class="fa fa-fw fa-brands fa-mastodon"></i> Mastodon</a><br />
-	<a class="unstyled-link" rel="me" href="mailto:harris@freedom.press"><i class="fa fa-regular fa-fw fa-envelope"></i> Email</a><br />
-</p>
+<footer>
+	Find me also on:
+	<ul>
+		<li><a class="unstyled-link" rel="me" href="http://github.com/harrislapiroff">GitHub</a></li>
+		<li><a class="unstyled-link" rel="me" href="http://twitter.com/harrislapiroff">Twitter</a></li>
+		<li><a class="unstyled-link" rel="me" href="https://social.coop/@harris">Mastodon</a></li>
+		<li><a class="unstyled-link" rel="me" href="mailto:harris@freedom.press">Email</a></li>
+	</ul>
+</footer>

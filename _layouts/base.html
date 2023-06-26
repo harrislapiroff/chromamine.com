@@ -8,10 +8,17 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
         <link href="/static/styles/universal.css" rel="stylesheet">
-        <link href="/static/styles/home.css" rel="stylesheet">
+		{% if layout.stylesheets %}
+			{% for stylesheet in layout.stylesheets %}
+				<link rel="stylesheet" href="/static/styles/{{ stylesheet }}.css">
+			{% endfor %}
+		{% endif %}
+		{% if layout.scripts %}
+			{% for script in layout.scripts %}
+				<script src="/static/scripts/{{ script }}.js"></script>
+			{% endfor %}
+		{% endif %}
 	<body>
-		<div class="container">
-			{{ content }}
-		</div>
+		{{ content }}
 	</body>
 </html>
