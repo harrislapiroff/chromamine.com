@@ -12,3 +12,9 @@ exclude:
   - "CNAME"
   - "README.md"
 baseurl: 'https://chromamine.com'
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

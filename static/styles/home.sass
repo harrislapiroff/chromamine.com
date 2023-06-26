@@ -1,5 +1,119 @@
 ---
 ---
-    
-.role-block
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)
+
+=small-dn
+    @media (max-width: 60rem)
+        @content
+
+=tiny-dn
+    @media (max-width: 40rem)
+        @content
+
+\:root
+    --max-width: 120rem
+    --text-column-max-width: 60rem
+    --h-pad: 6rem
+    --v-pad: 4rem
+
+    +small-dn
+        --h-pad: 2rem
+        --v-pad: 1rem
+
+*
+    // IE6 was right
+    box-sizing: border-box
+
+html
+    font-size: 10px
+    background: #FFF
+
+body
+    font-family: Lato, sans-serif
+    font-size: 2rem
+    margin: 0
+    padding: 0
+    background: #FFF
+    max-width: var(--max-width)
+
+a
+    color: #08A
+    text-decoration-color: #CCC
+    &:hover
+        color: #069
+        text-decoration-color: #069
+
+.page-header
+    padding: calc(var(--v-pad) + 1rem) var(--h-pad) var(--v-pad) var(--h-pad)
+    max-width: var(--max-width)
+    &__title
+        margin: 0
+        padding: 0
+        font-weight: 400
+        font-family: Montserrat, sans-serif
+        font-size: 4.2rem
+        line-height: 7.5rem
+        .name
+            font-weight: 600
+
+.pick-a-pill
+    max-width: var(--max-width)
+    display: flex
+    flex-direction: row
+    +tiny-dn
+        flex-direction: column
+
+.pill
+    display: block
+    flex-basis: 50%
+    padding: var(--v-pad) var(--h-pad)
+    text-decoration: none
+    color: inherit
+    transition: background-color 0.2s ease-in-out
+    &:hover
+        color: inherit
+        background-color: #EEE
+
+.pill-button
+    display: inline-block
+    border-radius: 0.4rem
+    background: #fff
+    padding: 0.5rem 1.5rem
+    margin-top: 1rem
+    box-shadow: 0 0 4rem 0 hsla(0, 0, 0, 0.25)
+
+.section-title
+    font-weight: 400
+    > .role
+        font-weight: 600
+
+.blog
+    padding: var(--v-pad) var(--h-pad)
+
+.blog-post
+    padding-top: var(--v-pad)
+    > header
+        > .category
+            color: #444
+            text-transform: uppercase
+            letter-spacing: 0.1rem
+            font-size: 1.2rem
+        > h3
+            font-size: 2rem
+            margin-top: 0.25rem
+            > a
+                color: inherit
+                text-decoration: none
+                &:hover
+                    text-decoration: underline
+
+.blog-post-content
+    max-width: var(--text-column-max-width)
+    font-size: 2rem
+    line-height: 2.75rem
+
+.blog-post-content img
+    max-width: 100%
+
+footer
+    padding: var(--v-pad) var(--h-pad)
+    border-top: 0.1rem solid #EEE
