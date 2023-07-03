@@ -7,7 +7,7 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid0xtCka38ByhAKELtZPgJD7ZoKWYuTsBbQdJDWT7rYa1A3kQjS6o5Z9qAoAhJeNVgbl
 ---
 
-Last weekend I called contra dances at Somerville Porchfest (https://somervilleartscouncil.org/porchfest) on Jeff’s porch, with his band Kingfisher.
+Last weekend I called contra dances at [Somerville Porchfest](https://somervilleartscouncil.org/porchfest) on [Jeff](https://www.jefftk.com/)’s porch, with his band [Kingfisher](https://www.kingfisherband.com/).
 
 There were some interesting calling challenges that were different from usual, so I made a few notes:
 
