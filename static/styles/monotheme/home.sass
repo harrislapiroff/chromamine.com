@@ -1,0 +1,54 @@
+---
+---
+
+@import "mixins"
+
+.pick-a-pill
+    position: absolute
+    top: 0
+    right: 0
+    width: var(--sidebar-width)
+
+    +small-dn
+        position: static
+        width: auto
+        margin-bottom: calc(3 * var(--line-height-base))
+
+    h2
+        margin-bottom: calc(var(--line-height-base) / 2)
+        font-weight: var(--font-weight-base)
+        font-style: italic
+
+        +small-dn
+            display: none
+
+    .pill
+        display: block
+        padding: calc(var(--line-height-base) / 2)
+        transition: background 0.2s ease-in-out
+        color: inherit
+        margin-top: 0
+        margin-left: calc(-1 * var(--line-height-base) / 2)
+        margin-right: calc(-1 * var(--line-height-base) / 2)
+        margin-bottom: 0
+
+        h3
+            font-weight: var(--font-weight-bold)
+            .role
+                color: var(--color-accent-1)
+
+        .pill-button
+            font-style: italic
+            color: var(--color-link)
+            transition: color 0.2s ease-in-out
+
+        &:hover
+            background: var(--color-pill-hover-bg)
+            .pill-button
+                text-decoration: underline
+                text-decoration-color: lch(80% 0 0)
+                color: var(--color-link-hover)
+
+.blog
+    .section-title
+        font-weight: var(--font-weight-base)
