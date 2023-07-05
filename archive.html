@@ -1,0 +1,20 @@
+---
+layout: base
+stylesheets: ['monotheme/universal', 'monotheme/archive']
+---
+
+{% include header.html home="True" %}
+
+<main>
+    <h2 class="archive-header">All Posts</h2>
+    <ul class="posts-list">
+        {% for post in site.posts %}
+            <li class="posts-list-item">
+                <a href="{{ post.url }}">
+                    <span class="posts-list-title">{{ post.title }}</span>
+                    <time datetime="{{ post.date | date: "%Y-%m-%d" }}" class="posts-list-date">{{ post.date | date: "%B %-d, %Y" }}</time>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</main>

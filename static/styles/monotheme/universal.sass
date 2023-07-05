@@ -76,6 +76,13 @@ a
     color: inherit
     text-decoration: none
 
+.button
+    color: var(--color-link)
+    &:hover
+        color: var(--color-link-hover)
+        text-decoration: underline
+        text-decoration-color: lch(80% 0 0)
+
 .page-header__title
     font-weight: var(--font-weight-base)
     margin-bottom: calc(var(--line-height-base) * 4)
@@ -138,3 +145,10 @@ a
         &::after
             content: " ⭓"
             color: var(--color-accent-2)
+
+.home-link
+    color: var(--color-link)
+    &:hover
+        color: var(--color-link-hover)
+        text-decoration: underline
+        text-decoration-color: lch(80% 0 0)
