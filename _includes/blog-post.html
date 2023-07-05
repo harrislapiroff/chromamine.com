@@ -1,0 +1,17 @@
+<article class="blog-post">
+    <header>
+        {% unless include.post.categories == empty %}
+            <div class="category category-{{ include.post.categories|first|slugify }}">
+                {{ include.post.categories|first }}
+            </div>
+        {% else %}
+            <div class="category category-miscellany">
+                Miscellany
+            </div>
+        {% endunless %}
+        <h3><a href="{{ include.post.url }}">{{ include.post.title }}</a></h3>
+    </header>
+    <div class="blog-post-content">
+        {{ include.post.content }}
+    </div>
+</article>

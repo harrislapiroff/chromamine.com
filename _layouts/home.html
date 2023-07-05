@@ -1,11 +1,9 @@
 ---
 layout: base
-stylesheets: [home]
+stylesheets: [monotheme/universal, monotheme/home]
 ---
 
-<header class="page-header">
-	<h1 class="page-header__title">Hi, I’m <span class="name">Harris Lapiroff</span>.</h1>
-</header>
+{% include header.html %}
 
 <main>
 	<div class="pick-a-pill">
@@ -25,23 +23,7 @@ stylesheets: [home]
 	<section class="blog">
 		<h2 class="section-title">This is <span class="role">my blog</span>.</h2>
 		{% for post in site.posts limit:3 %}
-			<article class="blog-post">
-				<header>
-					{% unless post.categories == empty %}
-						<div class="category category-{{ post.categories|first|slugify }}">
-							{{ post.categories|first }}
-						</div>
-					{% else %}
-						<div class="category category-miscellany">
-							Miscellany
-						</div>
-					{% endunless %}
-					<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-				</header>
-				<div class="blog-post-content">
-					{{ post.content }}
-				</div>
-			</article>
+			{% include blog-post.html post=post %}
 		{% endfor %}
 	</section>
 </main>
