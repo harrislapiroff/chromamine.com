@@ -1,0 +1,18 @@
+extends ../base.pug
+
+block styles
+    link(rel="stylesheet" href="/static/monotheme/styles.css")
+
+block body
+    .layout-site
+        .layout-site__header
+            header.site-header
+                block header
+                    h1.site-header__title
+                        = "Hi, I'm "
+                        span.site-header__name= "Harris Lapiroff"
+                        = "."
+        main.layout-site__content
+            block main
+        .layout-site__sidebar
+            block sidebar
