@@ -1,0 +1,30 @@
+.blog-post
+    &__title > a
+        font-weight: var(--font-weight-bold)
+        color: inherit
+        &::before
+            display: block
+            float: left
+            margin-left: -1.8em
+            width: -1.5em
+            content: "¶"
+        &:hover
+            color: var(--color-link-hover)
+            text-decoration: underline
+            text-decoration-color: var(--color-base)
+    &__content
+        margin-right: calc(var(--blog-post-sidebar-width) + var(--blog-post-column-gap))
+
+        p, ul, ol, li
+            margin-top: 0
+            margin-bottom: var(--line-height-base)
+
+        strong
+            font-weight: var(--font-weight-bold)
+
+        em
+            font-style: italic
+
+.blog-post-list
+    &__item
+        margin-bottom: calc(var(--line-height-base) * 3)

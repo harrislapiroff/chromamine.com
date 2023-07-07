@@ -1,0 +1,43 @@
+@import mixins
+
+\:root
+    --font-family-base: 'IBM Plex Mono', monospace
+    --font-size-base: 1.6rem
+    --font-weight-normal: 300
+    --font-weight-bold: 600
+    --line-height-base: 2.5rem
+
+    --color-almost-black: lch(30% 2 87)
+    --color-almost-white: lch(70% 2 87)
+    --color-gray-light: lch(90% 2 87)
+    --color-gray-dark: lch(10% 2 87)
+    --color-pink: lch(29% 132 339)
+    --color-pink-brighter: lch(50% 132 339)
+    --color-pink-hover: lch(20% 132 339)
+    --color-pink-brighter-hover: lch(50% 132 339)
+    --color-red-pink: lch(50% 132 25)
+    --color-red-pink-brighter: lch(70% 132 25)
+
+    --color-background: var(--color-gray-light)
+    --color-base: var(--color-almost-black)
+    --color-link: var(--color-pink)
+    --color-link-hover: var(--color-pink-hover)
+    --color-transparent-bg-faint: lch(0% 0 0 / 0.05)
+    --color-accent-1: var(--color-red-pink)
+
+    --site-sidebar-width: 30rem
+    --column-gap-base: 5rem
+    --page-padding: 15rem
+    --blog-post-sidebar-width: 20rem
+    --blog-post-column-gap: 3rem
+
+    +dark-mode
+        --color-background: var(--color-gray-dark)
+        --color-base: var(--color-almost-white)
+        --color-link: var(--color-pink-brighter)
+        --color-link-hover: var(--color-pink-brighter-hover)
+        --color-transparent-bg-faint: lch(100% 0 0 / 0.05)
+        --color-accent-1: var(--color-red-pink-brighter)
+
+    +high-contrast
+        --font-weight-normal: 400

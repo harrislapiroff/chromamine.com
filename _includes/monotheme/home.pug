@@ -1,0 +1,58 @@
+extends monotheme.pug
+
+block main
+    include mixins/blog-post.pug
+    // This is a bit of javascript to normalize the shape of post data
+    -
+        const posts = collections.posts
+            .toSorted((a, b) => b.date - a.date)
+            .map(p => ({
+                title: p.data.title,
+                content: p.content,
+                date: p.date,
+                url: p.url,
+                categories: p.data.categories
+            }))
+    // Render each post using the blog-post mixin
+    each post in posts
+        .blog-post-list
+            +blog-post(post, { extraClasses: ['blog-post-list__item'] })
+
+block sidebar
+    section.sidebar-section
+        header.sidebar-section__header
+            h2= "Looking for something specific?"
+        .roles-list
+            a.roles-list__item(href="/software")
+                h3.roles-list__title
+                    = "I'm a "
+                    span.roles-list__role= "Software Engineer"
+                    = ", "
+                    span.roles-list__role= "Manager"
+                    = " and "
+                    span.roles-list__role= "Designer"
+                .roles-list__description
+                    = "I'm engineering manager for Web at Freedom of the Press Foundation and do freelance data processing and visualization."
+                .roles-list__action= "Read more or hire me →"
+            a.roles-list__item(href="/software")
+                h3.roles-list__title
+                    = "I'm a "
+                    span.roles-list__role= "Contra Dance Organizer"
+                    = " and "
+                    span.roles-list__role= "Caller"
+                .roles-list__description
+                    = "I'm engineering manager for Web at Freedom of the Press Foundation and do freelance data processing and visualization."
+                .roles-list__action= "Read more or book me →"
+
+    section.sidebar-section
+        header.sidebar-section__header
+            h2= "Reach me elsewhere:"
+        ul.bulletless
+            li
+                a(href="https://twitter.com/harrislapiroff", rel="me") Twitter
+            li
+                a(href="https://social.coop/@harris", rel="me") Mastodon
+            li
+                a(href="https://github.com/harrislapiroff/", rel="me") GitHub
+            li
+                a(href="mailto:harris@chromamine.com", rel="me") Email

@@ -1,0 +1,21 @@
+extends monotheme.pug
+
+block title
+    = title
+
+block prepend header
+    a.site-header__go-home(href="/") ← Return home
+
+block main
+    include mixins/blog-post.pug
+    // This is a bit of javascript to normalize the shape of post data
+    -
+        const post = {
+            title: title,
+            content: content,
+            date: page.date,
+            url: page.url,
+            categories: page.categories
+        }
+    // Render the blog post using the blog-post mixin
+    +blog-post(post)
