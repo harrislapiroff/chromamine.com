@@ -1,0 +1,10 @@
+extends monotheme.pug
+
+block title
+    = title
+
+block prepend header
+    a.site-header__go-home(href="/") ← Return home
+
+block main
+    != content

@@ -1,0 +1,11 @@
+---
+layout: monotheme/page.pug
+---
+
+ul.archive-list
+    each post in collections.posts
+        li.archive-list__item
+            a.archive-list__item-link(href=post.url)
+                span.archive-list__item-title= post.data.title
+                = " "
+                span.archive-list__item-date= filters.dateFormat(post.date, '%B %d, %Y')
