@@ -2,14 +2,6 @@
 layout: monotheme/page.pug
 ---
 
-- const posts = collections.posts.toSorted((a, b) => b.date - a.date)
-- const years = new Set(posts.map(p => p.date.getFullYear()))
-each year in Array.from(years)
-    h2= year
-    ul.archive-list
-        each post in posts.filter(p => p.date.getFullYear() === year)
-            li.archive-list__item
-                a.archive-list__item-link(href=post.url)
-                    span.archive-list__item-title= post.data.title
-                    = " "
-                    span.archive-list__item-date= filters.dateFormat(post.date, '%B %d, %Y')
+include _includes/monotheme/mixins/archive-list.pug
+- const posts = collections.posts
++archive-list-by-year(posts)

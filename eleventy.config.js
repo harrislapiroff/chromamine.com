@@ -63,6 +63,11 @@ module.exports = function(eleventyConfig) {
         return d3time.utcFormat(format)(value)
     })
 
+    // Slugify
+    eleventyConfig.addFilter("slugify", function (value) {
+        return value.toLowerCase().replace(/\s/g, '-')
+    })
+
     /* Allow YAML configuration files
      *-------------------------------------*/
     const yaml = require("js-yaml")
@@ -90,7 +95,7 @@ module.exports = function(eleventyConfig) {
      *------------------------------------*/
     global.filters = eleventyConfig.javascriptFunctions
     eleventyConfig.setPugOptions({
-        globals: ['filters']
+        globals: ['filters'],
     })
 
     return {
