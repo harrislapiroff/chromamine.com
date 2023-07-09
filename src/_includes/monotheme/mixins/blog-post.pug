@@ -4,5 +4,5 @@ mixin blog-post(post, opts = { extraClasses: [] })
             div.blog-post__categories= post.categories.join(', ')
             a.blog-post__header-permalink(href=post.url)
                 h2.blog-post__title= post.title
-                time.blog-post__date(class='blog-post__date', datetime=post.date)= filters.dateFormat()
+                time.blog-post__date(class='blog-post__date', datetime=post.date)= filters.dateFormat(post.date, '%B %d, %Y')
         .blog-post__content!= post.content

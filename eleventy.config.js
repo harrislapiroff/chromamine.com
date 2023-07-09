@@ -1,6 +1,16 @@
 const path = require("node:path")
 
 module.exports = function(eleventyConfig) {
+    /* Load CommonJS modules before config
+     * see: https://github.com/11ty/eleventy/issues/2675#issuecomment-1338240707
+     * ------------------------------------*/
+    eleventyConfig.on('eleventy.before', async () => {
+        const d3time = await import("d3-time-format")
+        const d3format = await import("d3-format")
+        global.d3time = d3time
+        global.d3format = d3format
+    })
+
     /* Put posts in a collection
      *-------------------------------------*/
     eleventyConfig.addCollection("posts", function(collection) {
@@ -39,22 +49,17 @@ module.exports = function(eleventyConfig) {
         "zero","one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
         "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty",
     ]
-    const d3 = import("d3-format")
     eleventyConfig.addFilter("numFormat", function (value, format) {
-        return "FILTER TO BE IMPLEMENTED"
         return d3format.format(format)(Number(value))
     })
     eleventyConfig.addFilter("humaneNumFormat", function (value) {
-        return "FILTER TO BE IMPLEMENTED"
         const num = Number(value)
         if (num < numSpellings.length - 1) return numSpellings[num]
         return d3format.format(".2s")(Number(value))
     })
 
     // Date formatting
-    d3time = import("d3-time-format")
     eleventyConfig.addFilter("dateFormat", function (value, format) {
-        return "FILTER TO BE IMPLEMENTED"
         return d3time.utcFormat(format)(value)
     })
 
