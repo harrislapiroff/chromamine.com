@@ -1,8 +1,8 @@
 ---
 title: Generative AI Possibilities and Adobe Firefly
 date: 2023-05-24
-category: Software
-tags: machine learning
+categories: ['Software']
+tags: [machine learning]
 xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid0JL8HeQvhcPBN4TQgYL7WVxY3vCjNuzZkjeH58RvkUMsaoctjHFV8ACP4DwAM8Cfrl

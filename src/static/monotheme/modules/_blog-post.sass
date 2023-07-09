@@ -1,6 +1,5 @@
 .blog-post
-    &__title > a
-        font-weight: var(--font-weight-bold)
+    &__header-permalink
         color: inherit
         &::before
             display: block
@@ -10,8 +9,7 @@
             content: "¶"
         &:hover
             color: var(--color-link-hover)
-            text-decoration: underline
-            text-decoration-color: var(--color-base)
+            text-decoration: none
     &__content
         margin-right: calc(var(--blog-post-sidebar-width) + var(--blog-post-column-gap))
 
@@ -24,6 +22,23 @@
 
         em
             font-style: italic
+
+.blog-post__categories
+    color: var(--color-text-muted)
+    font-style: italic
+
+.blog-post__title
+    font-weight: var(--font-weight-bold)
+    display: inline
+    a:hover > &
+        text-decoration: underline
+        text-decoration-color: var(--color-base)
+
+.blog-post__date
+    color: var(--color-text-muted)
+    &::before
+        // more effective than a left margin at getting exactly one character of space
+        content: " "
 
 .blog-post-list
     &__item

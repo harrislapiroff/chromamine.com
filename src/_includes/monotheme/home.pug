@@ -6,6 +6,7 @@ block main
     -
         const posts = collections.posts
             .toSorted((a, b) => b.date - a.date)
+            .slice(0, 3)
             .map(p => ({
                 title: p.data.title,
                 content: p.content,
@@ -20,7 +21,7 @@ block main
 
     a.archive-link(href=filters.url("/archive"))
         = "Archive: "
-        span.archive-link__count !{filters.humaneNumFormat(posts.length)}
+        span.archive-link__count !{filters.humaneNumFormat(collections.posts.length)}
         = " posts →"
 
 block sidebar

@@ -1,8 +1,8 @@
 ---
 title: Calling Dances at Porchfest
 date: 2023-05-19
-category: Dance
-tags: Contra, Somerville, Calling
+categories: ['Dance']
+tags: [Contra, Somerville, Calling]
 xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid0xtCka38ByhAKELtZPgJD7ZoKWYuTsBbQdJDWT7rYa1A3kQjS6o5Z9qAoAhJeNVgbl

@@ -1,6 +1,7 @@
 ---
 title: "Recommendation: Appliance Cable Organizers"
 date: 2023-06-07
+categories: ['Miscellany']
 xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid036Q5RfFX5sdGTKtiinwBBGwNYNraP1pfHfobb7qt4Eaie41pY31rY2rDecgV33bql?

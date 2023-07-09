@@ -35,18 +35,27 @@ module.exports = function(eleventyConfig) {
      *-------------------------------------*/
 
     // Number formatting
-    const d3format = import("d3-format")
     const numSpellings = [
         "zero","one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
         "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty",
     ]
+    const d3 = import("d3-format")
     eleventyConfig.addFilter("numFormat", function (value, format) {
+        return "FILTER TO BE IMPLEMENTED"
         return d3format.format(format)(Number(value))
     })
     eleventyConfig.addFilter("humaneNumFormat", function (value) {
+        return "FILTER TO BE IMPLEMENTED"
         const num = Number(value)
         if (num < numSpellings.length - 1) return numSpellings[num]
         return d3format.format(".2s")(Number(value))
+    })
+
+    // Date formatting
+    d3time = import("d3-time-format")
+    eleventyConfig.addFilter("dateFormat", function (value, format) {
+        return "FILTER TO BE IMPLEMENTED"
+        return d3time.utcFormat(format)(value)
     })
 
     /* Allow YAML configuration files
