@@ -1,4 +1,5 @@
 extends monotheme.pug
+include mixins/blog-post.pug
 
 block title
     = title
@@ -7,7 +8,6 @@ block prepend header
     a.site-header__go-home(href="/") ← Return home
 
 block main
-    include mixins/blog-post.pug
     // This is a bit of javascript to normalize the shape of post data
     -
         const post = {
