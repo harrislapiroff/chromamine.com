@@ -1,8 +1,8 @@
 ---
 title: Sentient AI
 date: 2023-03-21
-category: software
-tags: machine learning
+categories: ['Software']
+tags: ['machine learning']
 xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid02TisB3LHUj3452GzMERGoADa3EewbBpycqrxgxF5vRFxKb5bGr5ABsZYuG5G3jhbYl

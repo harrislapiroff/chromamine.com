@@ -1,7 +1,8 @@
 ---
 title: Increasingly frustrated with Gmail
 date: 2023-05-18
-tags: email, Google, anti-corporate internet
+categories: [Software]
+tags: [email, Google, anti-corporate internet]
 xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid02JQiHgwNB1cEkYZEQnsn8qsSPBatHSXDo9mJ3WezLzQYx8tkDSe7D8jrStSNiESGxl

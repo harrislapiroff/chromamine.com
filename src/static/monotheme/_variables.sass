@@ -7,10 +7,11 @@
     --font-weight-bold: 600
     --line-height-base: 2.5rem
 
-    --color-almost-black: lch(30% 2 87)
-    --color-almost-white: lch(70% 2 87)
-    --color-gray-light: lch(90% 2 87)
-    --color-gray-dark: lch(10% 2 87)
+    --color-gray: lch(50% 2 87)
+    --color-70-black: lch(30% 2 87)
+    --color-70-white: lch(70% 2 87)
+    --color-almost-white: lch(90% 2 87)
+    --color-almost-black: lch(10% 2 87)
     --color-pink: lch(29% 132 339)
     --color-pink-brighter: lch(50% 132 339)
     --color-pink-hover: lch(20% 132 339)
@@ -18,8 +19,9 @@
     --color-red-pink: lch(50% 132 25)
     --color-red-pink-brighter: lch(70% 132 25)
 
-    --color-background: var(--color-gray-light)
-    --color-base: var(--color-almost-black)
+    --color-background: var(--color-almost-white)
+    --color-base: var(--color-70-black)
+    --color-text-muted: var(--color-gray)
     --color-link: var(--color-pink)
     --color-link-hover: var(--color-pink-hover)
     --color-transparent-bg-faint: lch(0% 0 0 / 0.05)
@@ -32,8 +34,9 @@
     --blog-post-column-gap: 3rem
 
     +dark-mode
-        --color-background: var(--color-gray-dark)
-        --color-base: var(--color-almost-white)
+        --color-background: var(--color-almost-black)
+        --color-base: var(--color-70-white)
+        --color-text-muted: var(--color-gray)
         --color-link: var(--color-pink-brighter)
         --color-link-hover: var(--color-pink-brighter-hover)
         --color-transparent-bg-faint: lch(100% 0 0 / 0.05)
