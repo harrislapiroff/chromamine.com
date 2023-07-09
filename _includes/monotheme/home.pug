@@ -18,12 +18,17 @@ block main
         .blog-post-list
             +blog-post(post, { extraClasses: ['blog-post-list__item'] })
 
+    a.archive-link(href=filters.url("/archive"))
+        = "Archive: "
+        span.archive-link__count !{filters.humaneNumFormat(posts.length)}
+        = " posts →"
+
 block sidebar
     section.sidebar-section
         header.sidebar-section__header
             h2= "Looking for something specific?"
         .roles-list
-            a.roles-list__item(href="/software")
+            a.roles-list__item(href=filters.url("/software"))
                 h3.roles-list__title
                     = "I'm a "
                     span.roles-list__role= "Software Engineer"
@@ -34,7 +39,7 @@ block sidebar
                 .roles-list__description
                     = "I'm engineering manager for Web at Freedom of the Press Foundation and do freelance data processing and visualization."
                 .roles-list__action= "Read more or hire me →"
-            a.roles-list__item(href="/software")
+            a.roles-list__item(href=filters.url("/dance"))
                 h3.roles-list__title
                     = "I'm a "
                     span.roles-list__role= "Contra Dance Organizer"

@@ -31,6 +31,24 @@ module.exports = function(eleventyConfig) {
         }
     })
 
+    /* Custom filters
+     *-------------------------------------*/
+
+    // Number formatting
+    const d3format = import("d3-format")
+    const numSpellings = [
+        "zero","one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty",
+    ]
+    eleventyConfig.addFilter("numFormat", function (value, format) {
+        return d3format.format(format)(Number(value))
+    })
+    eleventyConfig.addFilter("humaneNumFormat", function (value) {
+        const num = Number(value)
+        if (num < numSpellings.length - 1) return numSpellings[num]
+        return d3format.format(".2s")(Number(value))
+    })
+
     /* Allow YAML configuration files
      *-------------------------------------*/
     const yaml = require("js-yaml")
@@ -51,6 +69,14 @@ module.exports = function(eleventyConfig) {
         pugCache[str] = pug.compile(str, options)
         return pugCache[str]
       },
+    })
+
+    /* Pug filter support
+     * see: https://github.com/11ty/eleventy/issues/1523#issuecomment-733419587
+     *------------------------------------*/
+    global.filters = eleventyConfig.javascriptFunctions
+    eleventyConfig.setPugOptions({
+        globals: ['filters']
     })
 
 }
