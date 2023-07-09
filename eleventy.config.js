@@ -4,7 +4,7 @@ module.exports = function(eleventyConfig) {
     /* Put posts in a collection
      *-------------------------------------*/
     eleventyConfig.addCollection("posts", function(collection) {
-        return collection.getFilteredByGlob("posts/*.md")
+        return collection.getFilteredByGlob("src/posts/*.md")
     })
 
     /* Add sass support
@@ -79,4 +79,9 @@ module.exports = function(eleventyConfig) {
         globals: ['filters']
     })
 
+    return {
+        'dir': {
+            'input': 'src',
+        }
+    }
 }
