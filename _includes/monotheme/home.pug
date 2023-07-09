@@ -1,7 +1,7 @@
 extends monotheme.pug
+include mixins/blog-post.pug
 
 block main
-    include mixins/blog-post.pug
     // This is a bit of javascript to normalize the shape of post data
     -
         const posts = collections.posts
