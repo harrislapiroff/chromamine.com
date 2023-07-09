@@ -1,0 +1,21 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - posts
+    - all
+permalink: "| tags/#{ filters.slugify(tag) }/"
+layout: monotheme/page.pug
+---
+
+include _includes/monotheme/mixins/archive-list.pug
+- const posts = collections[tag]
+
+h2
+    = "Posts tagged with “"
+    = tag
+    = "”"
+
++archive-list(posts)
