@@ -17,11 +17,20 @@
             margin-top: 0
             margin-bottom: var(--line-height-base)
 
+        > p, ul, ol
+            &:last-child::after
+                content: "⧈"
+                display: inline
+                color: var(--color-red-pink)
+                margin-left: 0.25em
+
         strong
             font-weight: var(--font-weight-bold)
 
         em
             font-style: italic
+
+
 
 .blog-post__categories
     color: var(--color-text-muted)
