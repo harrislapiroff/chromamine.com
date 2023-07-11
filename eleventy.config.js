@@ -17,6 +17,14 @@ module.exports = function(eleventyConfig) {
         return collection.getFilteredByGlob("src/posts/*.md")
     })
 
+    /* Add typographer to markdown
+     *-------------------------------------*/
+    const markdownIt = require("markdown-it")
+    let options = {
+        typographer: true,
+    }
+    eleventyConfig.setLibrary("md", markdownIt(options))
+
     /* Add sass support
      * see: https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
      *-------------------------------------*/
