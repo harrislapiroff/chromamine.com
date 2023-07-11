@@ -13,9 +13,12 @@
     &__content
         margin-right: calc(var(--blog-post-sidebar-width) + var(--blog-post-column-gap))
 
-        p, ul, ol, li
+        p, ul, ol
             margin-top: 0
             margin-bottom: var(--line-height-base)
+
+        li
+            margin-bottom: calc(var(--line-height-base) / 2)
 
         > p, ul, ol
             &:last-child::after
