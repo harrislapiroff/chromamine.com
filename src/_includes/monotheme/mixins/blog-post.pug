@@ -6,3 +6,11 @@ mixin blog-post(post, opts = { extraClasses: [] })
                 h2.blog-post__title= post.title
                 time.blog-post__date(class='blog-post__date', datetime=post.date)= filters.dateFormat(post.date, '%B %d, %Y')
         .blog-post__content!= post.content
+        footer.blog-post__footer
+            .blog-post__tags
+                if post.tags
+                    = "Tags: "
+                    ul.tag-list
+                        each tag in post.tags
+                            li.tag-list__item
+                                a.tag-list__link(href=filters.url('tags/' + filters.slugify(tag)))= tag
