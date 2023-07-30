@@ -22,6 +22,18 @@ upcoming:
     street: 339 8th Street
     city: Brooklyn NY
 
+  - name: Monday Contras
+    date: 2023-08-14T19:30-04:00
+    date_end: 2023-08-14T22:30-04:00
+    tzid: America/New_York
+    band: Julie Metcalf, Max Newman, and Jack O'Connor
+    description: |+
+      Workshop at 7PM  
+      Dancing from 7:30–10:30PM
+    street: Concord Scout House, 74 Walden St
+    city: Concord MA
+    url: http://mondaycontras.com/
+
   - name: Downtown Amherst Contra Dance
     date: 2023-08-16T19:00-04:00
     date_end: 2023-08-16T22:00-04:00
@@ -52,7 +64,7 @@ upcoming:
     date: 2023-09-20T19:30-04:00
     date_end: 2023-09-20T22:30-04:00
     tzid: America/New_York
-    band: Callithump
+    band: Larry Unger and Caroline McCaskey
     street:  2200 St. Paul Street
     city: Baltimore MD
     description: |+
