@@ -1,0 +1,34 @@
+---
+layout: none
+---
+BEGIN:VCALENDAR
+PRODID:-//Harris Lapiroff//Contra Calling Calendar//EN
+VERSION:2.0
+METHOD:PUBLISH
+X-WR-CALNAME:Harris Lapiroff Calling
+{% for dance in site.data.contra.caller.past %}BEGIN:VEVENT
+UID:{{ dance.date | date: "%Y%m%dT%H%M%S" }}-contra-dance@harrislapiroff.com
+ORGANIZER;CN="Harris Lapiroff":MAILTO:harris@harrislapiroff.com
+LOCATION:{{ dance.street }}, {{ dance.city }}
+SUMMARY:{{ dance.name }}
+DESCRIPTION:Caller: Harris Lapiroff\nBand: {{ dance.band }}\n{{ dance.description | replace: "
+", '\\n' }}
+CLASS:PUBLIC
+DTSTART;TZID={{ dance.tzid }}:{{ dance.date | date:"%Y%m%dT%H%M%S" }}
+DTEND;TZID={{ dance.tzid }}:{{ dance.date_end | date:"%Y%m%dT%H%M%S" }}
+DTSTAMP:{{ 'now' | date:"%Y%m%dT%H%M%S" }}
+END:VEVENT
+{% endfor %}
+{% for dance in site.data.contra.caller.upcoming %}BEGIN:VEVENT
+UID:{{ dance.date | date: "%Y%m%dT%H%M%S" }}-contra-dance@harrislapiroff.com
+ORGANIZER;CN="Harris Lapiroff":MAILTO:harris@harrislapiroff.com
+LOCATION:{{ dance.street }}, {{ dance.city }}
+SUMMARY:{{ dance.name }}
+DESCRIPTION:Caller: Harris Lapiroff\nBand: {{ dance.band }}\n{{ dance.description | replace: "
+", '\\n' }}
+CLASS:PUBLIC
+DTSTART;TZID={{ dance.tzid }}:{{ dance.date | date:"%Y%m%dT%H%M%S" }}
+DTEND;TZID={{ dance.tzid }}:{{ dance.date_end | date:"%Y%m%dT%H%M%S" }}
+DTSTAMP:{{ 'now' | date:"%Y%m%dT%H%M%S" }}
+END:VEVENT
+{% endfor %}END:VCALENDAR
