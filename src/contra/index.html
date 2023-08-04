@@ -1,0 +1,109 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Harris Lapiroff, Contra Dance Caller and Organizer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:image" content="/contra/media/still.jpg">
+		<meta property="og:title" content="Harris Lapiroff, Contra Dance Caller and Organizer">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="I'm Harris Lapiroff, a contra dance caller and organizer. Available to book for dances and private events.">
+        <meta property="og:url" content="{{ site.baseurl }}{{ page.url }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+        <link href="/contra/static/styles/styles.css" rel="stylesheet">
+        <script src="/contra/static/scripts/all.js"></script>
+    <body>
+        <header>
+            <figure class="heading-video">
+                <video class="heading-video__video" id="heading-video" autoplay loop muted aria-hidden playsinline tabindex="-1">
+                    <source src="/contra/media/soulreversal-720.webm" type="video/webm">
+                    <source src="/contra/media/soulreversal-720.mp4" type="video/mp4">
+                    <img src="/contra/media/still.jpg" alt="BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.">
+                </video>
+                <figcaption class="heading-video__caption">
+                    BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.
+                    <a href="#" data-mute-target="heading-video">Unmute</a>
+                </figcaption>
+            </figure>
+            <h1>I'm <span class="name">Harris Lapiroff</span>, a <span class="role">contra dance caller</span> and <span class="role">organizer</span>.</h1>
+        </header>
+        <main>
+            <section class="calling">
+                <h2>Calling</h2>
+                <div class="hire-box">
+                    <p>I'm available to call contra dances and private events. I strive for an efficient, friendly calling style that adapts to halls of any skill level.</p>
+                    <p>Email me: <a href="mailto:contra@chromamine.com">contra@chromamine.com</a></p>
+                </div>
+                <div class="upcoming">
+                    <h3 class="sr-only">Upcoming</h3>
+                    <ul>
+                        {% for dance in dances.upcoming %}
+                            <li>
+                                <h4>
+                                    <a href="{{ dance.url }}">{{ dance.name }}</a>
+                                    <span class="city" title="{{ dance.street }}, {{ dance.city }}">({{ dance.city }})</span>
+                                </h4>
+                                <time class="date" datetime="{{ dance.date }}">
+                                    <span class="month">{{ dance.date | date: "%b" }}</span>
+                                    <span class="day">{{ dance.date | date: "%d" }}</span>
+                                    <span class="dow">{{ dance.date | date: "%a" }}</span>
+                                </time>
+                                {% if dance.band %}
+                                    {% if dance.bandURL %}
+                                        <div class="band">with <a href="{{ dance.bandURL }}">{{ dance.band }}</a></div>
+                                    {% else %}
+                                        <div class="band">with {{ dance.band }}</div>
+                                    {% endif %}
+                                {% endif %}
+                                {% if dance.description %}
+                                    <div class="description">{{ dance.description|markdown }}</div>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <p>
+                        Subscribe:
+                        <a href="webcal://chromamine.com/contra/events.ics">Webcal</a> |
+                        <a href="https://www.google.com/calendar/render?cid=webcal://chromamine.com/contra/events.ics">Google Calendar</a>
+                    </p>
+                </div>
+            </section>
+
+            <section class="organizing">
+                <h2>Organizing</h2>
+
+                <div class="current">
+                    <h3 class="sr-only">Current</h3>
+                    <ul>
+                        {% for org in organizations.current %}
+                            <li>
+                                <a href="{{ org.url }}">
+                                    <h4>{{ org.name }}</h4>
+                                    {{ org.description|markdown }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="past">
+                    <h3>Past</h3>
+                    <ul>
+                        {% for org in organizations.past %}
+                            <li>
+                                <a href="{{ org.url }}">
+                                    <h4>{{ org.name }}</h4>
+                                    {{ org.description|markdown }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

@@ -20,10 +20,10 @@ module.exports = function(eleventyConfig) {
     /* Add typographer to markdown
      *-------------------------------------*/
     const markdownIt = require("markdown-it")
-    let options = {
+    let mdOptions = {
         typographer: true,
     }
-    eleventyConfig.setLibrary("md", markdownIt(options))
+    eleventyConfig.setLibrary("md", markdownIt(mdOptions))
 
     /* Add sass support
      * see: https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
@@ -74,6 +74,11 @@ module.exports = function(eleventyConfig) {
     // Slugify
     eleventyConfig.addFilter("slugify", function (value) {
         return value.toLowerCase().replace(/\s/g, '-')
+    })
+
+    // Markdown
+    eleventyConfig.addFilter("markdown", function (value) {
+        return markdownIt(mdOptions).render(value)
     })
 
     /* Allow YAML configuration files
