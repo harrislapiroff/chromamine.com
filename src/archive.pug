@@ -2,6 +2,20 @@
 layout: monotheme/page.pug
 ---
 
+h2= "Tags"
+// A bit of javascript to get a list of tags
+-
+    const tags = Object.keys(collections)
+        .filter(t => !['all', 'posts'].includes(t))
+        .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+
+// Render the tags in a list
+ul.archive-list.archive-list--tags
+    each tag in tags
+        li.archive-list__item
+            a.archive-list__item-link(href=`/tags/${filters.slugify(tag)}/`)= tag
+
+// Render the posts by date
 include _includes/monotheme/mixins/archive-list.pug
 - const posts = collections.posts
 +archive-list-by-year(posts)
