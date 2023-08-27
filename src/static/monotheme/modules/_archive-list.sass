@@ -13,3 +13,18 @@
 .archive-list__item-date
     display: inline-block // Avoid linebreaks
     color: var(--color-text-muted)
+
+
+.archive-list--tags
+    > .archive-list__item
+        margin-right: 1em
+    > .archive-list__item
+        display: inline-block
+        a
+            display: inline
+            color: var(--color-text)
+            font-weight: var(--font-weight-bold)
+            &:hover
+                text-decoration: underline
+                color: var(--color-link-hover)
+                text-decoration-color: var(--color-base)
