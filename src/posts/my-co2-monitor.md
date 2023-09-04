@@ -3,7 +3,7 @@ title: My CO₂ Monitor
 date: 2022-08-29
 categories: ['Miscellany']
 tags: [covid, epidemiology, CO2]
-xpost:
+xposts:
   - label: Twitter
     url: https://twitter.com/harrislapiroff/status/1564354133653594112
 ---
