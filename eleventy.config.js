@@ -29,10 +29,11 @@ module.exports = function(eleventyConfig) {
     /* Add typographer to markdown
      *-------------------------------------*/
     const markdownIt = require("markdown-it")
+    const markdownFootnotes = require("markdown-it-footnote")
     let mdOptions = {
         typographer: true,
     }
-    eleventyConfig.setLibrary("md", markdownIt(mdOptions))
+    eleventyConfig.setLibrary("md", markdownIt(mdOptions).use(markdownFootnotes))
 
     /* Add sass support
      * see: https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
