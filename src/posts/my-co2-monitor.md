@@ -10,11 +10,11 @@ xpost:
 
 I get the questions from time to time about the CO₂ monitor I use. It’s an Aranet4. It’s the kind I saw a lot of ventilation experts like [Linsey Marr](https://cee.vt.edu/people/faculty/lmarr.html) using and I understand it’s well validated to be accurate. I was probably also unduly influenced by how cute and clever it is.
 
-![Photo of a hand holding an aranet4 device. The device is small, square, made of translucent white plastic that reveals the inner electronics. It has an e-ink screen that shows the temperature, humidity, and CO₂ concentration in PPM.](/media/2022-08-29-my-co2-monitor/holding.jpg)
+![Photo of a hand holding an aranet4 device. The device is small, square, made of translucent white plastic that reveals the inner electronics. It has an e-ink screen that shows the temperature, humidity, and CO₂ concentration in PPM.](/media/my-co2-monitor/holding.jpg)
 
 It has *excellent* battery life, running for *years* on a pair of AA batteries. This makes it possible to run perpetually. It’s small and portable, but when it’s not on the road with me, it hangs on the wall, constantly monitoring next to my thermostat, useful when hosting.
 
-![A thermostat and an Aranet4 hanging side by side on a wall. The Aranet4 is smaller than the thermostat by maybe 20%.](../media/2022-08-29-my-co2-monitor/wall.jpg)
+![A thermostat and an Aranet4 hanging side by side on a wall. The Aranet4 is smaller than the thermostat by maybe 20%.](../media/my-co2-monitor/wall.jpg)
 
 It costs ~$250 but Clean Air Crew often has a [discount coupon available](https://cleanaircrew.org/aranet4coupon/).
 

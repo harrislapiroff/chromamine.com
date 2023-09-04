@@ -11,6 +11,10 @@ module.exports = function(eleventyConfig) {
         global.d3format = d3format
     })
 
+    /* Pass media directory through
+     *-------------------------------------*/
+    eleventyConfig.addPassthroughCopy("src/media")
+
     /* Put posts in a collection
      *-------------------------------------*/
     eleventyConfig.addCollection("posts", function(collection) {
