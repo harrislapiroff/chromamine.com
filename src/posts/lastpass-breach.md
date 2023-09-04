@@ -3,7 +3,7 @@ title: LastPass Breach
 date: 2022-12-24
 categories: ['Software']
 tags: [security, LastPass, 1Password, passwords]
-xpost:
+xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid02tGxVvqSCEowGBZzFC7qeP1FE9beu1NwGoWP19YmKDTSSF8mjLZ1FDPvUzuWchrSl
 ---

@@ -14,3 +14,10 @@ mixin blog-post(post, opts = { extraClasses: [] })
                         each tag in post.tags
                             li.tag-list__item
                                 a.tag-list__link(href=filters.url('tags/' + filters.slugify(tag)))= tag
+            .blog-post__xposts
+                if post.xposts
+                    = "Also posted on: "
+                    ul.xpost-list
+                        each xpost in post.xposts
+                            li.xpost-list__item
+                                a.xpost-list__link(href=xpost.url)= xpost.label
