@@ -1,4 +1,5 @@
 const path = require("node:path")
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function(eleventyConfig) {
     /* Load CommonJS modules before config
@@ -14,6 +15,10 @@ module.exports = function(eleventyConfig) {
     /* Pass media directory through
      *-------------------------------------*/
     eleventyConfig.addPassthroughCopy("src/media")
+
+    /* Add RSS
+     *-------------------------------------*/
+    eleventyConfig.addPlugin(pluginRss);
 
     /* Put posts in a collection
      *-------------------------------------*/

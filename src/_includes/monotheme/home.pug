@@ -1,6 +1,9 @@
 extends monotheme.pug
 include mixins/blog-post.pug
 
+block append meta
+    link(rel="alternate", type="application/atom+xml", href=filters.url("/feeds/posts.xml"), title="Atom Feed")
+
 block main
     // This is a bit of javascript to normalize the shape of post data
     -
