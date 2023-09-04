@@ -13,6 +13,6 @@ I find it really annoying when an appliance comes with a long cord and no way to
 
 I found these stick on cable organizers that solve this problem for me! [These](https://a.co/d/4PTlOvj) are the particular ones I purchased but I’m sure there’s lots of similar options on and off of Amazon.
 
-![A white box fan with a white silicone cable organizer adhered to the side and the power cable coiled around it.](/media/2023-06-07-recommendation-appliance-cable-organizers/boxfan.jpg)
-![Back of a red KitchenAid stand mixer with a black silicone cable organizer adhered to the back and the power cable coiled around it.](/media/2023-06-07-recommendation-appliance-cable-organizers/mixer.jpg)
-![A gray boxy HEPA air purifier with a gray silicone cable organizer adhered to the back and the power cable coiled around it.](/media/2023-06-07-recommendation-appliance-cable-organizers/purifier.jpg)
+![A white box fan with a white silicone cable organizer adhered to the side and the power cable coiled around it.](/media/recommendation-appliance-cable-organizers/boxfan.jpg)
+![Back of a red KitchenAid stand mixer with a black silicone cable organizer adhered to the back and the power cable coiled around it.](/media/recommendation-appliance-cable-organizers/mixer.jpg)
+![A gray boxy HEPA air purifier with a gray silicone cable organizer adhered to the back and the power cable coiled around it.](/media/recommendation-appliance-cable-organizers/purifier.jpg)
