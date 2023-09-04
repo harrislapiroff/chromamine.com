@@ -1,3 +1,5 @@
+@import ../mixins
+
 .blog-post
     &__header-permalink
         color: inherit
@@ -12,6 +14,9 @@
             text-decoration: none
     &__content
         margin-right: calc(var(--blog-post-sidebar-width) + var(--blog-post-column-gap))
+
+        +med-dn
+            margin-right: 0
 
         p, ul, ol
             margin-top: 0
@@ -33,6 +38,10 @@
         em
             font-style: italic
 
+        img
+            max-width: 100%
+            height: auto
+
 
 
 .blog-post__categories
@@ -42,15 +51,19 @@
 .blog-post__title
     font-weight: var(--font-weight-bold)
     display: inline
+
     a:hover > &
         text-decoration: underline
         text-decoration-color: var(--color-base)
 
 .blog-post__date
+    display: inline-block
     color: var(--color-text-muted)
+    // Using a pseudo-element instead of a margin-right
+    // gets us exactly one character of space, preserving
+    // the monospace grid
     &::before
-        // more effective than a left margin at getting exactly one character of space
-        content: " "
+        content: "\00A0" // non-breaking space
 
 .blog-post-list
     &__item
