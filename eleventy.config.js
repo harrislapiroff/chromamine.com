@@ -17,6 +17,11 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/media")
     eleventyConfig.addPassthroughCopy("src/contra/media")
 
+    /* Pass javascript through
+     * TODO: replace this with an eslint pipeline that will bundle imports
+     *-------------------------------------*/
+    eleventyConfig.addPassthroughCopy("src/**/*.js");
+
     /* Add RSS
      *-------------------------------------*/
     eleventyConfig.addPlugin(pluginRss);
