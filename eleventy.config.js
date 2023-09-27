@@ -15,6 +15,7 @@ module.exports = function(eleventyConfig) {
     /* Pass media directory through
      *-------------------------------------*/
     eleventyConfig.addPassthroughCopy("src/media")
+    eleventyConfig.addPassthroughCopy("src/contra/media")
 
     /* Add RSS
      *-------------------------------------*/
