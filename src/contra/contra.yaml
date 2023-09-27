@@ -17,6 +17,104 @@ organizations:
 
 dances:
   upcoming:
+
+    - name: Monday Contras
+      date: 2023-10-30T19:30-04:00
+      date_end: 2023-10-30T22:30-04:00
+      tzid: America/New_York
+      band: Eric Boodman, Larry Unger, and Jack O'Connor
+      description: |+
+        Workshop at 7PM  
+        Dancing from 7:30–10:30PM
+      street: Concord Scout House, 74 Walden St
+      city: Concord MA
+      url: http://mondaycontras.com/
+
+    - name: Lenox Contra Dance
+      date: 2023-11-18T19:15-05:00
+      date_end: 2023-11-18T22:30-05:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 65 Walker Street
+      city: Lenox MA
+      description: |+
+        Workshop at 7:15PM  
+        Dancing from 7:30–10:30PM
+      url: https://lenoxcontradance.org/
+
+    - name: Thursday Night Contra
+      date: 2024-06-26T19:30-04:00
+      date_end: 2024-06-26T22:30-04:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 295 Gregory Street
+      city: Rochester NY
+      url: https://cdrochester.org/events/thursday-night-contra-175/
+
+    - name: Pittsburgh Contra Dance
+      date: 2024-06-28T19:30-04:00
+      date_end: 2024-06-28T23:00-04:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 5604 Solway Street
+      city: Pittsburgh PA
+      description: |+
+        Workshop at 7:30PM  
+        Dancing from 8–11PM
+      url: https://pittsburghcontra.org/
+
+    - name: Bloomington Old-Time Music & Dance Group
+      date: 2024-06-29T19:30-04:00
+      date_end: 2024-06-29T21:30-04:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 909 E 2nd Street
+      city: Bloomington IN
+      description: |+
+        Dancing from 7:30–9:30PM  
+        Arrive 15 or preferably 30 minutes early for a beginner lesson
+      url: https://www.bloomingtoncontra.org/
+
+    - name: Childgrove Country Dancers
+      date: 2024-06-30T19:00-05:00
+      date_end: 2024-06-30T21:30-05:00
+      tzid: America/Chicago
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      city: St Louis MO
+
+    - name: Cincinnati Contra Dancers
+      date: 2024-07-01T19:30-04:00
+      date_end: 2024-07-01T22:00-04:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 322 Wyoming Avenue
+      city: Wyoming OH
+      description: |+
+        Workshop at 7:30PM  
+        Dancing from 8:00–10:00PM
+      url: https://cincinnaticontradance.org/
+
+    - name: Indy Contra Dance
+      date: 2024-07-02T18:40-04:00
+      date_end: 2024-07-02T21:00-04:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street:  2717 W 10th Street
+      city: Indianapolis IN
+      description: |+
+        Workshop at 6:40PM  
+        Dancing from 7:00–9:00PM
+      url: https://indycontra.org/
+
+
+  past:
     - name: Brooklyn Contra
       date: 2023-08-06T16:30-04:00
       date_end: 2023-08-06T20:00-04:00
@@ -78,20 +176,6 @@ dances:
         Dancing from 8–10:30PM
       url: https://www.bfms.org/squarecontra.php
 
-    - name: Lenox Contra Dance
-      date: 2023-11-18T19:15-05:00
-      date_end: 2023-11-18T22:30-05:00
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 65 Walker Street
-      city: Lenox MA
-      description: |+
-        Workshop at 7:15PM  
-        Dancing from 7:30–10:30PM
-      url: https://lenoxcontradance.org/
-
-  past:
     - name: Common Floor Contra
       date: 2023-07-30T19:30-04:00
       date_end: 2023-07-30T22:00-04:00
