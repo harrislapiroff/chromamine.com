@@ -18,7 +18,7 @@ So I've created this new blog. I've stuck it in a design that I think is cute an
 
 I've had blogs in the past, on and off. I've maintained them with greater and lesser success at times and I make no promises about how well I'll do with this one. I will try to keep my FILDI[^2] strong. We'll see how it goes.
 
-[co2]: /2022/08/my-co2-monitor/
+[co2]: /2022/08/aranet4/
 [mixers]: /2022/10/mixers-at-contra-dances/
 [third-parties]: https://x.com/
 [POSSE]: https://indieweb.org/POSSE
