@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/harrislapiroff
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://chromamine.com
+  * I am harrislapiroff (https://keybase.io/harrislapiroff) on keybase.
+  * I have a public key ASD8bRwZDKB6kCfzKUj2zN18an1w-0WKGuW3Pbg6GuIBfgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120fc6d1c190ca07a9027f32948f6ccdd7c6a7d70fb458a1ae5b73db83a1ae2017e0a",
+      "host": "keybase.io",
+      "kid": "0120fc6d1c190ca07a9027f32948f6ccdd7c6a7d70fb458a1ae5b73db83a1ae2017e0a",
+      "uid": "ab551b0df9e340697346825c57aba219",
+      "username": "harrislapiroff"
+    },
+    "merkle_root": {
+      "ctime": 1505151210,
+      "hash": "6f80c6fd27f6e766d8dd614d07b38c0354286c94198485e5cca1bc54f96840ad85e2bbfd5470e3f7d79f969bcb7a2e720969115443144e293f291551abbb6880",
+      "hash_meta": "34275e9f7959eb6c1cc48848c2166353e8865307d263b204f5487a7957add78a",
+      "seqno": 1380420
+    },
+    "service": {
+      "hostname": "chromamine.com",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.29"
+  },
+  "ctime": 1505151220,
+  "expire_in": 504576000,
+  "prev": "c1bf477a565c550b56b721603d36c4646f445db822c5e49032483b58435f06d6",
+  "seqno": 12,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg/G0cGQygepAn8ylI9szdfGp9cPtFihrltz24OhriAX4Kp3BheWxvYWTFA0x7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZmM2ZDFjMTkwY2EwN2E5MDI3ZjMyOTQ4ZjZjY2RkN2M2YTdkNzBmYjQ1OGExYWU1YjczZGI4M2ExYWUyMDE3ZTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZmM2ZDFjMTkwY2EwN2E5MDI3ZjMyOTQ4ZjZjY2RkN2M2YTdkNzBmYjQ1OGExYWU1YjczZGI4M2ExYWUyMDE3ZTBhIiwidWlkIjoiYWI1NTFiMGRmOWUzNDA2OTczNDY4MjVjNTdhYmEyMTkiLCJ1c2VybmFtZSI6ImhhcnJpc2xhcGlyb2ZmIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTA1MTUxMjEwLCJoYXNoIjoiNmY4MGM2ZmQyN2Y2ZTc2NmQ4ZGQ2MTRkMDdiMzhjMDM1NDI4NmM5NDE5ODQ4NWU1Y2NhMWJjNTRmOTY4NDBhZDg1ZTJiYmZkNTQ3MGUzZjdkNzlmOTY5YmNiN2EyZTcyMDk2OTExNTQ0MzE0NGUyOTNmMjkxNTUxYWJiYjY4ODAiLCJoYXNoX21ldGEiOiIzNDI3NWU5Zjc5NTllYjZjMWNjNDg4NDhjMjE2NjM1M2U4ODY1MzA3ZDI2M2IyMDRmNTQ4N2E3OTU3YWRkNzhhIiwic2Vxbm8iOjEzODA0MjB9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiY2hyb21hbWluZS5jb20iLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjI5In0sImN0aW1lIjoxNTA1MTUxMjIwLCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6ImMxYmY0NzdhNTY1YzU1MGI1NmI3MjE2MDNkMzZjNDY0NmY0NDVkYjgyMmM1ZTQ5MDMyNDgzYjU4NDM1ZjA2ZDYiLCJzZXFubyI6MTIsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAVogrOG3+gcINW5YorxUJskU8CYjvO90I0MUxS76umIyY7/gszJmGpgFMAO9ZLAu/EFDk+PBXu4WpGKI2VhuVD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHbwUv5jvXCw27tSJaNwSYVC0vOG2K42R16RGp99EAQro3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/harrislapiroff
+
+==================================================================
