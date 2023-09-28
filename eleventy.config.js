@@ -22,6 +22,10 @@ module.exports = function(eleventyConfig) {
      *-------------------------------------*/
     eleventyConfig.addPassthroughCopy("src/**/*.js");
 
+    /* Pass .well-known through
+     *-------------------------------------*/
+    eleventyConfig.addPassthroughCopy("src/.well-known")
+
     /* Add RSS
      *-------------------------------------*/
     eleventyConfig.addPlugin(pluginRss);
