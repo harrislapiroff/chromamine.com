@@ -4,12 +4,8 @@ date: 2022-10-17
 categories: ['Dance']
 tags: [Contra, Calling]
 xposts:
-    - label: Twitter
-      url: TBD
     - label: Facebook
-      url: TBD
-    - label: Mastodon
-      url: TBD
+      url: https://www.facebook.com/harrislap/posts/pfbid0TyzSjF9tRGW7qCt7oE4CYZ9vNCiuKKVa8DQmJWM7AXak9G3tzt6CoCL9795perZQl
 ---
 
 At BIDA, the contra dance I help organize, as part of our [caller welcome document][callerdoc] we encourage callers to program a mixer early in the evening. In a mixer, instead of keeping the same partner for the duration of a dance, you switch partners each time through the choreography.
