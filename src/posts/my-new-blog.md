@@ -1,6 +1,6 @@
 ---
 title: My New Blog
-date: 2023-09-26
+date: 2023-09-29
 categories: ['Meta']
 tags: ['web', 'writing']
 xposts: []
