@@ -3,7 +3,11 @@ title: My New Blog
 date: 2023-09-29
 categories: ['Meta']
 tags: ['web', 'writing']
-xposts: []
+xposts: 
+    - label: Mastodon
+      url: https://social.coop/@harris/111149360381710416
+    - label: Facebook
+      url: https://www.facebook.com/harrislap/posts/pfbid0vTA5Nupifw6of7goRvwB7Qh9EJfYfPHuRF7o3UMtatHYNX2d2p97xmoNhCMa6QLSl
 ---
 
 I'm starting a blog (again)! Why do I want to have a blog?
