@@ -42,6 +42,18 @@
             max-width: 100%
             height: auto
 
+        .footnotes
+            &::before
+                content: "Footnotes"
+                display: block
+                color: var(--color-text-muted)
+                margin-bottom: calc(var(--line-height-base) / 2)
+            li
+                margin-bottom: calc(var(--line-height-base) / 2)
+
+            li > *:last-child
+                margin-bottom: 0
+
 .blog-post__draft-label
     font-size: .8em
     text-transform: uppercase

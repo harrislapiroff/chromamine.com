@@ -36,14 +36,41 @@ module.exports = function(eleventyConfig) {
         return collection.getFilteredByGlob("src/posts/*.md")
     })
 
-    /* Add typographer to markdown
+    /* Add typographer and footnotes to markdown
      *-------------------------------------*/
     const markdownIt = require("markdown-it")
     const markdownFootnotes = require("markdown-it-footnote")
     let mdOptions = {
         typographer: true,
     }
-    eleventyConfig.setLibrary("md", markdownIt(mdOptions).use(markdownFootnotes))
+    const md = markdownIt(mdOptions).use(markdownFootnotes)
+    // Render footnotes simply in an ordered list
+    md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'
+    md.renderer.rules.footnote_block_close = () => '</ol>'
+    // Use unicode superscript numbers for footnote refs instead of the default
+    // behavior of using <sup> tags
+    const supNumbers = ['⁰','¹','²','³','⁴','⁵','⁶','⁷','⁸','⁹']
+    md.renderer.rules.footnote_caption = (tokens, idx) => {
+        let n = Number(tokens[idx].meta.id + 1).toString()
+        if (tokens[idx].meta.subId > 0) {
+            n += ':' + tokens[idx].meta.subId
+        }
+        let nStr = n.toString()
+        return nStr.split('').map((c) => supNumbers[c]).join('')
+    }
+    md.renderer.rules.footnote_ref = (tokens, idx, options, env, slf) => {
+        const id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
+        const caption = slf.rules.footnote_caption(tokens, idx, options, env, slf);
+        let refid = id;
+
+        if (tokens[idx].meta.subId > 0) {
+            refid += ':' + tokens[idx].meta.subId;
+        }
+
+        return '<a href="#fn' + id + '" class="footnote-ref" id="fnref' + refid + '">' + caption + '</a>';
+    }
+
+    eleventyConfig.setLibrary("md", md)
 
     /* Add sass support
      * see: https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
