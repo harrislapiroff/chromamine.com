@@ -42,6 +42,7 @@ module.exports = function(eleventyConfig) {
     const markdownFootnotes = require("markdown-it-footnote")
     let mdOptions = {
         typographer: true,
+        html: true,
     }
     const md = markdownIt(mdOptions).use(markdownFootnotes)
     // Render footnotes simply in an ordered list
