@@ -24,4 +24,4 @@ I've had blogs in the past, on and off. I've maintained them with greater and le
 [Jeff]: https://www.jefftk.com/
 
 [^1]: Hat tip to [Jeff][] for pointing out the relevant acronym to me as well as being a blogging inspiration.
-[^2]: Fuck It Let's Do It – as coined by early aughts blogger Ze Frank.
+[^2]: Fuck It Let's Do It – as coined by aughts vlogger Ze Frank.
