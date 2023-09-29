@@ -3,7 +3,6 @@ title: My New Blog
 date: 2023-09-26
 categories: ['Meta']
 tags: ['web', 'writing']
-eleventyExcludeFromCollections: true # this is a draft
 xposts: []
 ---
 
