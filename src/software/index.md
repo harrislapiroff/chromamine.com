@@ -12,7 +12,7 @@ I occasionally take side jobs, but because I have a full-time job, friends, part
 * It is something that **contributes to the public good in a high-impact way**.
 * It has a **minimum budget of $1,000**. If it is any amount of complex the budget is larger than that.
 
-if you think you have a job that fits some or all of those criteria, please get in touch: [software@chromamine.com][].
+If you think you have a job that fits some or all of those criteria, please get in touch: [software@chromamine.com][].
 
 [Engineering Manager (Web)]: https://freedom.press/people/harris-lapiroff/
 [Freedom of the Press Foundation]: https://freedom.press/
