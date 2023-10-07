@@ -38,6 +38,21 @@
             max-width: 100%
             height: auto
 
+        hr
+            margin: 0
+            padding: 0
+            border: 0
+            &::before
+                content: "* * *"
+                display: block
+                margin-bottom: var(--line-height-base)
+                color: var(--color-text-muted)
+
+        blockquote
+            margin-top: 0
+            margin-bottom: 0
+            margin-left: 4ch
+
         .footnotes
             &::before
                 content: "Footnotes"
