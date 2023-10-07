@@ -3,11 +3,11 @@ title: Eleventy
 date: 2023-10-07
 categories: ['Software']
 tags: ['web', 'eleventy']
-# xposts:
-#     - label: Facebook
-#       url: TBD
-#     - label: Mastodon
-#       url: TBD
+xposts:
+    - label: Facebook
+      url: https://www.facebook.com/harrislap/posts/pfbid02M6qCtrja2tpEY35DyapkEKkChhCHhbo1fDfj2mqoBT61Yav4WpzMdmQSTXtmq29ml
+    - label: Mastodon
+      url: https://social.coop/deck/@harris/111195964086992384
 ---
 
 I love the idea of static site generators (sometimes known as SSGs or SSBs – static site builders). They eschew the complexity of modern CMSes such as Wordpress. Instead of server-side code and databases, a static site generator is a script that, when run, transforms a folder of text files and templates into HTML.
