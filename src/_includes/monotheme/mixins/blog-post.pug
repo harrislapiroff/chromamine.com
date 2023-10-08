@@ -15,7 +15,7 @@ mixin blog-post(post, opts = { extraClasses: [] })
                     ul.tag-list
                         each tag in post.tags
                             li.tag-list__item
-                                a.tag-list__link(href=filters.url('tags/' + filters.slugify(tag)))= tag
+                                a.tag-list__link(href=filters.url('/tags/' + filters.slugify(tag)))= tag
             .blog-post__xposts
                 if post.xposts
                     = "Also posted on: "
