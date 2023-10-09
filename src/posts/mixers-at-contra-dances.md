@@ -2,7 +2,7 @@
 title: Mixers at Contra Dances
 date: 2022-10-17
 categories: ['Dance']
-tags: [Contra, Calling]
+tags: [contra, calling]
 xposts:
     - label: Facebook
       url: https://www.facebook.com/harrislap/posts/pfbid0TyzSjF9tRGW7qCt7oE4CYZ9vNCiuKKVa8DQmJWM7AXak9G3tzt6CoCL9795perZQl
