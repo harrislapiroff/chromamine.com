@@ -129,6 +129,11 @@ module.exports = function(eleventyConfig) {
         return markdownIt(mdOptions).render(value)
     })
 
+    eleventyConfig.addFilter(
+        "pluralize",
+        (value, singular = '', plural = 's') => value === 1 ? singular : plural
+    )
+
     /* Allow YAML configuration files
      *-------------------------------------*/
     const yaml = require("js-yaml")

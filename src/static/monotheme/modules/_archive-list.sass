@@ -17,7 +17,7 @@
 
 .archive-list--tags
     > .archive-list__item
-        margin-right: 1em
+        margin-right: 2ch
     > .archive-list__item
         display: inline-block
         a
@@ -28,3 +28,9 @@
                 text-decoration: underline
                 color: var(--color-link-hover)
                 text-decoration-color: var(--color-base)
+
+.archive-list__item-tag-name::after
+    content: '\00a0'
+
+.archive-list__item-tag-count
+    font-weight: var(--font-weight-normal)

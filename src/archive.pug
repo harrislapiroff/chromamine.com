@@ -9,12 +9,18 @@ h2= "Tags"
     const tags = Object.keys(collections)
         .filter(t => !['all', 'posts'].includes(t))
         .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+        .map(t => ({
+            name: t,
+            count: collections[t].length
+        }))
 
 // Render the tags in a list
 ul.archive-list.archive-list--tags
     each tag in tags
         li.archive-list__item
-            a.archive-list__item-link(href=`/tags/${filters.slugify(tag)}/`)= tag
+            a.archive-list__item-link(href=`/tags/${filters.slugify(tag.name)}/`)
+                span.archive-list__item-tag-name= tag.name
+                span.archive-list__item-tag-count= `(${tag.count} post${filters.pluralize(tag.count)})`
 
 // Render the posts by date
 include _includes/monotheme/mixins/archive-list.pug
