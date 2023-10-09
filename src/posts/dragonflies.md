@@ -2,7 +2,7 @@
 title: We're not as pretty as the dragonflies.
 date: 2013-08-03
 categories: ['Life']
-tags: [Pinewoods, dance]
+tags: [Pinewoods, dance, contra, writing]
 ---
 
 ![A blue evening picture of two young women sitting on a dock over a ripple-dappled pond.](/media/dragonflies/pinewoods.jpg)

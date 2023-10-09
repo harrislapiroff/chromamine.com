@@ -2,7 +2,7 @@
 title: On Loneliness
 date: 2012-05-06
 categories: ['Life']
-tags: []
+tags: [writing]
 ---
 
 It's nearly summer now and the world is exposed and beautiful, green and sunny, throwing itself at my feet, yet I have been thinking about loneliness.
