@@ -27,16 +27,11 @@
 
         li
             margin-bottom: calc(var(--line-height-base) / 2)
+            &::marker
+                color: var(--color-text-muted)
 
         ul > li
-            list-style-type: none
-            &::before
-                content: "-"
-                display: block
-                float: left
-                width: 2ch
-                margin-left: -2ch
-                color: var(--color-text-muted)
+            list-style-type: "- "
 
         strong
             font-weight: var(--font-weight-bold)
