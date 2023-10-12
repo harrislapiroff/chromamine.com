@@ -2,7 +2,7 @@
 
 .blog-post
     &__header-permalink
-        color: inherit
+        color: var(--color-text-striking)
         &::before
             display: block
             float: left
@@ -47,6 +47,27 @@
                 display: block
                 margin-bottom: var(--line-height-base)
                 color: var(--color-text-muted)
+
+        h1, h2, h3, h4, h5
+            &::before
+                content: "§"
+                display: block
+                width: 2ch
+                margin-left: -2ch
+                float: left
+                color: var(--color-text-muted)
+                font-style: normal
+
+        // We number h3 as h1 because it is the topmost heading *within* an article
+        h3
+            color: var(--color-text-striking)
+            font-weight: var(--font-weight-bold)
+
+        h4
+            font-style: italic
+
+        h5
+            color: var(--color-text-muted)
 
         blockquote
             margin-top: 0

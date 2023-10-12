@@ -71,6 +71,30 @@ module.exports = function(eleventyConfig) {
         return '<a href="#fn' + id + '" class="footnote-ref" id="fnref' + refid + '">' + caption + '</a>';
     }
 
+    // Increase h1s to h3 and so forth
+    // see: https://github.com/markdown-it/markdown-it/issues/871#issuecomment-1752196424
+    const proxy = (tokens, idx, options, env, self) => self.renderToken(tokens, idx, options)
+    const BASE_HEADING_LEVEL = 3;
+    const defaultHeadingOpenRenderer = md.renderer.rules.heading_open || proxy;
+    const defaultHeadingCloseRenderer = md.renderer.rules.heading_close || proxy;
+    const increase = (tokens, idx) => {
+        const tokens_ = {...tokens}
+        const level = Number(tokens_[idx].tag[1])
+        // Don't go smaller than h6
+        if (level < 6) {
+            tokens_[idx].tag = tokens_[idx].tag[0] + (level + BASE_HEADING_LEVEL - 1)
+        }
+        return tokens_
+    }
+    md.renderer.rules.heading_open = (tokens, idx, options, env, self) => {
+        increase(tokens, idx);
+        return defaultHeadingOpenRenderer(tokens, idx, options, env, self)
+    }
+    md.renderer.rules.heading_close = (tokens, idx, options, env, self) => {
+        increase(tokens, idx);
+        return defaultHeadingCloseRenderer(tokens, idx, options, env, self)
+    }
+
     eleventyConfig.setLibrary("md", md)
 
     /* Add sass support
