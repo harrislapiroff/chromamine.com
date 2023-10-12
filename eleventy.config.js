@@ -98,28 +98,9 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.setLibrary("md", md)
 
     /* Add sass support
-     * see: https://www.11ty.dev/docs/languages/custom/#example-add-sass-support-to-eleventy
      *-------------------------------------*/
-    const sass = require("sass")
-    eleventyConfig.addTemplateFormats("sass");
-    // Creates the extension for use
-    eleventyConfig.addExtension("sass", {
-        outputFileExtension: "css",
-        compile: async function(inputContent, inputPath) {
-            const parsed = path.parse(inputPath)
-            let result = sass.compileString(
-                inputContent,
-                {
-                    syntax: 'indented',
-                    loadPaths: [
-                        parsed.dir || '.',
-                        'static'
-                    ]
-                }
-            );
-            return async () => result.css
-        }
-    })
+    const eleventySass = require("eleventy-sass")
+    eleventyConfig.addPlugin(eleventySass)
 
     /* Custom filters
      *-------------------------------------*/
