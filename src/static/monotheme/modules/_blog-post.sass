@@ -6,8 +6,8 @@
         &::before
             display: block
             float: left
-            margin-left: -1.8em
-            width: -1.5em
+            margin-left: -2ch
+            width: 2ch
             content: "¶"
         &:hover
             color: var(--color-link-hover)
@@ -27,6 +27,16 @@
 
         li
             margin-bottom: calc(var(--line-height-base) / 2)
+
+        ul > li
+            list-style-type: none
+            &::before
+                content: "-"
+                display: block
+                float: left
+                width: 2ch
+                margin-left: -2ch
+                color: var(--color-text-muted)
 
         strong
             font-weight: var(--font-weight-bold)
