@@ -7,25 +7,31 @@
     --font-weight-bold: 600
     --line-height-base: 2.5rem
 
-    --color-gray: lch(50% 2 87)
-    --color-70-black: lch(30% 2 87)
-    --color-70-white: lch(70% 2 87)
+    --color-55-white: lch(55% 2 87)
+    --color-55-black: lch(45% 2 87)
+    --color-75-black: lch(25% 2 87)
+    --color-85-black: lch(15% 2 87)
+    --color-75-white: lch(75% 2 87)
+    --color-85-white: lch(85% 2 87)
     --color-almost-white: lch(90% 2 87)
     --color-almost-black: lch(10% 2 87)
     --color-pink: lch(29% 132 339)
     --color-pink-brighter: lch(50% 132 339)
     --color-pink-hover: lch(20% 132 339)
     --color-pink-brighter-hover: lch(50% 132 339)
-    --color-blue: lch(35% 132 200)
+    --color-blue-35: lch(35% 132 200)
+    --color-blue-45: lch(45% 132 200)
     --color-red-pink: lch(50% 132 25)
     --color-red-pink-brighter: lch(70% 132 25)
 
     --color-background: var(--color-almost-white)
-    --color-base: var(--color-70-black)
-    --color-text-muted: var(--color-gray)
+
+    --color-base: var(--color-75-black)
+    --color-text-muted: var(--color-55-black)
+    --color-text-striking: var(--color-85-black)
     --color-link: var(--color-pink)
     --color-link-hover: var(--color-pink-hover)
-    --color-link-visited: var(--color-blue)
+    --color-link-visited: var(--color-blue-35)
     --color-transparent-bg-faint: lch(0% 0 0 / 0.05)
     --color-accent-1: var(--color-red-pink)
 
@@ -37,10 +43,12 @@
 
     +dark-mode
         --color-background: var(--color-almost-black)
-        --color-base: var(--color-70-white)
-        --color-text-muted: var(--color-gray)
+        --color-base: var(--color-75-white)
+        --color-text-muted: var(--color-55-white)
+        --color-text-striking: var(--color-85-white)
         --color-link: var(--color-pink-brighter)
         --color-link-hover: var(--color-pink-brighter-hover)
+        --color-link-visited: var(--color-blue-45)
         --color-transparent-bg-faint: lch(100% 0 0 / 0.05)
         --color-accent-1: var(--color-red-pink-brighter)
 

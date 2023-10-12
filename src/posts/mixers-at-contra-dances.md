@@ -14,7 +14,7 @@ In my experience mixers tend to be unpopular with experienced dancers. It doesn�
 
 I called a “scatter mixer” at BIDA last night in the third slot of the evening (Chris Page’s “[Accretion Reel][]”). This was partially to solve a calling problem I’ve been experiencing recently and partially to assess whether I stand by our advice to callers. Conclusion: I stand by it and, while they may not be the most stimulating dances for experienced contra dancers, they serve some important community functions:
 
-## They split up beginner-beginner couples
+# They split up beginner-beginner couples
 
 This is the problem I initially set out trying to solve by programming a mixer. Beginners will often come to dances as a couple expecting to dance with each other, which is totally reasonable! But it makes it much more likely that, without an experienced partner to help them, they’ll get lost in a dance, which can have cascading effects that, in a worst-case scenario, might cause the line they’re in to fall apart. When I notice couples like this in the hall I often adjust my program to call simpler dances, which is fine, but not my ideal! Contra dances also have a pretty strong culture of dancing with different people for each dance and I want to ensure new dancers learn that.
 
@@ -22,11 +22,11 @@ During the lesson, I encourage beginners to partner with other people, but they 
 
 I’m not sure if it was the mixer or just the particular crowd last night, but I didn’t notice many beginner-beginner couples after that dance.
 
-## They introduce you to a lot of people
+# They introduce you to a lot of people
 
 Along similar lines, I think a mixer early in the evening can help integrate people new to a community. It lets dancers build up a group of people who they notice a nice dance connection with and clears the way to ask them to dance later in the evening. This is the rationale BIDA explicitly uses in our caller welcome (“to help people meet and dance with new faces”).
 
-## They’re unserious
+# They’re unserious
 
 Experienced dancers can get very serious about their contra dances! There’s a lot of room in contra for people to show off practiced skills—precision, timeliness, the right amount of weight, flourishes, correctness. And there’s a lot of contra choreography that can get pretty interesting and cerebral! Mixers on the other hand tend to be very simple, with loose timing. They’re often a bit goofy. It feels to me like good community vibes.
 
