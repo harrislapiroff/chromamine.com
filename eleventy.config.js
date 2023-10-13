@@ -120,6 +120,36 @@ module.exports = function(eleventyConfig) {
         return defaultHeadingCloseRenderer(tokens, idx, options, env, self)
     }
 
+    // Responsive Images
+    // see: https://tomichen.com/blog/posts/20220416-responsive-images-in-markdown-with-eleventy-image/
+    const Image = require("@11ty/eleventy-img")
+    const IMAGE_WIDTHS = [640, 1280, 1920]
+    md.renderer.rules.image = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        const naiveSrc = token.attrGet('src')
+        // if it's an absolute path, specify the file from the `/src` directory
+        // otherwise intelligently concatenate it with the parent dir of the page
+        const src = naiveSrc[0] === '/' ? './src' + naiveSrc : path.join(path.dirname(env.page.inputPath), naiveSrc)
+        const alt = token.content
+        const htmlAttributes = { alt, loading: 'lazy', decoding: 'async' }
+        const imgOpts = {
+            widths: IMAGE_WIDTHS,
+            formats: ['jpeg', 'png', 'webp', 'svg'],
+            urlPath: '/media/img/',
+            outputDir: './_site/media/img/',
+        }
+        Image(src, imgOpts)
+        const metadata = Image.statsSync(src, imgOpts)
+        const generated = Image.generateHTML(
+            metadata,
+            {
+                sizes: '(max-width: 768px) 100vw, 768px',
+                ...htmlAttributes
+            }
+        )
+        return generated
+    }
+
     eleventyConfig.setLibrary("md", md)
 
     /* Add sass support
