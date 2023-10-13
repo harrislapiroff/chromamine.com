@@ -99,8 +99,10 @@ module.exports = function(eleventyConfig) {
 
     /* Add sass support
      *-------------------------------------*/
+    const pluginRev = require("eleventy-plugin-rev")
     const eleventySass = require("eleventy-sass")
-    eleventyConfig.addPlugin(eleventySass)
+    eleventyConfig.addPlugin(pluginRev)
+    eleventyConfig.addPlugin(eleventySass, { rev: true })
 
     /* Custom filters
      *-------------------------------------*/
