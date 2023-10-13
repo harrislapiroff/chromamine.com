@@ -80,17 +80,22 @@
             margin-left: 4ch
 
         pre
-            font-family: inherit
+            font-family: inherit !important
+            border-radius: 0 !important
+            background: transparent !important
+            margin: calc(var(--line-height-base) / 2) -1.5ch !important
+            padding: calc(var(--line-height-base) / 2) 1.5ch !important
+            background-color: var(--color-background-code) !important
+            color: var(--color-foreground-code)
 
         code
-            font-family: inherit
-            background-color: var(--color-background-code)
+            font-family: inherit !important
+            background-color: var(--color-background-code) !important
             color: var(--color-foreground-code)
 
         pre > code
-            display: block
-            margin: calc(var(--line-height-base) / 2) -1.5ch
-            padding: calc(var(--line-height-base) / 2) 1.5ch
+            display: block !important
+            background-color: transparent
 
         .footnotes
             &::before
