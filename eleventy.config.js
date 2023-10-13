@@ -36,6 +36,11 @@ module.exports = function(eleventyConfig) {
         return collection.getFilteredByGlob("src/posts/*.md")
     })
 
+    /* Add syntax highlighting
+     *-------------------------------------*/
+    const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
+    eleventyConfig.addPlugin(syntaxHighlight)
+
     /* Add typographer and footnotes to markdown
      *-------------------------------------*/
     const markdownIt = require("markdown-it")
