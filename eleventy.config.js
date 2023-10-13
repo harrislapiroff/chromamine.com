@@ -12,15 +12,33 @@ module.exports = function(eleventyConfig) {
         global.d3format = d3format
     })
 
+    /* Run ESBuild after building site
+     *-------------------------------------*/
+    eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
+        const esbuild = await import("esbuild")
+        const entryPoints = [
+            {
+                in: path.join(dir.input, 'contra', 'static', 'scripts', 'all.js'),
+                out: path.join('contra', 'static', 'scripts', 'all'),
+            },
+            {
+                in: path.join(dir.input, 'static', 'scripts', 'index.js'),
+                out: path.join('static', 'scripts', 'index'),
+            },
+        ]
+        await esbuild.build({
+            entryPoints,
+            outdir: dir.output,
+            bundle: true,
+        })
+    })
+    eleventyConfig.addWatchTarget('./src/static/scripts/')
+    eleventyConfig.addWatchTarget('./src/contra/static/scripts/')
+
     /* Pass media directory through
      *-------------------------------------*/
     eleventyConfig.addPassthroughCopy("src/media")
     eleventyConfig.addPassthroughCopy("src/contra/media")
-
-    /* Pass javascript through
-     * TODO: replace this with an eslint pipeline that will bundle imports
-     *-------------------------------------*/
-    eleventyConfig.addPassthroughCopy("src/**/*.js");
 
     /* Pass .well-known through
      *-------------------------------------*/
