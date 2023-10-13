@@ -30,6 +30,8 @@ module.exports = function(eleventyConfig) {
             entryPoints,
             outdir: dir.output,
             bundle: true,
+            minify: true,
+            sourcemap: true,
         })
     })
     eleventyConfig.addWatchTarget('./src/static/scripts/')
