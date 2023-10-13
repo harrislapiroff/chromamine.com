@@ -17,6 +17,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "eleventy-plugin-rev": "^1.1.1",
     "eleventy-sass": "^2.2.3",
+    "esbuild": "^0.19.4",
     "markdown-it-footnote": "^3.0.3"
   },
   "dependencies": {
