@@ -152,6 +152,29 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.setLibrary("md", md)
 
+    /* Image grids
+     *-------------------------------------*/
+    eleventyConfig.addPairedShortcode("imagegrid", function (content) {
+        // Add page data to the env to match the env that gets
+        // passed to markdown during normal rendering
+        const env = {
+            ...this.eleventy.env,
+            page: this.page
+        }
+        const images = content.split('\n')
+            // Remove indentation whitespace
+            .map((line) => line.trim())
+            // Remove blank lines
+            .filter(l => l !== '')
+            // Then render remaining lines inline to avoid erroneous paragraph tags
+            .map((line) => md.renderInline(line, env))
+        return [
+            `<div class="image-grid">`,
+            ...images.map((img) => `<div class="image-grid__item">${img}</div>`),
+            `</div>`
+        ].join('')
+    })
+
     /* Add sass support
      *-------------------------------------*/
     const pluginRev = require("eleventy-plugin-rev")
