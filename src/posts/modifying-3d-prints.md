@@ -3,6 +3,7 @@ title: Modifying 3D Prints to Perfection
 date: 2023-10-13
 categories: ['Miscellany']
 tags: [3D printing, making]
+eleventyExcludeFromCollections: true
 # xposts:
 #     - label: Facebook
 #       url: https://www.facebook.com/harrislap/posts/pfbid0TyzSjF9tRGW7qCt7oE4CYZ9vNCiuKKVa8DQmJWM7AXak9G3tzt6CoCL9795perZQl
