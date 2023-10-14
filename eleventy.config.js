@@ -56,20 +56,33 @@ module.exports = function(eleventyConfig) {
         return collection.getFilteredByGlob("src/posts/*.md")
     })
 
-    /* Add syntax highlighting
-     *-------------------------------------*/
-    const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
-    eleventyConfig.addPlugin(syntaxHighlight)
-
-    /* Add typographer and footnotes to markdown
+    /* Add markdown features
      *-------------------------------------*/
     const markdownIt = require("markdown-it")
+
+    // Footnotes and Highlighting are configured via
+    // instantiation options
     const markdownFootnotes = require("markdown-it-footnote")
+    var hljs = require('highlight.js')
     let mdOptions = {
         typographer: true,
         html: true,
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return (
+                        '<pre class="hljs"><code>' +
+                        hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+                        '</code></pre>'
+                    )
+                } catch (__) {}
+            }
+
+            return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+        }
     }
     const md = markdownIt(mdOptions).use(markdownFootnotes)
+
     // Render footnotes simply in an ordered list
     md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'
     md.renderer.rules.footnote_block_close = () => '</ol>'
@@ -180,7 +193,16 @@ module.exports = function(eleventyConfig) {
     const pluginRev = require("eleventy-plugin-rev")
     const eleventySass = require("eleventy-sass")
     eleventyConfig.addPlugin(pluginRev)
-    eleventyConfig.addPlugin(eleventySass, { rev: true })
+    eleventyConfig.addPlugin(
+        eleventySass,
+        {
+            rev: true,
+            sass: {
+                // Allow importing of CSS files from node_modules
+                loadPaths: ['./node_modules'],
+            },
+        }
+    )
 
     /* Custom filters
      *-------------------------------------*/
