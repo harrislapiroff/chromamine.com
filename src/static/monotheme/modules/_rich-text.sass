@@ -60,20 +60,15 @@
         margin-bottom: 0
         margin-left: 4ch
 
-    pre
-        font-family: inherit !important
-        border-radius: 0 !important
-        background: transparent !important
-        margin: calc(var(--line-height-base) / 2) -1.5ch !important
-        padding: calc(var(--line-height-base) / 2) 1.5ch !important
-        background-color: var(--color-background-code) !important
-        color: var(--color-foreground-code)
+    pre.hljs
+        margin: calc(var(--line-height-base) / 2) -2ch !important
+        padding: calc(var(--line-height-base) / 2) 2ch !important
+        overflow-x: auto
 
-    code
-        font-family: inherit !important
-        background-color: var(--color-background-code) !important
-        color: var(--color-foreground-code)
+        +tiny-dn
+            margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2) !important
+            padding: calc(var(--line-height-base) / 2) var(--page-padding) !important
 
-    pre > code
-        display: block !important
-        background-color: transparent
+    pre.hljs, pre.hljs > code
+        font-family: inherit
+        background-color: var(--color-background-code) !important
