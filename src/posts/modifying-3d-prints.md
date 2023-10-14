@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
 #       url: https://www.facebook.com/harrislap/posts/pfbid0TyzSjF9tRGW7qCt7oE4CYZ9vNCiuKKVa8DQmJWM7AXak9G3tzt6CoCL9795perZQl
 ---
 
-One of the joys of 3D printing is the discovering a particular need to solve, searching it up on [Printables][], [Thingiverse][], or any number of 3D model repositories and — lo and behold someone has a model for that! You pop the file into your 3D printer – maybe with a quick stopover at your [slicer][prusaslicer] – et voilà, problem solved.
+One particular joy of 3D printing is the discovering a some quality of life improvement that could be made, searching it up on [Printables][], [Thingiverse][], or any number of 3D model repositories and — lo and behold someone has designed a model for that! You pop the file into your 3D printer – maybe with a quick stopover at your [slicer][prusaslicer] – et voilà, problem solved.
 
 [Printables]: https://www.printables.com/
 [Thingiverse]: https://www.thingiverse.com/
@@ -19,7 +19,7 @@ It's pretty thrilling, even without ever doing any design work yourself. It's es
 
 ![A Snark guitar tuner clipped onto a guitar headstock. A red plastic semicircle surrounds the circumference of the tuner's round display and from it extends a red ball joint secured in the clip.](../media/modifying-3d-prints/guitar-tuner.jpg)
 
-Plenty of people stay in this space of 3D printing – finding designs online and printing them at home. But sometimes I have a need too specific to be solved by a premade design.
+Plenty of people spend most of their time in this space of 3D printing – finding designs online and printing them at home. Sometimes, though, you have a need too specific to be solved by a premade design.
 
 An example: One common problem with old toilet paper holders is that they're sized for the "normal" rolls of yesteryear, not the "mega" rolls of today. There's plenty of designs for toilet paper holder extenders online, but I couldn't find one that looked like it would fit our specific holder. So I designed my own:
 
@@ -28,9 +28,7 @@ An example: One common problem with old toilet paper holders is that they're siz
     ![The two cylindrical objects pictured earlier, now slotted around the arms of a ceramic toilet paper holder. They extend the length of the holder and a roll of toilet paper sits at the end, about an inch further out than it would without the extenders.](../media/modifying-3d-prints/tp-extenders-2.jpg)
 {% endimagegrid %}
 
-There's an in between option: Finding a design close to your needs and modifying it. Some designs are made for this – they're "parametric." You open them in particular software, enter the specific measurements or tweak the specific features, and export a model customized to your needs. But even with models that aren't designed this way, there's space for a lot of customization.
-
-I recently downloaded [this design for pantry bag clips][clips]. They're excellent — durable and secure[^1]. But I wanted them to stick to my fridge so I could always find them when needed. I do most of my designing in [OpenSCAD][], a coding based 3D modeling environment. I wrote this code to add a cavity to the clip where I could insert magnets:
+There's also an option between the premade and the fully bespoke: Finding a design close to your needs and modifying it. I recently downloaded [this design for pantry bag clips][clips]. They're excellent — durable and secure[^1]. But I wanted them to stick to my fridge so I could always find them when needed. I do most of my designing in [OpenSCAD][], a coding based 3D modeling environment. I wrote this code to add a cavity to the clip where I could insert magnets:
 
 [clips]: https://www.printables.com/model/229538-print-in-place-bag-clip-2-parametric/
 [OpenSCAD]: https://openscad.org/
@@ -61,7 +59,7 @@ which yields this (clip rendered transparent to make internal cavity visible):
 
 ![A 3D render of a bag clip, shown transparent, with a yellow cylinder embedded in the hinge of the clip](../media/modifying-3d-prints/clip-render.png)
 
-I sliced the model in [Prusa Slicer][prusaslicer] and added a pause at the top of the cavity, which tells my 3D printer to pause there and alert me to insert the magnets before continuing[^2].
+I sliced the model in [Prusa Slicer][prusaslicer] and added a pause at the top of the cavity, which tells my 3D printer to print that far, then alert me and wait for me to insert the magnets before continuing[^2].
 
 {% imagegrid %}
     ![A batch of 4 clips on a 3D printer bed, paused mid-print. Four shiny circular magnets are slotted into holes at the head of each clip](../media/modifying-3d-prints/clips-paused.jpg)
