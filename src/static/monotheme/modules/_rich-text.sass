@@ -1,0 +1,79 @@
+%rich-text
+    a:visited
+        color: var(--color-link-visited)
+
+    p, ul, ol
+        margin-top: 0
+        margin-bottom: var(--line-height-base)
+
+    li
+        margin-bottom: calc(var(--line-height-base) / 2)
+        &::marker
+            color: var(--color-text-muted)
+
+    ul > li
+        list-style-type: "- "
+
+    strong
+        font-weight: var(--font-weight-bold)
+
+    em
+        font-style: italic
+
+    img
+        max-width: 100%
+        height: auto
+
+    hr
+        margin: 0
+        padding: 0
+        border: 0
+        &::before
+            content: "* * *"
+            display: block
+            margin-bottom: var(--line-height-base)
+            color: var(--color-text-muted)
+
+    h1, h2, h3, h4, h5
+        &::before
+            content: "§"
+            display: block
+            width: 2ch
+            margin-left: -2ch
+            float: left
+            color: var(--color-text-muted)
+            font-style: normal
+
+    // We number h3 as h1 because it is the topmost heading *within* an article
+    h3
+        color: var(--color-text-striking)
+        font-weight: var(--font-weight-bold)
+
+    h4
+        font-style: italic
+
+    h5
+        color: var(--color-text-muted)
+
+    blockquote
+        margin-top: 0
+        margin-bottom: 0
+        margin-left: 4ch
+
+    pre
+        font-family: inherit !important
+        border-radius: 0 !important
+        background: transparent !important
+        margin: calc(var(--line-height-base) / 2) -1.5ch !important
+        padding: calc(var(--line-height-base) / 2) 1.5ch !important
+        background-color: var(--color-background-code) !important
+        color: var(--color-foreground-code)
+
+    code
+        font-family: inherit !important
+        background-color: var(--color-background-code) !important
+        color: var(--color-foreground-code)
+
+    pre > code
+        display: block !important
+        background-color: transparent
