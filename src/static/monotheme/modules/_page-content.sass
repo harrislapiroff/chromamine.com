@@ -1,6 +1,8 @@
 @import ../mixins
 
 .page-content
+    @extend %rich-text
+
     margin-right: calc(var(--blog-post-sidebar-width) + var(--blog-post-column-gap))
 
     +med-dn
