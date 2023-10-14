@@ -41,7 +41,7 @@
 
     --site-sidebar-width: 30rem
     --column-gap-base: 5rem
-    --page-padding: 15rem
+    --page-padding: calc(var(--line-height-base) * 5) 15ch
     --blog-post-sidebar-width: 20rem
     --blog-post-column-gap: 3rem
 
@@ -62,6 +62,10 @@
         --font-weight-normal: 400
 
     +small-dn
-        --page-padding: 5rem
+        --font-size-base: 1.4rem
+        --page-padding: calc(var(--line-height-base) * 4) 8ch
         --column-gap-base: 3rem
         --site-sidebar-width: 22.5rem
+
+    +tiny-dn
+        --page-padding: calc(var(--line-height-base) * 2) 5ch
