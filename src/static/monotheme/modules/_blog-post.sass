@@ -20,6 +20,18 @@
         +med-dn
             margin-right: 0
 
+        picture
+            display: block
+            margin-bottom: var(--line-height-base)
+
+            source, img
+                border-radius: 0.4rem
+
+            +tiny-dn
+                margin: 0 calc(-1 * var(--page-padding)) var(--line-height-base)
+                source, img
+                    border-radius: 0
+
         .footnotes
             &::before
                 content: "Footnotes"
