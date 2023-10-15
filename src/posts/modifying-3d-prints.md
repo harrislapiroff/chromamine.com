@@ -3,25 +3,28 @@ title: Modifying 3D Prints to Perfection
 date: 2023-10-13
 categories: ['Miscellany']
 tags: [3D printing, making]
-eleventyExcludeFromCollections: true
 # xposts:
 #     - label: Facebook
-#       url: https://www.facebook.com/harrislap/posts/pfbid0TyzSjF9tRGW7qCt7oE4CYZ9vNCiuKKVa8DQmJWM7AXak9G3tzt6CoCL9795perZQl
+#       url: 
 ---
 
-One particular joy of 3D printing is the discovering a some quality of life improvement that could be made, searching it up on [Printables][], [Thingiverse][], or any number of 3D model repositories and — lo and behold someone has designed a model for that! You pop the file into your 3D printer – maybe with a quick stopover at your [slicer][prusaslicer] – et voilà, problem solved.
+One particular joy of 3D printing is the discovering some potential quality of life improvement, searching it up on [Printables][], [Thingiverse][], or any other 3D model repository and — lo and behold someone has designed a model for that! You pop the file into your 3D printer – maybe with a quick stopover at your [slicer][prusaslicer] – et voilà, problem solved.
 
 [Printables]: https://www.printables.com/
 [Thingiverse]: https://www.thingiverse.com/
 [prusaslicer]: https://www.prusa3d.com/prusaslicer/
 
-It's pretty thrilling, even without ever doing any design work yourself. It's especially thrilling when the problems are too niche to have widely available solutions otherwise. 3D printing extends the long tail of practical objects. Here's a design I found online to replace the broken ball joint on my guitar tuner, extending its lifespan:
+It's pretty thrilling, even without ever doing any design yourself. It's especially thrilling when the problems are too niche to have widely available commercial solutions. 3D printing extends the long tail of practical objects. As an example, here's a design [I found online][tuner] to replace the broken ball joint on my guitar tuner, extending its lifespan:
+
+[tuner]: https://www.thingiverse.com/thing:4072679
 
 ![A Snark guitar tuner clipped onto a guitar headstock. A red plastic semicircle surrounds the circumference of the tuner's round display and from it extends a red ball joint secured in the clip.](../media/modifying-3d-prints/guitar-tuner.jpg)
 
-Plenty of people spend most of their time in this space of 3D printing – finding designs online and printing them at home. Sometimes, though, you have a need too specific to be solved by a premade design.
+Plenty of people spend most of their 3D printing time in this space – finding designs online and printing them at home. Sometimes, though, you have a need too specific to be solved by a premade design.
 
-An example: One common problem with old toilet paper holders is that they're sized for the "normal" rolls of yesteryear, not the "mega" rolls of today. There's plenty of designs for toilet paper holder extenders online, but I couldn't find one that looked like it would fit our specific holder. So I designed my own:
+For example: One common problem with old toilet paper holders is that they're sized for the "normal" rolls of yesteryear, not the "mega" rolls of today. There's [plenty of designs][tpextenders] for toilet paper holder extenders available, but I couldn't find one that looked like it would fit our specific holder. So I designed my own:
+
+[tpextenders]: https://www.printables.com/search/all?q=toilet%20paper%20extender
 
 {% imagegrid %}
     ![Two white cylindrical plastic objects with a slot through their middle and a divot on one side.](../media/modifying-3d-prints/tp-extenders-1.jpg)
@@ -66,7 +69,7 @@ I sliced the model in [Prusa Slicer][prusaslicer] and added a pause at the top o
     ![The same batch of four clips with the printhead extruding a layer of plastic over the magnets.](../media/modifying-3d-prints/clips-closing.jpg)
 {% endimagegrid %}
 
-And the finished product:
+And the finished product, with the magnets fully sealed inside:
 
 {% imagegrid %}
     ![A batch of clips of varying sizes stuck to a refrigerator door](../media/modifying-3d-prints/clips-fridge.jpg)
