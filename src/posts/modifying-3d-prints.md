@@ -3,9 +3,11 @@ title: Modifying 3D Prints to Perfection
 date: 2023-10-13
 categories: ['Miscellany']
 tags: [3D printing, making]
-# xposts:
-#     - label: Facebook
-#       url: 
+xposts:
+    - label: Facebook
+      url: https://www.facebook.com/harrislap/posts/pfbid02BZU794FSYHEBcDnNfMQgTMNZ14fULfqgZB8dNNiADTo9NeXz4Pg4jV4QFvsu4YFFl
+    - label: Mastodon
+      url: https://social.coop/@harris/111236286330861245
 ---
 
 One particular joy of 3D printing is the discovering some potential quality of life improvement, searching it up on [Printables][], [Thingiverse][], or any other 3D model repository and — lo and behold someone has designed a model for that! You pop the file into your 3D printer – maybe with a quick stopover at your [slicer][prusaslicer] – et voilà, problem solved.
