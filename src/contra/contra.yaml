@@ -26,7 +26,7 @@ dances:
       description: |+
         Workshop at 7PM  
         Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
+      street: Concord Scout House, 74 Walden Street
       city: Concord MA
       url: http://mondaycontras.com/
 
@@ -42,6 +42,15 @@ dances:
         Workshop at 7:15PM  
         Dancing from 7:30–10:30PM
       url: https://lenoxcontradance.org/
+
+    - name: Thursday Contras
+      date: 2024-02-15T19:10-05:00
+      date_end: 2024-02-15T22:00-05:00
+      tzid: America/New_York
+      band: Crossover (Carol Bittenson, Len Bittenson, and Alex Cumming)
+      street: Concord Scout House, 74 Walden Street
+      city: Concord MA
+      url: https://www.neffa.org/thursday-contras/
 
     - name: Thursday Night Contra
       date: 2024-06-26T19:30-04:00
