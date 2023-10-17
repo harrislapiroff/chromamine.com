@@ -10,6 +10,9 @@ module.exports = function(eleventyConfig) {
         const d3format = await import("d3-format")
         global.d3time = d3time
         global.d3format = d3format
+
+        const { compileObservable } = await import("./utils/ojs.mjs")
+        global.compileObservable = compileObservable
     })
 
     /* Run ESBuild after building site
@@ -280,6 +283,21 @@ module.exports = function(eleventyConfig) {
     global.filters = eleventyConfig.javascriptFunctions
     eleventyConfig.setPugOptions({
         globals: ['filters'],
+    })
+
+    /* OJS templates
+     * I.e., rendering Observable Notebooks as blog posts
+     *------------------------------------*/
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/@observablehq/runtime/dist/runtime.js": "static/scripts/observable-runtime.js"
+    })
+    eleventyConfig.addTemplateFormats("ojs")
+    eleventyConfig.addExtension("ojs", {
+        compile: async (inputContent) => {
+            return async (data) => await compileObservable(inputContent, {
+                runtimePath: '/static/scripts/observable-runtime.js',
+            })
+        }
     })
 
     return {

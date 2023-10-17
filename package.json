@@ -16,6 +16,8 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-img": "^3.1.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@alex.garcia/unofficial-observablehq-compiler": "^0.6.0-alpha.9",
+    "@observablehq/parser": "^6.0.0",
     "commander": "^11.1.0",
     "eleventy-plugin-rev": "^1.1.1",
     "eleventy-sass": "^2.2.3",
@@ -26,6 +28,7 @@
   },
   "dependencies": {
     "@ibm/plex": "^6.3.0",
+    "@observablehq/runtime": "^5.9.3",
     "d3": "^7.8.5",
     "prism-themes": "^1.9.0"
   }
