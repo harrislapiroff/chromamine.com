@@ -203,6 +203,11 @@ module.exports = function(eleventyConfig) {
             },
         }
     )
+    // Copy font files from node_modules since they won't be automatically
+    // imported with their corresponding CSS
+    eleventyConfig.addPassthroughCopy({
+        'node_modules/@ibm/plex/IBM-Plex-Mono/fonts/split/woff2/*.woff2': 'static/monotheme'
+    })
 
     /* Custom filters
      *-------------------------------------*/
