@@ -295,6 +295,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addExtension("ojs", {
         compile: async (inputContent) => {
             return async (data) => await compileObservable(inputContent, {
+                // TODO: Specify a unique div ID in case of rendering two notebooks on the same page
                 runtimePath: '/static/scripts/observable-runtime.js',
             })
         }
