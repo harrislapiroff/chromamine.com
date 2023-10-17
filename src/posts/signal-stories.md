@@ -2,7 +2,7 @@
 title: Signal Stories
 date: 2023-03-09
 categories: ['Software']
-xpost:
+xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid02v9jp5yk9KZZ9F5RsgxLfvT7CyWxNvX3uhXbzcNrwJoCNSq3stZnjefqTrA8otgcel
 ---
