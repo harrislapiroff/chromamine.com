@@ -72,7 +72,7 @@ I initially tried to move to Fastmail calendar. I wanted the direct integration 
 
 In particular, I tried to use Fastmail as a client for my existing Google calendar, figuring I'd accept event invites through my email client, but continue to use Google Calendar's web interface. It allows this in a halfhearted way. It doesn't officially support using an external calendar as your default. If you don't have a default calendar but you do connect a Google Calendar account it will choose a calendar associated with your Google account at random. Ugh.
 
-I use shared calendars for housemates and organizations. I often create events that invite myself to so they also appear on my personal calendar. Fastmail and Google were unable to coordinate properly on this. Sometimes when I tried to personally RSVP "no" to an event it would _cancel_ the event for all attendees. At one point I somehow set off an autonomous loop where my calendars were canceling and then recreating an event for a [BIDA][] board meeting repeatedly for an hour, spamming the rest of the board.
+I use shared calendars for housemates and organizations. I often create events and add myself as an attendee so they also appear on my personal calendar. Fastmail and Google were unable to coordinate properly on this. Sometimes when I tried to personally RSVP "no" to an event it would _cancel_ the event for all attendees. At one point I somehow set off an autonomous loop where my calendars were canceling and then recreating an event for a [BIDA][] board meeting repeatedly for an hour, spamming the rest of the board.
 
 [BIDA]: https://bidadance.org/
 
