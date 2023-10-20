@@ -1,0 +1,21 @@
+mixin microblog-metadata(post)
+    if post.author
+        span.microblog-post__author
+            = post.author
+    if post.author && post.title
+        span.microblog-post__separator
+            = ", "
+    if post.title
+        span.microblog-post__title
+            = post.title
+
+
+mixin microblog-post(post)
+    article.microblog-post
+        .microblog-post__content!= post.content
+        if post.author || post.title
+            if post.url
+                a.microblog-post__metadata(href=post.url)
+                    +microblog-metadata(post)
+            else
+                +microblog-metadata(post)
