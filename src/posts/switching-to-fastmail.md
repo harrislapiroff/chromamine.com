@@ -98,8 +98,6 @@ The workarounds for both of the above issues are irritating, but much outweighed
 
       > Here is how platforms die: first, they are good to their users; then they abuse their users to make things better for their business customers; finally, they abuse those business customers to claw back all the value for themselves.
 
-      I also thought it was ironic that for many years one of Gmail's major features was cutting edge spam prevention – only for them to now inject spam back into our inboxes.
-
 [^3]: People mostly suggested Fastmail and ProtonMail to me. Though I'm generally a security-conscious user, ProtonMail's devotion to security was above my needs, would introduce some annoyances – not being able to use third-party email clients, for example – and cost a little more than a comparable Fastmail plan.
 
 [^4]: I've historically used Gmail's ["Plus Addressing"][plus addressing] to do this, but, annoyingly, many websites won't accept email addresses containing plus signs.
