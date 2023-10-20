@@ -56,6 +56,12 @@ module.exports = function(eleventyConfig) {
         return collection.getFilteredByGlob("src/posts/*.md")
     })
 
+    /* Put microblog posts in a collection
+     *-------------------------------------*/
+    eleventyConfig.addCollection("microblog", function(collection) {
+        return collection.getFilteredByGlob("src/microblog/*.md")
+    })
+
     /* Add markdown features
      *-------------------------------------*/
     const markdownIt = require("markdown-it")
