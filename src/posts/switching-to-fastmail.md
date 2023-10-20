@@ -1,13 +1,13 @@
 ---
 title: Switching to FastMail
-date: 2023-10-19
+date: 2023-10-20
 categories: ['Software']
 tags: [anti-corporate internet, email, Google, FastMail, web]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/111269138698419956
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02fZfiku552ygSp28aHWVeaTyENznYxVThVnrErk7x9f5Nk6FWoWHc6TcYANfAb1pl
 ---
 
 A few months ago I got [pretty annoyed with Gmail][gmail]. The motivating event was noticing ads interspersed among my emails. It maybe wasn't a super big deal[^1], but it spurred me to realize that, while Gmail was the best-of-class email platform for many years, that moat has narrowed or disappeared[^2]. It's now possible to pay for a service better incentivized to make product decisions for users rather than business clients. I opted to switch to [Fastmail][][^3].
