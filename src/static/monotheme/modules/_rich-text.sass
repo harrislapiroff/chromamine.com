@@ -60,7 +60,9 @@
         margin-bottom: 0
         margin-left: 4ch
 
-    pre.hljs
+    // TODO: figure out how to get Observable's markdown to use
+    // our markdown processor so that the classnames match
+    pre.hljs, pre.observablehq--md-pre
         margin: calc(var(--line-height-base) / 2) -2ch !important
         padding: calc(var(--line-height-base) / 2) 2ch !important
         overflow-x: auto
@@ -69,7 +71,7 @@
             margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2) !important
             padding: calc(var(--line-height-base) / 2) var(--page-padding) !important
 
-    pre.hljs, pre.hljs > code
+    pre.hljs, pre.hljs > code, pre.observablehq--md-pre, pre.observablehq--md-pre > code
         font-family: inherit
         background-color: var(--color-background-code) !important
 
