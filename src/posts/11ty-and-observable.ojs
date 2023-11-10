@@ -1,0 +1,275 @@
+---
+title: "11ty and Observable"
+date: 2023-11-10
+categories: [Software]
+tags: [11ty, Observable, javascript]
+eleventyExcludeFromCollections: true
+xposts:
+  - label: Mastodon
+    url: TBD
+  - label: Facebook
+    url: TBD
+---
+
+md`I've added the ability to write blog posts in [Observable][] format to my blog configuration. Observable is a javascript-based notebook platform. Observable is a great data visualization platform, but also an excellent way to experiment with code frictionlessly or integrate interactivity into a written document. Here's a few of my notebooks:
+
+* [Boston-Area SARS-CoV-2 Wastewater Levels](https://observablehq.com/@harrislapiroff/mwra-wastewater-data)
+* [Chaos Game](https://observablehq.com/d/b643e0354f33c2b1)
+* [Assorted CO₂ Readings](https://observablehq.com/@harrislapiroff/co2-readings)
+
+My previous blog posts are all [Markdown][]-formatted, but with the option of Observable-formatted blog posts I can add interactive capabilities in a structured way. For example, feel free to change the size of this circle:
+
+[Observable]: https://observablehq.com/
+[Markdown]: https://en.wikipedia.org/wiki/Markdown`
+
+viewof radius = Inputs.range([0, 100], {
+  step: 1,
+  value: 50,
+  label: "Radius"
+})
+
+htl.html`
+    <svg width=220 height=220 viewBox="-10 -10 220 220">
+    <circle cx=100 cy=100 r=${radius} fill="transparent" stroke-width=2 stroke="var(--color-base)" />
+    </svg>
+`
+
+md`In my blog post, the code looks like this:
+
+~~~js
+viewof radius = Inputs.range([0, 100], {
+  step: 1,
+  value: 50,
+  label: "Radius"
+})
+
+htl.html\`
+    <svg width=220 height=220 viewBox="-10 -10 210 210">
+        <circle cx=100 cy=100 r=$\{radius} fill="transparent" stroke-width=2 stroke="var(--color-base)" />
+    </svg>
+\`
+~~~
+
+Here's a more complicated application. Enter a search term -- this blog post will query the Wikipedia API for the search term, return the first 10 results, and graph their word counts.
+
+Note that all of the processing here happens in your web browser on your computer. Observable notebooks are executed entirely client-side, a perfect match for my static site generator since it means I have no server application to speak of. The contents of this search field are sent directly from your computer to the Wikipedia API. Neither I nor other blog readers will see them.`
+
+viewof searchTerm = Inputs.text({
+  placeholder: "Search term",
+  value: "Observable",
+  submit: "Search",
+})
+
+wikiPagesResult = {
+  const url = new URL("https://en.wikipedia.org/w/api.php")
+  url.searchParams.set("action", "query")
+  url.searchParams.set("format", "json")
+  url.searchParams.set("list", "search")
+  url.searchParams.set("origin", "*")
+  url.searchParams.set("srsearch", searchTerm)
+  url.searchParams.set("srlimit", 10)
+  return (await fetch(url)).json()
+}
+
+wikiPages = wikiPagesResult.query.search
+
+Plot.plot({
+    width: 400,
+    marginLeft: 250,
+    x: { label: 'Word Count' },
+    y: { label: 'Title' },
+    marks: [
+        Plot.barX(wikiPages, { y: 'title', x: 'wordcount' }),
+        () => htl.svg.fragment`<style>
+            svg[class^='plot-'] {
+                background-color: transparent !important;
+                width: 100%;
+                max-width: 600px;
+            }
+        </style>`
+    ],
+})
+
+
+md`Look forward to some interactive or computation/visualization-based blog posts in the future.
+
+### The technical nitty-gritty
+
+Observable makes open source their [runtime][], the core engine that manages the interaction between "cells" (bits of code that output results) and the handling of their output. But the runtime expects input like this:
+
+~~~js
+function _radius(Inputs){return(
+Inputs.range([0, 100], {
+    step: 1,
+    value: 50,
+    label: "Radius"
+})
+)}
+
+function _3(radius,htl){return(
+htl.html\`<svg width=220 height=220 viewBox="-10 -10 210 210">
+    <circle cx=100 cy=100 r=\${radius} fill="transparent" stroke-width=2 stroke="var(--color-base)" />
+</svg>\`
+)}
+
+export default function define(runtime, observer) {
+    const main = runtime.module();
+    main.variable(observer()).define(["md"], _1);
+    main.variable(observer("viewof radius")).define("viewof radius", ["Inputs"], _radius);
+    main.variable(observer("radius")).define("radius", ["Generators", "viewof radius"], (G, _) => G.input(_));
+    main.variable(observer()).define(["radius","htl"], _3);
+    return main;
+}
+~~~
+
+It's not the friendliest format to draft a blog post in. Fortunately another Observable user created a compact format and wrote a compiler to translate it into the runtime's expected format. This allows me to write in the format at the beginning of this blog post and run it through the compiler.
+
+To integrate this process with my blog software, [Eleventy][], I wrote a custom template compiler and put it in \`/utils/ojs/compile.mjs\`. The \`compileObservable\` function accepts input in the OJS format and outputs HTML including a script that that renders the code in runtime format and loads and runs the runtime. It also has a few other features:
+
+- Allows a specified path for where to load the runtime and inspector (the class responsible for rendering the output of a cell) from. By default it loads the Observable runtime and inspector from unpkg.com.
+- Allows a specified ID name for the div that the notebook gets rendered into. By default it hashes the contents of the OJS code to ensure a unique ID.
+
+~~~js
+import { parseCell } from "@observablehq/parser"
+import { Compiler } from "@alex.garcia/unofficial-observablehq-compiler"
+import { createHash } from "node:crypto"
+
+const compile = new Compiler();
+
+const hashString = (str) => {
+    const hash = createHash("sha256")
+    hash.update(str)
+    return hash.digest("hex")
+}
+
+export async function compileObservable(ojsSource, options) {
+    const opts = {
+        wrap: true,
+        divId: \`notebook-\${hashString(ojsSource)}\`,
+        runtimePath: "https://unpkg.com/@observablehq/runtime@5.9.3/dist/runtime.umd.js",
+        inspectorPath: "https://unpkg.com/@observablehq/runtime@5.9.3/dist/runtime.umd.js",
+        runtimeImportName: "Runtime",
+        inspectorImportName: "Inspector",
+        ...options,
+    }
+
+    // this will require adding passthrough copies of every npm
+    // package we want to use into eleventy config though...
+    const define = await compile.module(ojsSource)
+
+    if (!opts.wrap) return define
+
+    let importLines = ''
+    if (opts.runtimePath === opts.inspectorPath) {
+        importLines = \`import { \${opts.runtimeImportName}, \${opts.inspectorImportName} } from "\${opts.runtimePath}"\`
+    } else {
+        importLines = \`
+            import { \${opts.runtimeImportName} } from "\${opts.runtimePath}"
+            import { \${opts.inspectorImportName} } from "\${opts.inspectorPath}"
+        \`
+    }
+
+    return \`
+        <div id="\${opts.divId}"></div>
+        \u003Cscript type="module">
+            \${importLines}
+
+            \${define}
+
+            const notebookDiv = document.getElementById("\${opts.divId}")
+            const runtime = new Runtime()
+            const main = runtime.module(define, name => {
+                const el = document.createElement("div")
+                notebookDiv.appendChild(el)
+                return new \${opts.inspectorImportName}(el)
+            })
+        \u003C/script>
+    \`
+
+}
+~~~
+
+In \`eleventy.config.js\` I register this compiler as an alternative template format. Notably I've also installed the Observable runtime using \`npm\` and told Eleventy to pass it through to be loaded on the client-side to avoid the default third-party import from unpkg. This is not a necessary step but I prefer to load resources from the same server when possible. I've also replaced the default inspector with my own inspector, which renders the output of a cell if it is a DOM node, but not otherwise. (The default Observable inspector renders a representation of all output, including javascript objects.)
+
+~~~js
+module.exports = function(eleventyConfig) {
+    eleventyConfig.on('eleventy.before', async () => {
+        const { compileObservable } = await import("./utils/ojs/compile.mjs")
+        global.compileObservable = compileObservable
+    })
+
+    // ... other config
+
+    const runtimeOutputPath = "static/scripts/observable-runtime.js"
+    const inspectorOutputPath = "static/scripts/observable-inspector.js"
+
+    // Pass through the runtime and inspector to be loaded and run on the client-side
+    eleventyConfig.addPassthroughCopy({
+        // Use the official Observable runtime
+        "node_modules/@observablehq/runtime/dist/runtime.js": runtimeOutputPath,
+        // Use our own custom Inspector
+        "utils/ojs/client/inspector.mjs": inspectorOutputPath,
+    })
+
+    // Add the OJS format
+    eleventyConfig.addTemplateFormats("ojs")
+    eleventyConfig.addExtension("ojs", {
+        // Compile the notebook to HTML
+        compile: async (inputContent) => {
+            return async (data) => await compileObservable(inputContent, {
+                runtimePath: '/' + runtimeOutputPath,
+                inspectorPath: '/' + inspectorOutputPath,
+            })
+        }
+    })
+
+    return {
+        'dir': {
+            'input': 'src',
+        }
+    }
+}
+~~~
+
+For the most part this code works as-is! I was able to create an OJS-formatted page and render it. But I ran into two last "gotchas" when I tried to create a blog post. My blog posts have a [template data file](https://www.11ty.dev/docs/data-template-dir/) for their shared data \`posts/posts.yaml\` – such as the permalink format:
+
+~~~yaml
+layout: monotheme/post.pug
+permalink: "{{ page.date | date: '%Y/%m' }}/{{ page.fileSlug }}/"
+categories: []
+~~~
+
+When I attempted to add an OJS blog post I got an error from the Eleventy rendering process:
+
+~~~text
+Having trouble rendering ojs template ./src/posts/11ty-and-observable.ojs (via TemplateContentRenderError)
+~~~
+
+I logged the content of the template it was trying to render and it turned out to be:
+
+~~~liquid
+{{ page.date | date: "%Y/%m/%d" }}/{{ page.fileSlug }}/
+~~~
+
+Whoops! It turns out that Eleventy computes permalinks dynamically using the same template rendering language as the file currently being processed. My custom OJS template language is not prepared to compile curly-bracket template strings.
+
+Eleventy doesn't provide an option for using a different template language to render permalinks versus the file. But it does provide the option of using a javascript data file instead. I replaced \`posts.yaml\` with \`posts.11tydata.js\`:
+
+~~~js
+module.exports = {
+    layout: 'monotheme/post.pug',
+    categories: [],
+    eleventyComputed: {
+        // YYYY/MM/page-name/
+        permalink: ({ page }) =>
+            \`\${page.date.getFullYear()}/\` +
+            \`\${(page.date.getMonth() + 1).toString().padStart(2, '0')}/\` +
+            \`\${page.fileSlug}/\`,
+    },
+}
+~~~
+
+Now the full blog compiles successfully.
+
+[runtime]: https://github.com/observablehq/runtime
+[Eleventy]: /2023/09/my-new-blog/`
