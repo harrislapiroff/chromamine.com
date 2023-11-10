@@ -1,29 +1,23 @@
 import { parseCell } from "@observablehq/parser"
 import { Compiler } from "@alex.garcia/unofficial-observablehq-compiler"
+import { createHash } from "node:crypto"
 
 const compile = new Compiler();
 
-const defaultInspector = {
-    pending() {
-        el.textContent = "Loading…"
-    },
-    rejected(error) {
-        el.textContent = "Error: " + error.message
-    },
-    fulfilled(value) {
-        // Only render the result if it's a DOM node
-        el.textContent = ""
-        if (value instanceof Node) el.appendChild(value)
-    }
+const hashString = (str) => {
+    const hash = createHash("sha256")
+    hash.update(str)
+    return hash.digest("hex")
 }
 
 export async function compileObservable(ojsSource, options) {
     const opts = {
         wrap: true,
-        divId: "notebook",
+        divId: `notebook-${hashString(ojsSource)}`,
         runtimePath: "https://unpkg.com/@observablehq/runtime@5.9.3/dist/runtime.umd.js",
-        inspector: defaultInspector,
-        // TODO: Allow the definition of a custom inspector
+        inspectorPath: "https://unpkg.com/@observablehq/runtime@5.9.3/dist/runtime.umd.js",
+        runtimeImportName: "Runtime",
+        inspectorImportName: "Inspector",
         // TODO: Allow specification of a list of cells to render?
         ...options,
     }
@@ -33,12 +27,22 @@ export async function compileObservable(ojsSource, options) {
     // package we want to use into eleventy config though...
     const define = await compile.module(ojsSource)
 
-    if (!wrap) return define
+    if (!opts.wrap) return define
+
+    let importLines = ''
+    if (opts.runtimePath === opts.inspectorPath) {
+        importLines = `import { ${opts.runtimeImportName}, ${opts.inspectorImportName} } from "${opts.runtimePath}"`
+    } else {
+        importLines = `
+            import { ${opts.runtimeImportName} } from "${opts.runtimePath}"
+            import { ${opts.inspectorImportName} } from "${opts.inspectorPath}"
+        `
+    }
 
     return `
         <div id="${opts.divId}"></div>
         <script type="module">
-            import { Runtime } from "${opts.runtimePath}"
+            ${importLines}
 
             ${define}
 
@@ -47,7 +51,7 @@ export async function compileObservable(ojsSource, options) {
             const main = runtime.module(define, name => {
                 const el = document.createElement("div")
                 notebookDiv.appendChild(el)
-                return defaultInspector
+                return new ${opts.inspectorImportName}(el)
             })
         </script>
     `

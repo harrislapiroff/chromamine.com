@@ -11,7 +11,7 @@ module.exports = function(eleventyConfig) {
         global.d3time = d3time
         global.d3format = d3format
 
-        const { compileObservable } = await import("./utils/ojs.mjs")
+        const { compileObservable } = await import("./utils/ojs/compile.mjs")
         global.compileObservable = compileObservable
     })
 
@@ -288,15 +288,23 @@ module.exports = function(eleventyConfig) {
     /* OJS templates
      * I.e., rendering Observable Notebooks as blog posts
      *------------------------------------*/
+
+    // Pass through the runtime and inspector to be loaded and run on the client-side
+    const runtimeOutputPath = "static/scripts/observable-runtime.js"
+    const inspectorOutputPath = "static/scripts/observable-inspector.js"
     eleventyConfig.addPassthroughCopy({
-        "node_modules/@observablehq/runtime/dist/runtime.js": "static/scripts/observable-runtime.js"
+        // Use the official Observable runtime
+        "node_modules/@observablehq/runtime/dist/runtime.js": runtimeOutputPath,
+        // Use our own custom Inspector
+        "utils/ojs/client/inspector.mjs": inspectorOutputPath,
     })
     eleventyConfig.addTemplateFormats("ojs")
     eleventyConfig.addExtension("ojs", {
         compile: async (inputContent) => {
+            // Compile the notebook to HTML
             return async (data) => await compileObservable(inputContent, {
-                // TODO: Specify a unique div ID in case of rendering two notebooks on the same page
-                runtimePath: '/static/scripts/observable-runtime.js',
+                runtimePath: '/' + runtimeOutputPath,
+                inspectorPath: '/' + inspectorOutputPath,
             })
         }
     })
