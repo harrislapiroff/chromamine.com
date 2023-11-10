@@ -56,7 +56,11 @@ module.exports = function(eleventyConfig) {
     /* Put posts in a collection
      *-------------------------------------*/
     eleventyConfig.addCollection("posts", function(collection) {
-        return collection.getFilteredByGlob("src/posts/*.md")
+        const arrs =  [].concat(
+            collection.getFilteredByGlob("src/posts/*.md"),
+            collection.getFilteredByGlob("src/posts/*.ojs")
+        )
+        return arrs
     })
 
     /* Put microblog posts in a collection
@@ -289,19 +293,24 @@ module.exports = function(eleventyConfig) {
      * I.e., rendering Observable Notebooks as blog posts
      *------------------------------------*/
 
-    // Pass through the runtime and inspector to be loaded and run on the client-side
     const runtimeOutputPath = "static/scripts/observable-runtime.js"
     const inspectorOutputPath = "static/scripts/observable-inspector.js"
+
+    // Pass through the runtime and inspector to be loaded and run on the client-side
     eleventyConfig.addPassthroughCopy({
         // Use the official Observable runtime
         "node_modules/@observablehq/runtime/dist/runtime.js": runtimeOutputPath,
         // Use our own custom Inspector
         "utils/ojs/client/inspector.mjs": inspectorOutputPath,
     })
+
+    // Add the OJS format
     eleventyConfig.addTemplateFormats("ojs")
     eleventyConfig.addExtension("ojs", {
+        // see: https://github.com/11ty/eleventy/issues/2972#issuecomment-1607872439
+        compileOptions: { permalink: () => (data) => data.permalink },
+        // Compile the notebook to HTML
         compile: async (inputContent) => {
-            // Compile the notebook to HTML
             return async (data) => await compileObservable(inputContent, {
                 runtimePath: '/' + runtimeOutputPath,
                 inspectorPath: '/' + inspectorOutputPath,
