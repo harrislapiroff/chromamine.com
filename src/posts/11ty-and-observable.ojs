@@ -1,13 +1,13 @@
 ---
 title: "11ty and Observable"
-date: 2023-11-10
+date: 2023-11-11
 categories: [Software]
 tags: [11ty, Observable, javascript]
-xposts:
-  - label: Mastodon
-    url: TBD
-  - label: Facebook
-    url: TBD
+# xposts:
+#  - label: Mastodon
+#    url: TBD
+#  - label: Facebook
+#    url: TBD
 ---
 
 md`I've added the ability to write blog posts in [Observable][] format to my blog. Observable is a javascript-based notebook platform. It's a data visualization platform, but also an excellent way to experiment with javascript code frictionlessly or integrate interactivity into a written document. Here's a few of my notebooks:
