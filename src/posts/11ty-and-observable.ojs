@@ -10,7 +10,9 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid0Kd1i4NCQYarAvLRLgAVHqbkEcpRPC4kVfV438NXFCabSdDkKnSyj4q9J4pVDxvFbl
 ---
 
-md`I've added the ability to write blog posts in [Observable][] format to my blog. Observable is a javascript-based notebook platform. It's a data visualization platform, but also an excellent way to experiment with javascript code frictionlessly or integrate interactivity into a written document. Here's a few of my notebooks:
+md`_[View code for this post](https://github.com/harrislapiroff/chromamine.com/blob/main/src/posts/11ty-and-observable.ojs)_
+
+I've added the ability to write blog posts in [Observable][] format to my blog. Observable is a javascript-based notebook platform. It's a data visualization platform, but also an excellent way to experiment with javascript code frictionlessly or integrate interactivity into a written document. Here's a few of my notebooks:
 
 * [Boston-Area SARS-CoV-2 Wastewater Levels](https://observablehq.com/@harrislapiroff/mwra-wastewater-data)
 * [Chaos Game](https://observablehq.com/d/b643e0354f33c2b1)
