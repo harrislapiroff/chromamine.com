@@ -3,7 +3,6 @@ title: "11ty and Observable"
 date: 2023-11-10
 categories: [Software]
 tags: [11ty, Observable, javascript]
-eleventyExcludeFromCollections: true
 xposts:
   - label: Mastodon
     url: TBD
@@ -11,7 +10,7 @@ xposts:
     url: TBD
 ---
 
-md`I've added the ability to write blog posts in [Observable][] format to my blog configuration. Observable is a javascript-based notebook platform. Observable is a great data visualization platform, but also an excellent way to experiment with code frictionlessly or integrate interactivity into a written document. Here's a few of my notebooks:
+md`I've added the ability to write blog posts in [Observable][] format to my blog. Observable is a javascript-based notebook platform. It's a data visualization platform, but also an excellent way to experiment with javascript code frictionlessly or integrate interactivity into a written document. Here's a few of my notebooks:
 
 * [Boston-Area SARS-CoV-2 Wastewater Levels](https://observablehq.com/@harrislapiroff/mwra-wastewater-data)
 * [Chaos Game](https://observablehq.com/d/b643e0354f33c2b1)
@@ -50,7 +49,7 @@ htl.html\`
 \`
 ~~~
 
-Here's a more complicated application. Enter a search term -- this blog post will query the Wikipedia API for the search term, return the first 10 results, and graph their word counts.
+Here's a more complicated application. Enter a search term – this blog post will query the Wikipedia API for the search term, return the first 10 results, and graph their word counts.
 
 Note that all of the processing here happens in your web browser on your computer. Observable notebooks are executed entirely client-side, a perfect match for my static site generator since it means I have no server application to speak of. The contents of this search field are sent directly from your computer to the Wikipedia API. Neither I nor other blog readers will see them.`
 
@@ -122,7 +121,7 @@ export default function define(runtime, observer) {
 }
 ~~~
 
-It's not the friendliest format to draft a blog post in. Fortunately another Observable user created a compact format and wrote a compiler to translate it into the runtime's expected format. This allows me to write in the format at the beginning of this blog post and run it through the compiler.
+It's not the friendliest format to draft a blog post in. Fortunately [another Observable user created a compact format](https://observablehq.com/@asg017/v0-6-0-of-the-unofficial-observablehq-compiler) and wrote a compiler to translate it into the runtime's expected format. This allows me to write in the format at the beginning of this blog post and run it through the compiler.
 
 To integrate this process with my blog software, [Eleventy][], I wrote a custom template compiler and put it in \`/utils/ojs/compile.mjs\`. The \`compileObservable\` function accepts input in the OJS format and outputs HTML including a script that that renders the code in runtime format and loads and runs the runtime. It also has a few other features:
 
@@ -231,7 +230,7 @@ module.exports = function(eleventyConfig) {
 }
 ~~~
 
-For the most part this code works as-is! I was able to create an OJS-formatted page and render it. But I ran into two last "gotchas" when I tried to create a blog post. My blog posts have a [template data file](https://www.11ty.dev/docs/data-template-dir/) for their shared data \`posts/posts.yaml\` – such as the permalink format:
+For the most part this code works as-is! I was able to create an OJS-formatted page and render it. But I ran into one last "gotcha" when I tried to create a blog post. My blog posts have a [template data file](https://www.11ty.dev/docs/data-template-dir/) for their shared data \`posts/posts.yaml\` – such as the permalink format:
 
 ~~~yaml
 layout: monotheme/post.pug

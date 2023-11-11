@@ -26,7 +26,14 @@ metadata:
             <link href="{{ absolutePostUrl }}"/>
             <updated>{{ post.date | dateToRfc3339 }}</updated>
             <id>{{ absolutePostUrl }}</id>
-            <content xml:lang="{{ metadata.language }}" type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+            <content xml:lang="{{ metadata.language }}" type="html">
+                {%- set regExp = r/\<script.*\>/i -%}
+                {%- if regExp.test(post.templateContent) -%}
+                    This post contains javascript content and must be viewed &lt;a href="{{ absolutePostUrl }}"&gt;on site&lt;/a&gt;.
+                {%- else -%}
+                    {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+                {%- endif -%}
+            </content>
         </entry>
     {%- endfor %}
 </feed>
