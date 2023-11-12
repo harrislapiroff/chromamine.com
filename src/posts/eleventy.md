@@ -2,7 +2,7 @@
 title: Eleventy
 date: 2023-10-07
 categories: ['Software']
-tags: ['web', 'eleventy']
+tags: [web, 11ty]
 xposts:
     - label: Facebook
       url: https://www.facebook.com/harrislap/posts/pfbid02M6qCtrja2tpEY35DyapkEKkChhCHhbo1fDfj2mqoBT61Yav4WpzMdmQSTXtmq29ml
