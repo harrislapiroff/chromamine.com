@@ -155,8 +155,6 @@ export async function compileObservable(ojsSource, options) {
         ...options,
     }
 
-    // this will require adding passthrough copies of every npm
-    // package we want to use into eleventy config though...
     const define = await compile.module(ojsSource)
 
     if (!opts.wrap) return define
