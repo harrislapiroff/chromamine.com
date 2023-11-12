@@ -2,7 +2,7 @@
 title: "11ty and Observable"
 date: 2023-11-11
 categories: [Software]
-tags: [11ty, Observable, javascript]
+tags: [11ty, Observable, javascript, web]
 xposts:
   - label: Mastodon
     url: https://social.coop/@harris/111392420272484492
@@ -98,7 +98,7 @@ Look forward to some interactive or computation/visualization-based blog posts i
 
 ### The technical nitty-gritty
 
-Observable makes open source their [runtime][], the core engine that manages the interaction between "cells" (bits of code that output results) and the handling of their output. But the runtime expects input like this:
+Observable publicly shares their [runtime][], the core engine that manages the interaction between "cells" (bits of code that output results, not unlike spreadsheet cells with formulas). But the runtime expects javascript input like this:
 
 ~~~js
 function _radius(Inputs){return(
@@ -109,7 +109,7 @@ Inputs.range([0, 100], {
 })
 )}
 
-function _3(radius,htl){return(
+function _2(radius,htl){return(
 htl.html\`<svg width=220 height=220 viewBox="-10 -10 210 210">
     <circle cx=100 cy=100 r=\${radius} fill="transparent" stroke-width=2 stroke="var(--color-base)" />
 </svg>\`
@@ -117,17 +117,16 @@ htl.html\`<svg width=220 height=220 viewBox="-10 -10 210 210">
 
 export default function define(runtime, observer) {
     const main = runtime.module();
-    main.variable(observer()).define(["md"], _1);
     main.variable(observer("viewof radius")).define("viewof radius", ["Inputs"], _radius);
     main.variable(observer("radius")).define("radius", ["Generators", "viewof radius"], (G, _) => G.input(_));
-    main.variable(observer()).define(["radius","htl"], _3);
+    main.variable(observer()).define(["radius","htl"], _2);
     return main;
 }
 ~~~
 
-It's not the friendliest format to draft a blog post in. Fortunately [another Observable user created a compact format](https://observablehq.com/@asg017/v0-6-0-of-the-unofficial-observablehq-compiler) and wrote a compiler to translate it into the runtime's expected format. This allows me to write in the format at the beginning of this blog post and run it through the compiler.
+It's not the friendliest format to draft a blog post in. Fortunately [another Observable user created a compact format](https://observablehq.com/@asg017/v0-6-0-of-the-unofficial-observablehq-compiler) and wrote a compiler to translate it into the runtime's expected format.
 
-To integrate this process with my blog software, [Eleventy][], I wrote a custom template compiler and put it in \`/utils/ojs/compile.mjs\`. The \`compileObservable\` function accepts input in the OJS format and outputs HTML including a script that that renders the code in runtime format and loads and runs the runtime. It also has a few other features:
+To integrate with my blog software, [Eleventy][], I wrote a custom template compiler (\`/utils/ojs/compile.mjs\`). The \`compileObservable\` function accepts input in the OJS format and outputs HTML including a script that that renders the code in runtime format and loads and runs the runtime. It also has a few other features:
 
 - Allows a specified path for where to load the runtime and inspector (the class responsible for rendering the output of a cell) from. By default it loads the Observable runtime and inspector from unpkg.com.
 - Allows a specified ID name for the div that the notebook gets rendered into. By default it hashes the contents of the OJS code to ensure a unique ID.
