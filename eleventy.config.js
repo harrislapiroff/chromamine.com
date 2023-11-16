@@ -1,5 +1,7 @@
 const path = require("node:path")
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const pluginRss = require("@11ty/eleventy-plugin-rss")
+
+const blogPostFormats = ['md', 'ojs', 'html']
 
 module.exports = function(eleventyConfig) {
     /* Load CommonJS modules before config
@@ -56,10 +58,11 @@ module.exports = function(eleventyConfig) {
     /* Put posts in a collection
      *-------------------------------------*/
     eleventyConfig.addCollection("posts", function(collection) {
-        const arrs =  [].concat(
-            collection.getFilteredByGlob("src/posts/*.md"),
-            collection.getFilteredByGlob("src/posts/*.ojs")
-        )
+        // Add all files in the post directory with a matching file extension
+        // to the posts collection
+        const arrs = blogPostFormats.map(
+            (format) => collection.getFilteredByGlob(`src/posts/*.${format}`)
+        ).flat()
         return arrs
     })
 
