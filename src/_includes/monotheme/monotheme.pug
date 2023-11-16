@@ -1,5 +1,8 @@
 extends ../base.pug
 
+block append meta
+    link(rel="icon", type="image/svg+xml", href="/favicon.svg")
+
 block styles
     link(rel="stylesheet" href=filters.rev("/static/monotheme/styles.css"))
 
