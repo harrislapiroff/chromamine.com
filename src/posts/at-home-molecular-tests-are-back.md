@@ -6,6 +6,8 @@ tags: [covid, health]
 xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid0okiw9qXiMSSNkMbS6XoveZEK4Yt39Tvw72YuVZxtSgy6ayRmH1CfEskvKC6E7LHbl
+  - label: Mastodon
+    url: https://social.coop/@harris/111418398721057935
 ---
 
 I didn't notice this when it happened, but it looks like Lucira's at-home molecular covid tests [are back in stock](https://www.amazon.com/LUCIRA%C2%AE-COVID-19-Results-Emergency-Authorized/dp/B0CL7S9F4P/) under Pfizer, who acquired Lucira in bankruptcy. Notably the new ones *also test for the flu.* These were approved by the FDA just as Lucira declared bankruptcy – really poor timing for Lucira.
