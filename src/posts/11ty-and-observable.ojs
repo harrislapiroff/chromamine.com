@@ -31,7 +31,7 @@ viewof radius = Inputs.range([0, 100], {
 
 htl.html`
     <svg width=220 height=220 viewBox="-10 -10 220 220">
-    <circle cx=100 cy=100 r=${radius} fill="transparent" stroke-width=2 stroke="var(--color-base)" />
+        <circle cx=100 cy=100 r=${radius} fill="transparent" stroke-width=2 stroke="var(--color-base)" />
     </svg>
 `
 
@@ -45,7 +45,7 @@ viewof radius = Inputs.range([0, 100], {
 })
 
 htl.html\`
-    <svg width=220 height=220 viewBox="-10 -10 210 210">
+    <svg width=220 height=220 viewBox="-10 -10 220 220">
         <circle cx=100 cy=100 r=$\{radius} fill="transparent" stroke-width=2 stroke="var(--color-base)" />
     </svg>
 \`
@@ -92,7 +92,7 @@ Plot.plot({
 
 
 md`
-Note that all of the processing here happens in your web browser on your computer. Observable notebooks are executed entirely client-side, a perfect match for my static site generator since it means I have no server application to speak of. The contents of this search field are sent directly from your computer to the Wikipedia API. Neither I nor other blog readers will see them.
+Note that all of the processing here happens in your web browser on your computer. Observable notebooks are executed entirely client-side, a perfect match for my static site generator since I have no server application to speak of. The contents of this search field are sent directly from your computer to the Wikipedia API. Neither I nor other blog readers will see them.
 
 Look forward to some interactive or computation/visualization-based blog posts in the future.
 
