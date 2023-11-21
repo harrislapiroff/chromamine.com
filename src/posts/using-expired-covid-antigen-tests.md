@@ -29,13 +29,13 @@ On the fifth day I used my final expired Quidel test and came up negative.
 
 ![A negative QuickVue test strip](/media/using-expired-covid-antigen-tests/negative.jpeg)
 
-I knew I had to confirm, so I pulled out an unexpired BinaxNOW[^3] and swabbed my nostrils yet again.
+Alas, when I tried to confirm with an unexpired BinaxNOW[^3] I got a clear, "nope, your infection is still kicking."
 
 ![A positive BinaxNOW card](/media/using-expired-covid-antigen-tests/binax.jpeg)
 
-Bright red! Alas. Despite feeling healthy and my brief moment of hope, the viruses are still kicking and I'm still in isolation. At least I've done a cool demonstration of the way antigen tests go bad.
+So, despite feeling mostly healthy, I'm still in isolation. At least I've done a cool empirical demonstration of the way antigen tests degrade. Here's hoping it won't be too much longer.
 
-Obligatory caveat that I'm not a scientist and none of this is medical advice or even a sound scientific demonstration. But it is kinda neat to see in action.
+(Obligatory caveat: I'm not a scientist and none of this is medical advice or even a sound scientific demonstration. But it is kinda neat, no?)
 
 [^1]: At least this is what I was told on Twitter once by someone who worked as an antigen test developer.
 [^2]: Truly expired, even accounting for the extensions. If you have tests you think are expired, be sure to check them against [the FDA list](https://www.fda.gov/medical-devices/coronavirus-covid-19-and-medical-devices/home-otc-covid-19-diagnostic-tests)! Many tests have had their expiration dates extended by even a year. My tests expired on June 29, 2023, including their extended life.
