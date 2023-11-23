@@ -98,17 +98,18 @@
             left: calc(2ch - 0.1rem)
         margin: var(--line-height-base) 0
         border-radius: var(--border-radius-base)
+        position: relative
 
         &::before
-            display: inline-block
-            line-height: calc(var(--line-height-base) - 0.4rem)
-            margin: 0.1rem 0
-            border: 0.1rem solid var(--color-update)
-            padding: 0 1ch
+            display: block
+            content: "Update"
+            position: absolute
+            top: calc(-1 * var(--line-height-base) / 2)
+            left: -1ch
             font-size: 0.8em
             text-transform: uppercase
-            content: "Update"
-            border-radius: var(--border-radius-base)
+            background: var(--color-background)
+            padding: 0 0.5ch
 
         & > :last-child
             margin-bottom: 0
