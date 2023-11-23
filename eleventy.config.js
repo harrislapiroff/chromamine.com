@@ -269,7 +269,7 @@ module.exports = function(eleventyConfig) {
     const JSDOM = require("jsdom").JSDOM
     eleventyConfig.addFilter("getSEOExcerpt", function (content, override) {
         return override ||
-            new JSDOM(content).window.document.querySelector("p")?.textContent
+            new JSDOM(content).window.document.querySelector("body > p")?.textContent
     })
     eleventyConfig.addFilter("getSEOImage", function (content, override) {
         // TODO: get this to find higher resolution images from srcsets

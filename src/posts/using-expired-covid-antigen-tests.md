@@ -3,8 +3,6 @@ title: Using Expired Covid Antigen Tests
 date: 2023-11-22
 categories: [Miscellany]
 tags: [covid, health]
-excerpt:
-    I have covid this week and I've been (purposely) using expired antigen tests to track it. The way antigen tests age is a gradual decrease in sensitivity. A strong signal may become weak; a weak signal may drop out entirely.
 xposts:
   - label: Mastodon
     url: https://social.coop/@harris/111456861000437928
