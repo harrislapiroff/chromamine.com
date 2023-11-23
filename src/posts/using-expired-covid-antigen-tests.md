@@ -3,11 +3,11 @@ title: Using Expired Covid Antigen Tests
 date: 2023-11-22
 categories: [Miscellany]
 tags: [covid, health]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/111456861000437928
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0L3Nbx66fAaHRWC9XFVkQoc3eJWK6ZaW71jviyRoa8Z4EYf5hQWTUsYMtV1sRBJ4tl
 ---
 
 (UPDATE: In the time between drafting this post and publishing it, I've now tested negative for the first time on an unexpired test 🎉)
