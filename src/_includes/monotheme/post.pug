@@ -4,6 +4,17 @@ include mixins/blog-post.pug
 block title
     = title
 
+block append meta
+    meta(name="description" content=filters.getSEOExcerpt(content, excerpt))
+    meta(property="og:title" content=title)
+    meta(property="og:description" content=filters.getSEOExcerpt(content, excerpt))
+    meta(property="og:url" content=filters.url(page.url))
+    - const seoImage_ = filters.getSEOImage(content, seoImage)
+    if seoImage_
+        meta(property="og:image" content=filters.url(seoImage_))
+    meta(property="og:site_name" content="Harris Lapiroff")
+    meta(property="og:type" content="article")
+
 block prepend header
     a.site-header__go-home(href="/") ← Return home
 
