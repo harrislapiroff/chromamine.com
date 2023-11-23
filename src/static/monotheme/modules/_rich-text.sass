@@ -86,3 +86,29 @@
     pre > code, pre > code.hljs
         margin: 0 !important
         padding: 0 !important
+
+    // Provided by markdown-it-container
+    .update
+        border: 0.1rem solid var(--color-update)
+        color: var(--color-update)
+        padding:
+            top: calc(var(--line-height-base) / 2 - 0.1rem)
+            bottom: calc(var(--line-height-base) / 2 - 0.1rem)
+            right: calc(2ch - 0.1rem)
+            left: calc(2ch - 0.1rem)
+        margin: var(--line-height-base) 0
+        border-radius: var(--border-radius-base)
+
+        &::before
+            display: inline-block
+            line-height: calc(var(--line-height-base) - 0.4rem)
+            margin: 0.1rem 0
+            border: 0.1rem solid var(--color-update)
+            padding: 0 1ch
+            font-size: 0.8em
+            text-transform: uppercase
+            content: "Update"
+            border-radius: var(--border-radius-base)
+
+        & > :last-child
+            margin-bottom: 0

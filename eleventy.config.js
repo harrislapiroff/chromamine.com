@@ -79,6 +79,7 @@ module.exports = function(eleventyConfig) {
     // Footnotes and Highlighting are configured via
     // instantiation options
     const markdownFootnotes = require("markdown-it-footnote")
+    const markdownContainer = require("markdown-it-container")
     var hljs = require('highlight.js')
     let mdOptions = {
         typographer: true,
@@ -97,7 +98,9 @@ module.exports = function(eleventyConfig) {
             return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
         }
     }
-    const md = markdownIt(mdOptions).use(markdownFootnotes)
+    const md = markdownIt(mdOptions)
+        .use(markdownFootnotes)
+        .use(markdownContainer, 'update')
 
     // Render footnotes simply in an ordered list
     md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'
