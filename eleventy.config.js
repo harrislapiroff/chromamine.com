@@ -265,6 +265,18 @@ module.exports = function(eleventyConfig) {
         (value, singular = '', plural = 's') => value === 1 ? singular : plural
     )
 
+    // getSEOExcerpt and getSEOImage
+    const JSDOM = require("jsdom").JSDOM
+    eleventyConfig.addFilter("getSEOExcerpt", function (content, override) {
+        return override ||
+            new JSDOM(content).window.document.querySelector("p")?.textContent
+    })
+    eleventyConfig.addFilter("getSEOImage", function (content, override) {
+        // TODO: get this to find higher resolution images from srcsets
+        return override ||
+            new JSDOM(content).window.document.querySelector("img")?.src
+    })
+
     /* Allow YAML configuration files
      *-------------------------------------*/
     const yaml = require("js-yaml")
