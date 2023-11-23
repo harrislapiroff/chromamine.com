@@ -10,7 +10,9 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid0L3Nbx66fAaHRWC9XFVkQoc3eJWK6ZaW71jviyRoa8Z4EYf5hQWTUsYMtV1sRBJ4tl
 ---
 
-(UPDATE: In the time between drafting this post and publishing it, I've now tested negative for the first time on an unexpired test 🎉)
+::: update
+In the time between drafting this post and publishing it, I've now tested negative for the first time on an unexpired test 🎉)
+:::
 
 I have covid this week and I've been (purposely) using expired antigen tests to track it. The way antigen tests age is a gradual decrease in sensitivity[^1]. A strong signal may become weak; a weak signal may drop out entirely.
 
