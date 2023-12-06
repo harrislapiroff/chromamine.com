@@ -23,7 +23,7 @@ The hardest part of the experience was isolating for as long as I did and not fe
 
 Below is a timeline of my symptoms. I've numbered my first positive test as **day 0** and the days between learning about my exposure and testing positive as **-3**, **-2**, and **-1**. During days -3 through 3, I used [expired antigen tests](/2023/11/using-expired-covid-antigen-tests/) which were likely less sensitive, but were good enough to verify my infection was in fact covid and was still highly active.
 
-I felt some level of mild congestion throughout – which is frequently true for me even when I'm not otherwise sick. All symptoms peaked between days -1 and 3. I reported a sore throat during my exposure, though I wonder in retrospect that was an anxious super-attentiveness to my body's sensations or the stresses of travel.`
+I felt some level of mild congestion throughout – which is frequently true for me even when I'm not otherwise sick. All symptoms peaked between days -1 and 3. I reported a sore throat during my exposure, though I wonder in retrospect if that was an anxious super-attentiveness to my body's sensations or the stresses of travel.`
 
 // Make plots work in dark mode and use my font
 htl.svg.fragment`<style>
@@ -129,8 +129,17 @@ temperatureData = await (
     await FileAttachment('/media/my-first-brush-with-covid/body-temperature.csv').csv()
 ).map(
     d => ({
-        date: d3.isoParse(d.startDate),
-        day: dayOfInfection(d3.isoParse(d.startDate)),
+        // times are in UTC, need to be shifted to EST manually
+        date: d3.timeHour.offset(
+            d3.utcParse('%Y-%m-%d %H:%M:%S %Z')(d.startDate),
+            -5
+        ),
+        day: dayOfInfection(
+            d3.timeHour.offset(
+                d3.utcParse('%Y-%m-%d %H:%M:%S %Z')(d.startDate),
+                -5
+            )
+        ),
         value: +d.value,
     })
 ).filter(
@@ -142,6 +151,7 @@ Plot.plot({
     width: 400,
     height: 300,
     x: {
+        type: 'utc',
         grid: true,
         // Don't show the first tick label
         tickFormat: t => (
@@ -151,7 +161,7 @@ Plot.plot({
         tickRotate: -30,
         tickSize: 0,
         ticks: 10,
-        domain: [new Date(Date.UTC(2023, 10, 16, 12)), new Date(Date.UTC(2023, 10, 21))]
+        domain: [new Date(Date.UTC(2023, 10, 16, 6)), new Date(Date.UTC(2023, 10, 20, 18))]
     },
     y: {
         label: '°F',
