@@ -13,17 +13,17 @@ eleventyExcludeFromCollections: true
 #       url: https://social.coop/@harris/111236286330861245
 ---
 
-md`I got covid for the first time last month, shortly before Thanksgiving.
+md`I got covid for the first time last month, shortly before Thanksgiving, from most likely a known exposure – someone I was on vacation with (though it is possible we had a shared exposure and she developed symptoms first).
 
-Though a covid infection is an experience most people have had by this point, as is my wont, I kept detailed track of my personal experience and collected some data from it. My symptoms were mild – somewhere a level up from a usual cold, but not as scary or uncomfortable as my encounters with the flu or strep. I received a 2023–2024 covid shot just about a month before this exposure.
-
-I've numbered my first positive test as **day 0** and the days preceding it as **-3**, **-2**, and **-1**. During days -3 through 3, I used [expired antigen tests](/2023/11/using-expired-covid-antigen-tests/) which are likely to be less sensitive, but were good enough to verify my infection was still active.
+Though a covid infection is an experience most people have had by this point, as is my wont, I kept detailed track of my personal experience and collected data from it. My symptoms were mild – a level up from a usual cold, but not as scary or uncomfortable as past encounters with the flu or strep. I received a 2023–2024 covid vaccine a month before this infection.
 
 The most interesting thing that happened over the course of my infection was an apparent two-peaked viral load – at least as measured by intensity of antigen test lines. I tested negative or possibly very faintly positive on day 5 (I had switched to non-expired tests) and my test line crept darker over the next two days, with some very mild recurrence of symptoms. If it were not for the odd trajectory of test results, I think I would have had more confidence that I wasn't contagious toward the end of my infection and would have stopped isolating sooner.
 
 The hardest part of the experience was isolating for as long as I did and not feeling certain when I wasn't contagious. I had thanskgiving dinner with my family over video chat and spent my birthday baking myself a batch of cupcakes. I spent a little time during isolation with the person who I went on vacation with and on the last day I was testing faintly positive (day 11), I had dinner with someone who consented to the risk. They did not get sick.
 
-Below is a timeline of my symptoms. You can see that I feel some level of mild congestion throughout – which is frequently true in the winter even when I'm not otherwise sick. The rest of my symptoms peaked between days -1 and 3. I seem to have experienced a sore throat early on, though I wonder in retrospect that was an anxious super-attentiveness to my body's sensations.`
+Below is a timeline of my symptoms. I've numbered my first positive test as **day 0** and the days between learning about my exposure and testing positive as **-3**, **-2**, and **-1**. During days -3 through 3, I used [expired antigen tests](/2023/11/using-expired-covid-antigen-tests/) which were likely less sensitive, but were good enough to verify my infection was in fact covid and was still highly active.
+
+I felt some level of mild congestion throughout – which is frequently true for me even when I'm not otherwise sick. All symptoms peaked between days -1 and 3. I reported a sore throat during my exposure, though I wonder in retrospect that was an anxious super-attentiveness to my body's sensations or the stresses of travel.`
 
 // Make plots work in dark mode and use my font
 htl.svg.fragment`<style>
@@ -121,7 +121,9 @@ Plot.plot({
     ]
 })
 
-md`Here also is a plot of my body temperature for the first few days of my infection, while I had an elevated body temperature (as measured on an oral thermometer and manually recorded). My base body temperature usually ranges between 96.5 and 97.5 °F.`
+md`Notably my symptom tracker allows me to record five levels for any symptom: none, mild, moderate, severe, and unbearable. I did not mark anything as unbearable at any point.
+
+Here also is a plot of my body temperature for the first few days of my infection, as measured on an oral thermometer approximately whenever it occurred to me to do so, hence the irregular timing. My base body temperature usually ranges between 96.5 and 97.5 °F.`
 
 temperatureData = await (
     await FileAttachment('/media/my-first-brush-with-covid/body-temperature.csv').csv()
@@ -186,15 +188,17 @@ Here's a descriptive timeline based on written logs I kept:
 
 * **Day 0:** I wake up feeling mild cold symptoms similar to the previous day and test solidly positive for covid. Mild fatigue in the afternoon and my fever slowly returns along with severe congestion. This is the hardest night and I struggle to control my symptoms well enough to sleep.
 
-* **Day 1:** This is the most challenging day. Severe congestion comes and goes all day, my temperature is mildly elevated in the afternoon and I feel generally gross. My fever goes away in the afternoon and does not return.
+* **Day 1:** This is the most challenging day. Severe congestion comes and goes all day, my temperature is elevated in the afternoon and I feel generally gross.
 
-* **Day 2:** I'm better rested, though I have a headache that persists annoyingly all day. Congestion is moderate and I feel gassy and a little nauseous and vomit in the afternoon. This is the only day I experience gastrointestinal symptoms and I wonder if it's just something I ate.
+* **Day 2:** I'm better rested, though I have a headache that persists annoyingly all day and a mildly elevated temperature. Congestion is moderate and I feel gassy and a little nauseous and vomit in the afternoon. This is the only day I experience gastrointestinal symptoms and I wonder if it's just something I ate.
 
 * **Day 3:** My congestion is gone. I continue to have an annoying headache that subsides by afternoon. By evening I only have mild cold symptoms: congestion, an occasinal cough, and a gravely Batman voice.
 
 * **Day 4:** The mildest of a sore throat and scratchy voice remain and I have the occasional coughing fit. I test negative on an expired test and switch to using non-expired tests, where I still test positive.
 
-* **Day 5:** Still coughing occasionally. I have a work meeting that I can't stop coughing through, but when I'm not trying to speak I feel perfectly healthy. I test negative on a non-expired test, though someone later, looking at the photo, tells me they think it's a faint positive.
+* **Day 5:** Still coughing occasionally. I have a work meeting that I can't stop coughing through, but when I'm not trying to speak I feel perfectly healthy. I test negative on a non-expired test, though someone later, looking at the photo, [tells me][] they think it's a faint positive. (In retrospect, I think I see it.)
+
+[tells me]: https://mastodon.mit.edu/@jefftk/111461799716948480
 
 * **Day 6:** I wake up with a slight sore throat and headache. I test faintly positive.
 
