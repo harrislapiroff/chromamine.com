@@ -10,10 +10,6 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid0L3Nbx66fAaHRWC9XFVkQoc3eJWK6ZaW71jviyRoa8Z4EYf5hQWTUsYMtV1sRBJ4tl
 ---
 
-::: update
-In the time between drafting this post and publishing it, I've now tested negative for the first time on an unexpired test 🎉
-:::
-
 I have covid this week and I've been (purposely) using expired antigen tests to track it. The way antigen tests age is a gradual decrease in sensitivity[^1]. A strong signal may become weak; a weak signal may drop out entirely.
 
 I already knew I had covid; I had a known exposure and symptoms, then tested positive two days later. I had a stockpile of expired Quidel QuickVue tests[^2], so I figured it would make an efficient use of resources to use them to track my infection. The idea is that, with reduced sensitivity, I could still largely rely on true positives. If the test line showed up, I almost certainly still had an active covid infection.

@@ -1,0 +1,276 @@
+date,date formatted,weekday,time of day,category,rating/amount,detail,notes
+14th Nov 2023,2023-11-14,Tuesday,pre,Symptom,2,Sore throat (Moderate),
+14th Nov 2023,2023-11-14,Tuesday,am,Symptom,1,Sore throat (Mild),
+14th Nov 2023,2023-11-14,Tuesday,mid,Symptom,2,Sore throat (Moderate),
+14th Nov 2023,2023-11-14,Tuesday,pm,Symptom,1,Sore throat (Mild),
+14th Nov 2023,2023-11-14,Tuesday,pm,Symptom,1,Sinus congestion (Mild),
+14th Nov 2023,2023-11-14,Tuesday,,Health measurements,2967.4591894668400,Step count (steps),(synced from Apple Health)
+14th Nov 2023,2023-11-14,Tuesday,,Health measurements,52,Heart rate (bpm) - Min,(synced from Apple Health)
+14th Nov 2023,2023-11-14,Tuesday,,Health measurements,78,Heart rate (bpm) - Average,(synced from Apple Health)
+14th Nov 2023,2023-11-14,Tuesday,,Health measurements,127,Heart rate (bpm) - Max,(synced from Apple Health)
+14th Nov 2023,2023-11-14,Tuesday,,Sleep,9:01,Asleep 23:29 - 08:30,. (synced from Apple Health)
+15th Nov 2023,2023-11-15,Wednesday,pre,Symptom,1,Sinus congestion (Mild),
+15th Nov 2023,2023-11-15,Wednesday,am,Symptom,1,Sinus congestion (Mild),
+15th Nov 2023,2023-11-15,Wednesday,mid,Symptom,1,Sinus congestion (Mild),
+15th Nov 2023,2023-11-15,Wednesday,am,Symptom,1,Sore throat (Mild),
+15th Nov 2023,2023-11-15,Wednesday,mid,Symptom,1,Sore throat (Mild),
+15th Nov 2023,2023-11-15,Wednesday,,Health measurements,2346,Step count (steps),(synced from Apple Health)
+15th Nov 2023,2023-11-15,Wednesday,,Health measurements,57,Heart rate (bpm) - Min,(synced from Apple Health)
+15th Nov 2023,2023-11-15,Wednesday,,Health measurements,76,Heart rate (bpm) - Average,(synced from Apple Health)
+15th Nov 2023,2023-11-15,Wednesday,,Health measurements,114,Heart rate (bpm) - Max,(synced from Apple Health)
+15th Nov 2023,2023-11-15,Wednesday,,Sleep,5:10,Asleep 03:07 - 08:23. In bed 23:57 - 08:29,. (synced from Apple Health)
+16th Nov 2023,2023-11-16,Thursday,am,Symptom,2,Sinus congestion (Moderate),
+16th Nov 2023,2023-11-16,Thursday,mid,Symptom,2,Sinus congestion (Moderate),
+16th Nov 2023,2023-11-16,Thursday,pm,Symptom,2,Sinus congestion (Moderate),
+16th Nov 2023,2023-11-16,Thursday,am,Symptom,1,Sore throat (Mild),
+16th Nov 2023,2023-11-16,Thursday,mid,Symptom,1,Sore throat (Mild),
+16th Nov 2023,2023-11-16,Thursday,pm,Symptom,2,Sore throat (Moderate),
+16th Nov 2023,2023-11-16,Thursday,pm,Symptom,1,Chills (Mild),
+16th Nov 2023,2023-11-16,Thursday,pm,Symptom,2,Headache (Moderate),
+16th Nov 2023,2023-11-16,Thursday,mid,Symptom,1,Fatigue (Mild),
+16th Nov 2023,2023-11-16,Thursday,pm,Symptom,2,Fatigue (Moderate),
+16th Nov 2023,2023-11-16,Thursday,18:37,Mood,6,Fine,
+16th Nov 2023,2023-11-16,Thursday,,Productivity,3,OK,
+16th Nov 2023,2023-11-16,Thursday,,Social life,1,Awful,
+16th Nov 2023,2023-11-16,Thursday,,Love life,2,Poor,
+16th Nov 2023,2023-11-16,Thursday,18:37,Energy,2,Low,
+16th Nov 2023,2023-11-16,Thursday,all day,Other Factors,,No social contact,
+16th Nov 2023,2023-11-16,Thursday,,Health measurements,1440,Step count (steps),(synced from Apple Health)
+16th Nov 2023,2023-11-16,Thursday,,Health measurements,54,Heart rate (bpm) - Min,(synced from Apple Health)
+16th Nov 2023,2023-11-16,Thursday,,Health measurements,76,Heart rate (bpm) - Average,(synced from Apple Health)
+16th Nov 2023,2023-11-16,Thursday,,Health measurements,102,Heart rate (bpm) - Max,(synced from Apple Health)
+16th Nov 2023,2023-11-16,Thursday,,Sleep,6:04,Asleep 23:48 - 08:30,. (synced from Apple Health)
+17th Nov 2023,2023-11-17,Friday,pre,Symptom,1,Sinus congestion (Mild),
+17th Nov 2023,2023-11-17,Friday,am,Symptom,1,Sinus congestion (Mild),
+17th Nov 2023,2023-11-17,Friday,mid,Symptom,2,Sinus congestion (Moderate),
+17th Nov 2023,2023-11-17,Friday,pm,Symptom,1,Sinus congestion (Mild),
+17th Nov 2023,2023-11-17,Friday,pre,Symptom,1,Chills (Mild),
+17th Nov 2023,2023-11-17,Friday,am,Symptom,1,Chills (Mild),
+17th Nov 2023,2023-11-17,Friday,mid,Symptom,1,Chills (Mild),
+17th Nov 2023,2023-11-17,Friday,pre,Symptom,2,Sore throat (Moderate),
+17th Nov 2023,2023-11-17,Friday,am,Symptom,2,Sore throat (Moderate),
+17th Nov 2023,2023-11-17,Friday,pm,Symptom,1,Sore throat (Mild),
+17th Nov 2023,2023-11-17,Friday,mid,Symptom,1,Fatigue (Mild),
+17th Nov 2023,2023-11-17,Friday,,Productivity,1,Awful,
+17th Nov 2023,2023-11-17,Friday,,Social life,2,Poor,
+17th Nov 2023,2023-11-17,Friday,,Love life,2,Poor,
+17th Nov 2023,2023-11-17,Friday,13:22,Energy,3,OK,
+17th Nov 2023,2023-11-17,Friday,7:55,Energy,2,Low,
+17th Nov 2023,2023-11-17,Friday,all day,Other Factors,,No social contact,
+17th Nov 2023,2023-11-17,Friday,20:07,Mood,7,,
+17th Nov 2023,2023-11-17,Friday,,Health measurements,1377,Step count (steps),(synced from Apple Health)
+17th Nov 2023,2023-11-17,Friday,,Health measurements,53,Heart rate (bpm) - Min,(synced from Apple Health)
+17th Nov 2023,2023-11-17,Friday,,Health measurements,76,Heart rate (bpm) - Average,(synced from Apple Health)
+17th Nov 2023,2023-11-17,Friday,,Health measurements,114,Heart rate (bpm) - Max,(synced from Apple Health)
+17th Nov 2023,2023-11-17,Friday,,Sleep,7:01,Asleep 01:16 - 08:52. In bed 23:56 - 08:52,. (synced from Apple Health)
+18th Nov 2023,2023-11-18,Saturday,pre,Symptom,3,Sinus congestion (Severe),
+18th Nov 2023,2023-11-18,Saturday,am,Symptom,2,Sinus congestion (Moderate),
+18th Nov 2023,2023-11-18,Saturday,mid,Symptom,2,Sinus congestion (Moderate),
+18th Nov 2023,2023-11-18,Saturday,pm,Symptom,2,Sinus congestion (Moderate),
+18th Nov 2023,2023-11-18,Saturday,pre,Symptom,1,Sore throat (Mild),
+18th Nov 2023,2023-11-18,Saturday,am,Symptom,1,Sore throat (Mild),
+18th Nov 2023,2023-11-18,Saturday,mid,Symptom,1,Sore throat (Mild),
+18th Nov 2023,2023-11-18,Saturday,pm,Symptom,2,Sore throat (Moderate),
+18th Nov 2023,2023-11-18,Saturday,pre,Symptom,1,Chills (Mild),
+18th Nov 2023,2023-11-18,Saturday,mid,Symptom,1,Chills (Mild),
+18th Nov 2023,2023-11-18,Saturday,mid,Symptom,1,Headache (Mild),
+18th Nov 2023,2023-11-18,Saturday,pm,Symptom,1,Bloating (Mild),
+18th Nov 2023,2023-11-18,Saturday,am,Symptom,1,Fatigue (Mild),
+18th Nov 2023,2023-11-18,Saturday,am,Symptom,1,Cough (Mild),
+18th Nov 2023,2023-11-18,Saturday,mid,Symptom,1,Cough (Mild),
+18th Nov 2023,2023-11-18,Saturday,pre,Symptom,1,Stress (Mild),
+18th Nov 2023,2023-11-18,Saturday,am,Symptom,1,Stress (Mild),
+18th Nov 2023,2023-11-18,Saturday,pre,Symptom,1,Anxiety (Mild),
+18th Nov 2023,2023-11-18,Saturday,am,Symptom,1,Anxiety (Mild),
+18th Nov 2023,2023-11-18,Saturday,08:41,Mood,4,,
+18th Nov 2023,2023-11-18,Saturday,18:31,Mood,5,,
+18th Nov 2023,2023-11-18,Saturday,8:42,Energy,3,OK,
+18th Nov 2023,2023-11-18,Saturday,7:55,Energy,2,Low,
+18th Nov 2023,2023-11-18,Saturday,,Productivity,1,Awful,
+18th Nov 2023,2023-11-18,Saturday,,Social life,1,Awful,
+18th Nov 2023,2023-11-18,Saturday,,Love life,2,Poor,
+18th Nov 2023,2023-11-18,Saturday,all day,Other Factors,,No social contact | TV,
+18th Nov 2023,2023-11-18,Saturday,,Health measurements,740.0952618061710,Step count (steps),(synced from Apple Health)
+18th Nov 2023,2023-11-18,Saturday,,Health measurements,61,Heart rate (bpm) - Min,(synced from Apple Health)
+18th Nov 2023,2023-11-18,Saturday,,Health measurements,72,Heart rate (bpm) - Average,(synced from Apple Health)
+18th Nov 2023,2023-11-18,Saturday,,Health measurements,91.6966781616211,Heart rate (bpm) - Max,(synced from Apple Health)
+18th Nov 2023,2023-11-18,Saturday,,Sleep,2:23,Asleep 00:39 - 04:36. In bed 00:39 - 04:36,. (synced from Apple Health)
+19th Nov 2023,2023-11-19,Sunday,pre,Symptom,2,Sore throat (Moderate),
+19th Nov 2023,2023-11-19,Sunday,am,Symptom,2,Sore throat (Moderate),
+19th Nov 2023,2023-11-19,Sunday,mid,Symptom,1,Sore throat (Mild),
+19th Nov 2023,2023-11-19,Sunday,am,Symptom,1,Headache (Mild),
+19th Nov 2023,2023-11-19,Sunday,mid,Symptom,2,Headache (Moderate),
+19th Nov 2023,2023-11-19,Sunday,pm,Symptom,1,Headache (Mild),
+19th Nov 2023,2023-11-19,Sunday,mid,Symptom,2,Bloating (Moderate),
+19th Nov 2023,2023-11-19,Sunday,pm,Symptom,1,Bloating (Mild),
+19th Nov 2023,2023-11-19,Sunday,pre,Symptom,2,Sinus congestion (Moderate),
+19th Nov 2023,2023-11-19,Sunday,am,Symptom,2,Sinus congestion (Moderate),
+19th Nov 2023,2023-11-19,Sunday,pm,Symptom,1,Sinus congestion (Mild),
+19th Nov 2023,2023-11-19,Sunday,mid,Symptom,1,Fatigue (Mild),
+19th Nov 2023,2023-11-19,Sunday,pre,Symptom,1,Cough (Mild),
+19th Nov 2023,2023-11-19,Sunday,07:55,Mood,5,,
+19th Nov 2023,2023-11-19,Sunday,7:55,Energy,3,OK,
+19th Nov 2023,2023-11-19,Sunday,all day,Other Factors,,No social contact,
+19th Nov 2023,2023-11-19,Sunday,,Health measurements,953,Step count (steps),(synced from Apple Health)
+19th Nov 2023,2023-11-19,Sunday,,Health measurements,57,Heart rate (bpm) - Min,(synced from Apple Health)
+19th Nov 2023,2023-11-19,Sunday,,Health measurements,67,Heart rate (bpm) - Average,(synced from Apple Health)
+19th Nov 2023,2023-11-19,Sunday,,Health measurements,96,Heart rate (bpm) - Max,(synced from Apple Health)
+19th Nov 2023,2023-11-19,Sunday,,Sleep,5:03,Asleep 01:52 - 07:22. In bed 01:52 - 07:22,. (synced from Apple Health)
+20th Nov 2023,2023-11-20,Monday,10:09,Mood,4,,
+20th Nov 2023,2023-11-20,Monday,10:09,Energy,3,OK,
+20th Nov 2023,2023-11-20,Monday,am,Symptom,1,Sore throat (Mild),
+20th Nov 2023,2023-11-20,Monday,pm,Symptom,1,Sore throat (Mild),
+20th Nov 2023,2023-11-20,Monday,am,Symptom,2,Headache (Moderate),
+20th Nov 2023,2023-11-20,Monday,am,Symptom,1,Bloating (Mild),
+20th Nov 2023,2023-11-20,Monday,pre,Symptom,1,Sinus congestion (Mild),
+20th Nov 2023,2023-11-20,Monday,am,Symptom,1,Sinus congestion (Mild),
+20th Nov 2023,2023-11-20,Monday,pm,Symptom,1,Sinus congestion (Mild),
+20th Nov 2023,2023-11-20,Monday,pm,Symptom,1,Cough (Mild),
+20th Nov 2023,2023-11-20,Monday,pm,Symptom,1,Anxiety (Mild),
+20th Nov 2023,2023-11-20,Monday,,Health measurements,1179.3407871665300,Step count (steps),(synced from Apple Health)
+20th Nov 2023,2023-11-20,Monday,,Health measurements,54,Heart rate (bpm) - Min,(synced from Apple Health)
+20th Nov 2023,2023-11-20,Monday,,Health measurements,63,Heart rate (bpm) - Average,(synced from Apple Health)
+20th Nov 2023,2023-11-20,Monday,,Health measurements,103,Heart rate (bpm) - Max,(synced from Apple Health)
+20th Nov 2023,2023-11-20,Monday,,Sleep,4:45,Asleep 03:43 - 09:01. In bed 23:46 - 09:06,. (synced from Apple Health)
+21st Nov 2023,2023-11-21,Tuesday,pre,Symptom,1,Sinus congestion (Mild),
+21st Nov 2023,2023-11-21,Tuesday,am,Symptom,1,Sinus congestion (Mild),
+21st Nov 2023,2023-11-21,Tuesday,mid,Symptom,1,Sinus congestion (Mild),
+21st Nov 2023,2023-11-21,Tuesday,pm,Symptom,1,Sinus congestion (Mild),
+21st Nov 2023,2023-11-21,Tuesday,pre,Symptom,1,Cough (Mild),
+21st Nov 2023,2023-11-21,Tuesday,am,Symptom,1,Cough (Mild),
+21st Nov 2023,2023-11-21,Tuesday,mid,Symptom,1,Cough (Mild),
+21st Nov 2023,2023-11-21,Tuesday,pm,Symptom,1,Cough (Mild),
+21st Nov 2023,2023-11-21,Tuesday,pre,Symptom,1,Sore throat (Mild),
+21st Nov 2023,2023-11-21,Tuesday,am,Symptom,1,Sore throat (Mild),
+21st Nov 2023,2023-11-21,Tuesday,,Health measurements,2481.066782264580,Step count (steps),(synced from Apple Health)
+21st Nov 2023,2023-11-21,Tuesday,,Health measurements,52,Heart rate (bpm) - Min,(synced from Apple Health)
+21st Nov 2023,2023-11-21,Tuesday,,Health measurements,69,Heart rate (bpm) - Average,(synced from Apple Health)
+21st Nov 2023,2023-11-21,Tuesday,,Health measurements,123.00000000000000,Heart rate (bpm) - Max,(synced from Apple Health)
+21st Nov 2023,2023-11-21,Tuesday,,Sleep,6:05,Asleep 01:59 - 08:23. In bed 23:55 - 08:23,. (synced from Apple Health)
+22nd Nov 2023,2023-11-22,Wednesday,pre,Symptom,1,Sinus congestion (Mild),
+22nd Nov 2023,2023-11-22,Wednesday,mid,Symptom,1,Sinus congestion (Mild),
+22nd Nov 2023,2023-11-22,Wednesday,pm,Symptom,1,Sinus congestion (Mild),
+22nd Nov 2023,2023-11-22,Wednesday,am,Symptom,1,Cough (Mild),
+22nd Nov 2023,2023-11-22,Wednesday,mid,Symptom,2,Cough (Moderate),
+22nd Nov 2023,2023-11-22,Wednesday,pm,Symptom,1,Cough (Mild),
+22nd Nov 2023,2023-11-22,Wednesday,18:54,Mood,5,Anxious | Fine,
+22nd Nov 2023,2023-11-22,Wednesday,18:54,Energy,4,High,
+22nd Nov 2023,2023-11-22,Wednesday,,Health measurements,1773,Step count (steps),(synced from Apple Health)
+22nd Nov 2023,2023-11-22,Wednesday,,Health measurements,53,Heart rate (bpm) - Min,(synced from Apple Health)
+22nd Nov 2023,2023-11-22,Wednesday,,Health measurements,64,Heart rate (bpm) - Average,(synced from Apple Health)
+22nd Nov 2023,2023-11-22,Wednesday,,Health measurements,95,Heart rate (bpm) - Max,(synced from Apple Health)
+22nd Nov 2023,2023-11-22,Wednesday,,Sleep,6:30,Asleep 02:24 - 09:01. In bed 23:57 - 09:05,. (synced from Apple Health)
+23rd Nov 2023,2023-11-23,Thursday,am,Symptom,1,Anxiety (Mild),
+23rd Nov 2023,2023-11-23,Thursday,mid,Symptom,1,Anxiety (Mild),
+23rd Nov 2023,2023-11-23,Thursday,pm,Symptom,1,Anxiety (Mild),
+23rd Nov 2023,2023-11-23,Thursday,pre,Symptom,1,Sinus congestion (Mild),
+23rd Nov 2023,2023-11-23,Thursday,am,Symptom,1,Sinus congestion (Mild),
+23rd Nov 2023,2023-11-23,Thursday,mid,Symptom,1,Sinus congestion (Mild),
+23rd Nov 2023,2023-11-23,Thursday,pm,Symptom,1,Sinus congestion (Mild),
+23rd Nov 2023,2023-11-23,Thursday,pre,Symptom,1,Sore throat (Mild),
+23rd Nov 2023,2023-11-23,Thursday,am,Symptom,1,Sore throat (Mild),
+23rd Nov 2023,2023-11-23,Thursday,am,Symptom,1,Headache (Mild),
+23rd Nov 2023,2023-11-23,Thursday,mid,Symptom,1,Headache (Mild),
+23rd Nov 2023,2023-11-23,Thursday,mid,Symptom,1,Fatigue (Mild),
+23rd Nov 2023,2023-11-23,Thursday,,Health measurements,2171.6730265119500,Step count (steps),(synced from Apple Health)
+23rd Nov 2023,2023-11-23,Thursday,,Health measurements,49,Heart rate (bpm) - Min,(synced from Apple Health)
+23rd Nov 2023,2023-11-23,Thursday,,Health measurements,64,Heart rate (bpm) - Average,(synced from Apple Health)
+23rd Nov 2023,2023-11-23,Thursday,,Health measurements,97,Heart rate (bpm) - Max,(synced from Apple Health)
+23rd Nov 2023,2023-11-23,Thursday,,Sleep,6:57,Asleep 02:52 - 09:55. In bed 23:51 - 09:55,. (synced from Apple Health)
+24th Nov 2023,2023-11-24,Friday,pre,Symptom,1,Sinus congestion (Mild),
+24th Nov 2023,2023-11-24,Friday,am,Symptom,1,Sinus congestion (Mild),
+24th Nov 2023,2023-11-24,Friday,mid,Symptom,1,Sinus congestion (Mild),
+24th Nov 2023,2023-11-24,Friday,pm,Symptom,2,Sinus congestion (Moderate),
+24th Nov 2023,2023-11-24,Friday,am,Symptom,1,Sore throat (Mild),
+24th Nov 2023,2023-11-24,Friday,mid,Symptom,1,Sore throat (Mild),
+24th Nov 2023,2023-11-24,Friday,mid,Symptom,1,Fatigue (Mild),
+24th Nov 2023,2023-11-24,Friday,,Health measurements,3415.4047915753000,Step count (steps),(synced from Apple Health)
+24th Nov 2023,2023-11-24,Friday,,Health measurements,44,Heart rate (bpm) - Min,(synced from Apple Health)
+24th Nov 2023,2023-11-24,Friday,,Health measurements,79,Heart rate (bpm) - Average,(synced from Apple Health)
+24th Nov 2023,2023-11-24,Friday,,Health measurements,132,Heart rate (bpm) - Max,(synced from Apple Health)
+24th Nov 2023,2023-11-24,Friday,,Sleep,6:28,Asleep 01:11 - 08:15. In bed 23:44 - 08:15,. (synced from Apple Health)
+25th Nov 2023,2023-11-25,Saturday,pre,Symptom,1,Sinus congestion (Mild),
+25th Nov 2023,2023-11-25,Saturday,am,Symptom,1,Sinus congestion (Mild),
+25th Nov 2023,2023-11-25,Saturday,pm,Symptom,2,Sinus congestion (Moderate),
+25th Nov 2023,2023-11-25,Saturday,pm,Symptom,1,Headache (Mild),
+25th Nov 2023,2023-11-25,Saturday,mid,Symptom,1,Fatigue (Mild),
+25th Nov 2023,2023-11-25,Saturday,pm,Symptom,1,Fatigue (Mild),
+25th Nov 2023,2023-11-25,Saturday,,Health measurements,700,Step count (steps),(synced from Apple Health)
+25th Nov 2023,2023-11-25,Saturday,,Health measurements,53,Heart rate (bpm) - Min,(synced from Apple Health)
+25th Nov 2023,2023-11-25,Saturday,,Health measurements,66,Heart rate (bpm) - Average,(synced from Apple Health)
+25th Nov 2023,2023-11-25,Saturday,,Health measurements,92.00000000000000,Heart rate (bpm) - Max,(synced from Apple Health)
+25th Nov 2023,2023-11-25,Saturday,,Sleep,6:11,Asleep 03:54 - 10:06. In bed 03:54 - 10:06,. (synced from Apple Health)
+26th Nov 2023,2023-11-26,Sunday,am,Symptom,1,Headache (Mild),
+26th Nov 2023,2023-11-26,Sunday,pre,Symptom,1,Sinus congestion (Mild),
+26th Nov 2023,2023-11-26,Sunday,am,Symptom,1,Sinus congestion (Mild),
+26th Nov 2023,2023-11-26,Sunday,pm,Symptom,1,Sinus congestion (Mild),
+26th Nov 2023,2023-11-26,Sunday,,Health measurements,7292.952530170450,Step count (steps),(synced from Apple Health)
+26th Nov 2023,2023-11-26,Sunday,,Health measurements,51,Heart rate (bpm) - Min,(synced from Apple Health)
+26th Nov 2023,2023-11-26,Sunday,,Health measurements,88,Heart rate (bpm) - Average,(synced from Apple Health)
+26th Nov 2023,2023-11-26,Sunday,,Health measurements,130,Heart rate (bpm) - Max,(synced from Apple Health)
+26th Nov 2023,2023-11-26,Sunday,,Sleep,7:39,Asleep 02:15 - 09:58. In bed 02:15 - 09:58,. (synced from Apple Health)
+27th Nov 2023,2023-11-27,Monday,pre,Symptom,1,Sinus congestion (Mild),
+27th Nov 2023,2023-11-27,Monday,am,Symptom,1,Sinus congestion (Mild),
+27th Nov 2023,2023-11-27,Monday,mid,Symptom,1,Sinus congestion (Mild),
+27th Nov 2023,2023-11-27,Monday,pm,Symptom,1,Sinus congestion (Mild),
+27th Nov 2023,2023-11-27,Monday,14:00,Mood,7,,
+27th Nov 2023,2023-11-27,Monday,,Productivity,4,Good,
+27th Nov 2023,2023-11-27,Monday,14:01,Energy,4,High,
+27th Nov 2023,2023-11-27,Monday,,Health measurements,4977,Step count (steps),(synced from Apple Health)
+27th Nov 2023,2023-11-27,Monday,,Health measurements,53,Heart rate (bpm) - Min,(synced from Apple Health)
+27th Nov 2023,2023-11-27,Monday,,Health measurements,88,Heart rate (bpm) - Average,(synced from Apple Health)
+27th Nov 2023,2023-11-27,Monday,,Health measurements,126,Heart rate (bpm) - Max,(synced from Apple Health)
+27th Nov 2023,2023-11-27,Monday,,Sleep,6:54,Asleep 02:29 - 09:28. In bed 23:52 - 09:32,. (synced from Apple Health)
+28th Nov 2023,2023-11-28,Tuesday,20:00,Mood,6,,
+28th Nov 2023,2023-11-28,Tuesday,,Productivity,3,OK,
+28th Nov 2023,2023-11-28,Tuesday,20:00,Energy,4,High,
+28th Nov 2023,2023-11-28,Tuesday,mid,Symptom,1,Sinus congestion (Mild),
+28th Nov 2023,2023-11-28,Tuesday,,Health measurements,6480.57736245862,Step count (steps),(synced from Apple Health)
+28th Nov 2023,2023-11-28,Tuesday,,Health measurements,48,Heart rate (bpm) - Min,(synced from Apple Health)
+28th Nov 2023,2023-11-28,Tuesday,,Health measurements,96,Heart rate (bpm) - Average,(synced from Apple Health)
+28th Nov 2023,2023-11-28,Tuesday,,Health measurements,146,Heart rate (bpm) - Max,(synced from Apple Health)
+28th Nov 2023,2023-11-28,Tuesday,,Sleep,5:15,Asleep 03:11 - 08:29. In bed 23:50 - 08:29,. (synced from Apple Health)
+29th Nov 2023,2023-11-29,Wednesday,pre,Symptom,1,Sinus congestion (Mild),
+29th Nov 2023,2023-11-29,Wednesday,12:10,Mood,7,,
+29th Nov 2023,2023-11-29,Wednesday,,Productivity,3,OK,
+29th Nov 2023,2023-11-29,Wednesday,,Social life,2,Poor,
+29th Nov 2023,2023-11-29,Wednesday,,Love life,4,Good,
+29th Nov 2023,2023-11-29,Wednesday,12:10,Energy,4,High,
+29th Nov 2023,2023-11-29,Wednesday,all day,Other Factors,,Emma | With partner,
+29th Nov 2023,2023-11-29,Wednesday,,Health measurements,2001,Step count (steps),(synced from Apple Health)
+29th Nov 2023,2023-11-29,Wednesday,,Health measurements,52,Heart rate (bpm) - Min,(synced from Apple Health)
+29th Nov 2023,2023-11-29,Wednesday,,Health measurements,65,Heart rate (bpm) - Average,(synced from Apple Health)
+29th Nov 2023,2023-11-29,Wednesday,,Health measurements,95,Heart rate (bpm) - Max,(synced from Apple Health)
+29th Nov 2023,2023-11-29,Wednesday,,Sleep,6:34,Asleep 02:20 - 08:57. In bed 22:45 - 08:57,. (synced from Apple Health)
+30th Nov 2023,2023-11-30,Thursday,20:00,Energy,3,OK,
+30th Nov 2023,2023-11-30,Thursday,,Productivity,2,Poor,
+30th Nov 2023,2023-11-30,Thursday,,Social life,3,OK,
+30th Nov 2023,2023-11-30,Thursday,,Love life,3,OK,
+30th Nov 2023,2023-11-30,Thursday,pre,Symptom,1,Sinus congestion (Mild),
+30th Nov 2023,2023-11-30,Thursday,am,Symptom,1,Sinus congestion (Mild),
+30th Nov 2023,2023-11-30,Thursday,mid,Symptom,1,Sinus congestion (Mild),
+30th Nov 2023,2023-11-30,Thursday,,Health measurements,2547.532603798000,Step count (steps),(synced from Apple Health)
+30th Nov 2023,2023-11-30,Thursday,,Health measurements,56,Heart rate (bpm) - Min,(synced from Apple Health)
+30th Nov 2023,2023-11-30,Thursday,,Health measurements,74,Heart rate (bpm) - Average,(synced from Apple Health)
+30th Nov 2023,2023-11-30,Thursday,,Health measurements,109,Heart rate (bpm) - Max,(synced from Apple Health)
+30th Nov 2023,2023-11-30,Thursday,,Sleep,6:40,Asleep 23:45 - 08:30,. (synced from Apple Health)
+1st Dec 2023,2023-12-01,Friday,,Health measurements,4333.273024393480,Step count (steps),(synced from Apple Health)
+1st Dec 2023,2023-12-01,Friday,,Health measurements,59,Heart rate (bpm) - Min,(synced from Apple Health)
+1st Dec 2023,2023-12-01,Friday,,Health measurements,102,Heart rate (bpm) - Average,(synced from Apple Health)
+1st Dec 2023,2023-12-01,Friday,,Health measurements,122,Heart rate (bpm) - Max,(synced from Apple Health)
+1st Dec 2023,2023-12-01,Friday,,Sleep,1:21,Asleep 23:40 - 01:01,. (synced from Apple Health)
+2nd Dec 2023,2023-12-02,Saturday,,Health measurements,10578,Step count (steps),(synced from Apple Health)
+2nd Dec 2023,2023-12-02,Saturday,,Health measurements,58,Heart rate (bpm) - Min,(synced from Apple Health)
+2nd Dec 2023,2023-12-02,Saturday,,Health measurements,70,Heart rate (bpm) - Average,(synced from Apple Health)
+2nd Dec 2023,2023-12-02,Saturday,,Health measurements,105,Heart rate (bpm) - Max,(synced from Apple Health)
+2nd Dec 2023,2023-12-02,Saturday,,Sleep,6:29,Asleep 01:55 - 08:45. In bed 01:55 - 08:45,. (synced from Apple Health)
+3rd Dec 2023,2023-12-03,Sunday,,Health measurements,12671.520077786900,Step count (steps),(synced from Apple Health)
+3rd Dec 2023,2023-12-03,Sunday,,Health measurements,55,Heart rate (bpm) - Min,(synced from Apple Health)
+3rd Dec 2023,2023-12-03,Sunday,,Health measurements,120,Heart rate (bpm) - Average,(synced from Apple Health)
+3rd Dec 2023,2023-12-03,Sunday,,Health measurements,169.00000000000000,Heart rate (bpm) - Max,(synced from Apple Health)
+4th Dec 2023,2023-12-04,Monday,,Health measurements,3236.4799222131300,Step count (steps),(synced from Apple Health)
+4th Dec 2023,2023-12-04,Monday,,Health measurements,59,Heart rate (bpm) - Min,(synced from Apple Health)
+4th Dec 2023,2023-12-04,Monday,,Health measurements,72,Heart rate (bpm) - Average,(synced from Apple Health)
+4th Dec 2023,2023-12-04,Monday,,Health measurements,107.00000000000000,Heart rate (bpm) - Max,(synced from Apple Health)
+4th Dec 2023,2023-12-04,Monday,,Sleep,8:10,Asleep 23:59 - 09:16,. (synced from Apple Health)
+5th Dec 2023,2023-12-05,Tuesday,,Health measurements,94,Step count (steps),(synced from Apple Health)

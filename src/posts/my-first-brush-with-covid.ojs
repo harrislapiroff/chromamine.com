@@ -1,0 +1,215 @@
+---
+title: My first brush with covid
+date: 2023-12-06
+categories: ['Miscellany']
+tags: [covid, health]
+excerpt:
+    I got covid for the first time last month, shortly before Thanksgiving. (It's becoming a bit of an annual tradition for me to get sick around Thanksgiving – in 2022 I got the flu after Thanksgiving.) I'd been fortunate to avoid it for so long, but I spent two days on vacation with someone who, *as soon as* we parted ways, took a covid test in anticipation of an event she planned to attend that evening – and tested positive.
+eleventyExcludeFromCollections: true
+# xposts:
+#     - label: Facebook
+#       url: https://www.facebook.com/harrislap/posts/pfbid02BZU794FSYHEBcDnNfMQgTMNZ14fULfqgZB8dNNiADTo9NeXz4Pg4jV4QFvsu4YFFl
+#     - label: Mastodon
+#       url: https://social.coop/@harris/111236286330861245
+---
+
+md`I got covid for the first time last month, shortly before Thanksgiving.
+
+Though a covid infection is an experience most people have had by this point, as is my wont, I kept detailed track of my personal experience and collected some data from it. My symptoms were mild – somewhere a level up from a usual cold, but not as scary or uncomfortable as my encounters with the flu or strep. I received a 2023–2024 covid shot just about a month before this exposure.
+
+I've numbered my first positive test as **day 0** and the days preceding it as **-3**, **-2**, and **-1**. During days -3 through 3, I used [expired antigen tests](/2023/11/using-expired-covid-antigen-tests/) which are likely to be less sensitive, but were good enough to verify my infection was still active.
+
+The most interesting thing that happened over the course of my infection was an apparent two-peaked viral load – at least as measured by intensity of antigen test lines. I tested negative or possibly very faintly positive on day 5 (I had switched to non-expired tests) and my test line crept darker over the next two days, with some very mild recurrence of symptoms. If it were not for the odd trajectory of test results, I think I would have had more confidence that I wasn't contagious toward the end of my infection and would have stopped isolating sooner.
+
+The hardest part of the experience was isolating for as long as I did and not feeling certain when I wasn't contagious. I had thanskgiving dinner with my family over video chat and spent my birthday baking myself a batch of cupcakes. I spent a little time during isolation with the person who I went on vacation with and on the last day I was testing faintly positive (day 11), I had dinner with someone who consented to the risk. They did not get sick.
+
+Below is a timeline of my symptoms. You can see that I feel some level of mild congestion throughout – which is frequently true in the winter even when I'm not otherwise sick. The rest of my symptoms peaked between days -1 and 3. I seem to have experienced a sore throat early on, though I wonder in retrospect that was an anxious super-attentiveness to my body's sensations.`
+
+// Make plots work in dark mode and use my font
+htl.svg.fragment`<style>
+    svg[class^='plot-'] {
+        background-color: transparent !important;
+        width: 100%;
+        max-width: 600px;
+    }
+    svg[class^='plot-'] text {
+        font-family: var(--font-family-base);
+    }
+</style>`
+
+SYMPTOM_RE = /([\w ]+) \(([\w ]+)\)/
+
+LEVEL_LABELS = ['None', 'Mild', 'Mod', 'Sev', '!!!']
+
+TIME_OF_DAY_TO_DEC = ({
+    'pre': 0,
+    'am': 0.25,
+    'mid': 0.5,
+    'pm': 0.75,
+})
+
+DEC_TO_TIME_OF_DAY = ({
+    0: 'pre',
+    0.25: 'am',
+    0.5: 'mid',
+    0.75: 'pm',
+})
+
+d3 = require('d3')
+
+bearableData = await FileAttachment('/media/my-first-brush-with-covid/bearable-data.csv').csv()
+
+dayOfInfection = date => d3.utcDay.count(
+    new Date(Date.UTC(2023, 10, 17)),
+    date
+)
+
+symptomData = bearableData.filter(d => d.category === 'Symptom')
+    .map(d => ({
+        ...d,
+        date: d3.isoParse(d['date formatted']),
+        day: dayOfInfection(d3.isoParse(d['date formatted'])),
+        symptom: d.detail.match(SYMPTOM_RE)[1],
+    }))
+    .filter(d => !['Anxiety', 'Stress'].includes(d.symptom))
+
+timeDomain = d3.range(-3, 14).map(t => d3.range(t, t + 1, 0.25)).flat()
+
+Plot.plot({
+    marginLeft: 80,
+    marginBottom: 100,
+    marginTop: 100,
+    marginRight: 40,
+    width: 400,
+    height: timeDomain.length * 14 + 100 + 100,
+    x: {
+        label: '',
+        tickRotate: 45,
+        tickSize: 0,
+        grid: true,
+        axis: 'both',
+    },
+    y: {
+        label: '',
+        tickSize: 0,
+        grid: true,
+        domain: timeDomain,
+        tickFormat: t => [
+            'Day',
+            Math.floor(t).toString().padStart(2, ' '),
+            DEC_TO_TIME_OF_DAY[(t % 1 + 1) % 1].padStart(3, ' ')
+        ].join(' '),
+    },
+    marks: [
+        Plot.ruleY(d3.range(-3, 14), {
+            stroke: 'var(--color-base)',
+        }),
+        Plot.cell(symptomData, {
+            y: d => d.day + TIME_OF_DAY_TO_DEC[d['time of day']],
+            x: 'symptom',
+            opacity: 'rating/amount',
+            fill: 'var(--color-accent-1)',
+        }),
+        Plot.text(symptomData, {
+            y: d => d.day + TIME_OF_DAY_TO_DEC[d['time of day']],
+            x: 'symptom',
+            text: d => LEVEL_LABELS[d['rating/amount']].toUpperCase(),
+            fill: 'var(--color-base)',
+            stroke: 'var(--color-background)',
+            strokeWidth: 3,
+        }),
+    ]
+})
+
+md`Here also is a plot of my body temperature for the first few days of my infection, while I had an elevated body temperature (as measured on an oral thermometer and manually recorded). My base body temperature usually ranges between 96.5 and 97.5 °F.`
+
+temperatureData = await (
+    await FileAttachment('/media/my-first-brush-with-covid/body-temperature.csv').csv()
+).map(
+    d => ({
+        date: d3.isoParse(d.startDate),
+        day: dayOfInfection(d3.isoParse(d.startDate)),
+        value: +d.value,
+    })
+).filter(
+    d => d.day < 4
+)
+
+Plot.plot({
+    marginBottom: 80,
+    width: 400,
+    height: 300,
+    x: {
+        grid: true,
+        // Don't show the first tick label
+        tickFormat: t => (
+            +t === +new Date(Date.UTC(2023, 10, 16, 12)) ? '' :
+            `Day ${dayOfInfection(t)} ${d3.utcFormat('%-I %p')(t)}`
+        ),
+        tickRotate: -30,
+        tickSize: 0,
+        ticks: 10,
+        domain: [new Date(Date.UTC(2023, 10, 16, 12)), new Date(Date.UTC(2023, 10, 21))]
+    },
+    y: {
+        label: '°F',
+        domain: [96, 102],
+        tickSize: 0,
+        grid: true
+    },
+    marks: [
+        Plot.dot(temperatureData, {
+            x: 'date',
+            y: 'value',
+            fill: 'var(--color-accent-1)',
+            r: 3,
+        }),
+        Plot.line(temperatureData, {
+            x: 'date',
+            y: 'value',
+            stroke: 'var(--color-accent-1)',
+            opacity: 0.5,
+            strokeWidth: 2,
+        }),
+    ]
+})
+
+md`My fever did not recur for the rest of my infection.
+
+Here's a descriptive timeline based on written logs I kept:
+
+* **Day -3:** I learn about my exposure and immediately isolate in my apartment. I feel only faint mild congestion at a level I often feel in winter. It's not clear if this is a symptom or not. I test negative for covid.
+
+* **Day -2:** Same as the day before. I continue to isolate.
+
+* **Day -1:** I wake up with particularly drippy congestion. This is much less common for me in the winter, so I think I am truly sick, but still test negative. By evening I have a fever of 101°F which I suppress with both ibuprofen and acetaminophen.
+
+* **Day 0:** I wake up feeling mild cold symptoms similar to the previous day and test solidly positive for covid. Mild fatigue in the afternoon and my fever slowly returns along with severe congestion. This is the hardest night and I struggle to control my symptoms well enough to sleep.
+
+* **Day 1:** This is the most challenging day. Severe congestion comes and goes all day, my temperature is mildly elevated in the afternoon and I feel generally gross. My fever goes away in the afternoon and does not return.
+
+* **Day 2:** I'm better rested, though I have a headache that persists annoyingly all day. Congestion is moderate and I feel gassy and a little nauseous and vomit in the afternoon. This is the only day I experience gastrointestinal symptoms and I wonder if it's just something I ate.
+
+* **Day 3:** My congestion is gone. I continue to have an annoying headache that subsides by afternoon. By evening I only have mild cold symptoms: congestion, an occasinal cough, and a gravely Batman voice.
+
+* **Day 4:** The mildest of a sore throat and scratchy voice remain and I have the occasional coughing fit. I test negative on an expired test and switch to using non-expired tests, where I still test positive.
+
+* **Day 5:** Still coughing occasionally. I have a work meeting that I can't stop coughing through, but when I'm not trying to speak I feel perfectly healthy. I test negative on a non-expired test, though someone later, looking at the photo, tells me they think it's a faint positive.
+
+* **Day 6:** I wake up with a slight sore throat and headache. I test faintly positive.
+
+* **Day 7:** I wake up with a sore throat again and this time my positive is as dark as it's ever been. My congestion is a little worse today.
+
+* **Days 8–12:** Mild congestion comes and goes and eventually declines to my winter baseline. I finally test negative on day 11 and confirm on day 12. (These are days 12 and 13 after the start of my symptoms—I have been *mostly* isolating for over two weeks at this point.)
+
+***
+
+_Much thanks to:_
+
+* _[Eric Wolter][] for his [Apple Health to CSV][] converter which saved me doubtless many hours of wrestling with multi-gigabyte XML files._
+* _[Bearable][] for being the best symptom tracker around._
+
+[Eric Wolter]: https://ericwolter.com/
+[Apple Health to CSV]: https://ericwolter.com/projects/apple-health-to-csv/
+[Bearable]: https://bearable.app/
+`
