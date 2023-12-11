@@ -8,6 +8,8 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid02CSW3yaKqtoGkGPA3EX4rkNBDGUTgdbPLWUz3hUA8zjWFeDX9EZ2tNozU1VZNPqsXl
   - label: Instagram
     url: https://www.instagram.com/p/BdExT6QFqT9/
+  - label: Mastodon
+    url: https://social.coop/@harris/111560256874332230
 ---
 
 ![Three glass mugs of thick, creamy, lightly colored egg nog with a sprinkling of nutmeg on top.](/media/john-hayes-egg-nog/cups.jpg)
@@ -25,7 +27,7 @@ I’m thinking of him today and am grateful to him for leaving us this recipe, a
 ![Recipe (transcribed below)](/media/john-hayes-egg-nog/recipe.png)
 
 :::update
-**2023-12-11:** I've made John's egg nog most years since I wrote this post. I was never able to track down a bottle of Nassau Royale. A few years ago, when I decided to see if I could order it online, I discovered via a [TripAdvisor forum post][discontinued] that it had been discontinued. I was a little heartbroken that I'd never be able to make the recipe as John had intended it. But someone in the same forum thread suggested Licor 43 as a good substitute and I've used that most years.
+**2023-12-11:** I've made John's egg nog most years since I wrote this post. I was never able to track down a bottle of Nassau Royale for purchase. A few years ago, when I decided to see if I could order it online, I discovered via a [TripAdvisor forum post][discontinued] that it had been discontinued. I was a little heartbroken that I'd never be able to make the recipe as John had intended it. But someone in the same forum thread suggested Licor 43 as a good substitute and I've used that most years.
 
 Fate was not content to leave it at that. I was visiting my aunt Holly, who is a very occasional drinker and not at all a cocktail maker, and in the process of exploring the cobwebby corners of her kitchen cabinets, wouldn't you know, I found a dusty old bottle – who knows how many decades old.
 
