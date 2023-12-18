@@ -47,9 +47,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/media")
     eleventyConfig.addPassthroughCopy("src/contra/media")
 
-    /* Pass .well-known through
+    /* Other files through
      *-------------------------------------*/
     eleventyConfig.addPassthroughCopy("src/.well-known")
+    eleventyConfig.addPassthroughCopy("src/robots.txt")
 
     /* Add RSS
      *-------------------------------------*/
