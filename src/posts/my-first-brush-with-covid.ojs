@@ -74,6 +74,8 @@ symptomData = bearableData.filter(d => d.category === 'Symptom')
 
 timeDomain = d3.range(-3, 14).map(t => d3.range(t, t + 1, 0.25)).flat()
 
+console.log(getComputedStyle(document.body).getPropertyValue('--color-background'))
+
 Plot.plot({
     marginLeft: 80,
     marginBottom: 100,
@@ -81,6 +83,10 @@ Plot.plot({
     marginRight: 40,
     width: 400,
     height: timeDomain.length * 14 + 100 + 100,
+    color: {
+        type: 'sequential',
+        scheme: 'reds',
+    },
     x: {
         label: '',
         tickRotate: 45,
@@ -106,15 +112,14 @@ Plot.plot({
         Plot.cell(symptomData, {
             y: d => d.day + TIME_OF_DAY_TO_DEC[d['time of day']],
             x: 'symptom',
-            opacity: 'rating/amount',
-            fill: 'var(--color-accent-1)',
+            fill: 'rating/amount',
         }),
         Plot.text(symptomData, {
             y: d => d.day + TIME_OF_DAY_TO_DEC[d['time of day']],
             x: 'symptom',
             text: d => LEVEL_LABELS[d['rating/amount']].toUpperCase(),
-            fill: 'var(--color-base)',
-            stroke: 'var(--color-background)',
+            fill: 'var(--color-almost-black)',
+            stroke: 'white',
             strokeWidth: 3,
         }),
     ]
