@@ -48,7 +48,7 @@ Given this united message from the humanitarian community, people shouldn’t re
 
 ***
 
-Thinking about Paul Biggar this week reminds me of that years ago, when [Daniel Ellsberg][ellsberg] was still alive, I had the pleasure to meet him and see him speak at a retreat for work (my job is indeed the coolest). He was the sharpest octogenarian I had ever met, speaking on a wide range of topics with clarity for exactly one hour – he didn’t even need a timer!
+Thinking about Paul Biggar this week reminds me that years ago, when [Daniel Ellsberg][ellsberg] was still alive, I had the pleasure to meet him and see him speak at a retreat for work (my job is indeed the coolest). He was the sharpest octogenarian I had ever met, speaking on a wide range of topics with clarity for exactly one hour – he didn’t even need a timer!
 
 One thing he said that stuck with me was on the subject of whistleblowers: as a society we train people when and under what circumstances to sacrifice their lives for a greater good – this is one of the things the military does, it shows up in stories, movies, TV – but we don’t really instill an idea of under what circumstances one should sacrifice comfort, a job, a career.
 
