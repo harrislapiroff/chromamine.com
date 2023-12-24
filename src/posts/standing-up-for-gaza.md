@@ -3,11 +3,11 @@ title: Standing Up for Gaza
 date: 2023-12-24
 categories: [Miscellany]
 tags: [politics, war]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/deck/@harris/111636411557341412
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid09zY6CKwhibd6ew8SfnP6N4CCjydveRcVJAELQg2wvYnzN4Ak8HXVBV5BcjDFr31ul?__cft__[0]=AZVMubkF2VbWPq76bAZ-w-GxrO5oAlyWhLlK8vkqOn6z3EQg3z6paj46VrDS5E1eVBO-ZMKnew89pILeHktl82U6d8KI1rZk4mhSnchJUVCjcAJPaxJ58u6lziOMaYjCuF0&__tn__=%2CO%2CP-R
 ---
 
 Up until this week Paul Biggar was on the board at a fairly substantial tech company that he co-founded. If you work in tech, you’ve [probably heard of it][circleci]; if you don’t, you probably haven’t. But then he wrote [a blog post][paul]:
