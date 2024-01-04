@@ -17,31 +17,18 @@ organizations:
 
 dances:
   upcoming:
-
-    - name: Monday Contras
-      date: 2023-10-30T19:30-04:00
-      date_end: 2023-10-30T22:30-04:00
+    - name: Rehoboth Contra Dance
+      date: 2024-01-26T19:30-05:00
+      date_end: 2024-01-26T22:30-05:00
       tzid: America/New_York
-      band: Eric Boodman, Larry Unger, and Jack O'Connor
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden Street
-      city: Concord MA
-      url: http://mondaycontras.com/
-
-    - name: Lenox Contra Dance
-      date: 2023-11-18T19:15-05:00
-      date_end: 2023-11-18T22:30-05:00
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 65 Walker Street
-      city: Lenox MA
+      band: Black River Ironworks
+      bandURL: https://www.facebook.com/BlackRiverIronworks/
+      street: Blanding Public Library, 124 Bay State Road
+      city: Rehoboth MA
+      url: https://camillastreeter.hatch.one/rehobothcontradance
       description: |+
         Workshop at 7:15PM  
-        Dancing from 7:30–10:30PM
-      url: https://lenoxcontradance.org/
+        Dancing from 7:30–11PM
 
     - name: Thursday Contras
       date: 2024-02-15T19:10-05:00
@@ -51,6 +38,22 @@ dances:
       street: Concord Scout House, 74 Walden Street
       city: Concord MA
       url: https://www.neffa.org/thursday-contras/
+      description: |+
+        Workshop at 7:10PM  
+        Dancing from 7:30PM–10PM
+
+    - name: Lenox Contra Dance
+      date: 2024-05-18T19:15-05:00
+      date_end: 2024-05-18T22:30-05:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 65 Walker Street
+      city: Lenox MA
+      description: |+
+        Workshop at 7:15PM  
+        Dancing from 7:30–10:30PM
+      url: https://lenoxcontradance.org/      
 
     - name: Thursday Night Contra
       date: 2024-06-26T19:30-04:00
@@ -196,3 +199,28 @@ dances:
       street: 400 Deering Ave
       city: Portland ME
       url: https://www.commonfloorcontra.dance/
+
+    - name: Monday Contras
+      date: 2023-10-30T19:30-04:00
+      date_end: 2023-10-30T22:30-04:00
+      tzid: America/New_York
+      band: Eric Boodman, Larry Unger, and Jack O'Connor
+      description: |+
+        Workshop at 7PM  
+        Dancing from 7:30–10:30PM
+      street: Concord Scout House, 74 Walden Street
+      city: Concord MA
+      url: http://mondaycontras.com/
+
+    - name: Lenox Contra Dance
+      date: 2023-11-18T19:15-05:00
+      date_end: 2023-11-18T22:30-05:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 65 Walker Street
+      city: Lenox MA
+      description: |+
+        Workshop at 7:15PM  
+        Dancing from 7:30–10:30PM
+      url: https://lenoxcontradance.org/
