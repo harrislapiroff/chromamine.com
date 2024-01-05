@@ -5,11 +5,11 @@ categories: ['Life']
 tags: [time, themes, autoarcheology]
 excerpt:
     I’ve been thinking a lot lately about Life, writ large. I’ve been thinking about the trappings of young adulthood that I’ve left behind me, about how I should conceive of building a life that I’m happy with, now and in the future, whether I’ve been focusing my time on the right things, and about what my life’s work should be – if I even want to have such a thing.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/111704355366416519
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0zskKanVWPx3K1bvXU2eu5CBrBMSi29BGmx6wgqm8NvmsCTiXk2MyYECWXPTgdzN9l
 ---
 
 Fifteen years ago, in a long lost LiveJournal[^1], [I wrote](/2014/01/for-the-new-year/#old):
