@@ -22,7 +22,7 @@ Ten years ago, [I wrote](/2014/01/for-the-new-year/):
 
 > I tend to make resolutions at times in my life when I’m feeling stagnant, dissatisfied, and in need of change. So, in that respect, I’m happy to say that I haven’t felt any desire to make resolutions this year. I’m in a dynamic period of my life. Things are changing for me, resolutions or no.
 
-News Years 2014 was a dynamic time. I had just left my home of seven years, completed six months of travel across the country and around the world, and moved to DC with a vague plan of starting a company and not much else. There was a lot to look forward to. There wasn't much need to shake myself out of my familiar patterns because there were none. "The roads I see ahead of me are unpaved," I wrote.
+New Years 2014 was a dynamic time. I had just left my home of seven years, completed six months of travel across the country and around the world, and moved to DC with a vague plan of starting a company and not much else. There was a lot to look forward to. There wasn't much need to shake myself out of my familiar patterns because there were none. "The roads I see ahead of me are unpaved," I wrote.
 
 Ten years later things are pretty different. After four years in DC, I moved to Somerville MA where I've been for six years. The major milestones of life people tend to observe are in the past as I find myself deep in the long chapter of adulthood with its routines and gradual changes. I've put down some roots – though not always the traditional ones – and I'm slowly learning how to invest in a community for the long term.
 
