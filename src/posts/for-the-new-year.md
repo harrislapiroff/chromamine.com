@@ -3,7 +3,6 @@ title: For the New Year
 date: 2014-01-03
 categories: ['Life']
 tags: [time, autoarcheology]
-eleventyExcludeFromCollections: true
 ---
 
 ![Photo of a young half-Chinese half-Caucasian man with long black hair sitting on a pink couch. He is wearing a brown jacket and a red shirt. Behind him, on the wall, are framed photographs that appear to be of clouds from the sky. In the foreground and background there appear to be people sitting around him, but they are out of focus.](/media/for-the-new-year/2014-01-03-me-2009.jpg)

@@ -3,7 +3,8 @@ title: The Season of Tidiness
 date: 2024-01-05
 categories: ['Life']
 tags: [time, themes, autoarcheology]
-eleventyExcludeFromCollections: true
+excerpt:
+    I’ve been thinking a lot lately about Life, writ large. I’ve been thinking about the trappings of young adulthood that I’ve left behind me, about how I should conceive of building a life that I’m happy with, now and in the future, whether I’ve been focusing my time on the right things, and about what my life’s work should be – if I even want to have such a thing.
 # xposts:
 #   - label: Mastodon
 #     url: TBD
@@ -25,15 +26,21 @@ News Years 2014 was a dynamic time. I had just left my home of seven years, comp
 
 Ten years later things are pretty different. After four years in DC, I moved to Somerville MA where I've been for six years. The major milestones of life people tend to observe are in the past as I find myself deep in the long chapter of adulthood with its routines and gradual changes. I've put down some roots – though not always the traditional ones – and I'm slowly learning how to invest in a community for the long term.
 
-In the cycle of life satisfaction/dissatisfaction, I think I've hit this new year at an odd moment, feeling neither in particular. I've got a lot going for me: a community of friends I see regularly, romantic partners whom I adore, an active hobby life, a job that I enjoy and believe in, and financial security. But I've also been thinking a lot lately about *Life*, writ large. I've been thinking about the trappings of young adulthood that I've left behind me, about how I should conceive of building a life that I'm happy with, now and in the future, allowing my focus to change over time, and about what my life's work should be – if I even want to have such a thing.
+In the cycle of life satisfaction/dissatisfaction, I think I've hit this new year at an odd moment, feeling neither in particular. I've got a lot going for me: a community of friends I see regularly, romantic partners whom I adore, an active hobby life, a job that I enjoy and believe in, and financial security. But I've also been thinking a lot lately about *Life*, writ large. I've been thinking about the trappings of young adulthood that I've left behind me, about how I should conceive of building a life that I'm happy with, now and in the future, whether I've been focusing my time on the right things, and about what my life's work should be – if I even want to have such a thing.
 
-Ideas about the decline of neuroplasticity notwithstanding, I'm not content to be the same person indefinitely. I want to think about what I can and should change – and then I want to do it.
+Ideas about declining neuroplasticity notwithstanding, I'm not content to be the same person indefinitely. I want to think about what I can and should change – and then I want to do it.
 
 ***
 
-2023 was the year that I really got into watching YouTube videos. I feel late to the party[^2] but for a long time I resisted internet videos, thinking I wanted to be able to consume media at my reading speed (nevermind the copious amounts of television I watched). But I came around and this was the year I got into TikTok, YouTube, the whole deal. One of the YouTubers I got into was [CGP Grey](https://www.youtube.com/@CGPGrey) who is pretty popular makes research-heavy but lighthearted animated deep dives. He went pretty viral for his video about the ["no-touching zone" between Canada and the United States](https://www.youtube.com/watch?v=qMkYlIA7mgw) in 2013. A couple other of my favorites of his are "[The Simple Secret of Runway Digits](https://www.youtube.com/watch?v=qD6bPNZRRbQ)" and "[Hexagons are the Bestagons](https://www.youtube.com/watch?v=thOifuHs6eY)."
+2023 was the year that I really got into watching YouTube videos. I feel late to the party[^2] but for a long time I resisted internet videos, thinking I wanted to be able to consume media at my reading speed (nevermind the copious amounts of television I watched). I came around and this was the year I got into TikTok, YouTube, the whole deal.
 
-He also designed [a physical journal](https://www.themesystem.com/) that he's been marketing on his channel. It's designed around his notion of personal "themes." [His video on the subject](https://www.youtube.com/watch?v=NVGuFdX5guE) is the best explanation but in brief: he suggests that instead of New Years resolutions, one should set a flexible, broad *theme* for a period of time – something like Year of Reading or Season of Health – and let the general concept guide how you make decisions during that period of time and even allowing what it means to you to be flexible as time progresses. He says:
+[CGP Grey](https://www.youtube.com/@CGPGrey) makes research-heavy but lighthearted animated deep dives. He's fairly popular. In 2013 he went viral for his video about the ["no-touching zone" between Canada and the United States](https://www.youtube.com/watch?v=qMkYlIA7mgw). A couple other of my favorites of his are "[The Simple Secret of Runway Digits](https://www.youtube.com/watch?v=qD6bPNZRRbQ)" and "[Hexagons are the Bestagons](https://www.youtube.com/watch?v=thOifuHs6eY)."
+
+He also designed [a physical journal](https://www.themesystem.com/) that he's been marketing on his channel. It's designed around his notion of personal "themes."
+
+<p><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NVGuFdX5guE?si=8w9q5_6UrC1I5udh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+
+His video on the subject is the best explanation but in brief: he suggests that instead of New Years resolutions, one should set a flexible, broad *theme* for a period of time – something like Year of Reading or Season of Health – and let the general concept guide how you make decisions during that period of time and even allowing what it means to you to be flexible as time progresses. He says:
 
 > You started out wanting to read more books, but maybe as you went on you realized academic papers are where it's at, or that reading reading just doesn't work for you and listening reading is the way to go. You're still on theme. The theme will change because so will you. Having a theme, you will notice paths you didn't before. This gets you to think about you thinking and thinking about your thinking changes your thinking, which changes who you are.
 
@@ -67,7 +74,7 @@ We'll see if I keep it up long enough to do these – or if these are even the t
 
 ***
 
-I'll leave off with a poem that's been a favorite new years poem of mine for over ten years:
+I'll leave off with a haiku that's been a favorite new years poem of mine for over ten years:
 
 > New Year’s Day—  
 > &nbsp;&nbsp;everything is in blossom!  
