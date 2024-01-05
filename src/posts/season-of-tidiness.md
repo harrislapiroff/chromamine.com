@@ -42,7 +42,7 @@ He also designed [a physical journal](https://www.themesystem.com/) that he's be
 
 His video on the subject is the best explanation but in brief: he suggests that instead of New Years resolutions, one should set a flexible, broad *theme* for a period of time – something like Year of Reading or Season of Health – and let the general concept guide how you make decisions during that period of time and even allowing what it means to you to be flexible as time progresses. He says:
 
-> You started out wanting to read more books, but maybe as you went on you realized academic papers are where it's at, or that reading reading just doesn't work for you and listening reading is the way to go. You're still on theme. The theme will change because so will you. Having a theme, you will notice paths you didn't before. This gets you to think about you thinking and thinking about your thinking changes your thinking, which changes who you are.
+> You started out wanting to read more books, but maybe as you went on you realized academic papers are where it's at, or that reading reading just doesn't work for you and listening reading is the way to go. You're still on theme. The theme will change because so will you. Having a theme, you will notice paths you didn't before. This gets you to think about your thinking and thinking about your thinking changes your thinking, which changes who you are.
 
 It's possible my newness to the medium has made me an easy mark for sales, or that working on developing Q1 2024 [OKRs](https://en.wikipedia.org/wiki/Objectives_and_key_results) in my professional life when I saw this video made me extra susceptible to the idea of grand goal setting, but I was sold. I wanted a theme and I bought his notebook.
 
