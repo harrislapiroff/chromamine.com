@@ -248,7 +248,8 @@ module.exports = function(eleventyConfig) {
 
     // Date formatting
     eleventyConfig.addFilter("dateFormat", function (value, format) {
-        return d3time.utcFormat(format)(value)
+        const value_ = value instanceof Date ? value : new Date(value)
+        return d3time.timeFormat(format)(value_)
     })
 
     // Slugify
