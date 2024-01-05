@@ -9,10 +9,10 @@ X-WR-CALNAME:Harris Lapiroff Calling
 {% for dance in dances.past %}BEGIN:VEVENT
 UID:{{ dance.date | date: "%Y%m%dT%H%M%S" }}-contra-dance@harrislapiroff.com
 ORGANIZER;CN="Harris Lapiroff":MAILTO:harris@harrislapiroff.com
-LOCATION:{{ dance.street }}, {{ dance.city }}
-SUMMARY:{{ dance.name }}
+LOCATION:{{ dance.street | replace: ",", "\," }}\, {{ dance.city | replace: ",", "\," }}
+SUMMARY:Harris calls {{ dance.name | replace: ",", "\," }}
 DESCRIPTION:Caller: Harris Lapiroff\nBand: {{ dance.band }}\n{{ dance.description | replace: "
-", '\\n' }}
+", '\\n' }}\n\n{% if dance.url %}{{ dance.url }}{% endif %}
 CLASS:PUBLIC
 DTSTART;TZID={{ dance.tzid }}:{{ dance.date | dateFormat:"%Y%m%dT%H%M%S" }}
 DTEND;TZID={{ dance.tzid }}:{{ dance.date_end | dateFormat:"%Y%m%dT%H%M%S" }}
@@ -22,10 +22,10 @@ END:VEVENT
 {% for dance in dances.upcoming %}BEGIN:VEVENT
 UID:{{ dance.date | date: "%Y%m%dT%H%M%S" }}-contra-dance@harrislapiroff.com
 ORGANIZER;CN="Harris Lapiroff":MAILTO:harris@harrislapiroff.com
-LOCATION:{{ dance.street }}, {{ dance.city }}
-SUMMARY:{{ dance.name }}
+LOCATION:{{ dance.street | replace: ",", "\," }}\, {{ dance.city | replace: ",", "\," }}
+SUMMARY:Harris calls {{ dance.name | replace: ",", "\," }}
 DESCRIPTION:Caller: Harris Lapiroff\nBand: {{ dance.band }}\n{{ dance.description | replace: "
-", '\\n' }}
+", '\\n' }}\n\n{% if dance.url %}{{ dance.url }}{% endif %}
 CLASS:PUBLIC
 DTSTART;TZID={{ dance.tzid }}:{{ dance.date | date:"%Y%m%dT%H%M%S" }}
 DTEND;TZID={{ dance.tzid }}:{{ dance.date_end | date:"%Y%m%dT%H%M%S" }}
