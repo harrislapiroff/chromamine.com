@@ -18,8 +18,8 @@ organizations:
 dances:
   upcoming:
     - name: Boston Intergenerational Dance Advocates
-      date: 2024-01-07T19:30-05:00
-      date_end: 2022-01-07T22:30-05:00
+      date: 2024-01-07T19:30
+      date_end: 2022-01-07T22:30
       tzid: America/New_York
       band: Torrent
       bandURL: https://www.instagram.com/torrentcontra/
@@ -32,8 +32,8 @@ dances:
         Dancing from 7:30–10:30PM
 
     - name: Rehoboth Contra Dance
-      date: 2024-01-26T19:30-05:00
-      date_end: 2024-01-26T22:30-05:00
+      date: 2024-01-26T19:30
+      date_end: 2024-01-26T22:30
       tzid: America/New_York
       band: Black River Ironworks
       bandURL: https://www.facebook.com/BlackRiverIronworks/
@@ -45,8 +45,8 @@ dances:
         Dancing from 7:30–10:30PM
 
     - name: Thursday Contras
-      date: 2024-02-15T19:10-05:00
-      date_end: 2024-02-15T22:00-05:00
+      date: 2024-02-15T19:10
+      date_end: 2024-02-15T22:00
       tzid: America/New_York
       band: Crossover (Carol Bittenson, Len Bittenson, and Alex Cumming)
       street: Concord Scout House, 74 Walden Street
@@ -57,8 +57,8 @@ dances:
         Dancing from 7:30PM–10PM
 
     - name: Lenox Contra Dance
-      date: 2024-05-18T19:15-05:00
-      date_end: 2024-05-18T22:30-05:00
+      date: 2024-05-18T19:15
+      date_end: 2024-05-18T22:30
       tzid: America/New_York
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/
@@ -70,8 +70,8 @@ dances:
       url: https://lenoxcontradance.org/      
 
     - name: Thursday Night Contra
-      date: 2024-06-26T19:30-04:00
-      date_end: 2024-06-26T22:30-04:00
+      date: 2024-06-26T19:30
+      date_end: 2024-06-26T22:30
       tzid: America/New_York
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/
@@ -80,8 +80,8 @@ dances:
       url: https://cdrochester.org/events/thursday-night-contra-175/
 
     - name: Pittsburgh Contra Dance
-      date: 2024-06-28T19:30-04:00
-      date_end: 2024-06-28T23:00-04:00
+      date: 2024-06-28T19:30
+      date_end: 2024-06-28T23:00
       tzid: America/New_York
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/
@@ -93,8 +93,8 @@ dances:
       url: https://pittsburghcontra.org/
 
     - name: Bloomington Old-Time Music & Dance Group
-      date: 2024-06-29T19:30-04:00
-      date_end: 2024-06-29T21:30-04:00
+      date: 2024-06-29T19:30
+      date_end: 2024-06-29T21:30
       tzid: America/New_York
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/
@@ -106,16 +106,16 @@ dances:
       url: https://www.bloomingtoncontra.org/
 
     - name: Childgrove Country Dancers
-      date: 2024-06-30T19:00-05:00
-      date_end: 2024-06-30T21:30-05:00
+      date: 2024-06-30T19:00
+      date_end: 2024-06-30T21:30
       tzid: America/Chicago
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/
       city: St Louis MO
 
     - name: Cincinnati Contra Dancers
-      date: 2024-07-01T19:30-04:00
-      date_end: 2024-07-01T22:00-04:00
+      date: 2024-07-01T19:30
+      date_end: 2024-07-01T22:00
       tzid: America/New_York
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/
@@ -127,8 +127,8 @@ dances:
       url: https://cincinnaticontradance.org/
 
     - name: Indy Contra Dance
-      date: 2024-07-02T18:40-04:00
-      date_end: 2024-07-02T21:00-04:00
+      date: 2024-07-02T18:40
+      date_end: 2024-07-02T21:00
       tzid: America/New_York
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/
@@ -142,8 +142,8 @@ dances:
 
   past:
     - name: Brooklyn Contra
-      date: 2023-08-06T16:30-04:00
-      date_end: 2023-08-06T20:00-04:00
+      date: 2023-08-06T16:30
+      date_end: 2023-08-06T20:00
       tzid: America/New_York
       band: Riverside
       description: |+
@@ -153,8 +153,8 @@ dances:
       city: Brooklyn NY
 
     - name: Monday Contras
-      date: 2023-08-14T19:30-04:00
-      date_end: 2023-08-14T22:30-04:00
+      date: 2023-08-14T19:30
+      date_end: 2023-08-14T22:30
       tzid: America/New_York
       band: Julie Metcalf, Max Newman, and Jack O'Connor
       description: |+
@@ -165,8 +165,8 @@ dances:
       url: http://mondaycontras.com/
 
     - name: Downtown Amherst Contra Dance
-      date: 2023-08-16T19:00-04:00
-      date_end: 2023-08-16T22:00-04:00
+      date: 2023-08-16T19:00
+      date_end: 2023-08-16T22:00
       tzid: America/New_York
       band: Casey Murray and Molly Tucker
       bandURL: https://www.caseyandmolly.com/
@@ -178,8 +178,8 @@ dances:
       url: http://amherstcontra.org/Amherst_Contradance/Home.html
 
     - name: Contra Montreal
-      date: 2023-09-09T18:30-04:00
-      date_end: 2023-09-09T21:30-04:00
+      date: 2023-09-09T18:30
+      date_end: 2023-09-09T21:30
       tzid: America/Montreal
       band: Chimney Swift
       bandURL: https://chimneyswiftband.wixsite.com/2020
@@ -191,8 +191,8 @@ dances:
       url: https://www.contramontreal.org/
 
     - name: BFMS Wednesday Contra
-      date: 2023-09-20T19:30-04:00
-      date_end: 2023-09-20T22:30-04:00
+      date: 2023-09-20T19:30
+      date_end: 2023-09-20T22:30
       tzid: America/New_York
       band: Larry Unger and Caroline McCaskey
       street:  2200 St. Paul Street
@@ -203,8 +203,8 @@ dances:
       url: https://www.bfms.org/squarecontra.php
 
     - name: Common Floor Contra
-      date: 2023-07-30T19:30-04:00
-      date_end: 2023-07-30T22:00-04:00
+      date: 2023-07-30T19:30
+      date_end: 2023-07-30T22:00
       tzid: America/New_York
       band: Henry Yoshimura, Gianna Marzilli Ericson and Rebecca Rose Weiss
       description: |+
@@ -215,8 +215,8 @@ dances:
       url: https://www.commonfloorcontra.dance/
 
     - name: Monday Contras
-      date: 2023-10-30T19:30-04:00
-      date_end: 2023-10-30T22:30-04:00
+      date: 2023-10-30T19:30
+      date_end: 2023-10-30T22:30
       tzid: America/New_York
       band: Eric Boodman, Larry Unger, and Jack O'Connor
       description: |+
@@ -227,8 +227,8 @@ dances:
       url: http://mondaycontras.com/
 
     - name: Lenox Contra Dance
-      date: 2023-11-18T19:15-05:00
-      date_end: 2023-11-18T22:30-05:00
+      date: 2023-11-18T19:15
+      date_end: 2023-11-18T22:30
       tzid: America/New_York
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/

@@ -48,9 +48,9 @@
                                     <span class="city" title="{{ dance.street }}, {{ dance.city }}">({{ dance.city }})</span>
                                 </h4>
                                 <time class="date" datetime="{{ dance.date }}">
-                                    <span class="month">{{ dance.date | date: "%b" }}</span>
-                                    <span class="day">{{ dance.date | date: "%d" }}</span>
-                                    <span class="dow">{{ dance.date | date: "%a" }}</span>
+                                    <span class="month">{{ dance.date | dateFormat: "%b" }}</span>
+                                    <span class="day">{{ dance.date | dateFormat: "%d" }}</span>
+                                    <span class="dow">{{ dance.date | dateFormat: "%a" }}</span>
                                 </time>
                                 {% if dance.band %}
                                     {% if dance.bandURL %}
