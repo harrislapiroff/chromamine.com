@@ -17,20 +17,6 @@ organizations:
 
 dances:
   upcoming:
-    - name: Boston Intergenerational Dance Advocates
-      date: 2024-01-07T19:30
-      date_end: 2022-01-07T22:30
-      tzid: America/New_York
-      band: Torrent
-      bandURL: https://www.instagram.com/torrentcontra/
-      street: 1950 Massachusetts Avenue
-      city: Cambridge MA
-      url: https://www.bidadance.org/
-      description: |+
-        A **special** night with a combination of Contra (called by me) and Scottish Ceilidh (called by Kat Dutton)  
-        Workshop at 7:00PM  
-        Dancing from 7:30–10:30PM
-
     - name: Rehoboth Contra Dance
       date: 2024-01-26T19:30
       date_end: 2024-01-26T22:30
@@ -238,3 +224,17 @@ dances:
         Workshop at 7:15PM  
         Dancing from 7:30–10:30PM
       url: https://lenoxcontradance.org/
+
+    - name: Boston Intergenerational Dance Advocates
+      date: 2024-01-07T19:30
+      date_end: 2022-01-07T22:30
+      tzid: America/New_York
+      band: Torrent
+      bandURL: https://www.instagram.com/torrentcontra/
+      street: 1950 Massachusetts Avenue
+      city: Cambridge MA
+      url: https://www.bidadance.org/
+      description: |+
+        A **special** night with a combination of Contra (called by me) and Scottish Ceilidh (called by Kat Dutton)  
+        Workshop at 7:00PM  
+        Dancing from 7:30–10:30PM
