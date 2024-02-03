@@ -44,6 +44,15 @@ dances:
         Workshop at 7:10PM  
         Dancing from 7:30PM–10PM
 
+    - name: Northboro Contra Dance
+      date: 2024-04-27T14:00
+      date_end: 2024-04-27T16:30
+      tzid: America/New_York
+      band: Dandelion (Rick Kaufman, Lily Wise, and Jeff Kaufman)
+      street: First Parish UU Church 40 Church St
+      city: Northboro MA
+      url: https://northborocontra.com/
+
     - name: Lenox Contra Dance
       date: 2024-05-18T19:15
       date_end: 2024-05-18T22:30
