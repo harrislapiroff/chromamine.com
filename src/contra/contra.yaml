@@ -17,17 +17,6 @@ organizations:
 
 dances:
   upcoming:
-    - name: Thursday Contras
-      date: 2024-02-15T19:10
-      date_end: 2024-02-15T22:00
-      tzid: America/New_York
-      band: Crossover (Carol Bittenson, Len Bittenson, and Alex Cumming)
-      street: Concord Scout House, 74 Walden Street
-      city: Concord MA
-      url: https://www.neffa.org/thursday-contras/
-      description: |+
-        Workshop at 7:10PM  
-        Dancing from 7:30PM–10PM
 
     - name: Boskone (Science Fiction Convention)
       date: 2024-02-09T18:30
@@ -43,7 +32,17 @@ dances:
         Workshop at 6:00PM  
         Dancing from 6:30PM – 8:00PM
 
-
+    - name: Thursday Contras
+      date: 2024-02-15T19:10
+      date_end: 2024-02-15T22:00
+      tzid: America/New_York
+      band: Crossover (Carol Bittenson, Len Bittenson, and Alex Cumming)
+      street: Concord Scout House, 74 Walden Street
+      city: Concord MA
+      url: https://www.neffa.org/thursday-contras/
+      description: |+
+        Workshop at 7:10PM  
+        Dancing from 7:30PM–10PM
 
     - name: Lenox Contra Dance
       date: 2024-05-18T19:15
