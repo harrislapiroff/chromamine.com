@@ -6,29 +6,47 @@ block append meta
     link(rel="alternate", type="application/atom+xml", href=filters.url("/feeds/posts.xml"), title="Atom Feed")
 
 block main
-    // This is a bit of javascript to normalize the shape of post data
-    -
-        const posts = collections.posts
-            .toSorted((a, b) => b.date - a.date)
-            .slice(0, 3)
-            .map(p => ({
-                title: p.data.title,
-                content: p.content,
-                date: p.date,
-                url: p.url,
-                categories: p.data.categories,
-                tags: p.data.tags,
-                xposts: p.data.xposts,
-            }))
-    // Render each post using the blog-post mixin
-    each post in posts
-        .blog-post-list
-            +blog-post(post, { extraClasses: ['blog-post-list__item'] })
+    section.featured-posts
+        -
+            const featuredPosts = collections.posts
+                .toSorted((a, b) => b.date - a.date)
+                .filter(p => [
+                    "Standing Up for Gaza",
+                    "My CO₂ Monitor",
+                    "Switching to Fastmail"
+                ].includes(p.data.title))
+        header.section-header= "Featured Posts"
+        .blog-post-micro-list
+            each post in featuredPosts
+                a.blog-post-micro(href=post.url)
+                    div.blog-post-micro__categories= post.data.categories.join(', ')
+                    h2.blog-post-micro__title= post.data.title
+                    time.blog-post-micro__date(datetime=post.date)= filters.dateFormat(post.date, '%B %d, %Y')
+
+    section.latest-post
+        header.section-header= "Latest Post"
+        // This is a bit of javascript to normalize the shape of post data
+        -
+            const posts = collections.posts
+                .toSorted((a, b) => b.date - a.date)
+                .slice(0, 1) // 2024-02-05: Switched to rendering a single most recent post
+                .map(p => ({
+                    title: p.data.title,
+                    content: p.content,
+                    date: p.date,
+                    url: p.url,
+                    categories: p.data.categories,
+                    tags: p.data.tags,
+                    xposts: p.data.xposts,
+                }))
+        // Render each post using the blog-post mixin
+        each post in posts
+            .blog-post-list
+                +blog-post(post, { extraClasses: ['blog-post-list__item'] })
 
     a.archive-link(href=filters.url("/archive"))
-        = "Archive: "
         span.archive-link__count !{filters.humaneNumFormat(collections.posts.length)}
-        = " posts →"
+        = " older posts →"
 
 block sidebar
     section.sidebar-section
