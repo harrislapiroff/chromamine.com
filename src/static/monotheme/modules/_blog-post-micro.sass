@@ -1,8 +1,11 @@
 .blog-post-micro-list
     display: flex
     margin-bottom: var(--line-height-base)
+    +tiny-dn
+        flex-direction: column
+
     > .blog-post-micro
-        padding: calc(var(--line-height-base) / 2) 1ch
+        padding: calc(var(--line-height-base) / 2) 2ch
         flex: 1
 
 .blog-post-micro:hover
