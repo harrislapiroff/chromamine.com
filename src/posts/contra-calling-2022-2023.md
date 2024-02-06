@@ -3,6 +3,8 @@ title: My Contra Calling in Review, 2022 and 2023
 date: 2024-02-05
 categories: [Dance]
 tags: [contra, calling]
+excerpt:
+    In 2019 I decided to get back into contra dance calling after a multi-year stretch of doing very little of it. I called one dance in December, one dance in January of 2020, and then the pandemic hit. Oops. But when my local dances started back up in 2022 I got into it again and called five dances that year
 xposts:
   - label: Mastodon
     url: https://social.coop/@harris/111885208380610192
