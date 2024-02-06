@@ -88,7 +88,7 @@
         padding: 0 !important
 
     // Provided by markdown-it-container
-    .update
+    .update, .note
         border: 0.1rem solid var(--color-update)
         color: var(--color-update)
         padding:
@@ -113,3 +113,11 @@
 
         & > :last-child
             margin-bottom: 0
+
+    .note
+        --color: var(--color-text-alert)
+        color: var(--color)
+        border-color: var(--color)
+        &::before
+            color: var(--color)
+            content: "Note"
