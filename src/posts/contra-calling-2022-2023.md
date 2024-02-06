@@ -3,11 +3,11 @@ title: My Contra Calling in Review, 2022 and 2023
 date: 2024-02-05
 categories: [Dance]
 tags: [contra, calling]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/111885208380610192
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid024ZALRSUFrPcjNxf3jLR8jTLUmJu8UXgdCEkP1s1X8W1cQARYt412HqNzjf8zowWEl
 ---
 
 ![Me, wearing a red and gold patterned shirt with koi fishes on it, standing at a microphone](/media/contra-calling-2022-2023/brooklyn.jpg)
