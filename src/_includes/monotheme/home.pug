@@ -11,9 +11,9 @@ block main
             const featuredPosts = collections.posts
                 .toSorted((a, b) => b.date - a.date)
                 .filter(p => [
+                    "The Season of Tidiness",
                     "Standing Up for Gaza",
                     "My CO₂ Monitor",
-                    "Switching to Fastmail"
                 ].includes(p.data.title))
         header.section-header= "Featured Posts"
         .blog-post-micro-list

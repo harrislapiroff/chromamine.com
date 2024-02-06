@@ -1,6 +1,6 @@
 ---
 title: My Contra Calling in Review, 2022 and 2023
-date: 2024-02-05
+date: 2024-02-06
 categories: [Dance]
 tags: [contra, calling]
 excerpt:
