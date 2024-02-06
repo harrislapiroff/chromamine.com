@@ -101,6 +101,10 @@ I have some calling goals for the future:
 * Get booked to call a challenging/advanced dance.
 * Get booked to call a weekend and eventually a full week camp.
 
+::: update
+As of the day of writing this blog post I'm now booked to call a double dance (advanced dance followed by regular evening dance) at Brooklyn on May 4!
+:::
+
 If you want to see me call somewhere, check out my [contra dance page][harriscontra] for my schedule.
 
 ::: note
