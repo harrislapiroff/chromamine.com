@@ -89,7 +89,7 @@ Though I had a bit of experience calling from my college days and a while after,
 
 One of the great pleasures of calling these past couple years has been the chance to provide some mentorship and opportunity to newer callers, even in my own still-learning state. I had the chance to share the stage with two up-and-coming callers over the past year and have since watched them rocket off onto their own successful calling careers.[^3]
 
-I've spent a lot of time thinking about what kind of a caller I am. Some callers have a lot of on stage charisma – they're Performers with a capital P. I'm not sure that's ever going to be me; I try to evoke a friendly and encouraging charm, but I'm not don't think I have the natural performance instinct. I'm sure I'll gain some of that over time, but I've tried to lean into what I see as my strengths: going deep on efficiency, clarity, and attentiveness to the room.
+I've spent a lot of time thinking about what kind of a caller I am. Some callers have a lot of on stage charisma – they're Performers with a capital P. I'm not sure that's ever going to be me; I try to evoke a friendly and encouraging charm, but I don't think I have the natural performance instinct. I'm sure I'll gain some of that over time, but I've tried to lean into what I see as my strengths: going deep on efficiency, clarity, and attentiveness to the room.
 
 I've also concluded that I really like doing this. I think I've gotten pretty good at it and I'm determined to get better.[^4]
 
