@@ -102,6 +102,7 @@ module.exports = function(eleventyConfig) {
     const md = markdownIt(mdOptions)
         .use(markdownFootnotes)
         .use(markdownContainer, 'update')
+        .use(markdownContainer, 'note')
 
     // Render footnotes simply in an ordered list
     md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'

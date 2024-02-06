@@ -22,7 +22,6 @@
 
         picture
             display: block
-            margin-bottom: var(--line-height-base)
 
             source, img
                 border-radius: 0.4rem
@@ -31,6 +30,9 @@
                 margin: 0 calc(-1 * var(--page-padding)) var(--line-height-base)
                 source, img
                     border-radius: 0
+
+        > p:first-child > picture:first-child
+            margin-top: var(--line-height-base)
 
         .footnotes
             &::before
