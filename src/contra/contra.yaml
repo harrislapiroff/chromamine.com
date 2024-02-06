@@ -53,6 +53,18 @@ dances:
       city: Northboro MA
       url: https://northborocontra.com/
 
+    - name: Brooklyn Contra
+      date: 2024-05-04T15:30
+      date_end: 2024-05-04T23:00
+      tzid: America/New_York
+      band: Riverside
+      description: |+
+        Advanced dance from 3:30PM – 6:30PM  
+        Workshop at 7:30PM  
+        Dancing from 8–11PM
+      street: 339 8th Street
+      city: Brooklyn NY
+
     - name: Lenox Contra Dance
       date: 2024-05-18T19:15
       date_end: 2024-05-18T22:30
