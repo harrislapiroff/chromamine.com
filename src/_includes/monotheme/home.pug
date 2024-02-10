@@ -1,6 +1,5 @@
 extends monotheme.pug
 include mixins/blog-post.pug
-include mixins/microblog-post.pug
 
 block append meta
     link(rel="alternate", type="application/atom+xml", href=filters.url("/feeds/posts.xml"), title="Atom Feed")
@@ -84,17 +83,3 @@ block sidebar
                 a(href="https://github.com/harrislapiroff/", rel="me") GitHub
             li
                 a(href="mailto:blog@chromamine.com", rel="me") Email
-
-    section.sidebar-section
-        // This is a bit of javascript to normalize the shape of post data
-        -
-            const microblog = collections.microblog
-                .toSorted((a, b) => b.date - a.date)
-                .map(p => ({
-                    ...p,
-                    ...p.data
-                }))
-        header.sidebar-section__header
-            h2= "Microblog"
-        each post in microblog
-            +microblog-post(post)
