@@ -31,7 +31,7 @@ At a January Monday Contras dance, I called a dance with a wowee in it and someo
 
 I didn't actually procure a hard copy of the book to confirm (yet) just a rogue PDF floating around the internet, but I'm now confident enough that this is the origin of the phrase and now *I've* documented it on the internet to correct the record.
 
-Also, ack! Chris Page's "Roll Twelve" even notes that it's based on a dance, "[Roll Eleven]," by Sue Rosen and Larry Jennings! I should have followed that thread sooner.
+Also, ack! Chris Page's "Roll Twelve" even notes that it's based on a dance, "[Roll Eleven][]," by Sue Rosen and Larry Jennings! I should have followed that thread sooner.
 
 [Roll Eleven]: http://www.ibiblio.org/contradance/thecallersbox/dance.php?id=36
 
