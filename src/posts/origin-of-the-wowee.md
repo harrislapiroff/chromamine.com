@@ -10,7 +10,10 @@ tags: [contra, calling, history]
 #     url: TBD
 ---
 
-For years now, one of my pet favorites in contra dancing has been the "wowee," a figure that involves rolling away with your neighbor across the set and immediately releasing the connection to catch your partner for a swing. It's got good energy, flow, and when you successfully catch your partner on time coming out of the rollaway, it feels *great*. A couple of my favorite dances with the figure are Tavi Merrill's "Soul Reversal" and Chris Page's "Roll Twelve."
+For years now, one of my pet favorites in contra dancing has been the "wowee," a figure that involves rolling away with your neighbor across the set and immediately releasing the connection to catch your partner for a swing. It's got good energy, flow, and when you successfully catch your partner on time coming out of the rollaway, it feels *great*. A couple of my favorite dances with the figure are Tavi Merrill's "[Soul Reversal][]" and Chris Page's "[Roll Twelve][]."
+
+[Soul Reversal]: https://www.ibiblio.org/contradance/thecallersbox/dance.php?id=7631
+[Roll Twelve]: http://chrispagecontra.awardspace.us/dances/index.htm#roll-twelve
 
 When I first danced a dance with the figure, someone told me the term and figure were both borrowed from Modern Western Square Dancing. This is also the story I find when I search "wowee contra dance" on the internet. But MWSD dancers I came across said, "Nope, that's not a figure." (Being as MWSD figures and calling standards are more [codified][] than contra, I trusted them to know.) At some point someone else told me it was a Maine-ism coined by a particular Maine caller, but I was fairly sure that wasn't true either.
 
@@ -27,6 +30,10 @@ At a January Monday Contras dance, I called a dance with a wowee in it and someo
 > _The entry into the swing of ph 2 was suggested (independently, so far as I know) by Merilee Karr and Gene Hubert. I like to give it a snappy interpretation and call it "wowee" when so danced._
 
 I didn't actually procure a hard copy of the book to confirm (yet) just a rogue PDF floating around the internet, but I'm now confident enough that this is the origin of the phrase and now *I've* documented it on the internet to correct the record.
+
+Also, ack! Chris Page's "Roll Twelve" even notes that it's based on a dance, "[Roll Eleven]," by Sue Rosen and Larry Jennings! I should have followed that thread sooner.
+
+[Roll Eleven]: http://www.ibiblio.org/contradance/thecallersbox/dance.php?id=36
 
 ![Screenshot from a book, containing the same text as below.](/media/origin-of-the-wowee/wowee.png)
 
