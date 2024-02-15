@@ -3,11 +3,11 @@ title: Origin of contra dance's "Wowee"
 date: 2024-02-15
 categories: [Dance]
 tags: [contra, calling, history]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/111937633393981286
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02eHZFCrU8jqyXyTH5FjWTnsTiZQJxj9CdJsFwdfbQxWY8Vd75hoSxDTHfr5Dh2CgFl
 ---
 
 For years now, one of my pet favorites in contra dancing has been the "wowee," a figure that involves rolling away with your neighbor across the set and immediately releasing the connection to catch your partner for a swing. It's got good energy, flow, and when you successfully catch your partner on time coming out of the rollaway, it feels *great*. A couple of my favorite dances with the figure are Tavi Merrill's "[Soul Reversal][]" and Chris Page's "[Roll Twelve][]."
@@ -19,7 +19,7 @@ When I first danced a dance with the figure, someone told me the term and figure
 
 [codified]: https://callerlab.org/dance-programs/
 
-At a January Monday Contras dance, I called a dance with a wowee in it and someone there told me the figure came from Larry Jennings. A few quick internet searches later and I was able to seemingly confirm this with a PDF of Jennings's book *Give and Take*, which includes a number of dances containing the figure and a note about the name (Jennings uses "W" for _women_, which was the common role term at the time, though most dances I call use _robin_ now.):
+At a January Monday Contras dance, I called a dance with a wowee in it and someone there told me the figure came from Larry Jennings. A few quick internet searches later and I was able to seemingly confirm this with a PDF of Jennings's book *Give and Take*, which includes a number of dances containing the figure and a note about the name (Jennings uses "W" for _women_, which was the common role term at the time, though most events I call use _robin_ now.):
 
 > WOWEE by Larry Jennings  
 > Becket formation (ccw prog): S  
@@ -29,7 +29,7 @@ At a January Monday Contras dance, I called a dance with a wowee in it and someo
 > 
 > _The entry into the swing of ph 2 was suggested (independently, so far as I know) by Merilee Karr and Gene Hubert. I like to give it a snappy interpretation and call it "wowee" when so danced._
 
-I didn't actually procure a hard copy of the book to confirm (yet) just a rogue PDF floating around the internet, but I'm now confident enough that this is the origin of the phrase and now *I've* documented it on the internet to correct the record.
+I didn't actually procure a hard copy of the book to confirm (yet) just a rogue PDF floating around the internet, but I'm now confident enough that this is the origin of the figure name and now *I've* documented it on the internet to correct the record.
 
 Also, ack! Chris Page's "Roll Twelve" even notes that it's based on a dance, "[Roll Eleven][]," by Sue Rosen and Larry Jennings! I should have followed that thread sooner.
 
