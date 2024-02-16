@@ -29,7 +29,7 @@ program:
       author: Dean Snipes/Linda Leslie 
 ---
 
-A good dance! Not too large – I'd estimate 30–40 people at peak. Lots of beginners, but I think I accommodated them fairly well with my program. There was a little confusion with the first couple dances that settled out as the evening went on and by the end dancers mostly didn't require me to call more than a few times through.
+A good dance! Not too large – I'd estimate 30 people at peak. Lots of beginners, but I think I accommodated them fairly well with my program. There was a little confusion with the first couple dances that settled out as the evening went on and by the end dancers mostly didn't require me to call more than a few times through.
 
 I continued to test the new rotation mechanic in my workshops where I ask dancers to do a 1½ allemande, do si do, or right shoulder round to progress to the next person in the circle before the next figure, which worked pretty well this time!
 

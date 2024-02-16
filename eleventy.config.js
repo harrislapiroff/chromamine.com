@@ -67,11 +67,12 @@ module.exports = function(eleventyConfig) {
         return arrs
     })
 
-    /* Put microblog posts in a collection
+    /* Put dance events in a collection
      *-------------------------------------*/
-    eleventyConfig.addCollection("microblog", function(collection) {
-        return collection.getFilteredByGlob("src/microblog/*.md")
-    })
+    eleventyConfig.addCollection(
+        "danceEvents",
+        collection => collection.getFilteredByGlob(`src/contra/events/*.md`)
+    )
 
     /* Add markdown features
      *-------------------------------------*/
