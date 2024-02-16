@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ name }} — {{ date | date:"%A, %B %e, %Y" }}</title>
+    </head>
+    <body>
+        <h1>{{ name }} — {{ date | date:"%A, %B %e, %Y" }}</h1>
+        <h2>Program</h2>
+        {% assign count = 0 %}
+        {% for section in program %}
+            {% assign count = count | plus:"1" %}
+            <h3>{{ count }}</h3>
+            <dl>
+                {% for dance in section %}
+                    <dt>{{ dance.title }}</dt>
+                    <dd>{{ dance.author }}</dd>
+                {% endfor %}
+            </dl>
+        {% endfor %}
+        <h2>Notes</h2>
+        {{ content }}
+    </body>
+</html>
