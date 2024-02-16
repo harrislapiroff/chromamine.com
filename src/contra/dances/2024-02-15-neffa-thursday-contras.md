@@ -23,9 +23,9 @@ program:
       author: Andy Shore
     - title: Maliza's Magical Mystery Motion
       author: Cary Ravitz
-  - - title: The Boys From Urbana
+    - title: The Boys From Urbana
       author: John Coffman
-    - title: A Pirate's Life For Me
+  - - title: A Pirate's Life For Me
       author: Nathaniel Jack
     - title: Violet Ice
       author: Maia McCormick
