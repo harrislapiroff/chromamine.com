@@ -1,3 +1,6 @@
+body
+    perspective: 20rem
+
 %rich-text
     .footnote-ref--interactive
         width: 3.5ch
@@ -37,9 +40,18 @@
     border: 0.1rem solid var(--color-base)
     padding: calc(var(--line-height-base) / 2) calc(2ch - 0.1rem)
     max-width: 30ch
+    transform-origin: 50% 0
+    transform: rotateX(5deg)
+    transition: all 0.35s ease-out
+    opacity: 0
 
     :first-child
         margin-top: 0
 
     :last-child
         margin-bottom: 0
+
+    &--active
+        opacity: 1
+        display: block
+        transform: rotateX(0deg)
