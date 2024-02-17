@@ -1,6 +1,3 @@
-body
-    perspective: 20rem
-
 %rich-text
     .footnote-ref--interactive
         width: 3.5ch
@@ -35,15 +32,16 @@ body
         color: var(--color-background) !important
 
 .footnote-popover
+    perspective: 20rem
     position: absolute
     background: var(--color-background)
     border: 0.1rem solid var(--color-base)
     padding: calc(var(--line-height-base) / 2) calc(2ch - 0.1rem)
     max-width: 30ch
     transform-origin: 50% 0
-    transform: rotateX(5deg)
     transition: all 0.35s ease-out
     opacity: 0
+    pointer-events: none
 
     :first-child
         margin-top: 0
@@ -54,4 +52,3 @@ body
     &--active
         opacity: 1
         display: block
-        transform: rotateX(0deg)
