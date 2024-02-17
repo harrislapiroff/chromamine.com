@@ -17,7 +17,8 @@ const positionPopover = (a, popover) => {
 
 const togglePopover = (a, popover) => {
     a.classList.toggle('footnote-ref--active')
-    popover.hidden = !popover.hidden
+    popover.classList.toggle('footnote-popover--active')
+    popover.ariaHidden = !popover.ariaHidden
     if (a.classList.contains('footnote-ref--active')) {
         // Bind a one-time click event on the whole document to hide the popover
         const hidePopover = () => {
@@ -45,7 +46,7 @@ export const initFootnotes = () => {
         popover.id = footnoteTarget.id // Copy ID over
         popover.querySelector('.footnote-backref').remove() // Remove the back link
         document.body.appendChild(popover) // Add the popover to the DOM
-        popover.hidden = true // Hide the popover by default
+        popover.ariaHidden = true // Hide the popover from screenreaders by default
 
         window.addEventListener('resize', () => positionPopover(a, popover)) // TODO: only reposition visible popovers?
 
