@@ -3,11 +3,11 @@ title: An IKEA Skådis Corner Bumper
 date: 2024-02-24
 categories: [Miscellany]
 tags: [3D printing, making, IKEA hacking]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/111988277008883669
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid023Hg3fvXT3mU6CMHGYwoq8KZfEBEXMzD6DKKTUgxPX1U6Ps7pJbGtNd8xjHeaZYhdl
 ---
 
 This week I had a couple IKEA Skådis pegboards delivered[^1]. Each of them arrived with the corners mildly scuffed.
@@ -15,7 +15,7 @@ This week I had a couple IKEA Skådis pegboards delivered[^1]. Each of them arri
 ![An IKEA Skådis pegboard with the corner scuffed and the brown of the particleboard showing through a tear in the black finish.](/media/ikea-skadis-corner-bumper/corner-scuff.jpg)  
 _The other board was slightly less bad, but still had a visible scuff in one corner._
 
-I thought about trying to return them, but the damage was so minor. Also, I figured that there was a decent chance this is just the level of quality one gets from IKEA QA/shipping and I'd be likely to get boards with similar cosmetic issues after a time-consuming return process. So instead, I got out my calipers and in about an hour had a simple design for some corner bumpers. I wanted to produce something that was clean and discreet enough that it would look like it could have been sold with the product.
+I thought about trying to exchange them, but the damage was so minor. Also, I figured that there was a decent chance this is just the level of quality one gets from IKEA QA/shipping and I'd be likely to get boards with similar cosmetic issues after a time-consuming exchange process. So instead, I got out my calipers and in about an hour had a simple design for some corner bumpers. I wanted to produce something that was clean and discreet enough that it would look like it could have been sold with the product.
 
 ![3D render of an L shaped yellow bumper designed slot over the corner of a board.](/media/ikea-skadis-corner-bumper/scad.png)
 
