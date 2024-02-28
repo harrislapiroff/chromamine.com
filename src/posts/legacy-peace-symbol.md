@@ -3,6 +3,8 @@ title: The Legacy of the Peace Symbol
 date: 2022-03-07
 categories: [Miscellany]
 tags: [design, war]
+excerpt:
+  In February 1958 London artist and designer Gerald Holtom designed the icon that is commonly recognized today as the “international peace symbol.” At the time, it was created with specific purpose. Holtom created it for the first Aldermaston March – an anti-nuclear weapons demonstration organized by a committee from the Campaign for Nuclear Disarmament.
 xposts:
   - label: Mastodon
     url: https://social.coop/@harris/109984349530810142
