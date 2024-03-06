@@ -3,6 +3,8 @@ layout: monotheme/page.pug
 title: Archive
 ---
 
+#search
+
 // A bit of javascript to get a list of tags
 -
     const tags = Object.keys(collections)
@@ -28,3 +30,5 @@ div.js-tag-browser(data-tags=JSON.stringify(tags))
 include _includes/monotheme/mixins/archive-list.pug
 - const posts = collections.posts
 +archive-list-by-year(posts)
+
+script(src="/static/scripts/search.js")
