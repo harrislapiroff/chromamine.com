@@ -26,6 +26,7 @@
     "jsdom": "^22.1.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.3",
+    "pagefind": "^1.0.4",
     "yaml": "^2.3.3"
   },
   "dependencies": {
@@ -33,6 +34,7 @@
     "@ibm/plex": "^6.3.0",
     "@observablehq/runtime": "^5.9.3",
     "@oddbird/popover-polyfill": "^0.4.0",
+    "@pagefind/default-ui": "^1.0.4",
     "d3": "^7.8.5",
     "prism-themes": "^1.9.0",
     "react": "^18.2.0",

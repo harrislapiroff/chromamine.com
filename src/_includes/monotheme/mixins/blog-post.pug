@@ -1,9 +1,9 @@
-mixin blog-post(post, opts = { extraClasses: [] })
-    article(class='blog-post ' + (opts.extraClasses || []).join(' '))
+mixin blog-post(post, opts = { extraClasses: [], pagefind: false })
+    article(class=['blog-post'].concat(opts.extraClasses || []).join(' ') data-pagefind-content=opts.pagefind)
         header.blog-post__header
             div.blog-post__categories= post.categories.join(', ')
             a.blog-post__header-permalink(href=post.url)
-                h2.blog-post__title= post.title
+                h2.blog-post__title(data-pagefind-meta=opts.pagefind ? 'title' : false)= post.title
                 time.blog-post__date(class='blog-post__date', datetime=post.date)= filters.dateFormat(post.date, '%B %d, %Y')
                 if post.eleventyExcludeFromCollections
                     span.blog-post__draft-label Draft

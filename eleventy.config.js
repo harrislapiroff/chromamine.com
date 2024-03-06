@@ -10,11 +10,24 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.on('eleventy.before', async () => {
         const d3time = await import("d3-time-format")
         const d3format = await import("d3-format")
+        const pagefind = await import("pagefind")
         global.d3time = d3time
         global.d3format = d3format
+        global.pagefind = pagefind
 
         const { compileObservable } = await import("./utils/ojs/compile.mjs")
         global.compileObservable = compileObservable
+    })
+
+    /* Index site using PageFind
+     *-------------------------------------*/
+    eleventyConfig.on('eleventy.after', async () => {
+        const { index } = await pagefind.createIndex()
+        await index.addDirectory({ path: '_site' })
+        const { files } = await index.getFiles()
+        await index.writeFiles({
+            outputPath: '_site/pagefind',
+        })
     })
 
     /* Run ESBuild after building site
@@ -29,6 +42,10 @@ module.exports = function(eleventyConfig) {
             {
                 in: path.join(dir.input, 'static', 'scripts', 'index.js'),
                 out: path.join('static', 'scripts', 'index'),
+            },
+            {
+                in: path.join(dir.input, 'static', 'scripts', 'search.js'),
+                out: path.join('static', 'scripts', 'search'),
             },
         ]
         await esbuild.build({

@@ -32,4 +32,4 @@ block main
             eleventyExcludeFromCollections: eleventyExcludeFromCollections,
         }
     // Render the blog post using the blog-post mixin
-    +blog-post(post)
+    +blog-post(post, { pagefind: true })
