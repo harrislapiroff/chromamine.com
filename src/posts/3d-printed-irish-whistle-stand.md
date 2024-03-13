@@ -93,8 +93,8 @@ The model was designed in [OpenSCAD][] – which some designers consider a form 
 [GitHub]: https://github.com/harrislapiroff/whistlestand
 [Printables]: https://www.printables.com/model/802190-modern-irish-whistle-stand
 
-[^1]: Sometimes called tin whistles (despite rarely being made of tin) or penny whistles.
+[^1]: Sometimes called tin whistles (despite rarely being made of tin) or penny whistles (despite never being made of pennies).
 [^2]: You may note that it is now March, famously *not* the month Christmas is in.
 [^3]: At least for common "fused deposition modeling" (FDM) printers which lay plastic down out of a nozzle. Resin printers, by contrast, print downward from a hanging plate as it ascends up out of the liquid resin.
 [^4]: As far as I can tell this is not illegal and in fact even destroying US coins is not illegal [so long as you do it in small quantities and don't aim to profit off of the material value of the metal](https://www.ecfr.gov/current/title-31/subtitle-B/chapter-I/part-82), which is why those novelty penny press machines are permissible – though I'm not even destroying them here. N.b., this is not true for the coins of all countries.
-[^5]: There's some joke about penny whistles in here.
+[^5]: There's another joke about penny whistles in here somehow.
