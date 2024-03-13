@@ -30,11 +30,11 @@ It's made up of three legs for the base, each with four holes that the round "do
 
 ![A chaotic pile of 3D printed parts of different colors all on a table. It's a mix of cylindrical parts with knurled caps and different connectors—screws, snaps, and twist lock—and rectangular blocks with holes in the middle as well as a couple complete mini whistle stands with only four holes. Some parts appear to have failed midway through and are either missing bits or degrade into stringy plastic on one end.](/media/3d-printed-irish-whistle-stand/chaos.jpg)
 
-Designing the connector between the base and the dowels took the bulk of my design time. I must have gone through testing 50 some odd iterations trying different designs and then tuning different parameters of each idea. I started off with a screw threads design, took a detour through a twist-and-lock design, before finally settling on the annular snap joint pictured in profile here:
+Designing the connector between the base and the dowels took the bulk of my design time. I must have gone through testing 50 some odd iterations trying different designs, then tuning different parameters of each concept. I started with a screw thread design, took a detour through a twist-and-lock mechanism, before finally settling on the annular snap joint pictured in profile here:
 
 ![2D cutaway diagram of two joined components. A green component in the center has ridges on either side that fit into the valleys of the grey components around the perimeter.](/media/3d-printed-irish-whistle-stand/joint.svg)
 
-Once I settled on the annular snap joint, though, I discovered through stress testing that the tabs on the joint broke too easily. One of the downsides of 3D printed components is that they are printed from the bed up[^3] layer by layer. Layers fuse together imperfectly, so 3D prints tend to be weak along the layer lines. It turned out this was especially true of the matte green filament that I wanted to use for this part, which was disappointing because I preferred it aesthetically for this design to some of the filaments that turned out to be stronger in my testing! Fortunately I realized I could still print the cap of the part in the matte filament, but switch midway through the print to a stronger black filament – which would be hidden when the part was engaged.
+Once I settled on the annular snap joint, I discovered through stress testing that the tabs on the joint broke easily. One downside of 3D printed components is that they are printed from the bed up[^3] layer by layer. Layers fuse together imperfectly, so 3D prints tend to be weak along the layer lines. It turned out this was especially true of the matte green filament that I wanted to use for this part, which was disappointing because I preferred it aesthetically for this design to some stronger filaments I tested! Fortunately I realized I could print the visible cap in the matte, but switch midway through to a stronger black filament – which would be hidden when the part was engaged.
 
 {% imagegrid %}
 ![A wooden dowel attached to a cylindrical object with a knurled green cap where the cylinder meets the dowel and on the other side a black snap connector.](/media/3d-printed-irish-whistle-stand/joint.jpg)
@@ -44,17 +44,17 @@ Once I settled on the annular snap joint, though, I discovered through stress te
 
 # Mid-Print Insertions
 
-I also wanted to add weights to the legs, both to increase the stability of the whole apparatus and give them a more premium feel. I ended up designing cavities into the model into which I could insert pennies mid-print[^4][^5]. The result was that each leg required three pauses mid-print:
+I wanted to add weights to the legs, to increase the stability of the whole apparatus and give it a more premium feel. I added cavities to the model into which I could insert stacks of pennies mid-print[^4][^5]. The result was that each leg required three pauses mid-print:
 
 1. a pause to insert magnets at the bottom (you have to use a dab of superglue to hold magnets in place – otherwise they run the risk of being drawn upward to the magnetic components of the printer hotend),
-2. a pause at the halfway mark to change from the green filament to the white, and
+2. a pause at the halfway mark to change from the green filament to the white (this was optional, but I like the bicolor look – and it provides a visual cue to prevent trying to put the base together with parts inverted), and
 3. a pause at the top to insert the top magnets and the pennies.
 
 ![A 3D printer with a print in progress on the bed. The print is wavy and green on the bottom, but the upper layers that are printing now are white. The inside is filled with a wavy pattern of plastic, known as "gyroid infill." There are holes for the dowel mounts to snap into but between those holes are holes in which pennies and cylindrical nickel plated magnets have been embedded.](/media/3d-printed-irish-whistle-stand/insertions.jpg)
 
 # Future Work
 
-While I have delivered the gift (partially as an attempt not to keep designing for months without knowing how well it works already) there's already a couple areas I'd like to improve in future versions. I've made it clear to Emma that the gift is the design, not the physical object, and we will continue to print further iterations of it until it meets her needs.
+While I have delivered the gift (partially as an attempt not to keep designing for months without knowing how well it works already) there's already areas I'd like to improve in future versions. I've made it clear to Emma that the gift is the design, not the physical object, and we will continue to print further iterations of it until it meets her needs.
 
 ## Connector stability
 
@@ -71,9 +71,9 @@ It's possible I need a stronger connector design – or possibly even just for t
 
 ## Top finish
 
-3D printing is done layer by layer vertically, line by line, and I spend a lot of time trying to compensate for the visible extrusion lines to produce objects that are attractive and aesthetically polished. I tried a few different methods of finishing the top and finally settled on "ironing" in which the hot printer nozzle makes a final pass over the top layer at a fraction of the extrusion width to smooth out the lines. It also extrudes a small amount of filament as it goes to fill in micro-gaps in the surface.
+3D printing is done line by line, and I spend a lot of time trying to compensate for the visible extrusion lines to produce objects that are attractive and aesthetically polished. I tried a few different methods of finishing the top and finally settled on "ironing" in which the hot printer nozzle makes a final pass over the top layer at a fraction of the extrusion width to smooth out the lines. It also extrudes a small amount of filament as it goes to fill in micro-gaps in the surface.
 
-This is fairly effective, but, for whatever reason, there are some noticeable uneven bits in the finish of the base. I'd like to dial in my ironing settings – or come up with a different method of finishing the top that I prefer.
+This is fairly effective, but, for whatever reason, there are some noticeable uneven bits in the finish. I'd like to dial in my ironing settings – or come up with a different method of finishing the top that I prefer.
 
 ## Different shapes
 
