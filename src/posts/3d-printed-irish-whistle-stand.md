@@ -71,7 +71,7 @@ It's possible I need a stronger connector design – or possibly even just for t
 
 ## Top finish
 
-3D printing is done layer by layer vertically, line by line, and I spend a lot of time trying to compensate for the visible extrusion lines to produce objects that are attractive and aesthetically polished. I tried a few different methods of finishing the top and finally settled on "ironing" in which the hot printer nozzle makes a final pass over the top layer at a fraction of the extrusion width to smooth out the lines. It also extrudes a small amount a filament as it goes to fill in the micro-gaps in the finish.
+3D printing is done layer by layer vertically, line by line, and I spend a lot of time trying to compensate for the visible extrusion lines to produce objects that are attractive and aesthetically polished. I tried a few different methods of finishing the top and finally settled on "ironing" in which the hot printer nozzle makes a final pass over the top layer at a fraction of the extrusion width to smooth out the lines. It also extrudes a small amount of filament as it goes to fill in micro-gaps in the surface.
 
 This is fairly effective, but, for whatever reason, there are some noticeable uneven bits in the finish of the base. I'd like to dial in my ironing settings – or come up with a different method of finishing the top that I prefer.
 
