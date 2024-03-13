@@ -28,9 +28,9 @@ It's made up of three legs for the base, each with four holes that the round "do
 
 # The Connector
 
-Designing the connector between the base and the dowels took the bulk of my design time. I must have gone through testing 50 some odd iterations trying different designs and then tuning different parameters of each idea. I started off with a screw threads design, took a detour through a twist-and-lock design, before finally settling on the annular snap joint you see here.
-
 ![A chaotic pile of 3D printed parts of different colors all on a table. It's a mix of cylindrical parts with knurled caps and different connectors—screws, snaps, and twist lock—and rectangular blocks with holes in the middle as well as a couple complete mini whistle stands with only four holes. Some parts appear to have failed midway through and are either missing bits or degrade into stringy plastic on one end.](/media/3d-printed-irish-whistle-stand/chaos.jpg)
+
+Designing the connector between the base and the dowels took the bulk of my design time. I must have gone through testing 50 some odd iterations trying different designs and then tuning different parameters of each idea. I started off with a screw threads design, took a detour through a twist-and-lock design, before finally settling on the annular snap joint pictured in profile here:
 
 ![2D cutaway diagram of two joined components. A green component in the center has ridges on either side that fit into the valleys of the grey components around the perimeter.](/media/3d-printed-irish-whistle-stand/joint.svg)
 
@@ -83,7 +83,7 @@ Of course, whether or not I explore these depends on whether there's interest in
 
 # Details
 
-The model was designed in [OpenSCAD][] – which some designers consider a form of masochism – using the [BOSL2 library][] – which makes it slightly less masochistic. I highly recommend it.
+The model was designed in [OpenSCAD][] – which some designers consider a form of masochism[^6] – using the [BOSL2 library][] – which makes it slightly less masochistic. I highly recommend it.
 
 * The code is available on [GitHub][]
 * Pregenerated models in a variety of configurations (different amounts of tolerance, different numbers of posts) are available on [Printables][].
@@ -98,3 +98,4 @@ The model was designed in [OpenSCAD][] – which some designers consider a form 
 [^3]: At least for common "fused deposition modeling" (FDM) printers which lay plastic down out of a nozzle. Resin printers, by contrast, print downward from a hanging plate as it ascends up out of the liquid resin.
 [^4]: As far as I can tell this is not illegal and in fact even destroying US coins is not illegal [so long as you do it in small quantities and don't aim to profit off of the material value of the metal](https://www.ecfr.gov/current/title-31/subtitle-B/chapter-I/part-82), which is why those novelty penny press machines are permissible – though I'm not even destroying them here. N.b., this is not true for the coins of all countries.
 [^5]: There's another joke about penny whistles in here somehow.
+[^6]: Maybe this will be the subject of a longer post, but very few designers consider functional programming the ideal way to model 3D objects and OpenSCAD's language is not exactly the most ergonomic. Industrial design standard features like fillets and chamfers require a lot of additional thinking through to achieve. But it has advantages as well: it tickles my programmer brain and models come out of it "parameterized" – easy to fine tune particular features or measurements on the fly to produce new versions or multiple variations.
