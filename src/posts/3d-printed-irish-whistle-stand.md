@@ -3,11 +3,11 @@ title: A 3D Printed Irish Whistle Stand
 date: 2024-03-13
 categories: [Miscellany]
 tags: [3D printing, making, music]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112089259910897209
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0LkptzUB3S5WYZjQrVoowY2s8AeLykB2B1XLTdWqfkumwFbCDDuwbfguAfyu1qHXnl?__cft__[0]=AZULnwdYrrbHFH-oy6p-vYbr4Yk5jadqWbj9367NKm9oxqouiDU7IQY-pfhyJ_1m1OlySblHugwziW7ZGqV4mj9-GpllToC7E7fVfogdlSgiew&__tn__=%2CO%2CP-R
 ---
 
 Irish whistles[^1] each play a limited set of pitches and therefore come in a particular key: you can have a D whistle, a G whistle, etc. If you're a whistler, you might have a number of whistles that you switch between. Over the past several months I've been working on a design for a portable 3D printed whistle stand, to hold all these many whistles, as a Christmas gift[^2] for [my partner][emma] who plays the whistle.
