@@ -3,11 +3,11 @@ title: Solving Niche Problems Quickly With 3D Printing
 date: 2024-03-18
 categories: [Miscellany]
 tags: [3D printing, making, music]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112118772876664184
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0DPAPyU7JpKmcg2yUbyUomwEa7RJALswJVXaU5UCsZ1Kz9HNnAVRjfUSULVQ2J8XNl
 ---
 
 The most recent 3D printing project [I wrote about][whistlestand] was a months-long process of design and iteration, but one skill I'm particularly interested in honing with my 3D printer is solving niche problems quickly.
@@ -43,7 +43,7 @@ cyl(
 
 A few notes on this code for those interested in modeling or OpenSCAD in particular – feel free to skip over if you just want to see the results:
 
-* `$fa` and `$fs` are special variables in OpenSCAD that control how close to a real curve rounded parts are. `$fa` defines the maximum angle that can be covered by a single line segment. So, for example, at `$fa = 45` every circle would be made up of 8 straight lines, making each circle an octogon. At `$fa = 5` a circle will be made up of 72 straight lines. `$fs` is the minimum length of a line segment, so if a circle is sufficiently small in radius, it will be broken up into fewer segments than a larger one. The trade off here is that more line segments will take longer to render, so I've defined these such that when you're previewing the object while editing it, it uses relatively large segments, but when you're rendering it, it uses smaller ones to make the curves very smooth.
+* `$fa` and `$fs` are special variables in OpenSCAD that control how close to a real curve rounded parts are. `$fa` defines the maximum angle that can be covered by a single line segment. So, for example, at `$fa = 45` every circle would be made up of 8 straight lines, making each circle an octagon. At `$fa = 5` a circle will be made up of 72 straight lines. `$fs` is the minimum length of a line segment, so if a circle is sufficiently small in radius, it will be broken up into fewer segments than a larger one. The trade off here is that more line segments will take longer to render, so I've defined these such that when you're previewing the object while editing it, it uses relatively large segments, but when you're rendering it, it uses smaller ones to make the curves very smooth.
 * It got a brief mention in my [whistle stand][whistlestand] post, but I use the [BOSL2][] library for OpenSCAD, which provides a lot of niceities that don't come built into the language. In this case I'm using BOSL2's `cyl` module instead of OpenSCAD's built-in `cylinder` because the BOSL2 module provides rounding and chamfering options.
 * The `rounding1` argument on the `cyl` module creates a cylinder with a rounded base. Somewhat less obvious is the `teardrop` argument, which enforces a maximum shallowness of the angle on the rounded bottom, by default 45°. This is helpful for 3D printing because outward angles can produce "overhangs" where filament is extruded fully or partially in mid-air. If your overhangs are insufficiently supported (either by the model itself or added supports that are designed to be removed in post-processing) the extruded plastic might droop or fall and the print may fail – or come out unattractive or fragile. 45° is generally a safe angle to print at without additional supports.
 
