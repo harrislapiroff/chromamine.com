@@ -2,7 +2,7 @@
 title: Solving Niche Problems Quickly With 3D Printing
 date: 2024-03-18
 categories: [Miscellany]
-tags: [3D printing, making, music]
+tags: [3D printing, making]
 xposts:
   - label: Mastodon
     url: https://social.coop/@harris/112118772876664184
