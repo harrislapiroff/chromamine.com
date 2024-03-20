@@ -35,7 +35,7 @@ module.exports = function(eleventyConfig) {
             entryPoints,
             outdir: dir.output,
             bundle: true,
-            minify: true,
+            minify: +process.env.PROD ? true : false,
             sourcemap: true,
         })
     })
