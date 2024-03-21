@@ -17,7 +17,6 @@ export default function Switch({
     status = true,
     width = 24,
     height = 16,
-    style = {},
     onToggle = () => {},
 } : SwitchProps) {
     const clickHandler = () => onToggle(!status)
@@ -25,7 +24,7 @@ export default function Switch({
     return <svg
         width={width}
         height={height}
-        style={style}
+        className='toggle-switch'
         viewBox={[0, 0, width, height].join(" ")}
         onClick={clickHandler}
     >
@@ -53,25 +52,25 @@ export function LabeledSwitch({
     onToggle = () => {},
     ...props
 } : LabeledSwitchProps) {
-    return <div style={{ cursor: 'pointer', display: 'inline-block' }}>
-        <span
-            style={{
-                paddingRight: '0.5ch',
-                color: props.status ? 'var(--color-base)' : 'var(--color-text-muted)',
-            }}
+    return <div className="labeled-switch">
+        <button
+            className={[
+                'labeled-switch__label',
+                props.status && 'labeled-switch__label--active'
+            ].join(' ')}
             onClick={() => onToggle(true)}
         >
             {labels[0]}
-        </span>
+        </button>
         <Switch {...props} onToggle={onToggle} />
-        <span
-            style={{
-                paddingLeft: '0.5ch',
-                color: props.status ? 'var(--color-text-muted)' : 'var(--color-base)',
-            }}
+        <button
+            className={[
+                'labeled-switch__label',
+                !props.status && 'labeled-switch__label--active'
+            ].join(' ')}
             onClick={() => onToggle(false)}
         >
             {labels[1]}
-        </span>
+        </button>
     </div>
 }
