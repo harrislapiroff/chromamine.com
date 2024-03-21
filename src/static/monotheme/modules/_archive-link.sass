@@ -1,3 +1,11 @@
 .archive-link
+    display: inline-block
     &__count
         font-weight: var(--font-weight-bold)
+
+.archive-link--bottom
+    margin-bottom: calc(var(--line-height-base) * 2.5)
+    +small-dn
+        display: block
+        border-bottom: 1px solid var(--color-base)
+        padding-bottom: calc(var(--line-height-base) * 2.5 - 1px)

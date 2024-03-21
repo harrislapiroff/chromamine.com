@@ -43,7 +43,8 @@ block main
             .blog-post-list
                 +blog-post(post, { extraClasses: ['blog-post-list__item'] })
 
-    a.archive-link(href=filters.url("/archive"))
+    a.archive-link(href=filters.url("/archive")).archive-link--bottom
+        = "All "
         span.archive-link__count !{filters.humaneNumFormat(collections.posts.length)}
         = " older posts →"
 
