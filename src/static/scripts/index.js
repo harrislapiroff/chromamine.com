@@ -1,3 +1,4 @@
-import { initFootnotes } from './footnotes.js';
+import { initFootnotes } from './footnotes.js'
+import './archive'
 
-document.addEventListener('DOMContentLoaded', initFootnotes);
+document.addEventListener('DOMContentLoaded', initFootnotes)

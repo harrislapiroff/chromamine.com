@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "eleventy --serve",
-    "build": "eleventy",
+    "serve": "PROD=0 eleventy --serve",
+    "build": "PROD=1 eleventy",
     "blog": "node scripts/blog.mjs"
   },
   "keywords": [],
@@ -34,6 +34,8 @@
     "@observablehq/runtime": "^5.9.3",
     "@oddbird/popover-polyfill": "^0.4.0",
     "d3": "^7.8.5",
-    "prism-themes": "^1.9.0"
+    "prism-themes": "^1.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
