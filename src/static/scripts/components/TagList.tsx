@@ -29,9 +29,9 @@ export default function TagList({ tags }: { tags: Array<TagItem> }) {
                 </li>
             )}
         </ul>
-        <a
+        <button
             className="expand-link"
             onClick={() => setTruncated(!truncated)}
-        >{truncated ? '↓ More Tags' : '↑ Fewer Tags'}</a>
+        >{truncated ? '↓ More Tags' : '↑ Fewer Tags'}</button>
     </>
 }
