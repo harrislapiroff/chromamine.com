@@ -43,10 +43,6 @@ module.exports = function(eleventyConfig) {
                 in: path.join(dir.input, 'static', 'scripts', 'index.js'),
                 out: path.join('static', 'scripts', 'index'),
             },
-            {
-                in: path.join(dir.input, 'static', 'scripts', 'search.js'),
-                out: path.join('static', 'scripts', 'search'),
-            },
         ]
         await esbuild.build({
             entryPoints,
