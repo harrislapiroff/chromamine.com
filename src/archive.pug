@@ -3,7 +3,6 @@ layout: monotheme/page.pug
 title: Archive
 ---
 
-h2= "Tags"
 // A bit of javascript to get a list of tags
 -
     const tags = Object.keys(collections)
@@ -16,7 +15,8 @@ h2= "Tags"
         }))
 
 // Render the tags in a list
-div.js-tag-list(data-tags=JSON.stringify(tags))
+div.js-tag-browser(data-tags=JSON.stringify(tags))
+    h2= "Tags"
     ul.archive-list.archive-list--tags
         each tag in tags
             li.archive-list__item

@@ -1,5 +1,4 @@
-import { initFootnotes } from './footnotes.js';
-import { initTagList } from './components/tagList.jsx';
+import { initFootnotes } from './footnotes.js'
+import './archive'
 
-document.addEventListener('DOMContentLoaded', initTagList);
-document.addEventListener('DOMContentLoaded', initFootnotes);
+document.addEventListener('DOMContentLoaded', initFootnotes)
