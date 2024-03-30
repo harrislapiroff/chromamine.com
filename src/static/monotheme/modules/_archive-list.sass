@@ -1,8 +1,11 @@
-.archive-list
+.archive-list, %rich-text .archive-list
     overflow: hidden
-    margin-bottom: 0 !important
     height: auto
     transition: height 0.3s ease
+    margin-bottom: 0
+
+.archive-list__item
+    margin-bottom: calc(var(--line-height-base) * 0.5)
 
 .archive-list__item-link
     display: block
