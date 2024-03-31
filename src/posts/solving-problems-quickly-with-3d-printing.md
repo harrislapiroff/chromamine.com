@@ -47,11 +47,12 @@ A few notes on this code for those interested in modeling or OpenSCAD in particu
 * It got a brief mention in my [whistle stand][whistlestand] post, but I use the [BOSL2][] library for OpenSCAD, which provides a lot of niceities that don't come built into the language. In this case I'm using BOSL2's `cyl` module instead of OpenSCAD's built-in `cylinder` because the BOSL2 module provides rounding and chamfering options.
 * The `rounding1` argument on the `cyl` module creates a cylinder with a rounded base. Somewhat less obvious is the `teardrop` argument, which enforces a maximum shallowness of the angle on the rounded bottom, by default 45°. This is helpful for 3D printing because outward angles can produce "overhangs" where filament is extruded fully or partially in mid-air. If your overhangs are insufficiently supported (either by the model itself or added supports that are designed to be removed in post-processing) the extruded plastic might droop or fall and the print may fail – or come out unattractive or fragile. 45° is generally a safe angle to print at without additional supports.
 
-![A yellow 3D render of a solid wide bowl-shaped object.](/media/solving-problems-quickly-with-3d-printing/model.png)
+{% stl "/media/solving-problems-quickly-with-3d-printing/cup-base-vase-mode.stl" "A 3D render of a solid bowl-shaped object." %}
 
 You might notice that, weirdly, I modeled this shape solid without a hollow inside that the cup might slot into! In fact I had previously created a more complex design modeled as a bowl shape.
 
-![A yellow 3D render of a wide bowl-shaped object with a hollow inside, like a normal bowl.](/media/solving-problems-quickly-with-3d-printing/bowl.png)
+
+{% stl "/media/solving-problems-quickly-with-3d-printing/cup-base.stl" "A yellow 3D render of a wide bowl-shaped object with a hollow inside, like a normal bowl." %}
 
 But midway through modeling I realized this object is a great candidate for "vase mode." Typically when printing an object, the "slicer"[^2] slices[^3] a model into horizontal layers and creates a linear path for extruding the plastic on each layer. But most slicers provide a vase mode option, in which the first few layers are (optionally) printed solid and the rest is extruded as a long spiral upwards, creating an object with a single-walled perimeter. Vase mode has a number of advantages:
 
