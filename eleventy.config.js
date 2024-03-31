@@ -211,6 +211,12 @@ module.exports = function(eleventyConfig) {
         ].join('')
     })
 
+    /* 3D object viewer
+     *-------------------------------------*/
+    eleventyConfig.addShortcode("stl", function (file_path) {
+        return `<div class="js-stl-viewer" data-src="${file_path}"></div>`
+    })
+
     /* Add sass support
      *-------------------------------------*/
     const pluginRev = require("eleventy-plugin-rev")
