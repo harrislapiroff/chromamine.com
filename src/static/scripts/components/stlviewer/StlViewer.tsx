@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense, useState, useRef } from 'react'
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js'
 import {
     Canvas,
@@ -25,8 +25,6 @@ export function Model({ file }: ModelProps) {
                     <meshPhongMaterial color={0xdc00ad} specular={100} shininess={80} />
                 </mesh>
             </Bounds>
-            <ambientLight intensity={0.75} />
-            <directionalLight position={[0, 0, 10]} />
         </>
     )
 }
@@ -40,6 +38,18 @@ export interface StlViewerProps {
 export default function StlViewer({ file, alt }: StlViewerProps) {
     const [paused, setPaused] = useState()
 
+    // Make the light follow the camera
+    // See: https://stackoverflow.com/questions/75772684/how-do-i-keep-a-light-in-a-scene-fixed-when-using-orbit-controls-in-react-three
+    const lightRef = useRef()
+    const updateLight = (e) => {
+        if (!e) return
+        const camera = e.target.object
+        if (lightRef.current) {
+            lightRef.current?.position.set(0, 1, 0);
+            lightRef.current?.position.add(camera.position);
+        }
+    }
+
     return (
         <figure className="stl-viewer" style={{aspectRatio: '3/2'}} aria-label={`3D model: ${alt}`}>
             <Canvas
@@ -49,11 +59,14 @@ export default function StlViewer({ file, alt }: StlViewerProps) {
             >
                 <Suspense fallback={null}>
                     <Model file={file} />
+                    <ambientLight intensity={0.75} />
+                    <directionalLight position={[0, 0, 10]} ref={lightRef} />
                 </Suspense>
                 <OrbitControls
                     enableZoom={false}
                     enablePan={false}
                     autoRotate={!paused}
+                    onChange={updateLight}
                 />
             </Canvas>
             <div className="stl-viewer__actions">
