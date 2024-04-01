@@ -1,0 +1,45 @@
+.stl-viewer
+    position: relative
+
+.stl-viewer__actions
+    display: inline-flex
+    position: absolute
+    top: var(--line-height-base)
+    right: 0
+    +tiny-dn
+        right: var(--page-padding)
+
+.stl-viewer__action, a.stl-viewer__action
+    --border-radius: 0.4rem
+    display: block
+    border: 0
+    padding: 0
+    margin: 0
+    background: transparent
+    color: var(--color-base)
+    width: 1.5em
+    height: var(--line-height-base)
+    line-height: calc(var(--line-height-base) - 0.2rem)
+    box-sizing: border-box
+    border: 1px solid var(--color-base)
+    text-align: center
+    border-left: 0
+    text-decoration: none
+
+    &:first-child
+        border-left: 1px solid var(--color-base)
+        border-top-left-radius: var(--border-radius)
+        border-bottom-left-radius: var(--border-radius)
+
+    &:last-child
+        border-top-right-radius: var(--border-radius)
+        border-bottom-right-radius: var(--border-radius)
+
+    &:visited
+        color: var(--color-base)
+
+    &:hover
+        background: var(--color-link-hover)
+        border-color: var(--color-link-hover)
+        color: var(--color-background)
+        text-decoration: none
