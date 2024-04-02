@@ -17,7 +17,7 @@ _The other board was slightly less bad, but still had a visible scuff in one cor
 
 I thought about trying to exchange them, but the damage was so minor. Also, I figured that there was a decent chance this is just the level of quality one gets from IKEA QA/shipping and I'd be likely to get boards with similar cosmetic issues after a time-consuming exchange process. So instead, I got out my calipers and in about an hour had a simple design for some corner bumpers. I wanted to produce something that was clean and discreet enough that it would look like it could have been sold with the product.
 
-![3D render of an L shaped yellow bumper designed slot over the corner of a board.](/media/ikea-skadis-corner-bumper/scad.png)
+{% stl '/media/ikea-skadis-corner-bumper/corner-bumper.stl' '3D render of an L shaped yellow bumper designed slot over the corner of a board.' %}
 
 They printed cleanly on my Prusa MINI+ and I'm happy with the results. They cover up the existing damage and, while the need to protect the boards hung on the wall is limited, they will protect all the corners from future damage should I move them.
 
