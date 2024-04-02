@@ -214,7 +214,15 @@ module.exports = function(eleventyConfig) {
     /* 3D object viewer
      *-------------------------------------*/
     eleventyConfig.addShortcode("stl", function (file_path, alt) {
-        return `<div class="js-stl-viewer" data-src="${file_path}" data-alt="${alt}"></div>`
+        return `
+            <div
+                class="js-stl-viewer"
+                data-src="${file_path}"
+                data-alt="${alt}"
+            >
+                [Javascript required to view 3D model]
+            </div>
+        `
     })
 
     /* Add sass support
