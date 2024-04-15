@@ -25,6 +25,6 @@ div.js-tag-browser(data-tags=JSON.stringify(tags))
                     span.archive-list__item-tag-count= `(${tag.count} post${filters.pluralize(tag.count)})`
 
 // Render the posts by date
-include _includes/monotheme/mixins/archive-list.pug
+include _layouts/monotheme/mixins/archive-list.pug
 - const posts = collections.posts
 +archive-list-by-year(posts)
