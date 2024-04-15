@@ -10,7 +10,7 @@ permalink: "| tags/#{ filters.slugify(tag) }/"
 layout: monotheme/page.pug
 ---
 
-include _includes/monotheme/mixins/archive-list.pug
+include _layouts/monotheme/mixins/archive-list.pug
 - const posts = collections[tag]
 
 h2
