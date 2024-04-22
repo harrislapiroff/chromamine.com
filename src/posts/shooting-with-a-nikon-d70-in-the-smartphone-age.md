@@ -11,13 +11,15 @@ tags: [photography, technology]
 #     url: TBD
 ---
 
-I used to do photography somewhat seriously. I was an amateur, but a reasonably devoted one. In high school I took photos with a Pentax K1000 that I my father passed down to me. I shot in color and dropped them to be developed at Elephant Pharmacy ([RIP][]) on my way home from school. I shot in black and white and developed them myself in the Berkeley High School darkroom. In college I bought myself a Nikon D50 and shot with that for a while.
+I used to do photography somewhat seriously. I was an amateur, but a reasonably devoted one. In high school I took photos with a [Pentax K1000][] that I my father passed down to me. I shot in color film and dropped them to be developed at Elephant Pharmacy ([RIP][]) on my way home from school. I shot in black and white and developed them myself in the Berkeley High School darkroom. In college I bought myself a [digital SLR][DSLR], a [Nikon D50][], and shot with that for a while.
 
+[Pentax K1000]: https://en.wikipedia.org/wiki/Pentax_K1000
+[Nikon D50]: https://en.wikipedia.org/wiki/Nikon_D50
 [RIP]: https://www.berkeleyside.org/2010/10/29/walgreens-to-take-over-elephant-pharmacy-space
 
 I lost the photography bug. Other interested pulled me away. I was intimidated by my friends who were better photographers[^1]. And, eventually, I was twice discouraged by the advent of smartphones: once because there was no longer a role to fill as *the person* who documented the lives of the people around you – everyone does that now – and once because I learned to prefer the convenience of an iPhone to the comparatively beastly D50 and its array of interchangeable lenses.
 
-I've been thinking about photography again lately – I'm not sure why. I considered buying a fancy new camera, but discovered that modern [mirrorless][] cameras are pretty pricey[^2]. I sometimes have a dabbling spirit when it comes to new hobbies, so it didn't seem wise to sink a bunch of money into this immediately. I decided to dust off an older [DSLR][] and see if I enjoyed it in 2024.
+I've been thinking about photography again lately – I'm not sure why. I considered buying a fancy new camera, but discovered that modern [mirrorless][] cameras are pretty pricey[^2]. I sometimes have a dabbling spirit when it comes to new hobbies. It didn't seem wise to sink a bunch of money into this one immediately. I decided to dust off an older [DSLR][] and see if I enjoyed it in 2024.
 
 [mirrorless]: https://en.wikipedia.org/wiki/Mirrorless_camera
 [DSLR]: https://en.wikipedia.org/wiki/Digital_single-lens_reflex_camera
@@ -29,7 +31,7 @@ I've been thinking about photography again lately – I'm not sure why. I consid
 
 _Annaleah applying hot sauce to a breakfast sandwich. Both taken with a Nikon D70._
 
-Rather than my old D50, which has sensor issues, I turned to a D70 (a slightly older model) that my mother acquired for free years ago and gifted to me.
+Instead of my D50, which has sensor issues, I turned to a D70 (a slightly older model) that my mother acquired for free years ago and gifted to me.
 
 :::note
 This post refers to side-by-side images as "left" and "right" but on mobile they are above and below instead.
@@ -55,7 +57,7 @@ I'm mostly happy with the images I've captured on the D70, but it surprised me t
 
 _Bathroom selfies showing my apparatus for using both cameras simultaneously. Left: Nikon, Right: iPhone_
 
-It's worth reiterating here that I have never been a particularly expert photographer and it's been years since my expertise was at its peak. It's possible I've made technical errors or used terms of art incorrectly, though I've tried my best. I've made color adjustments and cropped images to improve the images and make them more comparable. I'm as amateur at editing as I am at capturing. In practice the D70 images required much more editing to get colors I was happy with.
+It's worth reiterating here that I have never been a particularly expert photographer and it's been years since my expertise was at its peak. It's possible I've made technical errors or used terms of art incorrectly, though I've tried my best. I've made color adjustments and cropped to improve the photos and make them more comparable. I'm as amateur at editing as I am at capturing. In practice the D70 images required much more editing to get colors I was happy with.
 
 I wasn't particularly scientific: I didn't devise an array of subjects that that would test various factors. I vaguely tried to match shots between cameras but wasn't super careful. I simply went out and took photos – twice – of whatever caught my eye. I also biased toward circumstances where the D70 shines and I selected images where the competition is closest – this is far from a random sample. The D70 loves bright and outdoor environments and struggles in medium- to low-light scenarios where my iPhone did fine.
 
@@ -86,7 +88,7 @@ _Left: Nikon, Right: iPhone_
 
 # The iPhone is better in low-light and even medium-light situations.
 
-The D70 excels in bright light, especially sunlight. In dim light or even standard household evening lighting, I have to bump up exposure time, ISO, and/or aperture to get a decent picture. (Or use a flash, I suppose, which is what I used to do, but I haven't broken out my flash this year so far and, anecdotally, I think flash photography is less common and less well tolerated than it used to be.)
+The D70 excels in bright light, especially sunlight. In dim light or even standard household evening lighting, I have to bump up exposure time, ISO[^4], and/or aperture size to get a decent picture. (Or use a flash, I suppose, which is what I used to do, but I haven't broken out my flash this year so far and, anecdotally, I think flash photography is less common and less well tolerated than it used to be.)
 
 {% imagegrid %}
 ![Close up portrait of a brunette woman with glasses. The image is dark warm-toned and a bit blurry.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/jen-nikon.jpeg)
@@ -132,7 +134,7 @@ A few other notes on the experience of shooting with the D70:
 
 - It's a conspicuous device. It's much larger than a phone; it's larger even than a modern mirrorless. It has an internal mirror and shutter apparatus that makes a loud click when it fires. I have to be unapologetic that I am photographing. If I'm trying to at all be discreet, I cannot use it.
 - Along similar lines, it requires more effort to pack, carry, and use. Even as small a detail as needing to remove the lens cap makes it a more conscious and deliberate photography experience than the iPhone. I feel, abstractly, like there's some benefit to this deliberacy, but I can't articulate offhand what it is.
-- Initially I shot using a compressed jpeg format on the D70, but I realized I was losing a lot in quality by not shooting RAW[^4] instead. Apple's Photos ecosystem handles the raw images relatively well, though it requires some contortions to share them out in a more compatible format.
+- Initially I shot using a compressed jpeg format on the D70, but I realized I was losing a lot in quality by not shooting RAW[^5] instead. Apple's Photos ecosystem handles the raw images relatively well, though it requires some contortions to share them out in a more compatible format.
 - In general sharing images has more of a delay. It's very different from the straight-to-social-media practice of shooting with my phone. I speed it up somewhat from the old days (which involved waiting till I was at a computer to offload photos from the camera) with the use of a card reader that plugs into my iPad and some [Shortcuts][] to convert between Nikon RAW and more shareable formats. Most of the images I've posted to [Instagram][] for the past month or so have been taken with the Nikon.
 
 [Shortcuts]: https://support.apple.com/guide/shortcuts/welcome/ios
@@ -171,4 +173,5 @@ Eventually, though, if I decide this is a hobby to invest in, I think it will be
 [^1]: I like to think that, as I've matured, I've gotten less discouraged by my friends' overlapping interests – and by them being more skilled! – and learned to lean into sharing the joy of them, humbly seeking advice, and loving to talk shop.
 [^2]: I acquired my Nikon D50 for $585 in 2007 – $890 in 2024 bucks, according to the [BLS calculator](https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=585&year1=200703&year2=202403). My understanding is a decent modern mirrorless is $1,000+.
 [^3]: The iPhone can actually take up to 48-megapixel images, but I don't generally use that feature and in my experience those images are not similarly crisp when fully zoomed.
-[^4]: A format that preserves the data as received by the sensor, without compression.
+[^4]: How sensitive the sensor is to light. In the analogue days this referred to how dense the photosensitive grains were on the film. Higher ISO values capture an image quicker, even in low light, but look grainier. 
+[^5]: A format that preserves the data as received by the sensor, without compression.
