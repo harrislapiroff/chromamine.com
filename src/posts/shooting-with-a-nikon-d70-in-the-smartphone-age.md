@@ -98,7 +98,7 @@ The D70 excels in bright light, especially sunlight. In dim light or even standa
 
 _Drinks in a medium-lit bar with Jen. Left: Nikon, Right: iPhone_
 
-Both cameras struggle in dim lighting, but the iPhone produces images that are a little sharper and have colors that feel truer-to-life. The D70 images above required a fair bit of processing to get even to this level and, with my current editing skills, I still wasn't able to get them closer to reality.
+Both cameras struggle in dim lighting, but the iPhone produces images that are a little sharper and have colors that feel truer-to-life. The D70 image above required a fair bit of processing to get it to this level and, with my current editing skills, I still wasn't able to get it closer to reality.
 
 # Depth of field effects on the D70 are more pronounced and natural.
 
@@ -179,5 +179,5 @@ _Thanks to [Emily][], [Ruthie][], and [Emma][] for providing feedback on drafts 
 [^1]: I like to think that, as I've matured, I've gotten less discouraged by my friends' overlapping interests – and by them being more skilled! – and learned to lean into sharing the joy of them, humbly seeking advice, and loving to talk shop.
 [^2]: I acquired my Nikon D50 for $585 in 2007 – $890 in 2024 bucks, according to the [BLS calculator](https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=585&year1=200703&year2=202403). My understanding is a decent modern mirrorless is $1,000+.
 [^3]: The iPhone can actually take up to 48-megapixel images, but I don't generally use that feature and in my experience those images are not similarly crisp when fully zoomed.
-[^4]: In the analog days ISO referred to how dense the photosensitive grains were on the film. Higher ISO values (less dense) captured an image quicker, even in low light, but look grainier. The mechanics of this in digital cameras are more complicated, but the effect is approximately the same.
+[^4]: In the analog days ISO referred to how dense the photosensitive grains were on the film. Higher ISO values (less dense) capture an image quicker, even in low light, but looks grainier. The mechanics of this in digital cameras are more complicated, but the effect is approximately the same.
 [^5]: A format that preserves the data as received by the sensor, without compression.
