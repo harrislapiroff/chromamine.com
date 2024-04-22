@@ -1,6 +1,6 @@
 ---
 title: Shooting with a Nikon D70 in the smartphone age
-date: 2024-04-15
+date: 2024-04-22
 categories: [Miscellany]
 tags: [photography, technology]
 # eleventyExcludeFromCollections: true
