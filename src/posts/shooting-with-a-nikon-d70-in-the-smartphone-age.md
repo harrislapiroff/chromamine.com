@@ -10,7 +10,7 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid0p1EF4JLsQh4W8p4zkh2E1YSuNuKNjga6iZuraNnCP1kVJaoeLoeJFJgF78XnUNuBl
 ---
 
-I used to do photography somewhat seriously. I was an amateur, but a reasonably devoted one. In high school I took photos with a [Pentax K1000][] that  dmy father passed down to me. I shot in color film and dropped rolls to be developed at Elephant Pharmacy ([RIP][]) on my way home from school. I shot in black and white and developed them myself in the Berkeley High School darkroom. In college I bought myself a [digital SLR][DSLR], a [Nikon D50][], and shot with that for a while.
+I used to do photography somewhat seriously. I was an amateur, but a reasonably devoted one. In high school I took photos with a [Pentax K1000][] that my father passed down to me. I shot in color film and dropped rolls to be developed at Elephant Pharmacy ([RIP][]) on my way home from school. I shot in black and white and developed them myself in the Berkeley High School darkroom. In college I bought myself a [digital SLR][DSLR], a [Nikon D50][], and shot with that for a while.
 
 [Pentax K1000]: https://en.wikipedia.org/wiki/Pentax_K1000
 [Nikon D50]: https://en.wikipedia.org/wiki/Nikon_D50
