@@ -3,12 +3,11 @@ title: Shooting with a Nikon D70 in the smartphone age
 date: 2024-04-22
 categories: [Miscellany]
 tags: [photography, technology]
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112317090912517638
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0p1EF4JLsQh4W8p4zkh2E1YSuNuKNjga6iZuraNnCP1kVJaoeLoeJFJgF78XnUNuBl
 ---
 
 I used to do photography somewhat seriously. I was an amateur, but a reasonably devoted one. In high school I took photos with a [Pentax K1000][] that  dmy father passed down to me. I shot in color film and dropped rolls to be developed at Elephant Pharmacy ([RIP][]) on my way home from school. I shot in black and white and developed them myself in the Berkeley High School darkroom. In college I bought myself a [digital SLR][DSLR], a [Nikon D50][], and shot with that for a while.
@@ -103,7 +102,7 @@ Both cameras struggle in dim lighting, but the iPhone produces images that are a
 
 # Depth of field effects on the D70 are more pronounced and natural.
 
-It's often desireable in photography to have parts of a scene, particularly the parts that are not the primary subject of the photo, blurry and out of focus. (On the other hand, too much of this can be *too much* and when poorly controlled can exacerbate the crispness issues above.) This effect is less pronounced on smaller lenses like you might find on an iPhone. The unambiguous strength of even an old SLR against modern phone cameras is more powerful and swappable lenses. The lens I used for most of my Nikon shots is a Nikon 50mm f/1.8 D, which can produce very nice depth of field effects.
+It's often desirable in photography to have parts of a scene, particularly the parts that are not the primary subject of the photo, blurry and out of focus. (On the other hand, too much of this can be *too much* and when poorly controlled can exacerbate the crispness issues above.) This effect is less pronounced on smaller lenses like you might find on an iPhone. The unambiguous strength of even an old SLR against modern phone cameras is more powerful and swappable lenses. The lens I used for most of my Nikon shots is a Nikon 50mm f/1.8 D, which can produce very nice depth of field effects.
 
 {% imagegrid %}
 ![A smiling brown-haired woman with a baby strapped to her chest. The image has a soft quality but individual hairs are crisply rendered even at the edges.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/randj-nikon.jpeg)
