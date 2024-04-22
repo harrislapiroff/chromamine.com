@@ -111,7 +111,7 @@ It's often desirable in photography to have parts of a scene, particularly the p
 
 _Ruthie and Josephine. Lower f-stop simulated with portrait mode on the iPhone image. Left: Nikon, Right: iPhone_
 
-iPhones have a "portrait mode" which is designed to simulate a shallower depth of field than their lenses really produce, but it can't produce as coarse of a [bokeh][] as a larger camera lens, often has processing artifacts (especially around people's hair), and looks less natural – because it is less natural; it's simulated than software rather than the pure optics effect of a lens projecting an image onto a sensor.
+iPhones have a "portrait mode" which is designed to simulate a shallower depth of field than their lenses really produce, but it can't produce as coarse of a [bokeh][] as a larger camera lens, often has processing artifacts (especially around people's hair), and looks less natural – because it is less natural; it's simulated than software rather than the pure optics effect of a lens projecting an image onto a sensor. In the iPhone version of the photo of Ruthie and Jo above, around the fringes of Ruthie's hair, some wisps are oddly out of focus and in some places the wall seen through her hair is oddly _in_ focus. Similarly, in the iPhone image of the cherry blossoms below, some blossoms that are the same distance from the lens are in focus and others are out of focus, sometimes sharply cutting from one to the other, rather than a consistent gradient of focus over distance as in the Nikon image.
 
 [bokeh]: https://en.wikipedia.org/wiki/Bokeh
 
