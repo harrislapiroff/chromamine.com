@@ -27,7 +27,7 @@ program:
   - - title: Train Delay
       author: Maia McCormick
       notes: No walkthrough
-    - title: "Medley (Airpants, Folklife Frolic, Tica Tica Timing/Old Time Elixer #2)"
+    - title: "Medley (Airpants, Folklife Frolic, Tica Tica Timing/Old Time Elixir #2)"
       author: Lisa Greenleaf, Lindsey Dono, Dean Snipes/Linda Leslie
     - title: Apogee
       author: Chris Page
