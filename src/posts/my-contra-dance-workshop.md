@@ -3,7 +3,7 @@ title: My Introductory Contra Dance Workshop
 date: 2024-04-22
 categories: []
 tags: []
-# eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: true
 # xposts:
 #   - label: Mastodon
 #     url: TBD
