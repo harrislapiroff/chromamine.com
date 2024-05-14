@@ -1,7 +1,7 @@
 ---
 name: Monday Contras
-date: 2023-05-13T19:30
-date_end: 2023-05-13T22:30
+date: 2024-05-13T19:30
+date_end: 2024-05-13T22:30
 tzid: America/New_York
 band: Julie Metcalf, Max Newman, Jack O'Connor, Cecily Mills, and Dan Afrik
 description: |+
