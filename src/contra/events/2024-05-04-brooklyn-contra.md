@@ -25,7 +25,7 @@ program:
       author: Jim Kitsch
     - title: Rock Creek Reel
       author: David Harris
-      notes: Called by a guest caller (Sunny)
+      notes: Called by a guest caller (Carter)
     - title: Now We Are Four
       author: Erik Weberg
     - title: Minimum Fuss, Maximum Fun

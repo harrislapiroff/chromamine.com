@@ -22,7 +22,7 @@ program:
       notes: Made a brief announcement honoring Tony Parkes who passed away on May 6, 2024 after a long illness.
     - title: Helooo Nurse!
       author: Maia McCormick
-      notes: "Guest caller: Tommy Linden"
+      notes: "Called by a guest caller (Tommy Linden)"
     - title: Dancing Bears
       author: Brian DeMarcus
     - title: Maliza's Magical Mystery Motion
