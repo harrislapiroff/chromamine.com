@@ -8,7 +8,7 @@ xposts:
   - label: Mastodon
     url: https://social.coop/@harris/112446357970769176
   - label: Facebook
-    url: https://www.facebook.com/harrislap/posts/pfbid0rT76Ncw8YnDwdtZKGR9pFftxffMnUeVeMQST7EchtMaqtLhCru8G44Atie6CJ1Nml?__cft__[0]=AZWMg_aWf2lchCYP0BUb2eC3TePXvRsLfhDxVFwG9rNMBS2JfBm3E8b-kcZ8jKpAi3ShQTPrc1zHP7-6gjGfqel8uUzKBCpNdtJucr6RfQuNXZt_lgNebGjlxIQ0K_G1yTVqiiOVM9u53GydW0clEIyn1mMCrBAqRVMD5sbFz22G6sag_uWtCKfoMOuEkBakdDI&__tn__=%2CO%2CP-R
+    url: https://www.facebook.com/harrislap/posts/pfbid0rT76Ncw8YnDwdtZKGR9pFftxffMnUeVeMQST7EchtMaqtLhCru8G44Atie6CJ1Nml
 ---
 
 ![A street filled with people at some sort of festival as viewed from the porch of a house on that street. In the foreground, on the porch, a man with long black hair is standing at a microphone.](/media/calling-contras-at-porchfest-2024/julia.jpg)
