@@ -31,7 +31,7 @@ For the second year in a row [Jeff][] invited me to call contra dances with his 
 Some things I did differently from last year:
 
 - I put two circle mixers in my program, specifically to have dances that *all* could join in for. Circle mixers tend to be simple and if something goes wrong and someone ends up without a partner they can easily drop out or go to the "lost and found" in the center to find a new partner and rejoin the circle. Mixers are tolerant of some chaos.[^1]
-- I treated it more like a typical contra dance event in that kept control of dance duration, signalling the band how long to play their sets for. (Last year, thinking of it more like a concert with contra dancing on the side, I let the band make these decisions, which I thought was an error, in retrospect.)
+- I treated it more like a typical contra dance event in that I kept control of dance duration, signalling the band how long to play their sets for. (Last year, thinking of it more like a concert with contra dancing on the side, I let the band make these decisions, which I thought was an error, in retrospect.)
 
 Some things I mostly did the same:
 
@@ -42,7 +42,7 @@ Some things I mostly did the same:
 - I kept dances pretty simple. Nothing that required much teaching or would be error prone.
 - With only one exception (deliberately, this year[^3]) I kept it to dances where interaction was limited to dancers' minor sets, to minimize cascading confusion.
 
-I'm not sure which factors account for it – having dances specifically for beginners, being more clear and confident in announcing dance difficulty, my state of mind, or the rowdy crowd being at the [Guster show][] instead – but this year felt smoother and more in control. Fewer beginners joined for the dances I established for experience dancers, tons joined for the mixers. I heard from dancers afterward that there were some tipsy dancers, but no one disruptive. (Last year I observed new dancers joining the line with drinks in hand!) It wasn't as hot as last year, which meant dancers were less tired and more coordinated.
+I'm not sure which factors account for it – having dances specifically for beginners, being more clear and confident in announcing dance difficulty, my state of mind, or the rowdy crowd being at the [Guster show][] instead – but this year felt smoother and more in control. Fewer beginners joined for the dances I established for experienced dancers, tons joined for the mixers. I heard from dancers afterward that there were some tipsy dancers, but no one disruptive. (Last year I observed new dancers joining the line with drinks in hand!) It wasn't as hot as last year, which meant dancers were less tired and more coordinated.
 
 We had a long line that spanned half the block. There were some traffic issues; the street was supposed to be closed, but some cars made through and I had to coordinate dancers allowing them to pass on the fly, which was annoying and awkward. Jeff wrote a bit more about his [traffic logistic thoughts](https://www.jefftk.com/p/somerville-porchfest-thoughts).
 
