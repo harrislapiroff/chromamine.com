@@ -14,6 +14,12 @@
     ul > li
         list-style-type: "- "
 
+    // Nested lists should be indented
+    ul, ol
+        ul, ol
+            margin-left: 2ch
+            margin-top: var(--line-height-base)
+
     strong
         font-weight: var(--font-weight-bold)
 
