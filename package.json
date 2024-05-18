@@ -19,7 +19,7 @@
     "@alex.garcia/unofficial-observablehq-compiler": "^0.6.0-alpha.9",
     "@observablehq/parser": "^6.0.0",
     "commander": "^11.1.0",
-    "eleventy-plugin-rev": "^1.1.1",
+    "eleventy-plugin-rev": "^2.0.0",
     "eleventy-sass": "^2.2.3",
     "esbuild": "^0.19.4",
     "highlight.js": "^11.9.0",
