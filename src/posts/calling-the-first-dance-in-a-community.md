@@ -1,6 +1,6 @@
 ---
-title: Calling the First Dance in a Community
-date: 2024-05-17
+title: Calling the First Dance for a Community
+date: 2024-05-19
 categories: [Dance]
 tags: [contra, calling]
 # xposts:
@@ -62,8 +62,8 @@ dances:
         - Circle L
         - Circle R
       a2:
-        - Star R
-        - Star L
+        - Star R (hands-across)
+        - Star L (hands-across)
       b1:
         - Ones down the outside
         - Ones return
@@ -135,11 +135,13 @@ dances:
         - Prom with new ptr
 ---
 
-This week I called the Nantucket's First Community Contra dance. This was a bit of an unusual gig. The organizer is starting a contra dance community from scratch on the island. There were a very small handful of experienced dancers she knew, but aside from them, the entire crowd was completely new.
+This week I called the Nantucket's First [Community Contra Dance][]. This was an unusual gig. The organizer is starting a contra dance community from scratch on the island. There were a small handful of experienced dancers she knew, but aside from them, the crowd was entirely new.
 
-It's common for a contra evening to have a short (15–30 minute) workshop to teach beginners the basics. This isn't enough time to teach everything that's needed to dance. Typically callers augment this by briefly teaching figures and techniques during walkthroughs over the course of the evening and by relying on experienced dancers to direct newcomers on the floor and share knowledge and technique explicitly and implicitly. Since this dance had only a few experienced dancers in a crowd of 50, I couldn't rely on the latter item at all.
+[Community Contra Dance]: https://www.facebook.com/groups/651711967114830/
 
-This matters more than an experienced dancer might think at first blush! There's a long list of knowledge that is needed even for the most basic of modern contras that experienced dancers take for granted: hands four, improper formation, progression, waiting out (and crossing over while waiting out), geography (across the set, side of the set, up the hall, down the hall), lark/robin roles, ending swings with roles on proper sides – and that's before we've even talked about how one actually dances any of our extensive repertoire of figures. I've never called a dance like this, even a typical "beginner-heavy" contra dance evening for me is generally less than 50% complete beginners.
+It's common for an evening dance to have a short (15–30 minute) workshop to teach beginners the basics. It's not enough time to teach everything that's needed to dance. Callers augment this by briefly teaching figures and techniques over the course of the evening during walkthroughs – and by relying on experienced dancers to direct newcomers on the floor, sharing knowledge and technique explicitly and implicitly. Since this dance had only a few experienced dancers in a crowd of 50, I couldn't rely on the latter at all.
+
+This matters more than an experienced dancer might think at first blush! There's a long list of knowledge that is needed for even the simplest modern contras that experienced dancers take for granted: hands four, improper formation, progression, waiting out (and crossing over while waiting out), geography (across the set, side of the set, up the hall, down the hall), lark/robin roles, ending swings with roles on correct sides – and that's before we've even talked about how one actually dances any of our extensive repertoire of figures. It's a weighty collection of things for a beginner to keep in mind.
 
 This was also different from what callers often refer to as a "one night stand" dance, such as a wedding, where you have a crowd of dancers who have never done it before and may never do it again. At a dance like that, there isn't much interest in learning things. At ONS dances, callers typically call "barn dances" that are simple, require minimal teaching, and tolerate chaotic dancers.
 
@@ -149,7 +151,7 @@ For the purposes of this post I'm drawing a distinction between simple dances li
 
 By contrast, at this dance, the organizer is deliberately trying to establish a community of regular dancers and – while dancers have come first and foremost to _have fun_ (the ultimate priority of any evening of contra dancing!) – they were also there expecting to do some _learning_. I tried to program somewhere in between a ONS and a beginner-heavy contra dance and be strategic about my teaching:
 
-- I opted to forego a beginner lesson and teach over the course of the evening
+- I opted to forego a beginner lesson and teach entirely during walkthroughs over the course of the evening
 - I started with some basic mixers and barn dances that could be done without much trouble
 - I progressed to simple contra dances...
 - Starting with one that is "neutral" – i.e., it doesn't have two roles in any way that matters...
@@ -157,7 +159,7 @@ By contrast, at this dance, the organizer is deliberately trying to establish a 
 - Followed by ones that have roles and it *does* matter where you end the swing.
 - With the exception of the neutral one, all of the contras were becket with a slide left progression to avoid beginners having to learn about and remember to cross over at the end of the set.
 
-By all reports the evening went well. Nevertheless, being as this was the first dance with this many beginners that I've called, I made some errors and learned some lessons for the next time.
+By all reports the evening went well. Nevertheless, being as this was the first dance with this many beginners that I've called (even "beginner-heavy" dances I've called are no more than 50% newbies), I made some errors and learned some lessons for the next time.
 
 This was my program:
 
@@ -171,7 +173,7 @@ Progressing was the trickiest part, since it depended on ending the swing where 
 
 {% dancecard dances "Accretion Reel" %}
 
-I originally intended to start the evening with this one. I figured I could do it without a walkthrough, just by teaching the (very simple) figures as the music played, and I liked that it removed any need to find a partner for the first dance and would tolerate lots of chaos. I swapped it out when I arrived. The room was echoey and I was concerned I wouldn't be clear enough for a no walkthrough. But I kept it for the second slot _with_ a walkthrough. It's a chaotic dance to begin with and I think it hit the right level of fun and chaos for the room.
+I originally intended to start the evening with this one. I figured I could do it without a walkthrough, just by teaching the (very simple) figures as the music played. I liked that it removed any need to find a partner for the first dance and would tolerate lots of chaos. But I swapped it out when I arrived. The room was echoey and I was concerned I wouldn't be clear enough for a no walkthrough. But I kept it for the second slot _with_ a walkthrough. It's a chaotic dance to begin with and I think it hit the right level of fun and chaos for the room.
 
 {% dancecard dances "Gallopede" %}
 
@@ -187,8 +189,8 @@ This is a classic contra dance (or at least a variation on one) that is role neu
 
 But the dance worked well, though some dancers struggled with:
 
-1. going down the outside of the set (I _think_ what happened here was just leaving the line made them uncertain and they didn't want to go very far?)
-2. making sure the ones were in the center of a the line of four (for sets that got this wrong, their progression reversed)
+1. going down the outside of the set[^2]
+2. making sure the ones were in the center of a the line of four[^3]
 3. arching and diving on time – dancers were often late for the circles
 
 The choreography is forgiving enough that none of these presented major issues. It all held together and everyone got to their lines of four for every down-the-hall.
@@ -226,9 +228,9 @@ I closed with this circle mixer. It went smoothly, though dancers were conservat
 Some things I'm thinking about for the next time I call a dance like this:
 
 - I would have liked to get in more than eight dances, but, given that I opted not to do a usual 30m workshop at the start, knowing I would spend more time during the dance teaching, I think it's a respectable number for a 2½ hour dance.
-- Along those lines I would have prepped more simple barn dances that needed less teaching. Because we were trying to establish a new contra dance community, I thought it was good that we got to some simple contras, but I would drop the most complex one and would have liked to have a barn dance to return to when things got complicated, to give the dancers a break and keep the momentum going. (To some extent this is a repertoire problem that will solve itself as I continue to grow my collection. In the second half I *knew* I wanted to call a beginner dance, I just had blown through my prepped beginner dances in the first half, whoops.)
+- Along those lines I would have prepped more simple barn dances that needed less teaching. Because we are trying to establish a new contra dance community, I thought it was good that we got to some simple contras, but I would drop the most complex one and would have liked to have a barn dance to return to when things got complicated, to give the dancers a break and keep the momentum going. (To some extent this is a repertoire problem that will solve itself as I continue to grow my collection. In the second half I *knew* I wanted to call a beginner dance, I just had blown through my prepped beginner dances in the first half, whoops.)
 - I incorporated some tips on how to recover when things went wrong later in the evening, but I wonder if I should have done that more clearly earlier in the evening.
-- I also wonder if I should have made some notes about the music. I don't typically teach beginners anything about the music, but, since there were few experienced dancers with the intuition or knowledge to keep others on time, maybe I could have helped along those with some musical knowledge if I had mentioned that a figure was 8 or 16 beats long or that figures typically aligned with the musical phrases. (I did see some people intuit this when I dropped calls – which I didn't do much – but not everyone.) Or perhaps it's just the nature of a dance like this that the timing will be fuzzy.
+- I also wonder if I should have made some notes about the music. I don't typically teach beginners anything about the music, but, since there were few experienced dancers with the intuition or knowledge to keep others on time, maybe I could have helped along those with musical knowledge if I mentioned that a figure was 8 or 16 beats long and aligned with the musical phrases. (I did see some people intuit this when I dropped calls – which I didn't do much – but not everyone.) Or perhaps it's just the nature of a dance like this that the timing will be fuzzy.
 
 Despite my notes on things that could have gone better, my impression is the dance was a success! The organizer gave me some hearty compliments on my calling (thanks, Graeme!) and said she received many people asking when the next one would be – and disappointed responses when she said it wouldn't be till fall! The dancers seemed excited to be learning and were attentive the whole time. We kept the mood light and even during the train wreck dance I saw a lot of smiles on the dance floor. It seemed like a good time was had by all.
 
@@ -238,4 +240,6 @@ A huge amount of credit goes to Graeme for putting this event on. And thanks to 
 
 [Maia]: https://contra.maiamccormick.com/
 
-[^1]: My guess as to what happened there was because they remembered the momentum from the circle right they had just done, they just kept that momentum as they were starring rather than changing direction. I gently corrected them with, "I saw one set walked that star backing up, which is super impressive, but I did actually mean for you to walk forwards."
+[^1]: My guess is that, because the star R flowed out of a circle R, this particular foursome still had the momentum of the circle R in their head. I gently corrected them with, "I saw one set walked that star backing up, which is super impressive, but I did actually mean for you to walk forwards."
+[^2]: I _think_ what happened here was just leaving the line made them uncertain and they didn't want to go very far?
+[^3]: For sets that got this wrong, their progression reversed.
