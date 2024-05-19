@@ -223,7 +223,7 @@ This dance took a bit more teaching than I expected – dancers, being new to th
 
 {% dancecard dances "Coke the Floor" %}
 
-I closed with this circle mixer. It went smoothly, though dancers were conservative about how far they woould sashay and kept turning back to sashay left before I prompted it. I threw in a few calls of "You can go further! And back to the left _now_," to encourage them along, which helped. The turn back from promenade progression took some fussing, but everyone seemed to get it in time for the big circle at the start.
+I closed with this circle mixer. It went smoothly, though dancers were conservative about how far they would sashay and kept turning back to sashay left before I prompted it. I threw in a few calls of "You can go further! And back to the left _now_," to encourage them along, which helped. The turn back from promenade progression took some fussing, but everyone seemed to get it in time for the big circle at the start.
 
 ***
 
