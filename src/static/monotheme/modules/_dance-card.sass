@@ -1,0 +1,37 @@
+@use 'mixins'
+
+.dance-card
+    @include mixins.labeled-box("Dance", var(--color-base))
+    max-width: 50ch
+
+.dance-header
+    display: grid
+    grid-template-columns: 1fr 1fr
+    margin-bottom: calc(var(--line-height-base) / 2)
+
+    .dance-title
+        grid-column: 1
+        font-weight: var(--font-weight-bold)
+
+    .dance-formation
+        grid-column: 2
+        text-align: right
+
+    .dance-author
+        grid-column: 1
+        grid-row: 2
+        font-style: italic
+
+.dance-section
+    display: grid
+    grid-template-columns: 2ch 1fr
+    gap: 2ch
+    margin-bottom: calc(var(--line-height-base) / 2)
+
+    .dance-section-label
+        grid-column: 1
+        text-align: right
+        font-weight: var(--font-weight-bold)
+
+    .dance-section-lines
+        grid-column: 2

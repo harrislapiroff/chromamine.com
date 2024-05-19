@@ -15,7 +15,7 @@ const humaneNumFormat = function (value) {
 
 const dateFormat = function (value, format) {
     const value_ = value instanceof Date ? value : new Date(value)
-    return d3time.timeFormat(format)(value_)
+    return d3time.utcFormat(format)(value_)
 }
 
 const slugify = function (value) {
