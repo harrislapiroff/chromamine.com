@@ -5,11 +5,11 @@ categories: [Dance]
 tags: [contra, calling]
 excerpt:
   This week I called the Nantucket's First Community Contra Dance. It was an unusual gig. The organizer is starting a contra dance community from scratch on the island.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112470456146970228
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0tocx48YvCww8Aiu2w918JdF9iSWWG3MLMqQQRacKnE61C7F4dECEYvWeL2DMMcD6l
 dances:
   - title: Easy Circle of Fun
     author: Linda Leslie
@@ -212,7 +212,7 @@ After this dance, the band played a waltz and we took a break. We returned with:
 This was the most difficult dance of the evening. If I did it over, I'd likely take it out. Of two lines, one ran smoothly, but the other never got it and completely fell apart midway through. (I would have stopped at that point, but the dancers were valiantly determined to pull bring the line back together, so I gave them a few times through to give it a go!) These were the points of difficulty:
 
 - As is fairly common to becket dances, but unlike the dance before and after this one, there's little time for the slide left in this dance. It flows smoothly into the circle left – but that requires dancers know where they're going when they slide left, otherwise they get behind immediately. Dancers were often late or occasionally didn't slide left at all, despite my prompting, stranding couples in the middle of the line.
-- In the biggest surprise of the night for me, _"circle left three places" was the most challenging figure of the evening_! I saw some foursomes circle all the way around, halfway around, at one point ⅝ of the way around ending in a diamond! I'm not sure if I could have taught this better – perhaps with a slower "Mark each spot someone is standing on around this ring in your mind. You are going to circle to the left and end on the third spot," or something. But possibly I should have just left any "fractional" figures out of the evening.
+- In the biggest surprise of the night for me, _"circle left three places" was the most challenging figure of the evening_! I saw some foursomes circle all the way around, halfway around, at one point ⅝ of the way around ending in a diamond! I'm not sure if I could have taught this better – perhaps with a slower "Mark each spot someone is standing on around this ring in your mind. You are going to circle to the left and end on the third spot," or just better ensure they knew who their neighbor was and where the side of the set was. But possibly I should have just left any "fractional" figures out of the evening.
 - Dancers didn't know how to recover when couples were stranded alone in the middle of the set which sometimes caused cascading confusion as they tried to get into any circle of four that was nearby during the A1. (I gave some tips on recovery before the next dance.)
 
 {% dancecard dances "Festival Waves" %}
