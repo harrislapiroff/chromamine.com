@@ -3,6 +3,8 @@ title: Calling the First Dance for a Community
 date: 2024-05-19
 categories: [Dance]
 tags: [contra, calling]
+excerpt:
+  This week I called the Nantucket's First Community Contra Dance. It was an unusual gig. The organizer is starting a contra dance community from scratch on the island.
 # xposts:
 #   - label: Mastodon
 #     url: TBD
@@ -135,21 +137,21 @@ dances:
         - Prom with new ptr
 ---
 
-This week I called the Nantucket's First [Community Contra Dance][]. This was an unusual gig. The organizer is starting a contra dance community from scratch on the island. There were a small handful of experienced dancers she knew, but aside from them, the crowd was entirely new.
+![A room with contra dancers holding two hands with their partner, in motion. In the background I'm calling with a band.](/media/calling-the-first-contra-dance-in-a-community/PXL_20240517_004902040.jpg)
+
+_Photo by Tom Stoddart_
+
+This week I called the Nantucket's First [Community Contra Dance][]. It was an unusual gig. The organizer is starting a contra dance community from scratch on the island. There were a small handful of experienced dancers she knew, but aside from them, the crowd was entirely new.
 
 [Community Contra Dance]: https://www.facebook.com/groups/651711967114830/
 
-It's common for an evening dance to have a short (15–30 minute) workshop to teach beginners the basics. It's not enough time to teach everything that's needed to dance. Callers augment this by briefly teaching figures and techniques over the course of the evening during walkthroughs – and by relying on experienced dancers to direct newcomers on the floor, sharing knowledge and technique explicitly and implicitly. Since this dance had only a few experienced dancers in a crowd of 50, I couldn't rely on the latter at all.
+It's common for an evening dance to have a short (15–30 minute) workshop to teach beginners the basics. It's not enough time to teach everything that's needed to dance. Callers augment this by briefly teaching figures and techniques over the course of the evening during walkthroughs – and by relying on experienced dancers to direct newcomers on the floor, sharing knowledge and technique explicitly and implicitly. Since this dance had only a few experienced dancers in a crowd of about 45 people, I couldn't rely on the latter at all.
 
-This matters more than an experienced dancer might think at first blush! There's a long list of knowledge that is needed for even the simplest modern contras that experienced dancers take for granted: hands four, improper formation, progression, waiting out (and crossing over while waiting out), geography (across the set, side of the set, up the hall, down the hall), lark/robin roles, ending swings with roles on correct sides – and that's before we've even talked about how one actually dances any of our extensive repertoire of figures. It's a weighty collection of things for a beginner to keep in mind.
+This matters more than an experienced dancer might think at first blush! There's a long list of knowledge that is needed for even the simplest modern contras that experienced dancers take for granted: hands four, improper formation, progression, waiting out (and crossing over while waiting out), geography (across the set, side of the set, up the hall, down the hall), lark/robin roles, ending swings with roles on correct sides – and that's before we've even talked about how one actually dances any of our extensive repertoire of figures. It's a weighty collection of things for a beginner to learn in one go.
 
-This was also different from what callers often refer to as a "one night stand" dance, such as a wedding, where you have a crowd of dancers who have never done it before and may never do it again. At a dance like that, there isn't much interest in learning things. At ONS dances, callers typically call "barn dances" that are simple, require minimal teaching, and tolerate chaotic dancers.
+This was also different from what callers often refer to as a "one night stand" dance, such as a wedding, where you have a crowd of dancers who have never done it before and may never do it again. At a dance like that, there isn't much interest in learning. At ONS dances, callers typically call "barn dances" that are simple, require minimal teaching, and tolerate chaotic dancers.
 
-:::note
-For the purposes of this post I'm drawing a distinction between simple dances like those "barn dances" versus "contras" – modern contra dances typically done in duple improper or becket formation.
-:::
-
-By contrast, at this dance, the organizer is deliberately trying to establish a community of regular dancers and – while dancers have come first and foremost to _have fun_ (the ultimate priority of any evening of contra dancing!) – they were also there expecting to do some _learning_. I tried to program somewhere in between a ONS and a beginner-heavy contra dance and be strategic about my teaching:
+By contrast, at this dance, the organizer is deliberately trying to establish a community of regular dancers and – while dancers have come first and foremost to _have fun_ (the ultimate priority of any evening of contra dancing!) – they were also there expecting to _learn_. I tried to program somewhere in between an ONS and a beginner-heavy contra dance and be strategic about my teaching:
 
 - I opted to forego a beginner lesson and teach entirely during walkthroughs over the course of the evening
 - I started with some basic mixers and barn dances that could be done without much trouble
@@ -232,7 +234,11 @@ Some things I'm thinking about for the next time I call a dance like this:
 - I incorporated some tips on how to recover when things went wrong later in the evening, but I wonder if I should have done that more clearly earlier in the evening.
 - I also wonder if I should have made some notes about the music. I don't typically teach beginners anything about the music, but, since there were few experienced dancers with the intuition or knowledge to keep others on time, maybe I could have helped along those with musical knowledge if I mentioned that a figure was 8 or 16 beats long and aligned with the musical phrases. (I did see some people intuit this when I dropped calls – which I didn't do much – but not everyone.) Or perhaps it's just the nature of a dance like this that the timing will be fuzzy.
 
-Despite my notes on things that could have gone better, my impression is the dance was a success! The organizer gave me some hearty compliments on my calling (thanks, Graeme!) and said she received many people asking when the next one would be – and disappointed responses when she said it wouldn't be till fall! The dancers seemed excited to be learning and were attentive the whole time. We kept the mood light and even during the train wreck dance I saw a lot of smiles on the dance floor. It seemed like a good time was had by all.
+Despite my notes on things that could have gone better, my impression is the dance was a success! There was an enthusiastic and intergenerational group of dancers. The organizer gave me some hearty compliments on my calling (thanks, Graeme!) and said she received many people asking when the next one would be – and disappointed responses when she said it wouldn't be till fall! The dancers seemed excited to be learning and were attentive the whole time. We kept the mood light and even during the train wreck dance I saw a lot of smiles on the dance floor. It seemed like a good time was had by all.
+
+![A room with contra dancers holding two hands with their partner, in motion. In the background I'm calling with a band.](/media/calling-the-first-contra-dance-in-a-community/PXL_20240517_004556942.jpg)
+
+_Photo by Tom Stoddart_
 
 ***
 

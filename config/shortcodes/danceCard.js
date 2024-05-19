@@ -20,7 +20,6 @@ const danceCard = (danceCollection, title) => {
             `).join('')}
         </div>
     </div>`.replace(/([\n\r]|[\s]{4})/g, '')
-    console.log(output)
     return output
 }
 
