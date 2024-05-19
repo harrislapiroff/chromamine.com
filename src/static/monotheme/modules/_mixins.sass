@@ -1,0 +1,26 @@
+@mixin labeled-box($label, $color)
+    border: 0.1rem solid $color
+    color: $color
+    padding:
+        top: calc(var(--line-height-base) / 2 - 0.1rem)
+        bottom: calc(var(--line-height-base) / 2 - 0.1rem)
+        right: calc(2ch - 0.1rem)
+        left: calc(2ch - 0.1rem)
+    margin: var(--line-height-base) 0
+    border-radius: var(--border-radius-base)
+    position: relative
+
+    &::before
+        display: block
+        content: $label
+        position: absolute
+        top: calc(-1 * var(--line-height-base) / 2)
+        left: -1ch
+        font-size: 0.8em
+        text-transform: uppercase
+        background: var(--color-background)
+        padding: 0 0.5ch
+
+    & > :last-child
+        margin-bottom: 0
+
