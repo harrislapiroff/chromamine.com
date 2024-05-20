@@ -124,6 +124,19 @@ dances:
         Dancing from 8:00–11:00PM
       url: https://capitalcitygrange.org/event/contra-dance-7-2020-06-20-2020-10-17/2024-09-21/
 
+    - name: Glen Echo Friday Night Dance
+      date: 2024-12-20T20:00
+      date_end: 2024-12-20T23:00
+      tzid: America/New_York
+      band: Some Assembly
+      bandURL: https://someassemblydances.com/
+      street: 7300 MacArthur Blvd
+      city: Glen Echo MD
+      description: |+
+        Workshop at 7:30PM  
+        Dancing from 8:00–11:00PM
+      url: https://www.fridaynightdance.com/
+
 
   past:
     - name: Brooklyn Contra
