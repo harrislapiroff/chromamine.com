@@ -35,13 +35,13 @@ In response to my [most recent post about calling dances in Nantucket][nantucket
 
 Okay, I should explain myself. First some background:
 
-When contra dance choreography is written out, one typically notes the formation of the dance in a brief phrase. The most common formations in modern contra dancing are **duple improper** and **becket** (which is itself a variation of duple improper).
+When contra dance choreography is written out, one typically notes the formation of the dance in a brief phrase. The most common formations in modern contra dancing are **duple improper** and **becket** (which is itself a variation of duple improper[^1]).
 
 **Duple** here is short for **duple minor** meaning dancers start in a long line of couples and break that line into smaller (minor) sets of two couples – four people each. When a caller says "take hands four" at the start of the dance, they are saying, in other words, "get into duple minor formation."
 
-**Improper** here means that every other couple switches places with their partner so that each ring of four has alternating lark-robin-lark-robin[^1] dancers. When a caller says "Ones[^2] cross over" they are saying, in other words, "get into improper formation."
+**Improper** here means that every other couple switches places with their partner so that each ring of four has alternating lark-robin-lark-robin[^2] dancers. When a caller says "Ones[^3] cross over" they are saying, in other words, "get into improper formation."
 
-This is contrasted with **proper** formation in which the long line of couples has all the larks on one side and all the robins on the other. Many chestnuts[^3] are proper as well as the occasional modern contra and most English Country Dances. To a contra dancer in this day and age, proper formation often feels archaic.
+This is contrasted with **proper** formation in which the long line of couples has all the larks on one side and all the robins on the other. Many chestnuts[^4] are proper as well as the occasional modern contra and most English Country Dances. To a contra dancer in this day and age, proper formation often feels archaic.
 
 :::note
 I'm skipping over the explanation of **becket** as well as the many other possible formations for contra dances – if you're curious, you can peruse [The Caller's Box Glossary][glossary].
@@ -55,12 +55,12 @@ I didn't take this notation from any source – though I did borrow the word "ne
 
 [callersbox]: https://www.ibiblio.org/contradance/thecallersbox/
 
-The dances I called in Nantucket ([Galopede][], [Jefferson and Liberty][]) are notated in the system as "proper" – which suggests something interesting: in most[^4] chestnuts it was *traditional* for lines to be separated by gender, but as far as the choreography is concerned the roles are symmetrical. Perhaps "proper" is already the conventional way to notate such dances. But I can't shake the unsettling sense that notating this way references and reinforces traditional gendered dance in a totally unnecessary way – because what does it really mean to tell each role to line up on their own side if there's no choreographic difference between them? – but perhaps as we get deeper into the era of gender-free dancing, that meaning will shift and dancers will understand "proper" to mean "line up on whichever side, it doesn't matter."
+The dances I called in Nantucket ([Galopede][], [Jefferson and Liberty][]) are notated in the system as "proper" – which suggests something interesting: in most[^5] chestnuts it was *traditional* for lines to be separated by gender, but as far as the choreography is concerned the roles are symmetrical. Perhaps "proper" is already the conventional way to notate such dances. But I can't shake the unsettling sense that notating this way references and reinforces traditional gendered dance in a totally unnecessary way – because what does it really mean to tell each role to line up on their own side if there's no choreographic difference between them? – but perhaps as we get deeper into the era of gender-free dancing, that meaning will shift and dancers will understand "proper" to mean "line up on whichever side, it doesn't matter."
 
 [Jefferson and Liberty]: https://www.ibiblio.org/contradance/thecallersbox/dance.php?id=3461
 [Galopede]: https://www.ibiblio.org/contradance/thecallersbox/dance.php?id=4677
 
-*Except*, annoyingly[^5], there are also proper dances where roles *do matter,* for example this dance from Erik Hoffman:
+*Except*, annoyingly[^6], there are also proper dances where roles *do matter,* for example this dance from Erik Hoffman:
 
 {% dancecard dances "Friday the Third Swing" %}
 
@@ -74,8 +74,9 @@ I may sound like I'm poo pooing that last one, and it's not my favorite, but it 
 
 Maybe there's another option out there? Or a standard that I have completely overlooked?
 
-[^1]: Historically contra dance roles were gendered, but at modern gender-free contra dances, we use gender-neutral terms like **lark** and **robin** instead.
-[^2]: The Ones are the couple closest to the top of the hall (typically where the caller and band are) in each minor set.
-[^3]: Traditional contra dances that are hundreds of years old.
-[^4]: Perhaps all? I haven't been thorough.
-[^5]: Annoyed by the inconsistency, not by the existence of such dances, some of which are wonderful.
+[^1]: *Usually*, anyway. Caller's Box does list *proper* becket as a possible formation – hoo, boy, this stuff can get complicated.
+[^2]: Historically contra dance roles were gendered, but at modern gender-free contra dances, we use gender-neutral terms like **lark** and **robin** instead.
+[^3]: The Ones are the couple closest to the top of the hall (typically where the caller and band are) in each minor set.
+[^4]: Traditional contra dances that are hundreds of years old.
+[^5]: Perhaps all? I haven't been thorough.
+[^6]: Annoyed by the inconsistency, not by the existence of such dances, some of which are wonderful.
