@@ -3,12 +3,11 @@ title: How should we notate role-free contra dance formation?
 date: 2024-05-23
 categories: ['Dance']
 tags: [contra, choreography]
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112491571680732384
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02f6F8o47efC6VmrUuLa2HdGnXiWbpX5MvzMa3DSvtLC64Ucv27CSNct7Gwoj5ghaEl
 dances:
   - title: Friday the Third Swing
     author: Erik Hoffman
@@ -71,7 +70,7 @@ So, I see a few reasonable options for notating a role-free contra dance formati
 * Don't indicate role-related formation at all. For a role-free longways dance, just call it "Longways." For a role-free duple dance, just call it "Duple."
 * Use "Proper" and accept that sometimes proper means "roles don't matter" and sometimes it means "roles do matter and they should line up on the same side."
 
-I may sound like I'm poo pooing that last one, and it's not my favorite, but it also isn't entirely unreasonable. There's plenty of information that's impractical to encode in a quick phrase that we leave to the choreography to communicate. For one example, we note if a dance is becket, but you have to read the choreography to determine if it progresses with a slide left at the start or not.
+I may sound like I'm poo pooing that last one, and it's not my favorite, but it also isn't entirely unreasonable. There's plenty of information that's impractical to encode in a quick phrase that we leave to the choreography to communicate. For one example, we note if a dance is becket, but you have to read the choreography to determine if it progresses with a slide left at the start or not. *And* this one has the advantage that it's already what we mostly seem to be doing.
 
 Maybe there's another option out there? Or a standard that I have completely overlooked?
 
