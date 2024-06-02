@@ -3,12 +3,11 @@ title: A Selection of 3D Printing Designs Spring 2024
 date: 2024-06-02
 categories: [Miscellany]
 tags: [3D printing, making]
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112548535429892958
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02vfdr1abg3gKMwqBGU9XbcMFLRwVKRtsqBxsetai6wgESXp14U8ytr8tACckPxTPQl
 ---
 
 Here's a small collection of quick designs I've made since I wrote my previous 3D printing blog post "[Solving Niche Problems Quickly With 3D Printing][prevpost]."
