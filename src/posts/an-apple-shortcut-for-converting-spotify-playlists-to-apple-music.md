@@ -59,3 +59,5 @@ If Odesli fails to turn up an Apple Music link in step 2 (which [sometimes happe
 [sometimes happens]: https://song.link/s/6kopmMZiyLmw7h66uXcXR7
 
 Some of the actions I used in this shortcut, particularly the ones to do with the iTunes Store, are pretty poorly documented and fiddly. It required a couple hours of experimentation to get this shortcut working to my satisfaction. If you're trying to do something similar, it might be a good example to look over – I've tried to add comments to help anyone reading through it along. It seems to work pretty consistently on iOS in my testing. I've had less good of a time getting it to work properly on macOS. 
+
+I expect this Shortcut to be pretty brittle since it relies on web scraping. If either Spotify or Odesli change the code on their website and I don't update the Shortcut, it may stop working. If you're reading this blog post some years after it was released, _caveat emptor_.
