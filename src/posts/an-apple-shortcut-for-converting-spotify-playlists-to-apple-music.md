@@ -4,18 +4,18 @@ date: 2024-06-09
 categories: [Software]
 tags: [Shortcuts, code, music]
 excerpt:
-  I've been playing [Music League][] with some friends lately. It's been fun except that generates a Spotify playlist. Ugh! I've been manually recreating each playlist in Apple Music each week. It's an irritating extra step and at least once I put off doing it and missed the voting deadline.
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+  I've been playing Music League with some friends lately. It's been fun except that generates a Spotify playlist. Ugh! I've been manually recreating each playlist in Apple Music each week. It's an irritating extra step and at least once I put off doing it and missed the voting deadline.
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112588885397495745
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid035TKiUYhmJTCg63yrcrhuhG2erseCjbRfrWTeEWCKQKdPu55UkgAk968fpApL1Jgrl
 ---
 
-I'm an Apple Music user and I'm reasonably happy with it as a service. I understand they pay artists at least a little more than streaming juggernaut Spotify and, as someone deeply embedded in Apple's ecosystem[^1], it's good for me that it's well integrated into the devices I use. One particularly annoying thing about being an Apple Music user is that a _ton_ of people and services just assume that I have a functioning Spotify account.
+I'm an Apple Music user and I'm reasonably happy with it as a service. I understand they pay artists at least a little more than streaming juggernaut Spotify[^1] and, as someone deeply embedded in Apple's ecosystem[^2], it's good for me that it's well integrated into the devices I use. One particularly annoying thing about being an Apple Music user is that a _ton_ of people and services _assume_ that I have a functioning Spotify account.
 
-[^1]: I have a MacBook Pro, an iMac, an iPhone, an iPad, an Apple Watch, and a HomePod, to name some of the tech I use on a more-or-less weekly basis.
+[^1]: Though I still try to purchase the albums outright for artists whose music I enjoy and want to support – especially indie artists and friends.
+[^2]: I have a MacBook Pro, an iMac, an iPhone, an iPad, an Apple Watch, and a HomePod, to name some of the tech I use on a more-or-less weekly basis.
 
 I've been playing [Music League][] with some friends lately. It's a game where each round you submit a song related to a theme and it puts together a playlist of submissions (anonymized) and you vote on which tracks you like best for the theme.
 
