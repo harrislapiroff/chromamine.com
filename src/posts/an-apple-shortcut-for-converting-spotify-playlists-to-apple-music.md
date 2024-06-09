@@ -29,7 +29,11 @@ Finally, this week, I put together an [Apple Shortcut][] that accepts a Spotify 
 
 {% button "Download Shortcut" "/media/an-apple-shortcut-for-converting-spotify-playlists-to-apple-music/Spotify%20Playlist%20to%20Apple%20Music.shortcut" "download" %}
 
-You can invoke this shortcut from the Shortcuts app, add it to your home screen, or, as I have done, add it to your share sheet:
+(You can also use this [iCloud link][], which may be more convenient – but I like to host the file myself just in case.)
+
+[iCloud link]: https://www.icloud.com/shortcuts/3c0b5cd993944f1aa8073f69350b71bf
+
+You can invoke it from the Shortcuts app, add it to your home screen, or, as I have done, add it to your share sheet:
 
 ![Screenshot of an iOS share sheet. It is sharing a link under the domain open.spotify.com titled "Name Check." At the bottom are two options: Copy and Spotify Playlist to Apple Music](/media/an-apple-shortcut-for-converting-spotify-playlists-to-apple-music/share-sheet.png)
 
