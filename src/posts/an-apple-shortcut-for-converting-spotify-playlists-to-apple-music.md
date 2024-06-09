@@ -12,14 +12,16 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid035TKiUYhmJTCg63yrcrhuhG2erseCjbRfrWTeEWCKQKdPu55UkgAk968fpApL1Jgrl
 ---
 
+_If you would like to just use the iOS Shortcut [click here](https://www.icloud.com/shortcuts/3c0b5cd993944f1aa8073f69350b71bf)._
+
 I'm an Apple Music user and I'm reasonably happy with it as a service. I understand they pay artists at least a little more than streaming juggernaut Spotify[^1] and, as someone deeply embedded in Apple's ecosystem[^2], it's good for me that it's well integrated into the devices I use. One particularly annoying thing about being an Apple Music user is that a _ton_ of people and services _assume_ that I have a functioning Spotify account.
 
 [^1]: Though I still try to purchase the albums outright for artists whose music I enjoy and want to support – especially indie artists and friends.
 [^2]: I have a MacBook Pro, an iMac, an iPhone, an iPad, an Apple Watch, and a HomePod, to name some of the tech I use on a more-or-less weekly basis.
 
-I've been playing [Music League][] with some friends lately. It's a game where each round you submit a song related to a theme and it puts together a playlist of submissions (anonymized) and you vote on which tracks you like best for the theme.
+I've been playing [Music League][] with some friends lately. It's a game where each round you submit a song related to a theme, it puts together a playlist of (anonymized) submissions, and you vote on which tracks you like best for the theme.
 
-It's been fun *except* that generates a *Spotify* playlist. Ugh! I've been manually recreating each playlist in Apple Music each week. It's an irritating extra step and at least once I put off doing it and missed the voting deadline.
+It's been fun *except* that it generates a *Spotify* playlist. Ugh! I've been manually recreating the playlist in Apple Music each week. It's an irritating extra step and at least once I put off doing it and missed the voting deadline.
 
 [Music League]: https://musicleague.com/
 
@@ -58,10 +60,10 @@ Here's how it works, in brief:
 
 4. It adds all the tracks it finds to a new playlist.
 
-If Odesli fails to turn up an Apple Music link in step 2 (which [sometimes happens][]) it will search Apple Music by the track name and artist and add the first result it finds there. It issues an first and allows the user to cancel the whole process.
+If Odesli fails to turn up an Apple Music link in step 2 (which [sometimes happens][]) it will search Apple Music by the track name and artist and add the first result it finds there. It issues an alert first and allows the user to choose to cancel or proceed.
 
 [sometimes happens]: https://song.link/s/6kopmMZiyLmw7h66uXcXR7
 
-Some of the actions I used in this shortcut, particularly the ones to do with the iTunes Store, are pretty poorly documented and fiddly. It required a couple hours of experimentation to get this shortcut working to my satisfaction. If you're trying to do something similar, it might be a good example to look over – I've tried to add comments to help anyone reading through it along. It seems to work pretty consistently on iOS in my testing. I've had less good of a time getting it to work properly on macOS. 
+Some of the actions I used in this shortcut, particularly the ones to do with the iTunes Store, are poorly documented and fiddly. It required a couple hours of experimentation to get this shortcut working to my satisfaction. If you're trying to do something similar, it might be a good example to look over – I've tried to add comments to help anyone reading through it along. It seems to work pretty consistently on iOS in my testing. I've had less good of a time getting it to work properly on macOS. 
 
 I expect this Shortcut to be pretty brittle since it relies on web scraping. If either Spotify or Odesli change the code on their website and I don't update the Shortcut, it may stop working. If you're reading this blog post some years after it was released, _caveat emptor_.
