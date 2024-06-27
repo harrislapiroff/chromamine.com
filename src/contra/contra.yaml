@@ -18,33 +18,6 @@ organizations:
 dances:
   upcoming:
 
-    - name: "CANCELLED: Thursday Contras"
-      date: 2024-06-20T19:10
-      date_end: 2024-06-20T22:00
-      tzid: America/New_York
-      band: Eric Boodman and Eric Eid-Reiner
-      street: Concord Scout House, 74 Walden Street
-      city: Concord MA
-      url: https://www.neffa.org/thursday-contras/
-      description: |+
-        _Dance cancelled due to heat._  
-        Workshop at 7:10PM  
-        Dancing from 7:30PM–10PM
-
-    - name: Monday Contras
-      date: 2023-06-24T19:30
-      date_end: 2023-06-24T22:30
-      tzid: America/New_York
-      band: Julie Metcalf, Dan Afrik, Cecily Mills, and Jack O'Connor
-      description: |+
-        Shared evening of calling with Tommy Linden
-
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
-      city: Concord MA
-      url: http://mondaycontras.com/
-
     - name: Thursday Night Contra
       date: 2024-06-27T19:30
       date_end: 2024-06-27T22:30
@@ -398,4 +371,31 @@ dances:
         Workshop at 7:15PM  
         Dancing from 7:30–10:30PM
       url: https://lenoxcontradance.org/
+
+    - name: "CANCELLED: Thursday Contras"
+      date: 2024-06-20T19:10
+      date_end: 2024-06-20T22:00
+      tzid: America/New_York
+      band: Eric Boodman and Eric Eid-Reiner
+      street: Concord Scout House, 74 Walden Street
+      city: Concord MA
+      url: https://www.neffa.org/thursday-contras/
+      description: |+
+        _Dance cancelled due to heat._  
+        Workshop at 7:10PM  
+        Dancing from 7:30PM–10PM
+
+    - name: Monday Contras
+      date: 2024-06-24T19:30
+      date_end: 2024-06-24T22:30
+      tzid: America/New_York
+      band: Julie Metcalf, Dan Afrik, Cecily Mills, and Jack O'Connor
+      description: |+
+        Shared evening of calling with Tommy Linden
+
+        Workshop at 7PM  
+        Dancing from 7:30–10:30PM
+      street: Concord Scout House, 74 Walden St
+      city: Concord MA
+      url: http://mondaycontras.com/
 
