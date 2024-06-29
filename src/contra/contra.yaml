@@ -18,19 +18,6 @@ organizations:
 dances:
   upcoming:
 
-    - name: Pittsburgh Contra Dance
-      date: 2024-06-28T19:30
-      date_end: 2024-06-28T23:00
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 5604 Solway Street
-      city: Pittsburgh PA
-      description: |+
-        Workshop at 7:30PM  
-        Dancing from 8–11PM
-      url: https://pittsburghcontra.org/
-
     - name: Bloomington Old-Time Music & Dance Group
       date: 2024-06-29T19:30
       date_end: 2024-06-29T21:30
@@ -399,3 +386,15 @@ dances:
       city: Rochester NY
       url: https://cdrochester.org/events/thursday-night-contra-175/
 
+    - name: Pittsburgh Contra Dance
+      date: 2024-06-28T19:30
+      date_end: 2024-06-28T23:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 5604 Solway Street
+      city: Pittsburgh PA
+      description: |+
+        Workshop at 7:30PM  
+        Dancing from 8–11PM
+      url: https://pittsburghcontra.org/
