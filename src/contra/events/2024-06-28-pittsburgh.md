@@ -32,6 +32,8 @@ program:
       author: Jim Kitch
     - title: Minimum Fuss, Maximum Fun
       author: Dean Snipes
+    - title: Alternating Current
+      author: John Coffman
     - title: Airpants
       author: Lisa Greenleaf
       notes: No walkthrough
@@ -48,3 +50,5 @@ I think Stars of Alberta was too hard for the room – I should file it in the m
 She also told me a nice story that she met a new dancer there who asked her if we had lessons. Gaye said "You're actually a bit late – we had a lesson at 7:30."
 
 The dancer replied, "No, the website says the lesson is at 8:30." And then she pulled up the website on her phone and... it turned out she thought she was at a Kizomba class! She stayed till the end though and asked about doing more of it, so it seems like, on that metric, it was a successful night.
+
+Oh, also, I did get thirteen dances in, which is fun. I think it's the first time that's happened!
