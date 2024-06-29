@@ -14,7 +14,7 @@ permalink: /contra/events/index.html
             {% assign events = collections.danceEvents | sort: "date" | reverse %}
             {% for event in events %}
                 <li>
-                    <a href="{{ event.url }}">{{ event.data.name }} — {{ event.date | date:"%A, %B %e, %Y" }}</a>
+                    <a href="{{ event.url }}">{{ event.data.name }} ({{ event.data.city }}) — {{ event.date | date:"%A, %B %e, %Y" }}</a>
                 </li>
             {% endfor %}
         </ul>
