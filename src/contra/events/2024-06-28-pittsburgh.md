@@ -47,8 +47,16 @@ I noticed Zero Sum Game is a bit tricky because the circle L all the way in 8 co
 
 I think Stars of Alberta was too hard for the room – I should file it in the more difficult section of my box. This was the only one where a significant portion of the set fell apart – and Gaye Fifer walked in in the middle! I was so embarrassed. But talking to her about it later she had only compliments for me on the evening and told me she thought I put dancers at ease and that she didn't think "Stars" was a trainwreck because the confused dancers got pulled back in. So _maybe_ I'm being a little extra hard on myself. Maybe.
 
-She also told me a nice story that she met a new dancer there who asked her if we had lessons. Gaye said "You're actually a bit late – we had a lesson at 7:30."
+Alternating Current was a new one for my repertoire and pleasantly it isn't too tricky despite some unusual sequences. I've been on kind of a John Coffman kick lately and he really was the star of this program in particular.
 
-The dancer replied, "No, the website says the lesson is at 8:30." And then she pulled up the website on her phone and... it turned out she thought she was at a Kizomba class! She stayed till the end though and asked about doing more of it, so it seems like, on that metric, it was a successful night.
+***
+
+Gaye also told me a nice story about how she met a new dancer this evening who asked her if they had lessons. Gaye said "You're actually a bit late – we had a lesson at 7:30."
+
+The dancer replied, "No, the website says the lesson is at 8:30." And then she pulled up the website on her phone and...
+
+It turned out she thought she was at a Kizomba class! Nevertheless she stayed till the end and asked about how to do more of it, so it seems like, on that metric, it was a successful night.
+
+***
 
 Oh, also, I did get thirteen dances in, which is fun. I think it's the first time that's happened!
