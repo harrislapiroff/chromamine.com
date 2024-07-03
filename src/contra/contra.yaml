@@ -24,32 +24,6 @@ testimonials:
 dances:
   upcoming:
 
-    - name: Cincinnati Contra Dancers
-      date: 2024-07-01T19:30
-      date_end: 2024-07-01T22:00
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 322 Wyoming Avenue
-      city: Wyoming OH
-      description: |+
-        Workshop at 7:30PM  
-        Dancing from 8:00–10:00PM
-      url: https://cincinnaticontradance.org/
-
-    - name: Indy Contra Dance
-      date: 2024-07-02T18:40
-      date_end: 2024-07-02T21:00
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street:  2717 W 10th Street
-      city: Indianapolis IN
-      description: |+
-        Workshop at 6:40PM  
-        Dancing from 7:00–9:00PM
-      url: https://indycontra.org/
-
     - name: Montpelier Contra Dance
       date: 2024-09-21T20:00
       date_end: 2024-09-21T23:00
@@ -404,3 +378,29 @@ dances:
       band: Kingfisher
       bandURL: https://www.kingfisherband.com/
       city: St Louis MO
+
+    - name: Cincinnati Contra Dancers
+      date: 2024-07-01T19:30
+      date_end: 2024-07-01T22:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street: 322 Wyoming Avenue
+      city: Wyoming OH
+      description: |+
+        Workshop at 7:30PM  
+        Dancing from 8:00–10:00PM
+      url: https://cincinnaticontradance.org/
+
+    - name: Indy Contra Dance
+      date: 2024-07-02T18:40
+      date_end: 2024-07-02T21:00
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street:  2717 W 10th Street
+      city: Indianapolis IN
+      description: |+
+        Workshop at 6:40PM  
+        Dancing from 7:00–9:00PM
+      url: https://indycontra.org/
