@@ -14,7 +14,7 @@ program:
   - - title: Thanks to the Gene
       author: Tom Hinds
     - title: Hypnosis
-      author: Miriam Axel-Lute
+      author: Melanie Axel-Lute
     - title: Wrinkled Ribbon
       author: Melanie Axel-Lute
     - title: Heartbeat Contra
