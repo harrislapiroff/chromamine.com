@@ -79,7 +79,7 @@ I'm in the habit of asking organizers what to expect from their dancers but, "It
 
 A couple things took me by surprise:
 
-First, I hadn't really thought about how much the schedule of calling consecutive days meant using time wisely. If I decide to go out to socialize after a dance and got to bed late, if the next day was a big travel day, that could mean getting less sleep that night which either meant getting a nap in while on the road or performing the next night's gig underslept. As it turned out, I still went out for afters when the opportunity presented itself, but I had to think about it! I imagine there's similar considerations when calling a weekend or week-long camp.
+First, I hadn't really thought about how much the schedule of calling consecutive days meant using time wisely. If I decided to socialize after a dance and got to bed late, if the next day was a big travel day, that could mean getting less sleep that night which either meant getting a nap in while on the road or performing the next night's gig underslept. As it turned out, I still went out for afters when the opportunity presented itself, but I had to think about it! I imagine there's similar considerations when calling a weekend or week-long camp.
 
 ![Selfie of myself (long-haired mid-30s east asian man) and two friends at a table in a bar](/media/summer-tour-with-kingfisher-reflections/rochester.jpg)
 _Hanging out with some friends at a bar in Rochester NY after the dance_
@@ -134,5 +134,7 @@ The feedback notebook provided a lot of useful ideas for improvement for me to r
 > "Thank you for the wonderful dances! They flowed well and were lots of fun. Your explanations were clear and the beginners fit right in."
 >
 > – Bloomington IN
+
+I really liked going on tour and I really liked doing it *with* a band. If any other bands are looking for a caller to tour with and you like my style, let me know! I might even know how to drive by then.
 
 [^4]: The context on this one was that it was a beginner-heavy night! It surprises some experienced dances to learn (it surprised me), but Becket dances can often be easier for beginners and the one I called was [Will Mentor's Festival Reel](http://www.ibiblio.org/contradance/thecallersbox/dance.php?id=15807), which he wrote for just such a crowd, and which I've used [before](/2024/05/calling-the-first-dance-in-a-community/) for such purpose.
