@@ -78,7 +78,7 @@ dances:
     formation: Becket
     choreo:
       a1:
-        - Slide L
+        - Slice L
         - Long lines F&B
       a2:
         - Star L (hands-across)
@@ -118,7 +118,7 @@ dances:
         - Larks cross by R, ptr sw
       b2:
         - Long lines F&B
-        - Slide L
+        - Slice L
   - title: Coke the Floor
     author: Marian Rose
     formation: Circle Mixer
@@ -204,6 +204,10 @@ This dance introduced Larks/Robins roles, duple improper formation (and then bec
 It is the first modern contra dance in my program, starting just about halfway through the evening. I took a moment before the dance to teach roles and demonstrate the contra dance swing. I also demonstrated ending the swing on correct sides, though this particular dance is forgiving if you don't. This went smoothly, though I made one minor error:
 
 Because the dance starts with 8 beats to slide left I had dancers go forward and back twice the first time to eat the time. Each successive time through, it took them a while to slide left and get across from new neighbors, but they never forgot my original instructions to do the F&B twice, which made them regularly late for the stars. Fortunately the choreography was forgiving.
+
+:::update
+I chatted with Will Mentor after this dance, and he pointed out to me that the first figure is actually _slice_ left, not _slide_ left, meaning you are intended to go forward and back _as_ you shift to the left. So this was merely miscalled on my part and I made a note for next time. I've also corrected the choreography above.
+:::
 
 After this dance, the band played a waltz and we took a break. We returned with:
 
