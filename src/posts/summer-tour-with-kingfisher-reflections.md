@@ -3,11 +3,11 @@ title: Summer Tour with Kingfisher Reflections
 date: 2024-07-03
 categories: ['Dance']
 tags: [contra, calling, travel]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112737608368068406
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0BFGgas6U4GEhke6DMR43whe3q7Y6YVG1jHBnxGQwVYYhaVZNMum34cC6LxGY9z5ol
 ---
 
 I just wrapped up a weeklong summer contra dance calling tour with [Kingfisher][] ([Jeff Kaufman][jeff] and [Cecilia Vacanti][cecilia]). This was my first time on tour!
@@ -47,7 +47,7 @@ We played six dances in six days with an extra day for travel at the start and a
 
 [_Screenshot of map._](/media/summer-tour-with-kingfisher-reflections/map.png)
 
-This was a lot of travel! Roughly 40 hours of driving as sketched out[^1] and actually probaby a bit more given some of the detours we took along the way. We rented a minivan for the three touring adults, their equipment, and [two][lily] [of][anna] Jeff's kids who joined us on tour.
+This was a lot of travel! Roughly 40 hours of driving as sketched out[^1] and actually probably a bit more given some of the detours we took along the way. We rented a minivan for the three touring adults, their equipment, and [two][lily] [of][anna] Jeff's kids who joined us on tour.
 
 [lily]: https://www.lilywise.com/
 [anna]: https://www.annawise.net/
@@ -84,13 +84,15 @@ First, I hadn't really thought about how much the schedule of calling consecutiv
 ![Selfie of myself (long-haired mid-30s east asian man) and two friends at a table in a bar](/media/summer-tour-with-kingfisher-reflections/rochester.jpg)
 _Hanging out with some friends at a bar in Rochester NY after the dance_
 
-Second, I was soliciting feedback at each of these dances by putting a small gray comment book on the registration table and announcing to dancers that they could write feedback for me in there. At a couple of the early dances I got feedback that I should have walked through some of the dances twice or prompted them for longer. But they had looked mostly fine to me on the floor, just the normal amount of stutters as dancers picked up and memorized the choreography! Was I picking dances that were too tricky without noticing it? Was I prompting an abnormally short amount of time and making dancers feel nervous?
+Second, I was soliciting feedback at each of these dances by putting a small gray comment book on the registration table and announcing to dancers that they could write feedback for me in there[^2]. At a couple of the early dances I got feedback that I should have walked through some of the dances twice or prompted them for longer. But they had looked mostly fine to me on the floor, just the normal amount of stutters as dancers picked up and memorized the choreography! Was I picking dances that were too tricky without noticing it? Was I prompting an abnormally short amount of time and making dancers feel nervous?
 
-When I was thinking this through out loud, Jeff suggested it might be a cultural difference: some communities _expect_ two walkthroughs and their dancers don't generally put their full attention on the first one. After this I added, "Do your dancers expect one or two walkthroughs generally?" to my list of questions for organizers[^2]. And indeed, at most of the following dances, I was told their dancers preferred *two* walkthroughs. I didn't get complaints on either subject for the rest of the tour and, in fact, at one of the dances where I defaulted to two walkthroughs, a couple complimented me after the dance on how efficient I was!
+[^2]: Inspired by [Don Veino](http://veino.com/site/pages/contra-caller.php)
+
+When I was thinking this through out loud, Jeff suggested it might be a cultural difference: some communities _expect_ two walkthroughs and their dancers don't generally put their full attention on the first one. After this I added, "Do your dancers expect one or two walkthroughs generally?" to my list of questions for organizers[^3]. And indeed, at most of the following dances, I was told their dancers preferred *two* walkthroughs. I didn't get complaints on either subject for the rest of the tour and, in fact, at one of the dances where I defaulted to two walkthroughs, a couple complimented me after the dance on how efficient I was!
 
 This is quite different from what I'm used to in the Boston area. Our dancers want to get moving as quickly as possible, and, in fact, many of our local dances have [caller](https://www.bidadance.org/caller-welcome) [guide](https://www.neffa.org/thursday-contras-caller-info/)[lines](http://mondaycontras.com/pages/performer-information.php) that explicitly say you _should not_ need to do two walkthroughs for most dances if you have tuned the complexity appropriately.
 
-[^2]: Other questions on this list:
+[^3]: Other questions on this list:
 
     * What role terms are your dancers used to? (I generally call larks/robins, but can adjust to what your dancers need.)
     * How many dancers do you generally get and how many are beginners?
@@ -99,7 +101,7 @@ This is quite different from what I'm used to in the Boston area. Our dancers wa
 
 # Band Interaction
 
-Jeff encouraged me on this tour to think more deeply about the narrative arc of an evening and offer them guidance on the type of energy I wanted for each dance. I typically put a lot of trust in the band to structure an evening's energy. Typically I'll offer guidance if I think a dance should have a particular flavor or energy, and I try to vary the energy of the dances I select, but frequently I'll just say "Any tune will do." This week I tried to take a stronger hand, which got easier over the course of the week as I was more familiar with the range of energy and moods Kingfisher could offer.
+Jeff encouraged me on this tour to think more deeply about the narrative arc of an evening and offer them guidance on the type of energy I wanted for each dance. I typically put a lot of trust in the band to structure an evening's energy. I'll offer guidance if I think a dance should have a particular flavor or energy, and I try to vary the energy of the dances I select, but frequently I'll just say "Any tune will do." This week I tried to take a stronger hand, which got easier over the course of the week as I was more familiar with the range of energy and moods Kingfisher could offer.
 
 We didn't do extensive debriefs of each evening, but it was nice to talk through certain sets occasionally and go through some of thoughts before a dance on particular choreographies I was considering and what might fit them.
 
@@ -113,20 +115,24 @@ I was pleased that all of the dances allowed me to call Larks/Robins. Most expli
 
 The feedback notebook provided a lot of useful ideas for improvement for me to reflect on, but it also provided me a pleasant string of compliments and testimonials. Here's a few of my favorite excerpts:
 
-> I loved your smooth encouraging style. It was easy to learn, although some of the dances definitely had tricky parts! We love the music and the musicality of how the dances fit the music!
+> "I really love that you noticed when people were lost or off beat and didn’t call anyone out but gave gentle corrections that people could notice were for them."
+>
+> – Rochester NY
+
+> "I loved your smooth encouraging style. It was easy to learn, although some of the dances definitely had tricky parts! We love the music and the musicality of how the dances fit the music!"
 >
 > – Pittsburgh PA
 
-> Fantastic calling! The beginners workshop was very well done!
+> "Fantastic calling! The beginners workshop was very well done!"
 >
 > – Cincinnati OH
 
-> Honestly, I was worried when you started with a Becket, but it was great! I have enjoyed your choice of dances and calling. Thank you![^3]
+> "Honestly, I was worried when you started with a Becket, but it was great! I have enjoyed your choice of dances and calling. Thank you!"[^4]
 >
 > – Indianapolis IN
 
-> Thank you for the wonderful dances! They flowed well and were lots of fun. Your explanations were clear and the beginners fit right in.
+> "Thank you for the wonderful dances! They flowed well and were lots of fun. Your explanations were clear and the beginners fit right in."
 >
 > – Bloomington IN
 
-[^3]: The context on this one was that it was a beginner-heavy night! It surprises some experienced dances to learn (it surprised me), but Becket dances can often be easier for beginners and the one I called was [Will Mentor's Festival Reel](http://www.ibiblio.org/contradance/thecallersbox/dance.php?id=15807), which he wrote for just such a crowd.
+[^4]: The context on this one was that it was a beginner-heavy night! It surprises some experienced dances to learn (it surprised me), but Becket dances can often be easier for beginners and the one I called was [Will Mentor's Festival Reel](http://www.ibiblio.org/contradance/thecallersbox/dance.php?id=15807), which he wrote for just such a crowd, and which I've used [before](/2024/05/calling-the-first-dance-in-a-community/) for such purpose.
