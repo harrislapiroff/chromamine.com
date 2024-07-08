@@ -3,12 +3,11 @@ title: Calling a Gendered Series Gender-Free
 date: 2024-07-08
 categories: ['Dance']
 tags: [contra, calling]
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112752695469334165
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0aFAV2ihxqqpTzzqEyM5btBjVXbyJio4rs6zH7RYaRjUWmUCieVE1xVCx1LmZdCj5l
 ---
 
 On my [summer tour with Kingfisher][tour-post] the organizers of one dance told me that their group would tolerate Larks/Robins for role terms, but *preferred* Ladies/Gents. After talking it over with some other callers and dancers and weighing the factors (What will feel best for me? What will be best for the dancers? What will be good for contra dance in general?) I opted to call Larks/Robins.
