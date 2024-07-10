@@ -1,19 +1,18 @@
 ---
-title: "Dialing in PolyMaker PolyWood: Not My Favorite!"
+title: "Dialing in Polymaker PolyWood: Not My Favorite!"
 date: 2024-07-10
 categories: [Miscellany]
 tags: ["3D printing", making]
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112763818554013216
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid03jdmBqJ5pzDCGpWQj5diUpZQNp6CjsFABBd7YXXEnPiZJbasT5bGPK8VFcUKcMYFl
 ---
 
-[PolyMaker PolyWood][] is a 3D printing filament designed to be ultra-matte and mimic the appearance of wood filaments – plastics with wood particles mixed into the material – without the hassle of actual wood particles, which can cause nozzle clogging. It's also the filament that, in my limited time printing, I have had the most frustrating time trying to dial in.
+[Polymaker PolyWood][] is a 3D printing filament designed to be ultra-matte and mimic the appearance of wood filaments – plastics with wood particles mixed into the material – without the hassle of actual wood particles, which can cause nozzle clogging. It's also the filament that, in my limited time printing, I have had the most frustrating time trying to dial in.
 
-[PolyMaker PolyWood]: https://www.polymaker.com/shop/polywood/
+[Polymaker PolyWood]: https://www.polymaker.com/shop/polywood/
 
 It's common when receiving a new filament to print some calibration objects and adjust your print settings based on the results. Calibration lets you learn the best settings for the combination of your printer and the filament you're using.
 
