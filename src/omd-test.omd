@@ -1,0 +1,25 @@
+---
+title: Observable Markdown Test
+date: 2023-10-17
+categories: ['None']
+tags: [none]
+eleventyExcludeFromCollections: true
+layout: monotheme/post.pug
+xposts:
+    - label: None
+      url: https://example.com/
+---
+
+Hello world!
+
+```js
+const testInput = Inputs.text();
+```
+
+```js
+md`${testInput}`
+```
+
+```md
+Hello
+```
