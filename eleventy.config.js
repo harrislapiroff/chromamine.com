@@ -15,6 +15,9 @@ module.exports = function(eleventyConfig) {
 
         const { compileObservable } = await import("./config/utils/ojs/compile.mjs")
         global.compileObservable = compileObservable
+
+        const { compileObservableMD } = await import("./config/utils/omd/compile.mjs")
+        global.compileObservableMD = compileObservableMD
     })
 
     /* Run ESBuild after building site
@@ -170,12 +173,16 @@ module.exports = function(eleventyConfig) {
      *------------------------------------*/
 
     const runtimeOutputPath = "static/scripts/observable-runtime.js"
+    const clientOutputPath = "static/scripts/observable-client/"
     const inspectorOutputPath = "static/scripts/observable-inspector.js"
 
     // Pass through the runtime and inspector to be loaded and run on the client-side
     eleventyConfig.addPassthroughCopy({
         // Use the official Observable runtime
+        // TODO: remove (currently used for OJS implementation to be succeeded by OMD)
         "node_modules/@observablehq/runtime/dist/runtime.js": runtimeOutputPath,
+        // Used by OMD
+        "node_modules/@observablehq/framework/dist/client/": clientOutputPath,
         // Use our own custom Inspector
         "config/utils/ojs/client/inspector.mjs": inspectorOutputPath,
     })
@@ -190,6 +197,18 @@ module.exports = function(eleventyConfig) {
             return async (data) => await compileObservable(inputContent, {
                 runtimePath: '/' + runtimeOutputPath,
                 inspectorPath: '/' + inspectorOutputPath,
+            })
+        }
+    })
+
+    // Add the OMD format
+    eleventyConfig.addTemplateFormats("omd")
+    eleventyConfig.addExtension("omd", {
+        // see: https://github.com/11ty/eleventy/issues/2972#issuecomment-1607872439
+        compileOptions: { permalink: () => (data) => data.permalink },
+        compile: async (inputContent) => {
+            return async (data) => await compileObservableMD(inputContent, {
+                clientDir: '/' + clientOutputPath,
             })
         }
     })
