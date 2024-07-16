@@ -20,7 +20,7 @@ For most of my CAD I use [OpenSCAD][], a coding-language–based modeling enviro
 
 I'm still fairly new to SolveSpace, and I like it quite a lot, but I haven't been fully satisfied by the way tutorials explain the theoretical foundation of how it works. They do have [very good tutorials](https://solvespace.com/tutorial.pl) that get you modeling hands-on. This is my attempt to complement those tutorials with a more analytical explanation of the underlying system, as well as a general review of using it.
 
-## The Basic Process
+# The Basic Process
 
 SolveSpace is a GUI[^2] CAD program that is based, roughly, around this workflow:
 
