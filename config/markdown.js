@@ -5,6 +5,8 @@ const markdownIt = require("markdown-it")
 // instantiation options
 const markdownFootnotes = require("markdown-it-footnote")
 const markdownContainer = require("markdown-it-container")
+const markdownAbbr = require("markdown-it-abbr")
+
 var hljs = require('highlight.js')
 let mdOptions = {
     typographer: true,
@@ -25,6 +27,7 @@ let mdOptions = {
 }
 const md = markdownIt(mdOptions)
     .use(markdownFootnotes)
+    .use(markdownAbbr)
     .use(markdownContainer, 'update')
     .use(markdownContainer, 'note')
 
