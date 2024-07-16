@@ -150,7 +150,7 @@ You can use these mechanics together to create some pretty complex objects.
 
 # The Pros and Cons
 
-Having written several thousand word about it, it's probably pretty obvious that I like SolveSpace. But should *you* use it? Here's some pros and cons:
+Okay, clearly *I* like SolveSpace. But should *you* use it? Here's some pros and cons:
 
 * **Pro:** Extremely satisfying if you're mathematically minded. Thinking in constraints comes easily to me.
 * **Con:** The interface, as pictured, doesn't look like anything else on a computer and doesn't work like anything else on a computer, and can be pretty frustrating to get used to.
@@ -167,6 +167,7 @@ Having written several thousand word about it, it's probably pretty obvious that
 * **Con:** If you have a lot of groups, it can get really overwhelming looking at all of them at once.
 * **Pro:** SolveSpace's ability to turn group visibility, certain types of entities, and occluded lines on-and-off can be pretty powerful. If I'm working on a workplane that has measurements based on only a couple preceding groups I can *just* enable those groups.
 * **Pro:** The constraints system is super powerful.
+* **Con:** It's doesn't generate truly parameterized models, in the sense that you can't just adjust a few configuration parameters to generate a new coherent model. You can *sort of* fake it by creating some foundational constraints that represent parameters (e.g., "lens diameter") but even then you have to have some bulletproof constraints everywhere or deal with the unpredictable side effects of the solver. And you can't make parameters that are discrete (e.g., "number of teeth"), binary (e.g., "generate finger grip cavity?"), or strings (e.g., "label").
 * **Con:** It can be easy to lose track of what entities from earlier layers impact later constraints. SolveSpace tries to warn you when you're deleting an entity, but those warnings aren't super informative and it doesn't provide any warning or way of tracking if you're just *adjusting* an entity.
 
   ![An error message that reads "](/media/3d-cad-with-solvespace/constraint-warning.png)
