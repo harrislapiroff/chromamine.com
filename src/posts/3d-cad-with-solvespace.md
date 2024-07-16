@@ -152,13 +152,13 @@ You can use these mechanics together to create some pretty complex objects.
 
 Having written several thousand word about it, it's probably pretty obvious that I like SolveSpace. But should *you* use it? Here's some pros and cons:
 
-* **Pro:** Extremely satisfying if you're mathematically minding. Thinking in constraints comes as second nature to me.
+* **Pro:** Extremely satisfying if you're mathematically minded. Thinking in constraints comes easily to me.
 * **Con:** The interface, as pictured, doesn't look like anything else on a computer and doesn't work like anything else on a computer, and can be pretty frustrating to get used to.
 * **Pro:** It does look like something a 1337 h4xx0r might use, though, which makes me feel pretty cool.
 * **Con:** It's really hard to get basic 3D modeling features like fillets and chamfers without a lot of extra work – and in some cases it's basically impossible. And because of the way SolveSpace's model works, I'm not sure [I expect this to change][chamfers] (though I'd like to see the option, when extruding, to add a chamfered top or bottom).
 * **Pro:** Tons of keyboard shortcuts that make sketching pretty quick once you get the hang of it.
 * **Con:** Even basic objects require a lot of complex groups that become pretty challenging to keep track of.
-* **Con:** Sometimes the solver doesn't seem to work the way I expect? It will often tell me constraints are impossible to solve that I am pretty sure aren't (and then I just have to fiddle around dragging and dropping and adding and removing constraints until it works) or, more often, tell me I have redundant constraints (SolveSpace tries to encourage you to avoid redundant constraints as well as having too many DOF). Fortunately in the redundant constraint case you can toggle a switch on the group to allow redundant constraints, which I do frequently.
+* **Con:** Sometimes the solver doesn't seem to work the way I expect? It will often tell me constraints are impossible to solve that I am pretty sure aren't (and then I just have to fiddle around dragging and dropping and adding and removing constraints until it works) or, more often, tell me I have redundant constraints[^3], even if I'm pretty sure I don't. In some cases it does so when I've only added a single constraint to a group!. Fortunately in the redundant constraint case you can toggle a switch on the group to allow redundant constraints, which I do frequently.
 * **Con:** SolveSpace tries to resolve in ways that are intuitive to the editor, but sometimes it fails. I've often tried to pull two points apart only to watch them snap together instead! This can be particularly frustrating if the result is zero-length line segments, which I don't know how to get rid of besides deleting them and starting over or undoing and hoping it works.
 * **Con:** Similarly, if you haven't fully constrained a group, edits in one place can cause unexpected results several groups up. I tried to make multiple versions of the lens cap at different diameters, but I've found that if I don't fully constrain the triangles that make up the tongue-and-groove mechanism, they have a tendency to invert whenever I change the diameter.
 * **Con:** Undo is pretty buggy and flaky.
@@ -170,6 +170,8 @@ Having written several thousand word about it, it's probably pretty obvious that
 * **Con:** It can be easy to lose track of what entities from earlier layers impact later constraints. SolveSpace tries to warn you when you're deleting an entity, but those warnings aren't super informative and it doesn't provide any warning or way of tracking if you're just *adjusting* an entity.
 
   ![An error message that reads "](/media/3d-cad-with-solvespace/constraint-warning.png)
+
+[^3]: SolveSpace tries to encourage you to avoid redundant constraints as well as having too many degrees of freedom.
 
 [chamfers]: https://github.com/solvespace/solvespace/issues/149#issuecomment-739559115
 
