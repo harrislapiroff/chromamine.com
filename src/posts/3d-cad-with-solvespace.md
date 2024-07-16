@@ -1,13 +1,13 @@
 ---
 title: SolveSpace Fundamentals
 date: 2024-07-15
-categories: []
-tags: []
+categories: [Miscellany]
+tags: [3D printing, making]
 xposts:
   - label: Mastodon
-    url: TBD
+    url: https://social.coop/@harris/112793369182414774
   - label: Facebook
-    url: TBD
+    url: https://www.facebook.com/harrislap/posts/pfbid0QFhZex7u9UCWyVbuvYThQTFGy46tJRf9ccK5XwXk5LDjk8xmZT3k3DGDHfDG6Pipl
 ---
 
 For most of my CAD I use [OpenSCAD][], a coding-language–based modeling environment that appeals to my programmer/mathematician brain. But when it gets tedious figuring out how to express visual shapes in code, I turn to [SolveSpace][] instead.[^1]
@@ -31,7 +31,7 @@ SolveSpace is a GUI[^2] CAD program that is based, roughly, around this workflow
 3. Optionally, duplicate those objects by repeating in a line or rotationally around a point
 4. Repeat the process to create additional components that you can combine together to create a final model
 
-The heart of SolveSpace, though is the constraints engine. When you are drawing in 2D or extruding in 3D you define the relationship of elements to each other with constraints. You start by drawing something freehand and then you add constraints to give it precision. Constraints can be things like:
+The heart of SolveSpace, though, is the constraints engine. When you are drawing in 2D or extruding in 3D you define the relationship of elements to each other with constraints. You start by drawing something freehand and then you add constraints to give it precision. Constraints can be things like:
 
 * This line segment is 2 units long
 * This arc is 20 degrees
@@ -174,5 +174,7 @@ Having written several thousand word about it, it's probably pretty obvious that
 [chamfers]: https://github.com/solvespace/solvespace/issues/149#issuecomment-739559115
 
 Listen, it's a great system, it just comes with a lot of caveats.
+
+P.S. The lens cap model is available [on Printables](https://www.printables.com/model/943512-lens-cap-print-in-place).
 
 *[CAD]: computer-aided design
