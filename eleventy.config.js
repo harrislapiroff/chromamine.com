@@ -13,11 +13,9 @@ module.exports = function(eleventyConfig) {
         global.d3time = d3time
         global.d3format = d3format
 
+        // Old OJS support
         const { compileObservable } = await import("./config/utils/ojs/compile.mjs")
         global.compileObservable = compileObservable
-
-        const { compileObservableMD } = await import("./config/utils/omd/compile.mjs")
-        global.compileObservableMD = compileObservableMD
     })
 
     /* Run ESBuild after building site
@@ -181,8 +179,6 @@ module.exports = function(eleventyConfig) {
         // Use the official Observable runtime
         // TODO: remove (currently used for OJS implementation to be succeeded by OMD)
         "node_modules/@observablehq/runtime/dist/runtime.js": runtimeOutputPath,
-        // Used by OMD
-        "node_modules/@observablehq/framework/dist/client/": clientOutputPath,
         // Use our own custom Inspector
         "config/utils/ojs/client/inspector.mjs": inspectorOutputPath,
     })
@@ -201,17 +197,9 @@ module.exports = function(eleventyConfig) {
         }
     })
 
-    // Add the OMD format
-    eleventyConfig.addTemplateFormats("omd")
-    eleventyConfig.addExtension("omd", {
-        // see: https://github.com/11ty/eleventy/issues/2972#issuecomment-1607872439
-        compileOptions: { permalink: () => (data) => data.permalink },
-        compile: async (inputContent) => {
-            return async (data) => await compileObservableMD(inputContent, {
-                clientDir: '/' + clientOutputPath,
-            })
-        }
-    })
+    // Add the OMD plugin
+    pluginObservable = require('./config/utils/omd/plugin.js')
+    eleventyConfig.addPlugin(pluginObservable)
 
     return {
         'dir': {
