@@ -7,6 +7,21 @@ block styles
     link(rel="stylesheet" href=filters.rev("/static/monotheme/styles.css"))
 
 block scripts
+    // The following block is requires for Observable Markdown template support
+    // TODO: It would be nice to figure out a way to compartmentalize this with
+    // the rest of the OMD code.
+    script(type="importmap")
+        -
+            // This is a JSON object that maps package names to URLs
+            const scopes = JSON.stringify({
+                "scopes": {
+                    "/static/scripts/observable-client/": {
+                        "observablehq:runtime": "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js",
+                        "observablehq:stdlib": "/static/scripts/observable-client/stdlib.js",
+                    },
+                },
+            })
+        !=scopes
     script(type="text/javascript" src="/static/scripts/index.js")
 
 block body
