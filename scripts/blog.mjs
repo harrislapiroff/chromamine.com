@@ -60,9 +60,6 @@ program.command('new <title> [slug]')
         child_process.spawn(editor, [filepath], {
             stdio: 'inherit'
         })
-        child_process.spawn(editor, [mediaDir], {
-            stdio: 'inherit'
-        })
     })
 
 const SORT_FUNCTIONS = {
