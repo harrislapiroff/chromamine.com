@@ -3,11 +3,11 @@ title: Covid, Round Two
 date: 2024-08-04
 categories: ['Miscellany']
 tags: [covid, health]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/112905743121821093
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0r1VCyA1sDUzRPJv1uQLfPg6tY5ro8zyLocVGL7sP6drtG5dVQcEDWHy8XjDYacERl
 ---
 
 Roughly six months after [my first bout of covid][first], I got it again. As with the first time, it was from a known high-risk exposure. In this case someone was at a singing party with me and tested positive the following morning. They were masked, but I was not. We were sitting next to each other for large parts of the party. Windows were cracked open, but not wide. As far as I know, out of fifteen or so people at the party, two more of us (not counting the index case) tested positive the following week.
@@ -38,7 +38,7 @@ I should point out that I am in no way a medical expert and don't necessarily en
 
 # My Covid Course
 
-The first time I had covid was mild. This time around they were milder still – less than most colds I've had.[^2] Because my symptoms were so light, I was reluctant to take Paxlovid when day 3 rolled around. By day 5, though, I was feeling mostly better, but still had a dark positive line on my antigen tests, which spooked me enough that I decided to start my course of Paxlovid. On day 6, I tested negative.
+The first time I had covid was mild. This time around it was milder still – less than most colds I've had.[^2] Because my symptoms were so light, I was reluctant to take Paxlovid when day 3 rolled around. By day 4, though, I was feeling mostly better, but still had a dark positive line on my antigen tests, which spooked me enough that I decided to start my course of Paxlovid. On day 5, I tested negative.
 
 [^2]: I actually had a quite nasty cold earlier this year that knocked me on my back for two days and gave me one of the worst headaches I've ever had. I tested negative for covid and it didn't have the hallmarks of the flu, so it was likely something else that was much worse than either of my experiences with covid.
 
@@ -51,14 +51,14 @@ The quick negative took me by surprise[^3]. I tested positive for nearly two wee
 * **Day -3 Wed:** I am exposed to covid this evening.
 * **Day -2 Thu:** I find out about my exposure in the morning. I have mild congestion, to an extent that is common for me, even when not sick.
 * **Day -1 Fri:** I have mild congestion that persists, a little fatigue, and just a general ickiness that I can't place. I'm not sure if I'm sick.
-* **Day 0 Sat:** I'm distinctly sick, with persistent moderate sinus congestion, a mild sore throat, an occasional cough, and mild fatigue. I test * negative on an antigen test. (I count this as **Day 0**, meaning the day I have symptoms distinct enough to be sure I am sick.)
+* **Day 0 Sat:** I'm distinctly sick, with persistent moderate sinus congestion, a mild sore throat, an occasional cough, and mild fatigue. I test negative on an antigen test. (I count this as **Day 0**, meaning the day I have symptoms distinct enough to be sure I am sick.)
 * **Day 1 Sun:** My symptoms are similar to the day before, though less fatigue but more congestion and a worse sore throat. This is the worst day of symptoms and it's really not bad. I test positive on an antigen test.
 * **Day 2 Mon:** Moderate to mild congestion. The sore throat is gone, but I cough occasionally.
 * **Day 3 Tue:** Same as the day before. I test positive on an antigen test.
 * **Day 4 Wed:** My symptoms are nearly gone. I still test positive. I initiate my course of Paxlovid.
 * **Day 5 Thu:** I feel mostly better and test negative. I continue to test negative in the following days.
 
-I continued my course of Paxlovid for all five days, despite testing negative for most of it. I did not experience rebound.[^4] I had only mild side-effects from the Paxlovid, primarily a persistent and unpleasant, but mild, bitterness in my mouth.
+I continued my course of Paxlovid for all five days, despite testing negative for most of it. I did not experience rebound.[^4] I had only minor side-effects from the Paxlovid, primarily a persistent and unpleasant, but mild, bitterness in my mouth.
 
 In this case I'm not convinced the Paxlovid had much effect at all and, though side-effects were only mild for me, I would probably not go through the effort to take it again in the future.
 
