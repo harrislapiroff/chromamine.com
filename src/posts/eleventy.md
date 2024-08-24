@@ -37,7 +37,7 @@ It's similar enough to Jekyll that I was able to migrate over my [contra dance c
 * Using indented [SASS] instead of CSS and [Pug] for my HTML templates[^2]
 * Adding my own custom filters for formatting dates and numbers
 
-[contra]: /contra/
+[contra]: /dance/
 [config]: https://github.com/harrislapiroff/chromamine.com/blob/main/eleventy.config.js
 [SASS]: https://sass-lang.com/
 [Pug]: https://pugjs.org/

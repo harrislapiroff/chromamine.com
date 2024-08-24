@@ -23,8 +23,8 @@ module.exports = function(eleventyConfig) {
         const esbuild = await import("esbuild")
         const entryPoints = [
             {
-                in: path.join(dir.input, 'contra', 'static', 'scripts', 'all.js'),
-                out: path.join('contra', 'static', 'scripts', 'all'),
+                in: path.join(dir.input, 'dance', 'static', 'scripts', 'all.js'),
+                out: path.join('dance', 'static', 'scripts', 'all'),
             },
             {
                 in: path.join(dir.input, 'static', 'scripts', 'index.js'),
@@ -40,12 +40,12 @@ module.exports = function(eleventyConfig) {
         })
     })
     eleventyConfig.addWatchTarget('./src/static/scripts/')
-    eleventyConfig.addWatchTarget('./src/contra/static/scripts/')
+    eleventyConfig.addWatchTarget('./src/dance/static/scripts/')
 
     /* Pass media directory through
      *-------------------------------------*/
     eleventyConfig.addPassthroughCopy("src/media")
-    eleventyConfig.addPassthroughCopy("src/contra/media")
+    eleventyConfig.addPassthroughCopy("src/dance/media")
 
     /* Other files through
      *-------------------------------------*/
@@ -73,7 +73,7 @@ module.exports = function(eleventyConfig) {
      *-------------------------------------*/
     eleventyConfig.addCollection(
         "danceEvents",
-        collection => collection.getFilteredByGlob(`src/contra/events/*.md`)
+        collection => collection.getFilteredByGlob(`src/dance/events/*.md`)
     )
 
     /* Markdown features
