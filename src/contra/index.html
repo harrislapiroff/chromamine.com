@@ -44,7 +44,11 @@
                         {% for dance in dances.upcoming %}
                             <li>
                                 <h4>
-                                    <a href="{{ dance.url }}">{{ dance.name }}</a>
+                                    {% if dance.url %}
+                                        <a href="{{ dance.url }}">{{ dance.name }}</a>
+                                    {% else %}
+                                        {{ dance.name }}
+                                    {% endif %}
                                     <span class="city" title="{{ dance.street }}, {{ dance.city }}">({{ dance.city }})</span>
                                 </h4>
                                 <time class="date" datetime="{{ dance.date }}">

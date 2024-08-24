@@ -24,17 +24,40 @@ testimonials:
 dances:
   upcoming:
 
+    - name: Nantucket Contra Dance
+      date: 2024-09-19T19:00
+      date_end: 2024-09-19T22:00
+      tzid: America/New_York
+      band: Sam Zakon-Anderson and Eric Boodman
+      description: |+
+        Nantucket's second community contra dance!
+      city: Nantucket MA
+
     - name: Montpelier Contra Dance
       date: 2024-09-21T20:00
       date_end: 2024-09-21T23:00
       tzid: America/New_York
       band: Starling
-      street:  6612 Vt Route 12
+      street: 6612 Vt Route 12
       city: West Berlin VT
       description: |+
         Workshop at 7:40PM  
         Dancing from 8:00–11:00PM
       url: https://capitalcitygrange.org/event/contra-dance-7-2020-06-20-2020-10-17/2024-09-21/
+
+    - name: Worcester Contra Dance
+      date: 2024-11-09T19:15
+      date_end: 2024-11-09T22:30
+      tzid: America/New_York
+      band: Kingfisher
+      bandURL: https://www.kingfisherband.com/
+      street:  Wesley United Methodist Church, 114 Main Street
+      city: Worcester MA
+      description: |+
+        Workshop at 7:15PM  
+        Dancing from 7:30–10:30PM  
+        Role terms will be Ladies/Gents
+      url: https://www.worcesterdance.org/
 
     - name: Glen Echo Friday Night Dance
       date: 2024-12-20T20:00
