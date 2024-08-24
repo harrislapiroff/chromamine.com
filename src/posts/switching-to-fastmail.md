@@ -36,7 +36,7 @@ The custom domain support is _so good_ it justifies the fee entirely for me. Thi
 * You can also *send* from arbitrary email addresses. I can send you an email and make up an address, say `todayisoct20@chromamine.com`, on the fly.
 
 [Google Workspace]: https://workspace.google.com/
-[contra]: /contra/
+[contra]: /dance/
 
 For me these are huge quality of life improvements over what I was getting previously from Gmail.
 

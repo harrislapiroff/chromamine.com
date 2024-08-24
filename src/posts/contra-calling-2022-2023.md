@@ -132,4 +132,4 @@ In the process of putting together this list I noticed four evenings over the pa
 [Maia McCormick]: https://contra.maiamccormick.com/
 [Kingfisher]: https://www.kingfisherband.com/
 [contact]: mailto:contra@chromamine.com
-[harriscontra]: /contra/
+[harriscontra]: /dance/
