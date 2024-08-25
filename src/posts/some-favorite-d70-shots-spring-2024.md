@@ -1,14 +1,14 @@
 ---
 title: Some Favorite D70 Shots Spring 2024
-date: 2024-08-24
+date: 2024-08-25
 categories: [Miscellany]
 tags: [photography, technology]
 seoImage: /media/some-favorite-d70-shots-spring-2024/DSC_3776.JPEG
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113024459266764977
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0fCXK2zMT7bxSQfipkJBefuRi9rMwGPa1RMMLT1Wo4xNWoSrYHmx8WhJpPpUi5yEEl
 images:
   - src: DSC_3258.JPEG
     alt: A close up of a 30-something white man wearing round orange sunglasses, a dark puffy jacket, and a cap with the brim tilted upward. He's smiling and his tongue is sticking out slightly, cheekily. In his sunglasses the reflection of the photographer can be seen, with a camera obscuring his face.
