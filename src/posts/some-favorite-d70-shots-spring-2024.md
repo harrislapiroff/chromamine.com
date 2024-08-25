@@ -54,7 +54,7 @@ images:
     caption: Mirror self-portrait with Shane, Brooklyn Bridge Park, NYC, June 2024
   - src: DSC_4151.JPEG
     alt: A young blonde woman in glasses and a black shirt with a greenish suspension bridge behind her.
-    caption: Grace, Manhattan, June 2024
+    caption: Grace, NYC, June 2024
   - src: DSC_4870.JPEG
     alt: A man, intently working on a fiddle with no strings or bridge. In his other hand he's holding a bottle with a needlepoint cap. Behind him two young girls and their father look on with interest.
     caption: Matthew at work, Arco Art, Oswego NY, June 2024
