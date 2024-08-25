@@ -72,7 +72,7 @@ Over the spring and into the summer of this year, I took lots of photos with a N
 
 Over the course of the spring and summer, my skill with the camera improved somewhat and I became more confident that, in favorable circumstances (outdoor light, scenarios where focusing wasn't too fussy, etc.) I could indeed take better photos with my D70. I found that I most enjoyed taking photos of people, especially family and friends. These were the most fun and meaningful for me and they were subjects of whom I couldn't just search the internet for photos – unlike, e.g., the St. Louis Arch, where I could take some nice photos, but they would be photos many people had taken before.
 
-I've decided I like doing taking pictures. I wasn't prepared to buy a brand new camera which would cost over $1,000 at this point, but I invested in a used Nikon D750 – upgrading from a camera that's twenty years old to one that's a mere ten years old. Despite its age, it's still well-regarded, and I can use the lenses I already have rather than investing in new ones[^1]. It also features a full-frame sensor, which I understand is better for low-light scenes – one of my major beefs with the D70.
+I've decided I like taking pictures. I wasn't prepared to buy a brand new camera which would cost over $1,000 at this point, but I invested in a used Nikon D750 – upgrading from a camera that's twenty years old to one that's a mere ten years old. Despite its age, it's still well-regarded, and I can use the lenses I already have rather than investing in new ones[^1]. It also features a full-frame sensor, which I understand is better for low-light scenes – one of my major beefs with the D70.
 
 [^1]: Though, in the event, I did impulse-buy a couple that do things my existing lenses don't.
 
