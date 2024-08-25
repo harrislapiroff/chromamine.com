@@ -10,6 +10,12 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid0p1EF4JLsQh4W8p4zkh2E1YSuNuKNjga6iZuraNnCP1kVJaoeLoeJFJgF78XnUNuBl
 ---
 
+:::update
+I've since taken more photos with the D70 which can be [seen here][d70-spring].
+:::
+
+[d70-spring]: /2024/08/some-favorite-d70-shots-spring-2024/
+
 I used to do photography somewhat seriously. I was an amateur, but a reasonably devoted one. In high school I took photos with a [Pentax K1000][] that my father passed down to me. I shot in color film and dropped rolls to be developed at Elephant Pharmacy ([RIP][]) on my way home from school. I shot in black and white and developed them myself in the Berkeley High School darkroom. In college I bought myself a [digital SLR][DSLR], a [Nikon D50][], and shot with that for a while.
 
 [Pentax K1000]: https://en.wikipedia.org/wiki/Pentax_K1000
@@ -32,16 +38,12 @@ _Annaleah applying hot sauce to a breakfast sandwich. Both taken with a Nikon D7
 
 Instead of my D50, which has sensor issues, I turned to a D70 (a slightly older model) that my mother acquired for free years ago and gifted to me.
 
-:::note
-This post refers to side-by-side images as "left" and "right" but on mobile they are above and below instead.
-:::
-
 {% imagegrid %}
 ![A light brown poodle, sitting with a well-behaved smile, out in the sunshine.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/basil-nikon.jpeg)
 ![A long haired redheaded guitar player, wearing a cropped blue t shirt, standing and playing an acoustic guitar on stage.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/alex-nikon.jpeg)
 {% endimagegrid %}
 
-_Left: Out for a walk with Basil. Right: [Alex Sturbaum][] playing [Dandelion Romp][] as part of [The Engine Room][]. Both taken with a Nikon D70._
+First: Out for a walk with Basil. Second: [Alex Sturbaum][] playing [Dandelion Romp][] as part of [The Engine Room][]. Both taken with a Nikon D70._
 
 [Alex Sturbaum]: https://alexsturbaum.com/
 [Dandelion Romp]: https://dandelionromp.com/
@@ -54,7 +56,7 @@ I'm mostly happy with the images I've captured on the D70, but it surprised me t
 ![The same photo, but in this one the edges of the mirrors are in focus and there are visible specks of grime on the mirror surface.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/mirror-iphone.jpeg)
 {% endimagegrid %}
 
-_Bathroom selfies showing my apparatus for using both cameras simultaneously. Left: Nikon, Right: iPhone_
+_Bathroom selfies showing my apparatus for using both cameras simultaneously. First: Nikon, Second: iPhone_
 
 It's worth reiterating here that I have never been a particularly expert photographer and it's been years since my expertise was at its peak. It's possible I've made technical errors or used terms of art incorrectly, though I've tried my best. I've made color adjustments and cropped to improve the photos and make them more comparable. I'm as amateur at editing as I am at capturing. In practice the D70 images required much more editing to get colors I was happy with.
 
@@ -69,7 +71,7 @@ In the pictures below – among other differences – you can notice that the gr
 ![A red fire hydrant with a blue top and arms on a rainy day. The texture of the hydrant itself and the road behind the hydrant are higher contrast, less smoothed out.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/hydrant-iphone.jpeg)
 {% endimagegrid %}
 
-_Left: Nikon, Right: iPhone_
+_First: Nikon, Second: iPhone_
 
 I'd hypothesize a few reasons for this:
 
@@ -85,7 +87,7 @@ Initially this seemed straightforwardly like an advantage for the iPhone, but as
 ![An orange bike against a speckled concrete wall. The speckling on the wall behind the bike is pronounced.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/bike-iphone.jpeg)
 {% endimagegrid %}
 
-_Left: Nikon, Right: iPhone_
+_First: Nikon, Second: iPhone_
 
 # The iPhone is better in low-light and even medium-light situations.
 
@@ -96,7 +98,7 @@ The D70 excels in bright light, especially sunlight. In dim light or even standa
 ![Close up portrait of the same woman, but this image is crisper and brighter, though it has a visible graininess. Even the texture of the upholstery of her seat shows better.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/jen-iphone.jpeg)
 {% endimagegrid %}
 
-_Drinks in a medium-lit bar with Jen. Left: Nikon, Right: iPhone_
+_Drinks in a medium-lit bar with Jen. First: Nikon, Second: iPhone_
 
 Both cameras struggle in dim lighting, but the iPhone produces images that are a little sharper and have colors that feel truer-to-life. The D70 image above required a fair bit of processing to get it to this level and, with my current editing skills, I still wasn't able to get it closer to reality.
 
@@ -109,7 +111,7 @@ It's often desirable in photography to have parts of a scene, particularly the p
 ![A smiling brown-haired woman with a baby strapped to her chest. The image is crisper, but there are some blurring artifacts around the edges of the woman's hair.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/randj-iphone.jpeg)
 {% endimagegrid %}
 
-_Ruthie and Josephine. Lower f-stop simulated with portrait mode on the iPhone image. Left: Nikon, Right: iPhone_
+_Ruthie and Josephine. Lower f-stop simulated with portrait mode on the iPhone image. First: Nikon, Second: iPhone_
 
 iPhones have a "portrait mode" which is designed to simulate a shallower depth of field than their lenses really produce, but it can't produce as coarse of a [bokeh][] as a larger camera lens, often has processing artifacts (especially around people's hair), and looks less natural – because it is less natural; it's simulated by software rather than the pure optical effect of a lens projecting an image onto a sensor.
 
@@ -122,14 +124,14 @@ In the iPhone version of the photo of Ruthie and Jo above, around the fringes of
 ![Branch of a cherry blossom tree. Again the background is heavily blurred with a bokeh effect, transitioning to crisp blossoms in the foreground, but the blurring is inconsistent and features oddly sharp edges in places where they shouldn't be.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/cherry-iphone.jpeg)
 {% endimagegrid %}
 
-_Cherry blossoms. Lower f-stop simulated with portrait mode on the iPhone image. Left: Nikon, Right: iPhone_
+_Cherry blossoms. Lower f-stop simulated with portrait mode on the iPhone image. First: Nikon, Second: iPhone_
 
 {% imagegrid %}
 ![Oversized chess pieces, the size of children, on a blue and white checkerboard floor.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/chess-nikon.jpeg)
 ![Oversized chess pieces, the size of children, on a blue and white checkerboard floor. The image is slightly brighter, the background is slightly fuzzier, and the pieces have a bit more of a halo.](/media/shooting-with-a-nikon-d70-in-the-smartphone-age/chess-iphone.jpeg)
 {% endimagegrid %}
 
-_Oversized chess pieces at Tufts. Lower f-stop simulated with portrait mode on the iPhone image. Left: Nikon, Right: iPhone_
+_Oversized chess pieces at Tufts. Lower f-stop simulated with portrait mode on the iPhone image. First: Nikon, Second: iPhone_
 
 ***
 

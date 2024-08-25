@@ -95,7 +95,7 @@ md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const htmlAttributes = { alt, loading: 'lazy', decoding: 'async' }
     const imgOpts = {
         widths: IMAGE_WIDTHS,
-        formats: ['jpeg', 'png', 'webp', 'svg'],
+        formats: ['webp', 'jpeg', 'png', 'svg'],
         urlPath: '/media/img/',
         outputDir: './_site/media/img/',
     }
