@@ -33,7 +33,7 @@ Ultimately I went with Flickr because it was the quickest option I was consideri
 
 It feels like a service that launched with a guiding star that it never lost, even through multiple acquisitions, and speaks well to its stability; it feels uncommonly rare to encounter social media platforms that aren't trying to consume the world and like something I want to support. They even have a [foundation devoted to maintaining the Flickr archive long term](https://www.flickr.org/), which is incredibly cool.
 
-It's not all sunshine and daisies, unfortunately. The website feels like it still follows a lot of Web 2.0 design patterns from years ago. Settings that I'm looking for aren't always where I expect them – or sometimes they don't exist at all. The mobile app is fairly buggy and I've had to put some work into figuring out an upload flow that doesn't cause it app to crash midway through. But, for the moment, these are issues I'm willing to tolerate.
+It's not all sunshine and daisies, unfortunately. The website feels like it still follows a lot of Web 2.0 design patterns from years ago. Settings that I'm looking for aren't always where I expect them – or sometimes they don't exist at all. The mobile app is fairly buggy and I've had to put some work into figuring out an upload flow that doesn't cause the app to crash midway through. But, for the moment, these are issues I'm willing to tolerate.
 
 Also, in the style of Web 2.0 apps and in contrast to the walled gardens that dominate the web today, it has a [robust developer API][], so I have the option to write more tools for myself when I want them.
 
