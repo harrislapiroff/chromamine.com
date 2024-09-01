@@ -23,7 +23,7 @@ I also like the idea that someone could use the source files in some automated w
 
 ***
 
-This wasn't an entirely trivial feat to accomplish in Eleventy. Eleventy is build largely with the assumption that one source file generates one output file and I've found it pretty hard to compel it to do otherwise[^1].
+This wasn't an entirely trivial feat to accomplish in Eleventy. Eleventy largely assumes that one source file generates one output file and I've found it challenging to compel it otherwise[^1].
 
 [^1]: The one exception I've found is its [pagination feature][], which I have used to hack together, e.g., individual pages for [each tag][], using only a [single template file][].
 
