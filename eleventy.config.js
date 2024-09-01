@@ -1,7 +1,15 @@
 const path = require("node:path")
 const pluginRss = require("@11ty/eleventy-plugin-rss")
+const fs = require("fs").promises
+
+// Note: For the upgrade to 11ty 3.x we will need to replace this
+// with 11ty's built-in glob util seen here:
+// https://github.com/11ty/eleventy/blob/36e868294a668ea38748cb6d838fd371ae8ff09d/src/TemplateCollection.js#L5
+const multimatch = require("multimatch")
 
 const blogPostFormats = ['md', 'ojs', 'html']
+// Any file in the posts directory with a blog post format extension
+const blogPostGlobs = blogPostFormats.map((format) => `./src/posts/*.${format}`)
 
 module.exports = function(eleventyConfig) {
     /* Load CommonJS modules before config
@@ -15,6 +23,42 @@ module.exports = function(eleventyConfig) {
 
         const { compileObservable } = await import("./config/utils/ojs/compile.mjs")
         global.compileObservable = compileObservable
+    })
+
+    /* Copy raw source files to site
+     * -------------------------------------*/
+    eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
+        // Match only blog post pages
+        const blogPosts = results.filter(r => multimatch([r.inputPath], blogPostGlobs).length > 0)
+
+        // Calculate a map from input source file to appropriate output locations
+        const sourceFileInputOutputMap = blogPosts.map(({ inputPath, outputPath }) => {
+            const extension = inputPath.split('.').pop()
+
+            // Pop the trailing /index.html off the output path and add the extension
+            const sourceOutputPath = outputPath.replace('/index.html', `.${extension}`)
+
+            // We additionally copy the source with just a .txt extension so there's a
+            // predictable URL it can be found at.
+            // TODO: It would be nicer, at some point, to add this to the _redirects file
+            // instead so the server can smoothly handle a redirect to the correct extension
+            const txtSourceOutputPath = sourceOutputPath.replace(`.${extension}`, '.txt')
+
+            return [
+                [ inputPath, sourceOutputPath ],
+                [ inputPath, txtSourceOutputPath ],
+            ]
+        }).flat()
+
+        // Make copies from each source file to the output path
+        console.log("[11ty] Copying source files to output directory...")
+        await Promise.all(sourceFileInputOutputMap.map(
+            ([ src, dest ]) => {
+                console.log(`[11ty] Copying ${src} to ${dest}`)
+                return fs.copyFile(src, dest)
+            }
+        ))
+        console.log("[11ty] Finished copying source files to output directory")
     })
 
     /* Run ESBuild after building site
@@ -62,11 +106,8 @@ module.exports = function(eleventyConfig) {
     /* Put posts in a collection
      *-------------------------------------*/
     eleventyConfig.addCollection("posts", function(collection) {
-        // Add all files in the post directory with a matching file extension
-        // to the posts collection
-        const arrs = blogPostFormats.map(
-            (format) => collection.getFilteredByGlob(`src/posts/*.${format}`)
-        ).flat()
+        // Add all files whose path matches a blog post glob
+        const arrs = blogPostGlobs.map(g => collection.getFilteredByGlob(g)).flat()
         return arrs
     })
 
