@@ -2,9 +2,9 @@ const path = require("node:path")
 const pluginRss = require("@11ty/eleventy-plugin-rss")
 const fs = require("fs").promises
 
-// Note: For the upgrade to 11ty 3.x we will need to replace this
+// Note: For the upgrade to 11ty 3.x we will want to replace this
 // with 11ty's built-in glob util seen here:
-// https://github.com/11ty/eleventy/blob/36e868294a668ea38748cb6d838fd371ae8ff09d/src/TemplateCollection.js#L5
+// https://github.com/11ty/eleventy/blob/main/src/Util/GlobMatcher.js#L4
 const multimatch = require("multimatch")
 
 const blogPostFormats = ['md', 'ojs', 'html']
