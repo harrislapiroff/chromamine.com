@@ -3,18 +3,18 @@ title: Making blog post source files available with 11ty
 date: 2024-08-31
 categories: [Software]
 tags: [11ty, web, javascript]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113060289182699491
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0xKnxZNRbC4ZqsuMVcc91h7NACG9erXT5FRb4zBEQ8qKN9kKBEnJSPRn2F5JBJfhQl
 ---
 
-You can now view the source file for any blog post on my site by replacing the trailing slash with `.txt` in the URL. For example, the source file for this post is available [here](https://chromamine.com/2024/08/making-blog-post-source-files-available-with-11ty.txt). You can also replace the trailing slash with the original file extension of the source. Most of my blog posts are composed in Markdown, so the extention will usually be `.md`, but my setup also supports the occasional `.ojs` (for [Observable notebooks][ojs]) or `.html` post. But `.txt` will always work.
+You can now view the source file for any blog post on my site by replacing the trailing slash with `.txt` in the URL. For example, the source file for this post is available [here](/2024/08/making-blog-post-source-files-available-with-11ty.txt). You can also replace the trailing slash with the original file extension of the source. Most of my blog posts are composed in Markdown, so the extention will usually be `.md`, but my setup also supports the occasional `.ojs` (for [Observable notebooks][ojs]) or `.html` post. But `.txt` will always work.
 
 [ojs]: /2023/11/11ty-and-observable/
 
-I really like the idea of making the source conveniently available for my posts, both as a resource for any curious readers and to have a permanent link to the source file. Of course, the source for my entire blog setup, including all posts, is [available on GitHub][gh-chromamine]. But replicating the source on my own domain fulfills the [IndieWeb principles][] of "own your data" and building for "longevity."
+I really like the idea the source code being available for my posts, as a resource for curious readers _and_ to have a permanent link to it to which I can refer (as in the self-referential paragraph above). Of course, the source for my entire blog setup, including all posts, is [available on GitHub][gh-chromamine]. But replicating the source on my own domain fulfills the [IndieWeb principles][] of "own your data" and building for "longevity."
 
 [gh-chromamine]: https://github.com/harrislapiroff/chromamine.com
 [IndieWeb principles]: https://indieweb.org/principles
@@ -31,13 +31,15 @@ This wasn't an entirely trivial feat to accomplish in Eleventy. Eleventy is buil
 [each tag]: /archive/
 [single template file]: https://github.com/harrislapiroff/chromamine.com/blob/main/src/tags.pug
 
-I would love if I could provide 11ty with multiple templates and multiple output formats for each input file. Imagine writing a blog post and generating the HTML page, a plain text file, a PDF, etc. If you like this idea too, please upvote [this issue on GitHub][multiple-outputs-issue]!
+I would love if I could provide Eleventy with multiple templates and multiple output formats for each input file. Imagine writing a blog post and generating the HTML page, a plain text file, a PDF, etc. If you like this idea too, please upvote [this issue on GitHub][multiple-outputs-issue]!
+
+[multiple-outputs-issue]: https://github.com/11ty/eleventy/issues/2205
 
 But until that's supported, I was able to hack together a solution using the `eleventy.after` event to trigger a function that copied the source files to the correct locations.
 
 The overall process is that it
 
-1. grabs the results of 11ty's compilation,
+1. grabs the results of Eleventy's compilation,
 2. narrows it down to just blog posts,
 3. uses the input and output path of each blog post to calculate the appropriate output paths for the source code to be served on the site (e.g., mapping `./src/posts/making-blog-post-source-files-available-with-11ty.md` to both `_site/posts/2024/08/making-blog-post-source-files-available-with-11ty.md` and `making-blog-post-source-files-available-with-11ty.txt`),
 4. and copies the source code for each blog appropriately.
@@ -89,5 +91,3 @@ module.exports = function(eleventyConfig) {
     // ...
 }
 ```
-
-[multiple-outputs-issue]: https://github.com/11ty/eleventy/issues/2205
