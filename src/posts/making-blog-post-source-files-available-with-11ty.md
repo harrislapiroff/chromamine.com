@@ -14,7 +14,7 @@ You can now view the source file for any blog post on my site by replacing the t
 
 [ojs]: /2023/11/11ty-and-observable/
 
-I really like the idea the source code being available for my posts, as a resource for curious readers _and_ to have a permanent link to it to which I can refer (as in the self-referential paragraph above). Of course, the source for my entire blog setup, including all posts, is [available on GitHub][gh-chromamine]. But replicating the source on my own domain fulfills the [IndieWeb principles][] of "own your data" and building for "longevity."
+I really like the idea of source code being available for my posts, as a resource for curious readers _and_ to have a permanent link to it to which I can refer (as in the self-referential paragraph above). Of course, the source for my entire blog setup, including all posts, is [available on GitHub][gh-chromamine]. But replicating the source on my own domain fulfills the [IndieWeb principles][] of "own your data" and building for "longevity."
 
 [gh-chromamine]: https://github.com/harrislapiroff/chromamine.com
 [IndieWeb principles]: https://indieweb.org/principles
