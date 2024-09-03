@@ -10,7 +10,7 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid0xKnxZNRbC4ZqsuMVcc91h7NACG9erXT5FRb4zBEQ8qKN9kKBEnJSPRn2F5JBJfhQl
 ---
 
-You can now view the source file for any blog post on my site by replacing the trailing slash with `.txt` in the URL. For example, the source file for this post is available [here](/2024/08/making-blog-post-source-files-available-with-11ty.txt). You can also replace the trailing slash with the original file extension of the source. Most of my blog posts are composed in Markdown, so the extention will usually be `.md`, but my setup also supports the occasional `.ojs` (for [Observable notebooks][ojs]) or `.html` post. But `.txt` will always work.
+You can now view the source file for any blog post on my site by replacing the trailing slash with `.txt` in the URL. For example, the source file for this post is available [here](/2024/08/making-blog-post-source-files-available-with-11ty.txt). You can also replace the trailing slash with the original file extension of the source. Most of my blog posts are composed in Markdown, so the extension will usually be `.md`, but my setup also supports the occasional `.ojs` (for [Observable notebooks][ojs]) or `.html` post. But `.txt` will always work.
 
 [ojs]: /2023/11/11ty-and-observable/
 
