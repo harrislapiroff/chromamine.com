@@ -37,9 +37,19 @@
                 <div class="hire-box">
                     <p>I'm available to call for public dances and private events. I call contra dances, square dances, and English country dances. I strive for an efficient, friendly calling style that adapts to halls of any skill level.</p>
                     <p>Email me: <a href="mailto:dance@chromamine.com">dance@chromamine.com</a></p>
+                    <h3 class="sr-only">Testimonials</h3>
+                    <p>I often leave a feedback notebook out during dances. I use the notes to improve, but I also get people writing nice things about my calling. Here's a small selection:</p>
+                    {% for testimonial in testimonials %}
+                        <ul>
+                            <li>
+                                <p>“{{ testimonial.quote }}”</p>
+                                <p>— {{ testimonial.author }}</p>
+                            </li>
+                        </ul>
+                    {% endfor %}
                 </div>
                 <div class="upcoming">
-                    <h3 class="sr-only">Upcoming</h3>
+                    <h3 class="sr-only">Schedule</h3>
                     <ul>
                         {% for dance in dances.upcoming %}
                             <li>
