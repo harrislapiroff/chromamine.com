@@ -23,6 +23,17 @@ testimonials:
 
 dances:
   upcoming:
+    - name: Boston Intergenerational Dance Advocates
+      date: 2024-10-06T19:30
+      date_end: 2022-10-06T22:30
+      tzid: America/New_York
+      band: Casey Murray, Molly Tucker, & Sam Zakon-Anderson
+      street: 1950 Massachusetts Avenue
+      city: Cambridge MA
+      url: https://www.bidadance.org/
+      description: |+
+        Workshop at 7:00PM  
+        Dancing from 7:30–10:30PM
 
     - name: Boston Gender Free English Country Dance
       date: 2024-10-08T19:30
