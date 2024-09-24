@@ -24,26 +24,14 @@ testimonials:
 dances:
   upcoming:
 
-    - name: Nantucket Contra Dance
-      date: 2024-09-19T19:00
-      date_end: 2024-09-19T22:00
+    - name: Boston Gender Free English Country Dance
+      date: 2024-10-08T19:30
+      date_end: 2024-10-08T22:00
       tzid: America/New_York
-      band: Sam Zakon-Anderson and Eric Boodman
-      description: |+
-        Nantucket's second community contra dance!
-      city: Nantucket MA
-
-    - name: Montpelier Contra Dance
-      date: 2024-09-21T20:00
-      date_end: 2024-09-21T23:00
-      tzid: America/New_York
-      band: Starling
-      street: 6612 Vt Route 12
-      city: West Berlin VT
-      description: |+
-        Workshop at 7:40PM  
-        Dancing from 8:00–11:00PM
-      url: https://capitalcitygrange.org/event/dance-dance-7-2020-06-20-2020-10-17/2024-09-21/
+      band: Jean Monroe, Sally Kolodkin, Brian Warnock
+      street: First Church In Jamaica Plain, 6 Eliot St
+      city: Boston MA
+      url: https://www.lcfd.org/bgfe.html
 
     - name: Worcester Contra Dance
       date: 2024-11-09T19:15
@@ -427,3 +415,24 @@ dances:
         Workshop at 6:40PM  
         Dancing from 7:00–9:00PM
       url: https://indycontra.org/
+
+    - name: Nantucket Contra Dance
+      date: 2024-09-19T19:00
+      date_end: 2024-09-19T22:00
+      tzid: America/New_York
+      band: Sam Zakon-Anderson and Eric Boodman
+      description: |+
+        Nantucket's second community contra dance!
+      city: Nantucket MA
+
+    - name: Montpelier Contra Dance
+      date: 2024-09-21T20:00
+      date_end: 2024-09-21T23:00
+      tzid: America/New_York
+      band: Starling
+      street: 6612 Vt Route 12
+      city: West Berlin VT
+      description: |+
+        Workshop at 7:40PM  
+        Dancing from 8:00–11:00PM
+      url: https://capitalcitygrange.org/event/dance-dance-7-2020-06-20-2020-10-17/2024-09-21/
