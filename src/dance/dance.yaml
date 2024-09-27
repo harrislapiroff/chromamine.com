@@ -62,6 +62,18 @@ dances:
         Role terms will be Ladies/Gents
       url: https://www.worcesterdance.org/
 
+    - name: Monday Contras
+      date: 2024-25-14T19:30
+      date_end: 2024-25-14T22:30
+      tzid: America/New_York
+      band: Good Company
+      description: |+
+        Workshop at 7PM  
+        Dancing from 7:30–10:30PM
+      street: Concord Scout House, 74 Walden St
+      city: Concord MA
+      url: http://mondaycontras.com/
+
     - name: Glen Echo Friday Night Dance
       date: 2024-12-20T20:00
       date_end: 2024-12-20T23:00
