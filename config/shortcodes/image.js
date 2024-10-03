@@ -1,4 +1,5 @@
 const Image = require("@11ty/eleventy-img")
+const { md } = require('../markdown.js')
 
 const IMAGE_WIDTHS = [640, 1280, 1920]
 const IMAGE_FORMATS = ['webp', 'jpeg', 'svg']
@@ -37,7 +38,7 @@ const image = async function (imgObj) {
 
     return `<figure>
         ${pictureTag}
-        ${imgObj.caption ? `<figcaption>${imgObj.caption}</figcaption>` : ''}
+        ${imgObj.caption ? `<figcaption>${md.render(imgObj.caption)}</figcaption>` : ''}
     </figure>`
 }
 
