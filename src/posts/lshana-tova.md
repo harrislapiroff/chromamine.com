@@ -1,6 +1,6 @@
 ---
 title: L'Shana Tova
-date: 2024-10-03
+date: 2024-10-02
 categories: [Miscellany]
 tags: [Judaism, politics, war, personal]
 images:
