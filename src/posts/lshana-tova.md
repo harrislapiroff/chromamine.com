@@ -7,12 +7,11 @@ images:
   - src: apple.jpg
     alt: A close up of a hand holding a slice of red apple with pink tinged flesh. The slice is dripping from one end with honey over a small glass bowl full of honey.
     caption: At least I've got a *gorgeous* pink-fleshed apple.
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113241348568998982
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0ojp7F5hX5yQVdXrYpgG5UXrsuGWeYB2xa9ziuFKxT5kj2LWJR8H3AXUKKnED5NByl
 ---
 
 I am trying, today, Rosh Hashanah, to think about the sweetness of the new year.
