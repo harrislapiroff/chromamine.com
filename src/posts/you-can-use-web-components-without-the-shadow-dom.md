@@ -3,12 +3,11 @@ title: You can use Web Components without the shadow DOM
 date: 2024-10-05
 categories: [Software]
 tags: [web, javascript]
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113258394344115095
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0jQrDsP6VR2bG2DkRiBmhoUChLTaA8dHCAQCG9nR81cSikoMeEAgMfSBs8Sp6LP6rl
 ---
 
 I've been hearing a lot lately about [Web Components][], a set of fairly recent web technologies seemingly poised to replace some of the role frameworks like React have filled for much of the past decade. As far as I can tell React and Web Components have overlap on solving this problem:
@@ -88,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Essentially saying: when the document has fully loaded (minus, perhaps, styles and other assets) run this function on every element with the class `js-carousel` on the page. If you're an object-oriented programmer, perhaps:
 
-```html
+```js
 class Carousel {
   constructor(el) {
     // ... do some stuff
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 With the Custom Elements API it looks like this:
 
-```html
+```js
 class HomepageCarousel extends HTMLElement {
   connectedCallback() {
     // ... do some stuff
