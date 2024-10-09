@@ -75,7 +75,7 @@ Because Web Components _must_ have hyphens and native HTML elements _must_ not, 
 
 The old way of ensuring javascript interactivity got added to an element looked like this:
 
-```html
+```js
 function initCarousel(el) {
   // ... do some stuff
 }
