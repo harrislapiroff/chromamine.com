@@ -9,16 +9,21 @@ images:
     caption: Parked grand taxis at _Park Autasa_
     alt: A parking lot full of beige minivans.
   view:
-    src: view-from.jpg
+    src: from-road.jpg
     caption: View along the journey to Chefchaouen
     alt: A body of water with green hills behind it, as seen from a freeway. The sky is blue with fluffy cumulus clouds.
   chefchaouen:
     src: chefchaouen.jpg
     caption: Chefchaouen, seen from a nearby hill.
     alt: Distant view of a Moroccan town nestled into a green mountainside on a sunny day. The town’s buildings are painted varying shades of blue or beige with red roofs.
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113342685738418697
+  - label: Facebook
+    url: https://www.facebook.com/1032810060/posts/pfbid02hJm38HCJreCCWJ6FdywKeaQqH9cDzRqJkKPcokeB9BPkRgQfjv6Jp6nFhcbXiqn5l/
 ---
 
-In my travels in Morocco for the past week, I’ve mostly stuck to destinations that I can reach by train and the occasional short *petit taxi* (more on this name later) trip to get to a Medina or Riad. I’m not a driver (yet) and even if I were, I think I’d be fairly uncomfortable driving in Morocco. From landing in Casablanca, I travelled to Rabat and Fès – all three cities available on Morocco’s train system. In general I’ve found Morocco’s train system to be excellent, easy to use, affordable and on time, with even some modern rapid train lines recently added.
+In my travels in Morocco for the past week, I’ve mostly stuck to destinations that I can reach by train and the occasional short *petit taxi* (more on this name later) trip to get to a [Medina](https://en.wikipedia.org/wiki/Medina_quarter) or [Riad](https://en.wikipedia.org/wiki/Riad_(architecture)). I’m not a driver (yet) and even if I were, I think I’d be fairly uncomfortable driving in Morocco. From landing in Casablanca, I travelled to Rabat and Fès – all three cities available on Morocco’s train system. In general I’ve found Morocco’s train system to be excellent, easy to use, affordable and on time, with even some modern rapid train lines recently added.
 
 But for my last city visit in Morocco I wanted to go to Chefchaouen, the famously blue-painted city in the Rif Mountains. Chefchaouen is not on the train system. I opted to take a train from Casablanca up to Tangiers – Morocco’s northern port city, just across the Strait of Gibralatar from Spain – and then a grand taxi southeast to Chefchaouen.
 
