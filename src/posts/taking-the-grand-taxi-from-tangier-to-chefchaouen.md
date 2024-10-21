@@ -46,14 +46,14 @@ Fortunately I left myself all day to figure travel out and it didn’t take me m
 
 I basically understood from this that I had to take a petit taxi to a bus station where I could pick up a... bus? Grand taxi? But I felt uncertain and anxious so I went back into the train station to breathe and search the internet for advice. I found a number of forum posts and travel blogs that described taking grand taxis to Chefchaouen, some even describing taking a petit taxi to a train station, though with inconsistent information about where. I couldn't fully piece it together, so I decided to, successfully, throw myself at the mercy of a petit taxi driver to take me to the right place.
 
-{% image image.autasa %}
+{% image images.autasa %}
 
 All in all the trip from Gare Tanger Ville to Chefchaouen Medina took me ~2h40 (counting the time I spent figuring out how to do it and anxiously searching the internet for advice) and cost me $15 including tips. I was glad to have the experience taking another local form of transit, grateful for the easy assistance of locals and, if I’m honest, a little proud of myself for figuring out how to do it!
 
-{% image image.view %}
+{% image images.view %}
 
 I was also somewhat glad to be traveling this part of my trip solo. The previous legs of my travel I was with [Emma](https://emmaazelborn.com/) and was fairly dilligent about ensuring our travels were planned completely end-to-end. Figuring it out on the fly worked well for me here, but I think would have been even more stressful if I had been worrying about the comfort and stress of another person.
 
-{% image image.chefchaouen %}
+{% image images.chefchaouen %}
 
 I am less certain of my ability to get a grand taxi _back_ from Chaouen to Tangier and am on a tighter timeline (flight to catch) so I've booked a bus for tomorrow back to Tangier. It's slightly cheaper at 65dh rather than 70dh, but about an hour longer journey involving a transfer in Tetouan.
