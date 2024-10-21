@@ -49,11 +49,11 @@ I had read a fair bit about the grand taxi system but the descriptions of it in 
 
 Fortunately I left myself all day to figure travel out and it didn’t take me more than 40 minutes or so to get on the right track. The first thing I had tried, I think somewhat reasonably, was the grand taxi lot visible in front of Gare de Tanger-Ville (the train station) where the dispatcher in a flourescent vest gestured me to get in a taxi and quoted me 700dh (~$70), 10x the amount I expected to pay. “Oh, not a shared taxi?” I said. “No shared taxi. You take that taxi to bus station,” he replied, gesturing to a blue petit taxi.
 
-I basically understood from this that I had to take a petit taxi to a bus station where I could pick up a... bus? Grand taxi? But I felt uncertain and anxious so I went back into the train station to breathe and search the internet for advice. I found a number of forum posts and travel blogs that described taking grand taxis to Chefchaouen, some even describing taking a petit taxi to a train station, though with inconsistent information about where. I couldn't fully piece it together, so I decided to, successfully, throw myself at the mercy of a petit taxi driver to take me to the right place.
+I basically understood from this that I had to take a petit taxi to a bus station where I could pick up a... bus? Grand taxi? But I felt uncertain and anxious so I went back into the train station to breathe and search the internet for advice. I found a number of forum posts and travel blogs that described taking grand taxis to Chefchaouen, some even describing taking a petit taxi to a bus station, though with inconsistent information about where. I couldn't fully piece it together, so I decided to, successfully, throw myself at the mercy of a petit taxi driver to take me to the right place.
 
 {% image images.autasa %}
 
-All in all the trip from Gare Tanger Ville to Chefchaouen Medina took me ~2h40 (counting the time I spent figuring out how to do it and anxiously searching the internet for advice) and cost me $15 including tips. I was glad to have the experience taking another local form of transit, grateful for the easy assistance of locals and, if I’m honest, a little proud of myself for figuring out how to do it!
+All in all the trip from Gare de Tanger-Ville to Chefchaouen Medina took me ~2h40 (counting the time I spent figuring out how to do it and anxiously searching the internet for advice) and cost me $15 including tips. I was glad to have the experience taking another local form of transit, grateful for the easy assistance of locals and, if I’m honest, a little proud of myself for figuring out how to do it!
 
 {% image images.view %}
 
