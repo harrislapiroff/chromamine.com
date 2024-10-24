@@ -59,7 +59,7 @@ From the Chase app:
 From the PNC app:
 
 1. ≡ menu > Control Hub (it's on the bottom of the screen) > Alerts & Notifications.
-2. PNC organizes notifications separately for cards vs. accounts. Under my accounts I turned on Push notifications for "Pre-authorized Payment Greater Than" and "Withdrawal Greater Than." Under my debit card I turned on alerts for "Card Transaction Greater Than." I set the threshold to each to $1 (PNC doesn't allow $0).
+2. PNC organizes notifications separately for cards vs. accounts. Under my accounts I turned on Push notifications for "Pre-authorized Payment Greater Than" [ETA: after double-checking, this one actually is email-only, but I enabled that] and "Withdrawal Greater Than." Under my debit card I turned on alerts for "Card Transaction Greater Than." I set the threshold to each to $1 (PNC doesn't allow $0).
 
 # FNBO (credit)
 
