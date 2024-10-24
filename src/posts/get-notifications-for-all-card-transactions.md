@@ -6,11 +6,11 @@ tags: [personal finance, security]
 images:
   citi:
     src: citi.jpg
-	alt: Screenshot of a phone notification reading "Citi Alert: Transaction Exceeds. A $160.00 transaction was made at MAGFEST USA on card ending in. View details now."
+	alt: "Screenshot of a phone notification reading \"Citi Alert: Transaction Exceeds. A $160.00 transaction was made at MAGFEST USA on card ending in. View details now.\""
 	caption: By the way, you should come to [Magfest](https://www.magfest.org) with me.
   pnc:
     src: pnc.jpg
-	alt: Screenshot of a phone notification reading "PNC Account Alert. On 10/20/24, a $306.87 cash withdrawal was deducted from PNC account from an ATM. This is greater than your alert threshold."
+	alt: "Screenshot of a phone notification reading \"PNC Account Alert. On 10/20/24, a $306.87 cash withdrawal was deducted from PNC account from an ATM. This is greater than your alert threshold.\""
 # xposts:
 #  - label: Mastodon
 #    url: 
