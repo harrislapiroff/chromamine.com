@@ -20,7 +20,7 @@ images:
 
 One thing I think is a best practice is receiving notifications on your phone for all credit and debit card transactions. Doing so allows you to
 
-1. see in-the-moment if someone billed you the wrong amount at the moment of a sale, and
+1. see if someone billed you the wrong amount in-the-moment after a sale, and
 2. notice fraudulent transactions *immediately*.
 
 Noticing fraudulent transactions as soon as possible is of particular importance. Credit card fraud is common. Fraud liability protections in the U.S. are very friendly to consumers – a maximum of $50 liability, by federal law. Worth noting: *debit card liability protections are much less good*. But in both cases, receiving maximum protection requires reporting the fraud to the card issuer promptly. (Read more on [NerdWallet][], because I'm not an expert.) Regularly reviewing your bank statements is one good way to catch fraud, but I’m not as consistent at that as I am at checking my phone notifications.
@@ -71,4 +71,4 @@ I think banks should enable these alerts by default for app users – with optio
 
 It may be obvious, but I didn't invent this idea. This is how the app for the now defunct banking startup Simple[^4] worked. Notifications were on by default and I realized how good it was for me to see transactions process live! Ironically Simple customers went through a series of acquisitions, ending up with PNC, which has a much less good app with notifications off by default.
 
-[^4]: A large part of Simple's premise was that they provided _actually good_ banking software – blessedly rare, event still.
+[^4]: A large part of Simple's premise was that they provided _actually good_ banking software – blessedly rare, even still.
