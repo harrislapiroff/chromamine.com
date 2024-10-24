@@ -23,7 +23,7 @@ One thing I think is a best practice is receiving notifications on your phone fo
 1. see in-the-moment if someone billed you the wrong amount at the moment of a sale, and
 2. notice fraudulent transactions *immediately*.
 
-Noticing fraudulent transactions as soon as possible is of particular importance. Credit card fraud is common. Fraud liability protections in the U.S. are very friendly to consumers – a maximum of $50 liability, by federal law. Worth noting: *debit card liability protections are much less good*. But in both cases, receiving maximum protection requires reporting the fraud to the card issuer promptly. (Read more on [NerdWallet][], because I'm not an expert.) Regularly reviewing your bank statements is a way to ense you do that, but I'm not as consistent at it as I am at checking my phone notifications.
+Noticing fraudulent transactions as soon as possible is of particular importance. Credit card fraud is common. Fraud liability protections in the U.S. are very friendly to consumers – a maximum of $50 liability, by federal law. Worth noting: *debit card liability protections are much less good*. But in both cases, receiving maximum protection requires reporting the fraud to the card issuer promptly. (Read more on [NerdWallet][], because I'm not an expert.) Regularly reviewing your bank statements is one good way to catch fraud, but I’m not as consistent at that as I am at checking my phone notifications.
 
 [NerdWallet]: https://www.nerdwallet.com/article/credit-cards/credit-card-vs-debit-card-safer-online-purchases
 
