@@ -11,11 +11,11 @@ images:
   pnc:
     src: pnc.jpg
     alt: "Screenshot of a phone notification reading \"PNC Account Alert. On 10/20/24, a $306.87 cash withdrawal was deducted from PNC account from an ATM. This is greater than your alert threshold.\""
- xposts:
-  - label: Mastodon
-    url: https://social.coop/@harris/113364878051810551
-  - label: Facebook
-    url: https://www.facebook.com/1032810060/posts/pfbid0qwGoAWF6CtcVRtRDGcFiAevUS7uzEYiwwHStVDGHH9hnpn2cHty36JUEesuTCxZ3l/
+  xposts:
+    - label: Mastodon
+      url: https://social.coop/@harris/113364878051810551
+    - label: Facebook
+      url: https://www.facebook.com/1032810060/posts/pfbid0qwGoAWF6CtcVRtRDGcFiAevUS7uzEYiwwHStVDGHH9hnpn2cHty36JUEesuTCxZ3l/
 ---
 
 One thing I think is a best practice is receiving notifications on your phone for all credit and debit card transactions. Doing so allows you to
