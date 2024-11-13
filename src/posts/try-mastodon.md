@@ -3,11 +3,11 @@ title: Try Mastodon
 date: 2024-11-13
 categories: [Software]
 tags: [web, social media]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113476846104579254
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid031zaGZr1q2S1XH4wRYhiKgtW4NRLiy7rGb9vS6Tp1tUsEsVDeK6C5CJSp7gJ23YtBl
 ---
 
 In the wake of the 2024 U.S. election, a bunch of my friends are abandoning other corporate social media options and flocking to [Bluesky](https://bsky.app/). I may as well put in a pitch for [Mastodon][] as well.
