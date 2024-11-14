@@ -22,9 +22,9 @@ Instead of:
 [bsky.app/profile/harris.social.coop.ap.brid.gy]: https://bsky.app/profile/harris.social.coop.ap.brid.gy
 [social.coop/@harris]: https://social.coop/@harris
 
-The latter in each case requires being part of the "in group" that knows what you're talking about. You know what Instagram is. You know what Bluesky is. You know what Mastodon is. Without that knowledge, the handle is meaningless.
+The former in each case requires being part of the "in group" that knows what you're talking about. You know what Instagram is. You know what Bluesky is. You know what Mastodon is. Without that knowledge, the handle is meaningless.
 
-The former is an *invitation*. It says: *Not sure what this thing is that I'm linking to? That's OK – every browser in the world knows how to handle a URL. Come take a look and find out.*
+The latter is an *invitation*. It says: *Not sure what this thing is that I'm linking to? That's OK – every browser in the world knows how to handle a URL. Come take a look and find out.*
 
 URLs are more future-proof. If any of these services disappear, at least a future person will be able to use a service like the [Internet Archive][][^1] to see what was there – unless, of course, the service is a walled garden, in which case our hypothetical future human is no worse off.
 
