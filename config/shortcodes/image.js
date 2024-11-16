@@ -1,5 +1,6 @@
 const Image = require("@11ty/eleventy-img")
 const { md } = require('../markdown.js')
+const { errorBoundary } = require('./utils.js')
 
 const IMAGE_WIDTHS = [640, 1280, 1920]
 const IMAGE_FORMATS = ['webp', 'jpeg', 'svg']
@@ -8,18 +9,6 @@ const IMAGE_OPTIONS = {
     formats: IMAGE_FORMATS,
     urlPath: '/media/img/',
     outputDir: './_site/media/img/',
-}
-
-const errorBoundary = fn => {
-    // Return a new function that wraps our original function in
-    // a try...catch block
-    return async function (...args) {
-        try {
-            return await fn.call(this, ...args)
-        } catch (err) {
-            return `<p style="color: red;">Error processing image: ${err}</p>`
-        }
-    }
 }
 
 const image = async function (imgObj) {

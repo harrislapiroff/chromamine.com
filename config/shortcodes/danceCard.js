@@ -1,5 +1,9 @@
+const { md } = require('../markdown.js')
+const { errorBoundary } = require('./utils.js')
+
 const danceCard = (danceCollection, title) => {
     const dance =  danceCollection.find(d => d.title === title)
+
     const sections = Object.entries(dance.choreo)
     const output = `<div class="dance-card">
         <header class="dance-header">
@@ -19,8 +23,18 @@ const danceCard = (danceCollection, title) => {
                 </div>
             `).join('')}
         </div>
+        ${dance.notes ? `
+            <div class="dance-notes">
+                ${Object.entries(dance.notes).map(([k, v]) => `
+                    <div class="dance-notes-item">
+                        ${k !== 'general' ? `<div class="dance-notes-label">${k}</div>` : ''}
+                        <div class="dance-notes-content">${md.render(v)}</div>
+                    </div>
+                `)}
+            </div>
+        ` : ''}
     </div>`.replace(/([\n\r]|[\s]{4})/g, '')
     return output
 }
 
-module.exports = danceCard
+module.exports = errorBoundary(danceCard, 'Error processing dance card')
