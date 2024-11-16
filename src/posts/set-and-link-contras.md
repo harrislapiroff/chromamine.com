@@ -1,6 +1,6 @@
 ---
-title: Simple Set and Link Contra
-date: 2024-11-15
+title: Set and Link Contras
+date: 2024-11-16
 categories: [Dance]
 tags: [contra, original choreography]
 # xposts:
