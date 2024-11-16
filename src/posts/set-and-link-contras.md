@@ -3,11 +3,13 @@ title: Set and Link Contras
 date: 2024-11-16
 categories: [Dance]
 tags: [contra, original choreography]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113494269844147609
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02Zxdw5wFLaqMcXVAWJdmmQNPEAKCPpYXPqJatwCTRqtUfj6zgvKMcBgnx72uzvagdl
+  - label: Shared Weight
+    url: https://lists.sharedweight.net/hyperkitty/list/contracallers@lists.sharedweight.net/thread/LU4YQCXN7UVKR7FRAMHO5MH2FCIHFGZO/
 dances:
   - title: Set And Link Contra
     author: Harris Lapiroff
@@ -54,7 +56,7 @@ It occurred to me recently that I don't think there are any contra dances that f
 [pluck]: https://www.youtube.com/watch?v=BSBXrXzU7_I
 [a note]: https://my.strathspey.org/dd/formation/93/
 
-1. Couples face each other across the set, taking convenient hands with their partner along the side
+1. Couples face the other couple across the set, taking convenient hands with their partner along the side
 2. All balance right and left (4 beats)
 3. All turn over their right shoulder as they trade places along the side of the set with the robins going through the middle and larks going round the outside (4 beats)
 
@@ -64,7 +66,7 @@ It could be thought of as a petronella twirl for two or, perhaps, as a mad robin
 
 [^2]: The video is to strathspey music, which is a fairly leisurely type of Scottish dance, but it can also be done in quick-time, closer to contra dance tempo.
 
-Contra dance is fairly omnivorous in borrowing figures from other forms. We've taken "right shoulder round and "mad robin" from English Country Dance, "pass the ocean" and "box circulate" from Modern Western Square Dance, and just to name a few that I know off off the top of my head. So I figured I'd try my hand at writing a couple set and link dances, starting with a very simple move introduction:
+Contra dance is fairly omnivorous in borrowing figures from other forms. We've taken "right shoulder round" and "mad robin" from English Country Dance, "pass the ocean" and "box circulate" from Modern Western Square Dance, and just to name a few that I know off off the top of my head. So I figured I'd try my hand at writing a couple set and link dances, starting with a very simple move introduction:
 
 {% dancecard dances "Set And Link Contra" %}
 
@@ -72,7 +74,7 @@ And a slightly more complex, but still accessible, one:
 
 {% dancecard dances "Broken Link" %}
 
-I danced these through with a few dancers in a living room and they worked. I was worried the "Set And Link Contra" wasn't appropriate for any crowd, being too simple and repetitive for an experienced dance but too tricky for my beginners. Some of my test dancers agreed, but others thought that it was satisfying enough to dance to work – which I could see maybe working for a late evening brain-off-dance-trance vibe.
+I danced these through with a few dancers in a living room and they worked. I was worried the "Set And Link Contra" wasn't appropriate for any crowd, being too simple and repetitive for an experienced dance but too tricky for beginners. Some of my test dancers agreed, but others thought that it was satisfying enough to dance to work – which I could see maybe working for a late evening brain-off-dance-trance vibe.
 
 A few open questions I have about these dances:
 
