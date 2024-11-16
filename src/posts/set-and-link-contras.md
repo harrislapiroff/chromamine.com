@@ -58,7 +58,7 @@ It occurred to me recently that I don't think there are any contra dances that f
 
 1. Couples face the other couple across the set, taking convenient hands with their partner along the side
 2. All balance right and left (4 beats)
-3. All turn over their right shoulder as they trade places along the side of the set with the robins going through the middle and larks going round the outside (4 beats)
+3. All turn over their right shoulder as they trade places along the side of the set with the larks going through the middle and robins going round the outside (4 beats)
 
 It could be thought of as a petronella twirl for two or, perhaps, as a mad robin halfway with twirling. If none of those descriptions work for you, there's also [a video of the figure in action][video][^2].
 
