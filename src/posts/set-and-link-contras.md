@@ -66,7 +66,7 @@ It could be thought of as a petronella twirl for two or, perhaps, as a mad robin
 
 [^2]: The video is to strathspey music, which is a fairly leisurely type of Scottish dance, but it can also be done in quick-time, closer to contra dance tempo.
 
-Contra dance is fairly omnivorous in borrowing figures from other forms. We've taken "right shoulder round" and "mad robin" from English Country Dance, "pass the ocean" and "box circulate" from Modern Western Square Dance, just to name a few that I know off off the top of my head. So I figured I'd try my hand at writing a couple set and link dances, starting with a very simple move introduction:
+Contra dance is fairly omnivorous in borrowing figures from other forms. We've taken "right shoulder round" and "mad robin" from English Country Dance, "pass the ocean" and "box circulate" from Modern Western Square Dance, just to name a few that I know off of the top of my head. So I figured I'd try my hand at writing a couple set and link dances, starting with a very simple move introduction:
 
 {% dancecard dances "Set And Link Contra" %}
 
