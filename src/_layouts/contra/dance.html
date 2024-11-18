@@ -16,6 +16,9 @@
                 {% for dance in section %}
                     <dt>{{ dance.title }}</dt>
                     <dd>{{ dance.author }}</dd>
+                    {% if dance.type %}
+                        <dd>({{ dance.type }})</dd>
+                    {% endif %}
                     {% if dance.notes %}
                         <dd><em>Notes: {{ dance.notes }}</em></dd>
                     {% endif %}

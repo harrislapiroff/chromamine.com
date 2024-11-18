@@ -22,34 +22,13 @@ testimonials:
     author: "Rochester NY"
   - quote: "Thought the walkthrough was one of the BEST I've ever seen. Minimum of confused new folks. Also super appreciate increasing difficulty over the course of the night. Come back!"
     author: "Montpelier VT"
-  - quote: "The way you keep your voice calm and upbeat makes it easier to follow and learn the moves!"
-    author: "Montpelier VT"
+  # - quote: "The way you keep your voice calm and upbeat makes it easier to follow and learn the moves!"
+  #   author: "Montpelier VT"
+  - quote: "I have been contra dancing for seven years, but I learned things from Harris that I never learned before. Your beginner lesson was the best I have ever been a part of."
+    author: "Worcester MA"
 
 dances:
   upcoming:
-
-    - name: Boston Gender Free English Country Dance
-      date: 2024-10-08T19:30
-      date_end: 2024-10-08T22:00
-      tzid: America/New_York
-      band: Jean Monroe, Sally Kolodkin, Brian Warnock
-      street: First Church In Jamaica Plain, 6 Eliot St
-      city: Boston MA
-      url: https://www.lcfd.org/bgfe.html
-
-    - name: Worcester Contra Dance
-      date: 2024-11-09T19:15
-      date_end: 2024-11-09T22:30
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street:  Wesley United Methodist Church, 114 Main Street
-      city: Worcester MA
-      description: |+
-        Workshop at 7:15PM  
-        Dancing from 7:30–10:30PM  
-        Role terms will be Ladies/Gents
-      url: https://www.worcesterdance.org/
 
     - name: Monday Contras
       date: 2024-11-25T19:30
@@ -87,6 +66,17 @@ dances:
       description: |+
         Workshop at 7:10PM  
         Dancing from 7:30PM–10PM
+        
+    - name: Rehoboth Contra Dance
+      date: 2024-06-27T19:30
+      date_end: 2024-06-27T22:30
+      tzid: America/New_York
+      street: Blanding Public Library, 124 Bay State Road
+      city: Rehoboth MA
+      url: https://rehobothcontradance.com/
+      description: |+
+        Workshop at 7:15PM  
+        Dancing from 7:30–10:30PM
 
   past:
     - name: Brooklyn Contra
