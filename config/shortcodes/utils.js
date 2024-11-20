@@ -1,4 +1,4 @@
-const errorBoundary = (fn, msg) => {
+export const errorBoundary = (fn, msg) => {
     // Return a new function that wraps our original function in
     // a try...catch block
     return async function (...args) {
@@ -13,5 +13,3 @@ const errorBoundary = (fn, msg) => {
         }
     }
 }
-
-module.exports = { errorBoundary }

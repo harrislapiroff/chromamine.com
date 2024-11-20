@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "PROD=0 eleventy --serve",
-    "build": "PROD=1 eleventy",
+    "serve": "PROD=0 NODE_OPTIONS=\"--experimental-require-module\" eleventy --serve",
+    "build": "PROD=1 NODE_OPTIONS=\"--experimental-require-module\" eleventy",
     "blog": "node scripts/blog.mjs"
   },
   "keywords": [],
@@ -20,7 +21,7 @@
     "@observablehq/parser": "^6.0.0",
     "commander": "^11.1.0",
     "eleventy-plugin-rev": "^2.0.0",
-    "eleventy-sass": "^2.2.3",
+    "eleventy-sass": "^3.0.0-beta.0",
     "esbuild": "^0.19.4",
     "highlight.js": "^11.9.0",
     "jsdom": "^22.1.0",
@@ -29,6 +30,7 @@
     "yaml": "^2.3.3"
   },
   "dependencies": {
+    "@11ty/eleventy-upgrade-help": "^3.0.1",
     "@floating-ui/dom": "^1.6.3",
     "@ibm/plex": "^6.3.0",
     "@observablehq/runtime": "^5.9.3",
