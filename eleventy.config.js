@@ -12,7 +12,6 @@ import multimatch from "multimatch"
 import pluginRev from "eleventy-plugin-rev"
 import eleventySass from "eleventy-sass"
 import yaml from "js-yaml"
-import pug from "pug"
 
 import { compileObservable } from "./config/utils/ojs/compile.js"
 import { md } from './config/markdown.js'
@@ -145,6 +144,7 @@ export default function(eleventyConfig) {
     /* Add sass support
      *-------------------------------------*/
     eleventyConfig.addPlugin(pluginRev)
+    eleventyConfig.addFilter("rev", pluginRev.revvedFilePathFromOutputPath)
     eleventyConfig.addPlugin(
         eleventySass,
         {

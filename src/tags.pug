@@ -6,8 +6,9 @@ pagination:
   filter:
     - posts
     - all
-permalink: "| tags/#{ filters.slugify(tag) }/"
 layout: monotheme/page.pug
+eleventyComputed:
+  permalink: "| tags/#{ filters.slugify(tag) }/"
 ---
 
 include _layouts/monotheme/mixins/archive-list.pug
