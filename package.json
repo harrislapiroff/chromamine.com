@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "3.0",
     "@11ty/eleventy-img": "^3.1.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@alex.garcia/unofficial-observablehq-compiler": "^0.6.0-alpha.9",
