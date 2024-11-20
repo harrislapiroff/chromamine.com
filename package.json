@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@11ty/eleventy-plugin-pug": "^1.0.0",
-    "@11ty/eleventy-upgrade-help": "^3.0.1",
     "@floating-ui/dom": "^1.6.3",
     "@ibm/plex": "^6.3.0",
     "@observablehq/runtime": "^5.9.3",
