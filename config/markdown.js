@@ -1,14 +1,16 @@
-const path = require("node:path")
-const markdownIt = require("markdown-it")
+import path from "node:path"
+import markdownIt from "markdown-it"
 
 // Footnotes and Highlighting are configured via
 // instantiation options
-const markdownFootnotes = require("markdown-it-footnote")
-const markdownContainer = require("markdown-it-container")
-const markdownAbbr = require("markdown-it-abbr")
+import markdownFootnotes from "markdown-it-footnote"
+import markdownContainer from "markdown-it-container"
+import markdownAbbr from "markdown-it-abbr"
 
-var hljs = require('highlight.js')
-let mdOptions = {
+import hljs from "highlight.js"
+import Image from "@11ty/eleventy-img"
+
+export const mdOptions = {
     typographer: true,
     html: true,
     highlight: function (str, lang) {
@@ -25,7 +27,8 @@ let mdOptions = {
         return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
     }
 }
-const md = markdownIt(mdOptions)
+
+export const md = markdownIt(mdOptions)
     .use(markdownFootnotes)
     .use(markdownAbbr)
     .use(markdownContainer, 'update')
@@ -83,7 +86,6 @@ md.renderer.rules.heading_close = (tokens, idx, options, env, self) => {
 
 // Responsive Images
 // see: https://tomichen.com/blog/posts/20220416-responsive-images-in-markdown-with-eleventy-image/
-const Image = require("@11ty/eleventy-img")
 const IMAGE_WIDTHS = [640, 1280, 1920]
 md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const token = tokens[idx]
@@ -109,9 +111,4 @@ md.renderer.rules.image = (tokens, idx, options, env, self) => {
         }
     )
     return generated
-}
-
-module.exports = {
-    md,
-    mdOptions,
 }

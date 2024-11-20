@@ -3,7 +3,7 @@
 // computed frontmatter is always processed using the template language of the
 // current page. We want to have the same permalink format for all blog posts
 // without having to duplicate the logic in each template language.
-module.exports = {
+export default {
     layout: 'monotheme/post.pug',
     categories: [],
     eleventyComputed: {
