@@ -1,5 +1,3 @@
-import UpgradeHelper from "@11ty/eleventy-upgrade-help"
-
 import path from "node:path"
 import pluginRss from "@11ty/eleventy-plugin-rss"
 import pugPlugin from "@11ty/eleventy-plugin-pug"
@@ -218,8 +216,6 @@ export default function(eleventyConfig) {
             })
         }
     })
-
-    eleventyConfig.addPlugin(UpgradeHelper)
 
     return {
         'dir': {
