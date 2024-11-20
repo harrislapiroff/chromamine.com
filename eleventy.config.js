@@ -2,6 +2,7 @@ import UpgradeHelper from "@11ty/eleventy-upgrade-help"
 
 import path from "node:path"
 import pluginRss from "@11ty/eleventy-plugin-rss"
+import pugPlugin from "@11ty/eleventy-plugin-pug"
 import fs from "fs/promises"
 
 // Note: For the upgrade to 11ty 3.x we will want to replace this
@@ -175,20 +176,10 @@ export default function(eleventyConfig) {
      *-------------------------------------*/
     eleventyConfig.addDataExtension("yaml", contents => yaml.safeLoad(contents))
 
-    /* Pug caching
-     * see: https://github.com/11ty/eleventy/issues/1926#issuecomment-1282394830
-     *------------------------------------*/
-    let pugCache = {}
-    // Reset the cache
-    eleventyConfig.on("eleventy.after", () => {
-      pugCache = {}
-    });
-    eleventyConfig.setLibrary("pug", {
-      compile: (str, options) => {
-        if (pugCache[str]) return pugCache[str]
-        pugCache[str] = pug.compile(str, options)
-        return pugCache[str]
-      },
+    /* Pug support
+    *-------------------------------------*/
+    eleventyConfig.addPlugin(pugPlugin, {
+        filters: eleventyConfig.getFilters()
     })
 
     /* Pug filter support
