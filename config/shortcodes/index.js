@@ -1,11 +1,13 @@
-const imageGrid = require('./imageGrid')
-const button = require('./button')
-const image = require('./image')
+import imageGrid from './imageGrid.js'
+import button from './button.js'
+import image from './image.js'
+import stl from './stl.js'
+import danceCard from './danceCard.js'
 
-module.exports = [
+export default [
     ['paired', 'imagegrid', imageGrid],
-    ['single', 'stl', require('./stl')],
-    ['single', 'dancecard', require('./danceCard')],
+    ['single', 'stl', stl],
+    ['single', 'dancecard', danceCard],
     ['single', 'button', button],
     ['single', 'image', image],
-]
+];

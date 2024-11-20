@@ -1,29 +1,38 @@
-const path = require("node:path")
-const pluginRss = require("@11ty/eleventy-plugin-rss")
-const fs = require("fs").promises
+import UpgradeHelper from "@11ty/eleventy-upgrade-help"
+
+import path from "node:path"
+import pluginRss from "@11ty/eleventy-plugin-rss"
+import fs from "fs/promises"
 
 // Note: For the upgrade to 11ty 3.x we will want to replace this
 // with 11ty's built-in glob util seen here:
 // https://github.com/11ty/eleventy/blob/main/src/Util/GlobMatcher.js#L4
-const multimatch = require("multimatch")
+import multimatch from "multimatch"
+import pluginRev from "eleventy-plugin-rev"
+import eleventySass from "eleventy-sass"
+import yaml from "js-yaml"
+import pug from "pug"
+
+import { compileObservable } from "./config/utils/ojs/compile.js"
+import { md } from './config/markdown.js'
+import shortcodes from './config/shortcodes/index.js'
+
+import {
+    numFormat,
+    humaneNumFormat,
+    dateFormat,
+    slugify,
+    markdown as markdownFilter,
+    pluralize,
+    getSEOExcerpt,
+    getSEOImage,
+} from "./config/filters.js"
 
 const blogPostFormats = ['md', 'ojs', 'html']
 // Any file in the posts directory with a blog post format extension
 const blogPostGlobs = blogPostFormats.map((format) => `./src/posts/*.${format}`)
 
-module.exports = function(eleventyConfig) {
-    /* Load CommonJS modules before config
-     * see: https://github.com/11ty/eleventy/issues/2675#issuecomment-1338240707
-     * ------------------------------------*/
-    eleventyConfig.on('eleventy.before', async () => {
-        const d3time = await import("d3-time-format")
-        const d3format = await import("d3-format")
-        global.d3time = d3time
-        global.d3format = d3format
-
-        const { compileObservable } = await import("./config/utils/ojs/compile.mjs")
-        global.compileObservable = compileObservable
-    })
+export default function(eleventyConfig) {
 
     /* Copy raw source files to site
      * -------------------------------------*/
@@ -120,12 +129,10 @@ module.exports = function(eleventyConfig) {
 
     /* Markdown features
      *-------------------------------------*/
-    const { md } = require('./config/markdown')
     eleventyConfig.setLibrary("md", md)
 
     /* Shortcodes
      *-------------------------------------*/
-    const shortcodes = require('./config/shortcodes')
     shortcodes.forEach(([type, name, fn]) => {
         if (type === 'paired') {
             eleventyConfig.addPairedShortcode(name, fn)
@@ -136,8 +143,6 @@ module.exports = function(eleventyConfig) {
 
     /* Add sass support
      *-------------------------------------*/
-    const pluginRev = require("eleventy-plugin-rev")
-    const eleventySass = require("eleventy-sass")
     eleventyConfig.addPlugin(pluginRev)
     eleventyConfig.addPlugin(
         eleventySass,
@@ -157,18 +162,6 @@ module.exports = function(eleventyConfig) {
 
     /* Custom filters
      *-------------------------------------*/
-
-    const {
-        numFormat,
-        humaneNumFormat,
-        dateFormat,
-        slugify,
-        markdown: markdownFilter,
-        pluralize,
-        getSEOExcerpt,
-        getSEOImage,
-    } = require("./config/filters")
-
     eleventyConfig.addFilter("numFormat", numFormat)
     eleventyConfig.addFilter("humaneNumFormat", humaneNumFormat)
     eleventyConfig.addFilter("dateFormat", dateFormat)
@@ -180,7 +173,6 @@ module.exports = function(eleventyConfig) {
 
     /* Allow YAML configuration files
      *-------------------------------------*/
-    const yaml = require("js-yaml")
     eleventyConfig.addDataExtension("yaml", contents => yaml.safeLoad(contents))
 
     /* Pug caching
@@ -188,7 +180,6 @@ module.exports = function(eleventyConfig) {
      *------------------------------------*/
     let pugCache = {}
     // Reset the cache
-    const pug = require("pug")
     eleventyConfig.on("eleventy.after", () => {
       pugCache = {}
     });
@@ -236,6 +227,8 @@ module.exports = function(eleventyConfig) {
             })
         }
     })
+
+    eleventyConfig.addPlugin(UpgradeHelper)
 
     return {
         'dir': {
