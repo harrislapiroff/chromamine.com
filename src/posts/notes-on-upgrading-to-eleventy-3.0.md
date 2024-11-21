@@ -3,11 +3,11 @@ title: Notes on Upgrading to Eleventy 3.0
 date: 2024-11-21
 categories: [Software]
 tags: [web, 11ty]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113521661366073425
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02RZTJSUrS1ELVZSnZoy8RCdTFd98kxZXg72CVBEF1ET61G8zyboPpHAFH1APRtYp6l
 ---
 
 My blog is now running on Eleventy 3.0, which was released last month. The upgrade process took me a few hours split over two evenings and I took a few notes. This probably isn’t an interesting write up for hardly anyone – but if you have any of the same 11ty concerns I do, you may find a solution in here.
