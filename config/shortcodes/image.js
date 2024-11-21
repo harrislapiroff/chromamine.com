@@ -1,6 +1,6 @@
-const Image = require("@11ty/eleventy-img")
-const { md } = require('../markdown.js')
-const { errorBoundary } = require('./utils.js')
+import Image from "@11ty/eleventy-img"
+import { md } from '../markdown.js'
+import { errorBoundary } from './utils.js'
 
 const IMAGE_WIDTHS = [640, 1280, 1920]
 const IMAGE_FORMATS = ['webp', 'jpeg', 'svg']
@@ -31,4 +31,4 @@ const image = async function (imgObj) {
     </figure>`
 }
 
-module.exports = errorBoundary(image)
+export default errorBoundary(image)
