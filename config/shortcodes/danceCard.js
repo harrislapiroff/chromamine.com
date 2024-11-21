@@ -1,5 +1,5 @@
-const { md } = require('../markdown.js')
-const { errorBoundary } = require('./utils.js')
+import { md } from '../markdown.js'
+import { errorBoundary } from './utils.js'
 
 const danceCard = (danceCollection, title) => {
     const dance =  danceCollection.find(d => d.title === title)
@@ -37,4 +37,4 @@ const danceCard = (danceCollection, title) => {
     return output
 }
 
-module.exports = errorBoundary(danceCard, 'Error processing dance card')
+export default errorBoundary(danceCard, 'Error processing dance card')

@@ -1,4 +1,4 @@
-const stl = function (file_path, alt) {
+export default function (file_path, alt) {
     return `
         <div
             class="js-stl-viewer"
@@ -9,5 +9,3 @@ const stl = function (file_path, alt) {
         </div>
     `
 }
-
-module.exports = stl

@@ -1,7 +1,7 @@
-const { md } = require('../markdown')
+import { md } from '../markdown.js'
 
 // Should be registered as a paired shortcode
-const imageGrid = function (content) {
+export default function (content) {
     // Add page data to the env to match the env that gets
     // passed to markdown during normal rendering
     const env = {
@@ -21,5 +21,3 @@ const imageGrid = function (content) {
         `</div>`
     ].join('')
 }
-
-module.exports = imageGrid
