@@ -1,0 +1,223 @@
+---
+title: Notes on Upgrading to Eleventy 3.0
+date: 2024-11-21
+categories: [Software]
+tags: [web, 11ty]
+# xposts:
+#   - label: Mastodon
+#     url: TBD
+#   - label: Facebook
+#     url: TBD
+---
+
+This blog is now running on Eleventy 3.0, which was released [last month](https://www.11ty.dev/blog/eleventy-v3/). The process took me a few hours over the course of two evenings and I took a few notes on my upgrade process for posterity. This probably isn't an interesting blog post for hardly anyone – but if you have any of the same 11ty concerns I do, you may find a solution in here.
+
+* The [Upgrade Helper docs][] got me much of the way there, including reminding me what the command even is for upgrading a node dependency a major version, which I struggled with initially 😅
+
+  [Upgrade Helper docs]: https://www.11ty.dev/docs/plugins/upgrade-help/
+
+* Actually when I tried to install the Upgrade Helper plugin, I got a dependency conflict with `eleventy-sass`:
+
+  ```
+  npm ERR! code ERESOLVE
+  npm ERR! ERESOLVE could not resolve
+  npm ERR!
+  npm ERR! While resolving: eleventy-sass@2.2.4
+  npm ERR! Found: @11ty/eleventy@3.0.0
+  npm ERR! node_modules/@11ty/eleventy
+  npm ERR!   dev @11ty/eleventy@"3.0" from the root project
+  npm ERR!
+  npm ERR! Could not resolve dependency:
+  npm ERR! peer @11ty/eleventy@"^1.0.0 || ^2.0.0-canary.12 || ^2.0.0-beta.1" from eleventy-sass@2.2.4
+  npm ERR! node_modules/eleventy-sass
+  npm ERR!   dev eleventy-sass@"^2.2.3" from the root project
+  npm ERR!
+  npm ERR! Conflicting peer dependency: @11ty/eleventy@2.0.1
+  npm ERR! node_modules/@11ty/eleventy
+  npm ERR!   peer @11ty/eleventy@"^1.0.0 || ^2.0.0-canary.12 || ^2.0.0-beta.1" from eleventy-sass@2.2.4
+  npm ERR!   node_modules/eleventy-sass
+  npm ERR!     dev eleventy-sass@"^2.2.3" from the root project
+  ```
+
+  Upgrading `eleventy-sass` with
+  
+  ```sh
+  npm upgrade eleventy-sass
+  ```
+
+  resolved it the conflict and I was able install the Upgrade Helper successfully.
+
+* When I ran my site I got this error:
+
+  ```sh
+  (node:2948) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+  (Use `node --trace-warnings ...` to show where the warning was created)
+  [11ty] Eleventy Error (CLI):
+  [11ty] 1. Error in your Eleventy config file 'eleventy.config.js'. (via EleventyConfigError)
+  [11ty] 2. Cannot use import statement outside a module (via SyntaxError)
+  [11ty]
+  [11ty] Original error stack trace: /Users/harris/Projects/Personal/chromamine.com/eleventy.config.js:1
+  [11ty] import UpgradeHelper from "@11ty/eleventy-upgrade-help"
+  [11ty] ^^^^^^
+  [11ty]
+  [11ty] SyntaxError: Cannot use import statement outside a module
+  ```
+
+  Whoops – I had copied the line from the docs as written `import UpgradeHelper from "@11ty/eleventy-upgrade-help"` but I had forgotten I needed to convert my project to a module to use ES Modules (ESM) imports instead of CommonJS (CJS) imports (e.g., `const UpgradeHelper = require("@11ty/eleventy-upgrade-help")`).
+
+  I could have stuck to CommonJS imports, which 11ty still supports, but most of the reason I wanted to upgrade to 3.0 was _because_ it supports ESM imports – which are more consistent with how I write Javascript everywhere else. I added `"type": "module"` to my `package.json` and converted all of my old CJS imports and exports to ESM.
+
+  This wasn't quite as straightforward as find and replace because I sometimes used CJS `require` imperatively mid-function, but I moved all imports to the top when I converted them. I was able to ask [Copilot][] to convert them for me (and add extensions, because node requires extensions for local ESM imports) successfully. It still took a while because I went through each file and did them a bit at a time so I could check Copilot's work. I did occasionally have to remind it not to insert semicolons, since my javascript style is, controversially, *not* to use semicolons.
+  
+  It's possible I could have asked Copilot to just do it project-wide and it would have worked – but I wasn't prepared to trust it that far. Nevertheless I think it saved me a fair bit of time here.
+
+  [Copilot]: https://github.com/features/copilot
+
+  This also enabled me to remove some hacky workarounds I had in my config for importing ESM-only projects, e.g., this code at the top of my config function:
+
+  ```js
+  eleventyConfig.on('eleventy.before', async () => {
+    const d3time = await import("d3-time-format")
+    const d3format = await import("d3-format")
+    global.d3time = d3time
+    global.d3format = d3format
+
+    const { compileObservable } = await import("./config/utils/ojs/compile.mjs")
+    global.compileObservable = compileObservable
+  })
+  ```
+  
+  became a more civilized
+
+  ```
+  import {
+      format as d3Format,
+      utcFormat as d3UtcFormat,
+  } from 'd3'
+  ```
+
+  in the specific file that needed it (note also that the imported objects are also more specific).
+
+* `eleventy-sass`, it turned out, requires a node flag `--experimental-require-module` to run. I have these `"script"`s in my `package.json` file to run 11ty:
+
+  ```json
+  "scripts": {
+    "serve": "PROD=0 eleventy --serve",
+    "build": "PROD=1 eleventy",
+    //...
+  }
+  ```
+
+  It wasn't immediately obvious to me how to add the node flag to these scripts, but after searching around, I settled on this approach:
+
+  ```json
+  "scripts": {
+    "serve": "PROD=0 node NODE_OPTIONS=\"--experimental-require\" eleventy --serve",
+    "build": "PROD=1 node NODE_OPTIONS=\"--experimental-require\" eleventy",
+    //...
+  }
+  ```
+
+* After fixing all of the above, I was finally able to run `npm run build` and see the output from the upgrade helper plugin. Mostly my project passed the tests:
+
+  ```
+  [11ty/eleventy-upgrade-help] PASSED You are using Node v22.0.0. Node 18 or newer is required.
+  [11ty/eleventy-upgrade-help] PASSED Eleventy will fail with an error when you point `--config` to a configuration file that does not exist. You are not using `--config`—so don’t worry about it! Read more: https://github.com/11ty/eleventy/issues/3373
+  ...
+  ```
+
+  But there was one error:
+
+  ```
+  [11ty/eleventy-upgrade-help] ERROR Found 10 pug files in your project but the pug plugin was moved from core to an officially supported plugin. You will need to add the plugin for pug, available here: https://github.com/11ty/eleventy-plugin-template-languages and you can learn more about this here: https://github.com/11ty/eleventy/issues/3124
+  ```
+
+  I followed the instructions to install the Pug template plugin, which resolved the error.
+
+* Previously I had used a bit of a hack to make my 11ty template filters available to my Pug templates, since Pug doesn't natively support filters:
+
+  ```js
+  global.filters = eleventyConfig.javascriptFunctions
+  eleventyConfig.setPugOptions({
+      globals: ['filters'],
+  })
+  ```
+  
+  which allowed me to call filters in templates like:
+
+  ```pug
+  span.archive-list__item-tag-count= `(${tag.count} post${filters.pluralize(tag.count)})`
+  ```
+
+  This no longer worked with in 3.0 *and* with the new plugin (I believe both `.javascriptFunctions` *and* `.setPugOptions` are gone). This new code worked, with no changes to my templates:
+
+  ```js
+  eleventyConfig.addPlugin(pugPlugin, {
+    filters: eleventyConfig.getFilters()
+  })
+  ```
+
+  though I do wonder if I'm misusing the `filters` option.
+
+* Next, I got this error when building:
+
+  ```sh
+  [11ty] Problem writing Eleventy templates:
+  [11ty] Output conflict: multiple input files are writing to `./_site/| tags/#{ filters.slugify(tag) }/index.html`. Use distinct `permalink` values to resolve this conflict.
+  [11ty]   1. ./src/tags.pug
+  [11ty]   2. ./src/tags.pug
+  [11ty]   3. ./src/tags.pug
+  [11ty]   4. ./src/tags.pug
+  # ... and on and on for a while
+  ```
+
+  I was using Eleventy's [pagination feature][] to generate all my tag pages from a single template:
+
+  [pagination feature]: https://www.11ty.dev/docs/pagination/
+
+  `tags.pug`'s frontmatter:
+
+  ```yaml
+  pagination:
+    data: collections
+    size: 1
+    alias: tag
+    filter:
+      - posts
+      - all
+  layout: monotheme/page.pug
+  permalink: "| tags/#{ filters.slugify(tag) }/"
+  ```
+
+  The `permalink` entry in the YAML frontmatter is actually a mini Pug template that generates a permalink with each tag name, like `/tags/11ty/`. Unfortunately in 3.0 handling of permalinks changed and this code no longer worked. Fortunately it was very easy to fix – just a matter of nesting the `permalink` entry under a `eleventyComputed` entry:
+
+  ```yaml
+  pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - posts
+    - all
+  layout: monotheme/page.pug
+  eleventyComputed:
+    permalink: "| tags/#{ filters.slugify(tag) }/"
+  ```
+
+  (Thanks to [Shiv][] for helping me out with this one in the 11ty Discord!)
+
+  [Shiv]: https://shivjm.blog/
+
+* And one last issue: I use [`eleventy-sass` and `eleventy-plugin-rev` to add hashes](https://github.com/kentaroi/eleventy-sass?tab=readme-ov-file#rev-property) to compiles CSS and javascript files. This required calling `filters.rev(cssURL)` around URLs in my templates. Because of my changes to how I was passing filters to Pug, this stopped working. After digging around in [the code] for `eleventy-plugin-rev` for a bit, I settled on this code to solve it:
+
+  [the code]: https://github.com/kentaroi/eleventy-plugin-rev/blob/main/lib/eleventy-plugin-rev.js#L88
+
+  ```js
+  eleventyConfig.addFilter("rev", pluginRev.revvedFilePathFromOutputPath)
+  ```
+
+  which worked.
+
+Finally, my site compiled successfully under 11ty 3.0. I'm looking forward to being able to use ESM imports to clean up my code a bit, leverage the asynchronous features for improved build performance, adding new features to my blog with the APIs that the new version makes available (Virtual Templates, included Bundler, and `page.rawInput` seem especially intriguing), and possibly experiment with some of the new template languages (looking at you, [WebC][]) that are now available to me.
+
+[WebC]: https://www.11ty.dev/docs/languages/webc/
