@@ -10,13 +10,13 @@ tags: [web, 11ty]
 #     url: TBD
 ---
 
-This blog is now running on Eleventy 3.0, which was released [last month](https://www.11ty.dev/blog/eleventy-v3/). The process took me a few hours over the course of two evenings and I took a few notes on my upgrade process for posterity. This probably isn't an interesting blog post for hardly anyone – but if you have any of the same 11ty concerns I do, you may find a solution in here.
+My blog is now running on Eleventy 3.0, which was released last month. The upgrade process took me a few hours split over two evenings and I took a few notes. This probably isn’t an interesting write up for hardly anyone – but if you have any of the same 11ty concerns I do, you may find a solution in here.
 
-* The [Upgrade Helper docs][] got me much of the way there, including reminding me what the command even is for upgrading a node dependency a major version, which I struggled with initially 😅
+* I started out by following the instructions in the excellent [Upgrade Helper docs][].
 
   [Upgrade Helper docs]: https://www.11ty.dev/docs/plugins/upgrade-help/
 
-* Actually when I tried to install the Upgrade Helper plugin, I got a dependency conflict with `eleventy-sass`:
+* When I tried to install the Upgrade Helper plugin, I got a dependency conflict with `eleventy-sass`:
 
   ```
   npm ERR! code ERESOLVE
@@ -45,7 +45,7 @@ This blog is now running on Eleventy 3.0, which was released [last month](https:
   npm upgrade eleventy-sass
   ```
 
-  resolved it the conflict and I was able install the Upgrade Helper successfully.
+  resolved it and I was able install the Upgrade Helper successfully.
 
 * When I ran my site I got this error:
 
@@ -63,13 +63,19 @@ This blog is now running on Eleventy 3.0, which was released [last month](https:
   [11ty] SyntaxError: Cannot use import statement outside a module
   ```
 
-  Whoops – I had copied the line from the docs as written `import UpgradeHelper from "@11ty/eleventy-upgrade-help"` but I had forgotten I needed to convert my project to a module to use ES Modules (ESM) imports instead of CommonJS (CJS) imports (e.g., `const UpgradeHelper = require("@11ty/eleventy-upgrade-help")`).
-
-  I could have stuck to CommonJS imports, which 11ty still supports, but most of the reason I wanted to upgrade to 3.0 was _because_ it supports ESM imports – which are more consistent with how I write Javascript everywhere else. I added `"type": "module"` to my `package.json` and converted all of my old CJS imports and exports to ESM.
-
-  This wasn't quite as straightforward as find and replace because I sometimes used CJS `require` imperatively mid-function, but I moved all imports to the top when I converted them. I was able to ask [Copilot][] to convert them for me (and add extensions, because node requires extensions for local ESM imports) successfully. It still took a while because I went through each file and did them a bit at a time so I could check Copilot's work. I did occasionally have to remind it not to insert semicolons, since my javascript style is, controversially, *not* to use semicolons.
+  Whoops – I had copied the line from the docs as written
   
-  It's possible I could have asked Copilot to just do it project-wide and it would have worked – but I wasn't prepared to trust it that far. Nevertheless I think it saved me a fair bit of time here.
+  ```js
+  import UpgradeHelper from "@11ty/eleventy-upgrade-help"
+  ```
+  
+  but I had forgotten to convert my project to use ES Modules (ESM) imports instead of CommonJS (CJS) imports (e.g., `const UpgradeHelper = require("@11ty/eleventy-upgrade-help")`).
+
+  I could have stuck to CommonJS imports, which 11ty still supports, but most of the reason I wanted to upgrade to 3.0 was _because_ it supports ESM imports – which are more consistent with how I write Javascript everywhere else and seem to be the future of the language. I added `"type": "module"` to my `package.json` and converted all of my old CJS imports and exports to ESM.
+
+  This wasn't a straightforward replace because I sometimes used CJS `require` mid-function, but I moved all imports to the top when I converted them. I rearranged some of the exports as well. I was able to ask [Copilot][] to convert them for me (and add extensions, because node requires extensions for local ESM imports) successfully. It still took a while to go through each file and convert them block by block. I did occasionally have to remind it not to insert semicolons, since my javascript style is, controversially, *not* to use semicolons.
+  
+  It's possible I could have asked Copilot to do it project-wide and it would have worked – but I wasn't prepared to trust it that far without checking its work. Nevertheless I do think it saved me a fair bit of time here.
 
   [Copilot]: https://github.com/features/copilot
 
@@ -98,7 +104,7 @@ This blog is now running on Eleventy 3.0, which was released [last month](https:
 
   in the specific file that needed it (note also that the imported objects are also more specific).
 
-* `eleventy-sass`, it turned out, requires a node flag `--experimental-require-module` to run. I have these `"script"`s in my `package.json` file to run 11ty:
+* `eleventy-sass`, it turns out, requires a node flag `--experimental-require-module` to run. I have these `"script"`s in my `package.json` file to run 11ty:
 
   ```json
   "scripts": {
@@ -112,18 +118,18 @@ This blog is now running on Eleventy 3.0, which was released [last month](https:
 
   ```json
   "scripts": {
-    "serve": "PROD=0 node NODE_OPTIONS=\"--experimental-require\" eleventy --serve",
-    "build": "PROD=1 node NODE_OPTIONS=\"--experimental-require\" eleventy",
+    "serve": "PROD=0 node NODE_OPTIONS=\"--experimental-require-module\" eleventy --serve",
+    "build": "PROD=1 node NODE_OPTIONS=\"--experimental-require-module\" eleventy",
     //...
   }
   ```
 
 * After fixing all of the above, I was finally able to run `npm run build` and see the output from the upgrade helper plugin. Mostly my project passed the tests:
 
-  ```
+  ```sh
   [11ty/eleventy-upgrade-help] PASSED You are using Node v22.0.0. Node 18 or newer is required.
   [11ty/eleventy-upgrade-help] PASSED Eleventy will fail with an error when you point `--config` to a configuration file that does not exist. You are not using `--config`—so don’t worry about it! Read more: https://github.com/11ty/eleventy/issues/3373
-  ...
+  # ...
   ```
 
   But there was one error:
@@ -134,7 +140,7 @@ This blog is now running on Eleventy 3.0, which was released [last month](https:
 
   I followed the instructions to install the Pug template plugin, which resolved the error.
 
-* Previously I had used a bit of a hack to make my 11ty template filters available to my Pug templates, since Pug doesn't natively support filters:
+* Previously I used a bit of a hack to make my 11ty template filters available to my Pug templates:
 
   ```js
   global.filters = eleventyConfig.javascriptFunctions
