@@ -30,17 +30,15 @@ testimonials:
 dances:
   upcoming:
 
-    - name: Monday Contras
-      date: 2024-11-25T19:30
-      date_end: 2024-11-25T22:30
+    - name: Boston Gender Free English Country Dance
+      date: 2024-12-10T19:30
+      date_end: 2024-12-10T22:00
       tzid: America/New_York
-      band: Julie Metcalf, Larry Unger, Jack O'Connor
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
-      city: Concord MA
-      url: http://mondaycontras.com/
+      band: Jean Monroe, Carol Bittenson, Elaine Winic
+      street: First Church In Jamaica Plain, 6 Eliot St
+      city: Boston MA
+      url: https://www.lcfd.org/bgfe.html
+      description: Sharing the caller mic with Sam Weiler
 
     - name: Glen Echo Friday Night Dance
       date: 2024-12-20T20:00
@@ -55,6 +53,18 @@ dances:
         Dancing from 8:00–11:00PM
       url: https://www.fridaynightdance.com/
 
+    - name: Seacoast Contra
+      date: 2025-01-06T20:00
+      date_end: 2025-01-06T22:30
+      tzid: America/New_York
+      band: Strange Charm (Brad Robinson, Jim DiCarlo) with guest musicians Andrea and George Calvey
+      street: Newfields Town Hall, 65 Main St.
+      city: Newfields, NH
+      url: https://seacoastcontra.com
+      description: |+
+        Workshop at 7:30PM
+        Dancing from 8:00–10:30PM
+
     - name: Thursday Contras
       date: 2025-02-06T19:10
       date_end: 2025-02-06T22:00
@@ -66,10 +76,21 @@ dances:
       description: |+
         Workshop at 7:10PM  
         Dancing from 7:30PM–10PM
-        
+
+    - name: Common Floor Contra
+      date: 2025-06-06T19:30
+      date_end: 2025-06-08T22:00
+      tzid: America/New_York
+      description: |+
+        Workshop at 7PM  
+        Dancing from 7:30–10PM
+      street: 400 Deering Ave
+      city: Portland ME
+      url: https://www.commonfloorcontra.dance/
+
     - name: Rehoboth Contra Dance
-      date: 2024-06-27T19:30
-      date_end: 2024-06-27T22:30
+      date: 2025-06-27T19:30
+      date_end: 2025-06-27T22:30
       tzid: America/New_York
       street: Blanding Public Library, 124 Bay State Road
       city: Rehoboth MA
@@ -453,3 +474,15 @@ dances:
         Workshop at 7:40PM  
         Dancing from 8:00–11:00PM
       url: https://capitalcitygrange.org/event/dance-dance-7-2020-06-20-2020-10-17/2024-09-21/
+
+    - name: Monday Contras
+      date: 2024-11-25T19:30
+      date_end: 2024-11-25T22:30
+      tzid: America/New_York
+      band: Julie Metcalf, Larry Unger, Jack O'Connor
+      description: |+
+        Workshop at 7PM  
+        Dancing from 7:30–10:30PM
+      street: Concord Scout House, 74 Walden St
+      city: Concord MA
+      url: http://mondaycontras.com/
