@@ -22,7 +22,7 @@ program:
   - title: Bevy of Butterflies
     author: Chris Page and Bob Isaacs
   - title: Joyride
-    author: Eric Weberg
+    author: Erik Weberg
   - title: The Boys From Urbana
     author: John Coffman
   - title: Pink Martini
