@@ -22,7 +22,7 @@ program:
 - - title: You Can Get There From Here
     author: Linda Leslie
   - title: Joyride
-    author: Eric Weberg
+    author: Erik Weberg
   - title: Shutesbury Reel
     author: David Kaynor
     notes: Had a C part that I forgot to alert the band to, so cut short.
