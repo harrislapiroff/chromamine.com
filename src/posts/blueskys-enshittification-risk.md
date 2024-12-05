@@ -4,8 +4,8 @@ date: 2024-12-05
 categories: [Software]
 tags: [web, social media]
 xposts:
-  # - label: Mastodon
-  #   url: TBD
+  - label: Mastodon
+    url: https://social.coop/@harris/113601893839468813
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid03n1ae36eQCvnK9pjgn2C11fD7AV1M2pjtMkMWtFrmWE7KvkJKMvadsDGz5C2dfFKl
 ---
