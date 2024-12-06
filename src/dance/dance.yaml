@@ -64,6 +64,16 @@ dances:
       description: |+
         Workshop at 7:30PM
         Dancing from 8:00–10:30PM
+      
+    - name: Boston Gender Free English Country Dance
+      date: 2025-01-28T19:30
+      date_end: 2025-01-28T22:00
+      tzid: America/New_York
+      band: Jean Monroe, Emma Azelborn, Sean Smith
+      street: First Church In Jamaica Plain, 6 Eliot St
+      city: Boston MA
+      url: https://www.lcfd.org/bgfe.html
+      description: Tentative event, may not happen.
 
     - name: Thursday Contras
       date: 2025-02-06T19:10
@@ -76,6 +86,15 @@ dances:
       description: |+
         Workshop at 7:10PM  
         Dancing from 7:30PM–10PM
+
+    - name: Boston Gender Free English Country Dance
+      date: 2025-03-25T19:30
+      date_end: 2025-03-25T22:00
+      tzid: America/New_York
+      band: Jean Monroe, Emma Azelborn, Brian Wilson
+      street: First Church In Jamaica Plain, 6 Eliot St
+      city: Boston MA
+      url: https://www.lcfd.org/bgfe.html
 
     - name: Common Floor Contra
       date: 2025-06-06T19:30
