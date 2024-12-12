@@ -6,7 +6,6 @@ export default class DanceDataPage {
     }
 
     render(data) {
-        console.log(data.collections.danceEvents)
         const outputData = data.collections.danceEvents.map((event) => ({
             name: event.data.name,
             date: event.data.date,
