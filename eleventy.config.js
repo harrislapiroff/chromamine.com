@@ -12,6 +12,7 @@ import eleventySass from "eleventy-sass"
 import yaml from "js-yaml"
 
 import { compileObservable } from "./config/utils/ojs/compile.js"
+import { compileOmd } from "./config/utils/omd/compile.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
 
@@ -214,6 +215,18 @@ export default function(eleventyConfig) {
                 runtimePath: '/' + runtimeOutputPath,
                 inspectorPath: '/' + inspectorOutputPath,
             })
+        }
+    })
+
+    // Add the OMD format
+    eleventyConfig.addTemplateFormats("omd")
+    eleventyConfig.addExtension("omd", {
+        // see: https://github.com/11ty/eleventy/issues/2972#issuecomment-1607872439
+        compileOptions: { permalink: () => (data) => data.permalink },
+        // Compile the notebook to HTML
+        compile: async (inputContent) => {
+            // TODO: get this to use our markdown filter
+            return async (data) => await compileOmd(inputContent)
         }
     })
 
