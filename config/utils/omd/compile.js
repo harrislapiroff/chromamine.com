@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto"
+import { createHash } from "node:crypto"
 
 import markdownIt from "markdown-it"
 import { parseJavaScript } from "@observablehq/framework/dist/javascript/parse.js"
@@ -33,14 +33,27 @@ const isObservableBlock = (token) => {
     return token.type === 'fence' && token.info.startsWith("js")
 }
 
-export function compileOmd (content, options) {
-    const opts = {
-        md: defaultMd,
-        prefix: "omd",
-        ...options,
-    }
+/* A variation on
+ * https://github.com/observablehq/framework/blob/6d455ac4aa3c3832e7694e58d91a33f7ca74ee00/src/markdown.ts#L55
+ */
+function uniqueCodeId(code_blocks, content) {
+    const hash = createHash("sha256").update(content).digest("hex").slice(0, 8)
+    let id = hash
+    // Prevent collisions by checking earlier in the doc for the same hash
+    let counter = 1
+    // Add a counter suffix until there are no collisions
+    while (code_blocks.some(([uid]) => uid === id)) id = `${hash}-${counter++}`
+    return id
+}
 
-    const unprocessedTokens = opts.md.parse(content)
+export function compileOmd (content, options) {
+    const {
+        md = defaultMd,
+        prefix = "omd",
+        clientPath,
+    } = options
+
+    const unprocessedTokens = md.parse(content)
 
     const code_blocks = []
     const tokens = unprocessedTokens.map((token) => {
@@ -54,8 +67,8 @@ export function compileOmd (content, options) {
         if (directives.run) return token
 
         // Store the code in code blocks for transpiling into javascript later
-        const uuid = randomUUID()
-        code_blocks.push([uuid, parseJavaScript(token.content, { path: '' })])
+        const uid = uniqueCodeId(code_blocks, token.content)
+        code_blocks.push([uid, parseJavaScript(token.content, { path: '' })])
 
         // Prep an array for our output blocks
         const outputBlocks = []
@@ -64,7 +77,7 @@ export function compileOmd (content, options) {
         outputBlocks.push({
             ...token,
             type: "html_block",
-            content: `<${opts.prefix}-cell id="${opts.prefix}-${uuid}"></${opts.prefix}-cell>`,
+            content: `<observablehq-loading></observablehq-loading><!--:${uid}:-->`,
         })
 
         // If echo=true, add the code block back to the output
@@ -76,13 +89,14 @@ export function compileOmd (content, options) {
     }).flat().filter(Boolean)
 
     // TODO: Compile the code blocks into observable cells
-    const jsHtml = code_blocks.map(([uuid, node]) => transpileJavaScript(node, { id: uuid })).join("\n\n")
+    const jsHtml = code_blocks.map(([uid, node]) => transpileJavaScript(node, { id: uid })).join("\n\n")
 
     // Render our token stream to HTML
-    const mdHtml = opts.md.renderer.render(tokens, opts.md.options, {})
+    const mdHtml = md.renderer.render(tokens, md.options, {})
 
     return `
         <script type="module">
+            import { define } from "${clientPath}/main.js"
             ${jsHtml}
         </script>
         ${mdHtml}
