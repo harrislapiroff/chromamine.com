@@ -1,6 +1,8 @@
 import { randomUUID } from "node:crypto"
 
 import markdownIt from "markdown-it"
+import { parseJavaScript } from "@observablehq/framework/dist/javascript/parse.js"
+import { transpileJavaScript } from "@observablehq/framework/dist/javascript/transpile.js"
 
 const defaultMd = markdownIt({ html: true, })
 
@@ -53,7 +55,7 @@ export function compileOmd (content, options) {
 
         // Store the code in code blocks for transpiling into javascript later
         const uuid = randomUUID()
-        code_blocks.push([uuid, token.content])
+        code_blocks.push([uuid, parseJavaScript(token.content, { path: '' })])
 
         // Prep an array for our output blocks
         const outputBlocks = []
@@ -74,9 +76,15 @@ export function compileOmd (content, options) {
     }).flat().filter(Boolean)
 
     // TODO: Compile the code blocks into observable cells
+    const jsHtml = code_blocks.map(([uuid, node]) => transpileJavaScript(node, { id: uuid })).join("\n\n")
 
     // Render our token stream to HTML
     const mdHtml = opts.md.renderer.render(tokens, opts.md.options, {})
 
-    return mdHtml
+    return `
+        <script type="module">
+            ${jsHtml}
+        </script>
+        ${mdHtml}
+    `
 }

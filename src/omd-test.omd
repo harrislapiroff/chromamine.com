@@ -13,7 +13,9 @@ xposts:
 Hello world!
 
 ```js echo
-const hello = "Hello world!"
+const hello = "Hello world!";
 
-${hello}
+const hello2 = "Hello world, again!";
+
+html`<div>test</div>`
 ```
