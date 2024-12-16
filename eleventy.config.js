@@ -12,7 +12,7 @@ import eleventySass from "eleventy-sass"
 import yaml from "js-yaml"
 
 import { compileObservable } from "./config/utils/ojs/compile.js"
-import { compileOmd } from "./config/utils/omd/compile.js"
+import omdPlugin from "./config/utils/omd/plugin.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
 
@@ -31,7 +31,7 @@ const blogPostFormats = ['md', 'ojs', 'html']
 // Any file in the posts directory with a blog post format extension
 const blogPostGlobs = blogPostFormats.map((format) => `./src/posts/*.${format}`)
 
-export default function(eleventyConfig) {
+export default async function(eleventyConfig) {
 
     /* Copy raw source files to site
      * -------------------------------------*/
@@ -219,21 +219,12 @@ export default function(eleventyConfig) {
     })
 
     // Add the OMD format
-    eleventyConfig.addTemplateFormats("omd")
-    eleventyConfig.addExtension("omd", {
-        // see: https://github.com/11ty/eleventy/issues/2972#issuecomment-1607872439
-        compileOptions: { permalink: () => (data) => data.permalink },
-        // Compile the notebook to HTML
-        compile: async (inputContent) => {
-            // TODO: get this to use our markdown filter
-            return async (data) => await compileOmd(inputContent)
-        }
-    })
+    eleventyConfig.addPlugin(omdPlugin)
+}
 
-    return {
-        'dir': {
-            'input': 'src',
-            'layouts': '_layouts',
-        }
+export const config = {
+    'dir': {
+        'input': 'src',
+        'layouts': '_layouts',
     }
 }

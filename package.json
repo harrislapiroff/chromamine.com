@@ -33,6 +33,7 @@
     "@11ty/eleventy-plugin-pug": "^1.0.0",
     "@floating-ui/dom": "^1.6.3",
     "@ibm/plex": "^6.3.0",
+    "@observablehq/framework": "^1.13.0",
     "@observablehq/runtime": "^5.9.3",
     "@oddbird/popover-polyfill": "^0.4.0",
     "@react-three/drei": "^9.103.0",
