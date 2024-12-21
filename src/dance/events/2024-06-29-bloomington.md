@@ -34,6 +34,7 @@ program:
       author: Chris Page var. of Sue Rosen/Larry Jennings
     - title: "Medley (Appetizer, Tica Tica Timing/Old Time Elixir #2, Butter)"
       author: Scott Higgs, Dean Snipes/Linda Leslie, Gene Hubert
+      medley: true
       notes: No walkthrough
     - title: Mary Cay's Reel
       author: David Kaynor

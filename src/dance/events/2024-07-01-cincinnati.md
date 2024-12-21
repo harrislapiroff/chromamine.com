@@ -22,6 +22,7 @@ program:
       author: Gene Hubert
     - title: "Medley (Airpants, Tica Tica Timing/Old Time Elixir #2)"
       author: Lisa Greenleaf, Dean Snipes/Linda Leslie
+      medley: true
       notes: No walkthrough
   - - title: The Baby Rose
       author: David Kaynor

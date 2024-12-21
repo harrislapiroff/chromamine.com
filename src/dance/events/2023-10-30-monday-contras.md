@@ -13,25 +13,25 @@ program:
     author: Andy Shore
   - title: Butter
     author: Gene Hubert
-    notes: Annie Kidwell called
+    caller: Annie Kidwell
   - title: Kitchen Stomp
     author: Becky Hill
-    notes: Annie Kidwell called
+    caller: Annie Kidwell
   - title: Monday
     author: Jim Hemphill
-    notes: Annie Kidwell called
+    caller: Annie Kidwell
   - title: Square Affair
     author: Becky Hill
-    notes: Annie Kidwell called
+    caller: Annie Kidwell
 - - title: You Can Get There From Here
     author: Linda Leslie
-    notes: Annie Kidwell called
+    caller: Annie Kidwell
   - title: Violet Ice
     author: Maia McCormick
-    notes: Annie Kidwell called
+    caller: Annie Kidwell
   - title: A Pirate's Life For Me
     author: Nathaniel Jack
-  - title: Are You 'Most Done
+  - title: Are You 'Most Done?
     author: Russell Owen
   - title: Mary Cay's Reel
     author: David Kaynor

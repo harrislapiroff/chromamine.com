@@ -19,7 +19,7 @@ program:
       author: Dan Pearl
     - title: Butterfly Kiss
       author: Bob Isaacs
-      notes: Called by a guest caller (Sunny)
+      caller: Sunny
     - title: Caller Help Line
       author: Emma Azelborn and Maia McCormick
     - title: Violet Ice
@@ -29,9 +29,10 @@ program:
       notes: No walkthrough
     - title: "Medley (Airpants, Folklife Frolic, Tica Tica Timing/Old Time Elixir #2)"
       author: Lisa Greenleaf, Lindsey Dono, Dean Snipes/Linda Leslie
+      medley: true
     - title: Apogee
       author: Chris Page
-    - title: A Pirate's Life for Me
+    - title: A Pirate's Life For Me
       author: Nathaniel Jack
     - title: Are You 'Most Done?
       author: Russell Owen

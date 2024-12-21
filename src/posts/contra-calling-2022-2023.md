@@ -45,7 +45,7 @@ Here are the different dance choreographies I called in 2023, their choreographe
 * *Appetizer*, Scott Higgs (5)
 * *The Boys From Urbana*, John Coffman (5)
 * *Mary Cay's Reel*, David Kaynor (4)
-* *Read Between the Lines*, Bob Isaacs (4)
+* *Read Between The Lines*, Bob Isaacs (4)
 * *Serving REELness*, Andy Shore (4)
 * *You Can Get There From Here*, Linda Leslie (4)
 * *Butter*, Gene Hubert (3)

@@ -30,6 +30,7 @@ program:
     - title: "Medley: The Baby Rose, Tica Tica Timing/Old Time Elixir #2, Butter"
       author: David Kaynor, Dean Snipes/Linda Leslie, Bob Isaacs
       notes: nwt
+      medley: true
     - title: Catch A Falling Star
       author: Melanie Axel-Lute
     - title: Read Between The Lines

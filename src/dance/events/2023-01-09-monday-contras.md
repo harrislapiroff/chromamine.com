@@ -11,7 +11,7 @@ program:
     author: Cis Hinkle
   - title: Trip to Lambertville
     author: Steve Zakon-Anderson
-    notes: Chloe Levine called
+    caller: Chloe Levine
   - title: Wrinkled Ribbon
     author: Melanie Axel-Lute
   - title: Chinese New Year

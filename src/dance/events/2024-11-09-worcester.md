@@ -20,7 +20,7 @@ program:
       author: Steve Zakon-Anderson
     - title: Wrinkled Ribbon
       author: Melanie Axel-Lute
-    - title: Kimmeswick Express
+    - title: Kimmswick Express
       author: Gene Hubert
       type: Square
     - title: "Tica Tica Timing/Old Time Elixir #2"
@@ -31,6 +31,7 @@ program:
       author: Yoyo Zhou
     - title: "Medley: Airpants, Tica Tica Timing/Old Time Elixir #2, Butter"
       author: Lisa Greenleaf, Dean Snipes/Linda Leslie, Gene Hubert
+      medley: true
     - title: The Boys From Urbana
       author: John Coffman
     - title: Train Delay

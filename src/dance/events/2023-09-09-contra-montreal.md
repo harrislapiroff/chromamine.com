@@ -20,7 +20,7 @@ program:
     author: Linda Leslie
   - title: Wrinkled Ribbon
     author: Melanie Axel-Lute
-  - title: Read Between the Lines
+  - title: Read Between The Lines
     author: Bob Isaacs
   - title: Serving REELness
     author: Andy Shore

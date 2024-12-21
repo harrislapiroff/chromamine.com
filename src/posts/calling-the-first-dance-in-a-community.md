@@ -11,7 +11,7 @@ xposts:
   - label: Facebook
     url: https://www.facebook.com/harrislap/posts/pfbid0tocx48YvCww8Aiu2w918JdF9iSWWG3MLMqQQRacKnE61C7F4dECEYvWeL2DMMcD6l
 dances:
-  - title: Easy Circle of Fun
+  - title: Easy Circle Of Fun
     author: Linda Leslie
     formation: Circle Mixer
     choreo:
@@ -41,7 +41,7 @@ dances:
       b2:
         - With another couple circle L
         - Circle R
-  - title: Gallopede
+  - title: Galopede
     author: Traditional
     formation: Longways Neutral
     choreo:
@@ -165,7 +165,7 @@ By all reports the evening went well. Nevertheless, being as this was the first 
 
 This was my program:
 
-{% dancecard dances "Easy Circle of Fun" %}
+{% dancecard dances "Easy Circle Of Fun" %}
 
 This dance introduced progression, allemandes, the swing (an elbow swing), and the promenade (with dancers simply holding hands, no particular promenade position).
 
@@ -177,7 +177,7 @@ Progressing was the trickiest part, since it depended on ending the swing where 
 
 I originally intended to start the evening with this one. I figured I could do it without a walkthrough, just by teaching the (very simple) figures as the music played. I liked that it removed any need to find a partner for the first dance and would tolerate lots of chaos. But I swapped it out when I arrived. The room was echoey and I was concerned I wouldn't be clear enough for a no walkthrough. But I kept it for the second slot _with_ a walkthrough. It's a chaotic dance to begin with and I think it hit the right level of fun and chaos for the room.
 
-{% dancecard dances "Gallopede" %}
+{% dancecard dances "Galopede" %}
 
 This dance introduced longways formation.
 

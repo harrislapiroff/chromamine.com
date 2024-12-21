@@ -33,7 +33,7 @@ program:
       author: Tavi Merrill
     - title: Stars of Alberta
       author: Carol Ormand
-    - title: Read Between the Lines
+    - title: Read Between The Lines
       author: Bob Isaacs
 ---
 

@@ -17,7 +17,7 @@ program:
     author: Brian DeMarcus
   - title: Wrinkled Ribbon
     author: Melanie Axel-Lute
-  - title: Read Between the Lines
+  - title: Read Between The Lines
     author: Bob Isaacs
 - - title: Maliza's Magical Mystery Motion
     author: Cary Ravitz

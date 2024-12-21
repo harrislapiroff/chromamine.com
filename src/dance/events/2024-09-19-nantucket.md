@@ -11,10 +11,13 @@ program:
   - - title: Accretion Reel
       author: Chris Page
       notes: nwt
+      type: mixer
     - title: Beaumont Boom
       author: Claire Takemori
+      type: mixer
     - title: Easy Circle Of Fun
       author: Linda Leslie
+      type: mixer
     - title: Galopede
       author: Traditional
     - title: Festival Reel
@@ -25,11 +28,12 @@ program:
       author: Unknown
     - title: Uptown Downtown
       author: Traditional
-      notes: square
+      type: square
     - title: Midwest Folklore
       author: Orace Johnson
     - title: Coke The Floor
       author: Marian Rose
+      type: mixer
 ---
 
 My second time calling the Nantucket dance—and the second Nantucket dance ever. I think I pitched the difficulty a bit too high for the crowd. I thought I could pitch it higher since some folks had experience from last time and we had a few more ringers there this time, but four contras turned out the be a lot and I wished I had fallen back on more party dances.
