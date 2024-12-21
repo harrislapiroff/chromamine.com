@@ -20,7 +20,7 @@ program:
       author: John Coffman
     - title: Wrinkled Ribbon
       author: Melanie Axel-Lute
-    - title: Fair and Square
+    - title: Fair And Square
       author: John Coffman
     - title: Stars of Alberta
       author: Carol Ormand

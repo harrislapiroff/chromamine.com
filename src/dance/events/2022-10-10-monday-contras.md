@@ -17,7 +17,7 @@ program:
     author: Carol Ormand
   - title: Heartbeat Contra
     author: Don Flaherty
-- - title: Read Between the Lines
+- - title: Read Between The Lines
     author: Bob Isaacs
   - title: Bevy of Butterflies
     author: Chris Page and Bob Isaacs

@@ -28,6 +28,7 @@ program:
   - title: Coke the Floor
     author: Marian Rose
   - title: The Auctioneer
+    caller: Don Veino
     notes: Don Veino called this one because there were eight dancers left and I didn't
       know any squares
 ---

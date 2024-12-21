@@ -16,7 +16,7 @@ program:
       author: Rick Mohr
     - title: Serving REELness
       author: Andy Shore
-    - title: Fair and Square
+    - title: Fair And Square
       author: John Coffman
     - title: Read Between The Lines
       author: Bob Isaacs
@@ -28,6 +28,7 @@ program:
       author: Jim Kitch
     - title: "Medley (Airpants, Tica Tica Timing/Old Time Elixir #2)"
       author: Lisa Greenleaf, Dean Snipes/Linda Leslie
+      medley: true
       notes: No walkthrough
     - title: Train Delay
       author: Maia McCormick

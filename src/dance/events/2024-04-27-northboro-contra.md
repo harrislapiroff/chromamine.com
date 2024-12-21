@@ -12,7 +12,7 @@ program:
       author: Jim Hemphill
     - title: Heartbeat Contra
       author: Don Flaherty
-    - title: Mad Robin in Love
+    - title: Mad Robin In Love
       author: Greg Frock
     - title: Wrinkled Ribbon
       author: Melanie Axel-Lute

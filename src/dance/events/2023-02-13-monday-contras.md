@@ -15,25 +15,25 @@ program:
     author: Martin Sirk
   - title: The Missing Piece
     author: Bronwyn Woods
-    notes: Chloe Levine called
+    caller: Chloe Levine
   - title: Al's Safeway Produce
     author: Robert Cromartie
-    notes: Chloe Levine called
+    caller: Chloe Levine
   - title: 20 Below
     author: Bill Olson
-    notes: Chloe Levine called
+    caller: Chloe Levine
 - - title: Hook, Line, and Sinker
     author: Bob Isaacs
-    notes: Chloe Levine called
+    caller: Chloe Levine
   - title: Paper Lantern
     author: Sarah Kaiser
-    notes: Chloe Levine called
+    caller: Chloe Levine
   - title: Uncommon Courtesy
     author: Gene Hubert
-    notes: Chloe Levine called
-  - title: Are You 'Most Done
+    caller: Chloe Levine
+  - title: Are You 'Most Done?
     author: Russell Owen
-  - title: Read Between the Lines
+  - title: Read Between The Lines
     author: Bob Isaacs
 ---
 

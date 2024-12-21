@@ -10,11 +10,13 @@ street: American Legion, 21 Washington St
 city: Nantucket MA
 url: https://www.facebook.com/groups/651711967114830/
 program:
-  - - title: Easy Circle of Fun
+  - - title: Easy Circle Of Fun
       author: Linda Leslie
+      type: mixer
     - title: Accretion Reel
       author: Chris Page
-    - title: Gallopede
+      type: mixer
+    - title: Galopede
       author: Traditional
     - title: Jefferson and Liberty
       author: Traditional
@@ -26,6 +28,7 @@ program:
       author: Will Mentor
     - title: Coke the Floor
       author: Marian Rose
+      type: mixer
 ---
 
 Write-up in blog.

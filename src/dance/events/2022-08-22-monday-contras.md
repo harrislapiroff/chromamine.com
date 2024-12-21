@@ -15,7 +15,7 @@ program:
     author: Gene Hubert
   - title: Soul Reversal
     author: Tavi Merrill
-  - title: Are You 'Most Done
+  - title: Are You 'Most Done?
     author: Russell Owen
   - title: Salmonella Evening
     author: Steve Zakon-Anderson

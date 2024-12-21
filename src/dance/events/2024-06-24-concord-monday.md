@@ -24,23 +24,23 @@ program:
       author: Erik Weberg
     - title: You Can Get There From Here
       author: Linda Leslie
-      notes: Called by Tommy
+      caller: Tommy Linden
     - title: Wrinkled Ribbon
       author: Melanie Axel-Lute
-      notes: Called by Tommy
+      caller: Tommy Linden
     - title: Chicken In The New Mown Hey
       author: Tommy Linden
-      notes: Called by Tommy
+      caller: Tommy Linden
   - - title: I Can't Get Mad At That Face
       author: Tommy Linden
-      notes: Called by Tommy
+      caller: Tommy Linden
     - title: Woven Waves
       author: Cary Ravitz
-      notes: Called by Tommy
+      caller: Tommy Linden
     - title: Trip to Doble
       author: Will Mentor
-      notes: Called by Tommy
-    - title: Catch A Falling Stan
+      caller: Tommy Linden
+    - title: Catch A Falling Star
       author: Melanie Axel-Lute
     - title: Read Between The Lines
       author: Bob Isaacs

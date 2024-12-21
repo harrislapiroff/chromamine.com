@@ -17,8 +17,9 @@ program:
     author: Nils Fredland
   - title: Rockin Robin
     author: Rick Mohr
-  - title: Kimmeswick Express
+  - title: Kimmswick Express
     author: Gene Hubert
+    type: Square
   - title: Now We Are Four
     author: Erik Weberg
   - title: Wrinkled Ribbon
@@ -33,6 +34,7 @@ program:
     author: Yoyo Zhou
   - title: "Medley: Airpants, Delphiniums and Daisies, Tica Tica Timing/Old Time Elixir #2"
     author: "Lisa Greenleaf, Tanya Rotenberg, Dean Snipes/Linda Leslie"
+    medley: true
   - title: Mary Cay's Reel
     author: David Kaynor
 ---

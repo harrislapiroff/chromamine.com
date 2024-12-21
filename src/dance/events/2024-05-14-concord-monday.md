@@ -22,14 +22,14 @@ program:
       notes: Made a brief announcement honoring Tony Parkes who passed away on May 6, 2024 after a long illness.
     - title: Helooo Nurse!
       author: Maia McCormick
-      notes: "Called by a guest caller (Tommy Linden)"
+      caller: Tommy Linden
     - title: Dancing Bears
       author: Brian DeMarcus
     - title: Maliza's Magical Mystery Motion
       author: Cary Ravitz
-  - - title: Catch a Falling Star
+  - - title: Catch A Falling Star
       author: Melanie Axel-Lute
-    - title: '"There is No Way to Peace; Peace is the Way"'
+    - title: '"There Is No Way To Peace; Peace Is The Way"'
       author: Erik Hoffman
     - title: The Second Time Around
       author: Jim Kitch
