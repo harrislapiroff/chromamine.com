@@ -24,7 +24,7 @@ program:
     author: Melanie Axel-Lute
   - title: Centrifugal Hey
     author: Gene Hubert
-    notes: Chloe Levine called
+    caller: Chloe Levine
   - title: Train Delay
     author: Maia McCormick
   - title: Twirly Minds Think Alike
