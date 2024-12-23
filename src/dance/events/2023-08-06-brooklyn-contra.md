@@ -5,10 +5,11 @@ city: Brooklyn NY
 tzid: America/New_York
 band: Riverside
 program:
-- - title: After the Solstice
+- - title: After The Solstice
     author: Lisa Greenleaf
   - title: The Barn Mixer
     author: Rick Mohr
+    type: mixer
   - title: Wrinkled Ribbon
     author: Melanie Axel-Lute
   - title: Salmonella Evening

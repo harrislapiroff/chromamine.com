@@ -7,7 +7,7 @@ band: ''
 program:
 - - title: New Year's Day
     author: Paul Balliet
-  - title: Rollin' and Tumblin'
+  - title: Rollin' And Tumblin'
     author: Cis Hinkle
   - title: Trip to Lambertville
     author: Steve Zakon-Anderson

@@ -5,7 +5,7 @@ city: Concord MA
 tzid: America/New_York
 band: ''
 program:
-- - title: After the Solstice
+- - title: After The Solstice
     author: Lisa Greenleaf
   - title: The Boys From Urbana
     author: John Coffman
