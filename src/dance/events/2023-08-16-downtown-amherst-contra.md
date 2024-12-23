@@ -11,6 +11,7 @@ program:
     author: Lisa Greenleaf
   - title: The Barn Mixer
     author: Rick Mohr
+    type: mixer
   - title: Bev's Becket A
     author: Cary Ravitz
     notes: Annie Kidwell called

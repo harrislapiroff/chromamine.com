@@ -5,7 +5,7 @@ city: Concord MA
 tzid: America/New_York
 band: Max Newman, Julie Metcalf, Helen Kuhar, Jack O'Connor
 program:
-- - title: After the Solstice
+- - title: After The Solstice
     author: Lisa Greenleaf
   - title: Butter
     author: Gene Hubert

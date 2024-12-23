@@ -10,7 +10,7 @@ program:
     notes: Was trickier than intended for a first dance. Progression out of LLFB
   - title: Appetizer
     author: Scott Higgs
-  - title: Rollin' and Tumblin'
+  - title: Rollin' And Tumblin'
     author: Cis Hinkle
   - title: Butter
     author: Gene Hubert

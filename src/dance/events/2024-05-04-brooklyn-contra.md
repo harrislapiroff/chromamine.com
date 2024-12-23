@@ -17,6 +17,7 @@ program:
       author: Jim Hemphill
     - title: The Barn Mixer
       author: Rick Mohr
+      type: mixer
     - title: Summer Sunshine
       author: Paul Balliet
     - title: "Tica Tica Timing/Old Time Elixir #2"

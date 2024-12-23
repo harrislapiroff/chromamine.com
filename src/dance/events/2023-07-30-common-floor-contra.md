@@ -13,6 +13,7 @@ program:
     author: Scott Higgs
   - title: The Barn Mixer
     author: Rick Mohr
+    type: mixer
   - title: The Boys From Urbana
     author: John Coffman
   - title: Maliza's Magical Mystery Motion
