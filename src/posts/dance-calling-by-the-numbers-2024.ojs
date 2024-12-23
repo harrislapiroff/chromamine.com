@@ -63,7 +63,7 @@ md`I've just wrapped up my final dance calling event of the year. I'm planning s
 
 ### Events
 
-This year I called more dance events than ever before, a total of 29, more than doubling my next highest count of thirteen the previous year:`
+This year I called more dance events than ever before, a total of 29 (including two English Country Dance events and a double dance that I'm counting as *two* events), more than doubling my thirteen events the previous year:`
 
 Plot.plot({
     x: {
@@ -96,43 +96,62 @@ Plot.plot({
                     dy: -5,
                 }
             ),
-            {  }
         ),
     ],
 })
 
-md`For this chart I have counted *all* events including ECD events and I've counted the double dance I called as two separate events.
+md`Of these, seven were volunteer gigs or I waived the fee. (If a series is new I'll waive the fee. If I'm splitting the evening with someone I'm mentoring, I'll often let them keep the full fee.) This left over 22 paid gigs.
 
-Of these events, seven were either volunteer gigs or I waived the fee (If a series is new I'll waive the fee. If I'm splitting the evening with someone I'm mentoring, I'll sometimes let them keep the full fee). This left over 22 paid gigs. These paid me:
-
-* **Mean:** ${d3.format('$.2f')(d3.mean(PAY_DATA))}
-* **Mode:** ${d3.format('$.2f')(d3.mode(PAY_DATA))}
-* **Median:** ${d3.format('$.2f')(d3.median(PAY_DATA))}
-* **Max:** ${d3.format('$.2f')(d3.max(PAY_DATA))}
-* **Min:** ${d3.format('$.2f')(d3.min(PAY_DATA))}
-* **Most sig figs:** $209.44`
+* These paid me, on average, **${d3.format('$,.2f')(d3.mean(PAY_DATA))}**/**${d3.format('$,.2f')(d3.median(PAY_DATA))}** (mean/median).
+* The most I got paid was **${d3.format('$,.2f')(d3.max(PAY_DATA))}**.
+* The least was **${d3.format('$,.2f')(d3.min(PAY_DATA))}**.
+* The amount a dance paid me with the most sig figs was **$209.44**.
+* I made a total of **${d3.format('$,.2f')(d3.sum(PAY_DATA))}** calling dances this year.
+* I did not track dance calling *expenses*. Maybe next year.`
 
 Plot.plot({
-    height: 50,
+    height: 200,
+    marginLeft: 0,
+    marginTop: 12,
+    y: {
+        axis: false,
+    },
     x: {
-        tickSize: 0,
-        tickFormat: d3.format('$.0f'),
+        tickFormat: d3.format('$,.0f'),
+        label: 'Pay →',
     },
     marks: [
-        Plot.dot(PAY_DATA, {
-            y: 0,
-            x: d => d,
-            opacity: 0.4,
-            fill: 'var(--color-base)',
+        Plot.rectY(PAY_DATA, Plot.binX(
+            { y: 'count' },
+            { x: { value: d => d, interval: 25 } },
+        )),
+        Plot.text(PAY_DATA, Plot.binX(
+            {
+                y: 'count',
+                text: 'count',
+            },
+            {
+                x: { value: d => d, interval: 25 },
+                lineAnchor: 'bottom',
+                dy: -3,
+                fill: 'var(--color-base)',
+                filter: d => d > 0,
+            }
+        )),
+        Plot.gridY({
+            interval: 1,
+            stroke: 'var(--color-background)',
+            opacity: 1,
         }),
-    ]
+        Plot.ruleY([0]),
+    ],
 })
 
 md`### Repertoire
 
-One thing I'm interested in understanding is what different callers' repertoires look like. I have the impression that some callers have large repertoires and can call a lot of events without repeating and others have smaller repertoires and repeat dances frequently. But I have no idea what the average is or where I fall in that spread.
+One thing I'm interested in understanding is what different callers' repertoires look like. I have the impression that some callers have large repertoires and can call a lot of events without repeating and others have smaller repertoires and repeat dances frequently. I have no idea what the average is or where I fall in that spread.
 
-For all this data, I've limited myself to contras since I haven't led enough English Dances to have a meaningful dataset. I've also excluded medleys and barn dances for simplicity.`
+For the following this data, I've limited myself to contras since I haven't led enough English Dances to have a meaningful dataset. I've also excluded medleys, mixers, and other barn dances for simplicity.`
 
 dances = data.reduce((dances, event) => {
     if (!event.program) return dances
@@ -170,12 +189,11 @@ groupedDances = Array.from(
 md`In 2024 I called a total of:
 
 * **${myContras.filter(d => d.date.getFullYear() === 2024).length}** dance slots, with
-* **${new Set(myContras.filter(d => d.date.getFullYear() === 2024).map(d => d.title)).size}** unique compositions.
-* The most number of times I called a composition was **${d3.max(groupedDances, d => d['2024'])}** times (Train Delay, by Maia McCormick – empirically my favorite dance to call this year!)
-* There were **${groupedDances.filter(d => d['2024'] === 1).length}** compositions that I only called once each.`
+* **${new Set(myContras.filter(d => d.date.getFullYear() === 2024).map(d => d.title)).size}** distinct sequences.
+* The most number of times I called a sequence was **${d3.max(groupedDances, d => d['2024'])}** times (Train Delay, by Maia McCormick – empirically my favorite dance to call this year!)
+* There were **${groupedDances.filter(d => d['2024'] === 1).length}** sequences that I only called once each.`
 
 Plot.plot({
-    marginBottom: 10,
     height: d3.max(groupedDances, d => d['2024']) * 10,
     width: groupedDances.filter(d => d['2024'] > 0).length * 10,
     x: {
@@ -192,23 +210,30 @@ Plot.plot({
                 x: 'title',
                 y: '2024',
                 rx: '100%',
+                multiple: 1,
             }
         ),
         Plot.waffleY(
             groupedDances.filter(d => d['2024'] > 0),
-            Plot.pointer({
+            Plot.pointerX({
                 x: 'title',
                 y: '2024',
                 rx: '100%',
                 fill: 'var(--color-link)',
                 title: d => `${d['title']}, ${d['author']}`,
+                multiple: 1,
                 tip: {
                     fill: 'var(--color-background)',
                 },
             })
         ),
-    ]
+    ],
 })
+
+html`<p />`
+
+// Repertoire changes chart
+// --------------------------------------------------
 
 totals = ({
     '2023': myContras2324.filter(d => d.date.getFullYear() === 2023).length,
@@ -221,7 +246,78 @@ SORT_FNS = ({
     'Change ±': (a, b) => (b['2024pct'] - b['2023pct']) - (a['2024pct'] - a['2023pct']),
 })
 
-md`Here's how my repertoire changed between 2023 and 2024. Dances are measured in what percentage of total dance slots I called were that dance. Arrows and color indicate whether each composition represented a larger or smaller part of my corpus in 2024 versus 2023 (with the dot at the 2023 end and the arrow at the 2024 end). By default this chart shows my top twenty dances of 2024, but you can play with the settings to show more dances and sort them by different criteria.`
+changeChart = (data) => {
+    return Plot.plot({
+        marginLeft: 150,
+        marginTop: 20,
+        marginBottom: 20,
+        height: 25 * data.length + 40,
+        width: 600,
+        y: {
+            tickFormat: t => t.substring(0, 20) + (t.length > 21 ? '…' : ''),
+            title: t => t,
+            domain: data.map(d => d.title),
+            label: null,
+            tickSize: 0,
+            fontSize: 16,
+        },
+        x: {
+            domain: [-0.005, d3.max(changeChartData, d => Math.max(d['2023pct'], d['2024pct'])) + 0.005],
+            tickFormat: d3.format('.0%'),
+            ticks: d3.range(0, 0.07, 0.01),
+            grid: true,
+            axis: 'both',
+            tickSize: 0,
+        },
+        color: {
+            domain: d3.extent(changeChartData.map(d => d['2024pct'] - d['2023pct'])),
+            range: ['#C30', '#0C8'],
+        },
+        marks: [
+            Plot.link(data, {
+                x1: '2023pct',
+                x2: '2024pct',
+                y1: 'title',
+                y2: 'title',
+                stroke: d => d['2024pct'] - d['2023pct'],
+                strokeWidth: 3,
+                markerEnd: 'arrow',
+                markerStart: 'dot',
+                title: d => `${d.title}, ${d.author}`,
+                tip: {
+                    fill: 'var(--color-background)',
+                },
+            }),
+            // Text marks for the larger end
+            Plot.text(data, {
+                x: d => d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct'],
+                y: 'title',
+                text: d => d3.format('.1%')(d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct']),
+                dx: 8,
+                // dy: '0.3em',
+                textAnchor: 'start',
+                filter: d => (d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct']) !== 0,
+                fontSize: 14,
+            }),
+            // Text marks for the smaller end
+            Plot.text(data, {
+                x: d => d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct'],
+                y: 'title',
+                text: d => d3.format('.1%')(d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct']),
+                dx: -8,
+                // dy: '0.3em',
+                textAnchor: 'end',
+                filter: d => (d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct']) !== 0,
+                fontSize: 14,
+            }),
+        ]
+    })
+}
+
+md`My repertoire saw some changes this year. Here are the top 10 sequences I called in 2024 and their change in ranking from 2023 (percentages refer to what percentage of dance slots in my programs were filled with the particular sequence):`
+
+changeChartData = groupedDances
+
 
 viewof sortBy = Inputs.select(
     Object.keys(SORT_FNS),
@@ -232,77 +328,65 @@ viewof sortBy = Inputs.select(
 )
 
 viewof showCount = Inputs.radio(
-    ['Top 20', 'All'],
+    ['Top 10', 'All'],
     {
         label: 'Show',
-        value: 'Top 20',
+        value: 'Top 10',
     }
 )
 
-changeChartData = groupedDances
-    .toSorted(SORT_FNS[sortBy])
-    .slice(0, showCount === 'Top 20' ? 20 : undefined)
+changeChart(
+    changeChartData
+        .toSorted(SORT_FNS[sortBy])
+        .slice(0, showCount === 'Top 10' ? 10 : changeChartData.length)
+)
 
-Plot.plot({
-    marginLeft: 150,
-    height: 25 * changeChartData.length,
-    width: 600,
-    y: {
-        tickFormat: t => t.substring(0, 20) + (t.length > 21 ? '…' : ''),
-        title: t => t,
-        domain: changeChartData.map(d => d.title),
-        label: null,
-        tickSize: 0,
-        fontSize: 16,
-    },
-    x: {
-        domain: [-0.005, d3.max(changeChartData, d => Math.max(d['2023pct'], d['2024pct'])) + 0.005],
-        tickFormat: d3.format('.0%'),
-        ticks: d3.range(0, 0.07, 0.01),
-        grid: true,
-        axis: 'both',
-        tickSize: 0,
-    },
-    color: {
-        domain: d3.extent(changeChartData.map(d => d['2024pct'] - d['2023pct'])),
-        range: ['#C30', '#0C8'],
-    },
-    marks: [
-        Plot.link(changeChartData, {
-            x1: '2023pct',
-            x2: '2024pct',
-            y1: 'title',
-            y2: 'title',
-            stroke: d => d['2024pct'] - d['2023pct'],
-            strokeWidth: 3,
-            markerEnd: 'arrow',
-            markerStart: 'dot',
-            title: d => `${d.title}, ${d.author}`,
-            tip: {
-                fill: 'var(--color-background)',
-            },
-        }),
-        // Text marks for the larger end
-        Plot.text(changeChartData, {
-            x: d => d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct'],
-            y: 'title',
-            text: d => d3.format('.1%')(d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct']),
-            dx: 6,
-            // dy: '0.3em',
-            textAnchor: 'start',
-            filter: d => (d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct']) !== 0,
-            fontSize: 16,
-        }),
-        // Text marks for the smaller end
-        Plot.text(changeChartData, {
-            x: d => d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct'],
-            y: 'title',
-            text: d => d3.format('.1%')(d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct']),
-            dx: -6,
-            // dy: '0.3em',
-            textAnchor: 'end',
-            filter: d => (d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct']) !== 0,
-            fontSize: 16,
-        }),
-    ]
-})
+html`<p />`
+
+md`Some dances dropped in ranking because I over-called them and then cut back, though I still love them:`
+
+changeChart(
+    changeChartData
+        .filter(d => [
+            'Twirly Minds Think Alike',
+            'Maliza\'s Magical Mystery Motion',
+            'Read Between The Lines',
+        ].includes(d.title))
+        .toSorted(SORT_FNS['Change ±'])
+        .toReversed()
+)
+
+html`<p />`
+
+md`Others dropped because I decided I didn't like them as much after all or they contain sequences I decided to excise from my repertoire, like the courtesy turn into circle left in After The Solstice:`
+
+changeChart(
+    changeChartData
+        .filter(d => ['After The Solstice', 'Rollin\' And Tumblin\''].includes(d.title))
+        .toSorted(SORT_FNS['Change ±'])
+        .toReversed()
+)
+
+md`And because I'm always trying to expand my repertoire, a number of new dances got added to my rotation in 2024, some of which quickly became favorites:`
+
+changeChart(
+    changeChartData
+        .filter(d => d['2023'] === 0)
+        .toSorted(SORT_FNS['Most Popular 2024'])
+        .slice(0, 5)
+)
+
+md`(It's interesting to note that many of my new acquisitions are in the "beginner-friendly" category!)
+
+A few dances stayed in roughly the same position in my repertoire:`
+
+changeChart(
+    changeChartData
+        .filter(d => [
+            'Butter',
+            'Soul Reversal',
+            'The Boys From Urbana',
+            'Tica Tica Timing/Old Time Elixir #2',
+        ].includes(d.title))
+        .toSorted(SORT_FNS['Most Popular 2024'])
+)
