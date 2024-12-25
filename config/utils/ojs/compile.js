@@ -16,6 +16,7 @@ export async function compileObservable(ojsSource, options) {
         divId: `notebook-${hashString(ojsSource)}`,
         runtimePath: "https://unpkg.com/@observablehq/runtime@5.9.3/dist/runtime.umd.js",
         inspectorPath: "https://unpkg.com/@observablehq/runtime@5.9.3/dist/runtime.umd.js",
+        globalPath: null,
         runtimeImportName: "Runtime",
         inspectorImportName: "Inspector",
         // TODO: Allow specification of a list of cells to render?
@@ -36,18 +37,21 @@ export async function compileObservable(ojsSource, options) {
         importLines = `
             import { ${opts.runtimeImportName} } from "${opts.runtimePath}"
             import { ${opts.inspectorImportName} } from "${opts.inspectorPath}"
+            ${opts.globalPath ? `import global from "${opts.globalPath}"` : ''}
         `
     }
 
     return `
         <div id="${opts.divId}"></div>
+
+        <script src="https://cdn.jsdelivr.net/npm/d3-require@1"></script>
         <script type="module">
             ${importLines}
 
             ${define}
 
             const notebookDiv = document.getElementById("${opts.divId}")
-            const runtime = new Runtime()
+            const runtime = new Runtime({}, global)
             const main = runtime.module(define, name => {
                 const el = document.createElement("div")
                 notebookDiv.appendChild(el)
