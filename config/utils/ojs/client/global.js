@@ -1,7 +1,6 @@
 export default async function(name) {
     const stdlib = await d3.require('https://www.unpkg.com/@observablehq/stdlib@5.8.8/dist/stdlib.js')
     const library = new stdlib.Library()
-    console.log(library)
     try {
         // If it's a function, we call it to load the module
         if (typeof library[name] === 'function') return library[name]()
