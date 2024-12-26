@@ -66,12 +66,16 @@ md`I've just wrapped up my final dance calling event of the year. I'm planning s
 This year I called more dance events than ever before, a total of 29 (including two English Country Dance events and a double dance that I'm counting as *two* events), more than doubling my thirteen events the previous year:`
 
 Plot.plot({
+    style: {
+        fontSize: '14px',
+    },
     x: {
         tickFormat: d3.format('d'),
         domain: d3.range(2019, 2025),
+        tickSize: 0,
     },
     y: {
-        label: '↑ Events',
+        label: '↑ Events #',
         grid: true,
         tickSize: 0,
     },
@@ -110,15 +114,19 @@ md`Of these, seven were volunteer gigs or I waived the fee. (If a series is new 
 * I did not track dance calling *expenses*. Maybe next year.`
 
 Plot.plot({
+    style: {
+        fontSize: '14px',
+    },
     height: 200,
     marginLeft: 0,
-    marginTop: 12,
+    marginTop: 15,
     y: {
         axis: false,
     },
     x: {
         tickFormat: d3.format('$,.0f'),
         label: 'Pay →',
+        tickSize: 0,
     },
     marks: [
         Plot.rectY(PAY_DATA, Plot.binX(
@@ -194,6 +202,9 @@ md`In 2024 I called a total of:
 * There were **${groupedDances.filter(d => d['2024'] === 1).length}** sequences that I only called once each.`
 
 Plot.plot({
+    style: {
+        fontSize: '14px',
+    },
     height: d3.max(groupedDances, d => d['2024']) * 10,
     width: groupedDances.filter(d => d['2024'] > 0).length * 10,
     x: {
@@ -248,11 +259,14 @@ SORT_FNS = ({
 
 changeChart = (data) => {
     return Plot.plot({
-        marginLeft: 150,
+        marginLeft: 200,
         marginTop: 20,
         marginBottom: 20,
         height: 25 * data.length + 40,
         width: 600,
+        style: {
+            fontSize: '14px',
+        },
         y: {
             tickFormat: t => t.substring(0, 20) + (t.length > 21 ? '…' : ''),
             title: t => t,
