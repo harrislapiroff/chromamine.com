@@ -1,6 +1,6 @@
 ---
 name: NEFFA Thursday Contras
-date: 2024-02-15T19:10
+date: 2024-02-15T19:30
 date_end: 2024-02-15T22:00
 tzid: America/New_York
 band: Crossover (Carol Bittenson, Len Bittenson, and Alex Cumming)

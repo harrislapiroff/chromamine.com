@@ -1,6 +1,6 @@
 ---
 name: Worcester Contra Dance
-date: 2024-11-09T19:15
+date: 2024-11-09T19:30
 date_end: 2024-11-09T22:30
 tzid: America/New_York
 band: Cecilia Vacanti and Alex Cumming
