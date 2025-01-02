@@ -1,11 +1,10 @@
 ---
 name: Brooklyn Contra
-date: 2024-05-04T15:30
-date_end: 2024-05-04T18:30
+date: 2024-05-04T20:00
+date_end: 2024-05-04T23:00
 tzid: America/New_York
 band: Good Company (Helen Kuhar, Cecily Mills, Rohan Weeden)
 description: |+
-  Advanced dance from 7:30PM – 11:00PM  
   Workshop at 7:30PM  
   Dancing from 8–11PM
 street: 339 8th Street

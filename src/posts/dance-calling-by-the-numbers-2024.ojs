@@ -41,6 +41,7 @@ data = {
     return jsonData.map(d => ({
         ...d,
         date: new Date(d.date),
+        durationMin: d3.utcMinute.count(new Date(d.date), new Date(d.date_end)),
     }))
 }
 
@@ -49,6 +50,7 @@ htl.svg.fragment`<style>
     svg[class^='plot-'] {
         background-color: transparent !important;
         max-width: 100%;
+        margin-bottom: var(--line-height-base);
     }
     svg[class^='plot-'] text {
         font-family: var(--font-family-base);
@@ -59,7 +61,13 @@ htl.svg.fragment`<style>
     }
 </style>`
 
-md`I've just wrapped up my final dance calling event of the year. I'm planning some more verbose reflections on my year of dance calling later, but I got my programs in sufficiently structured order that I'm able to do some fun data analysis with them.
+md`I've just wrapped up another year of calling dances. It's been an exhilarating, busy year. I'm planning some more verbose reflections for later, but I also wanted, this year, to go deep on the quantitative elements of calling.
+
+### Table of Contents
+
+* [Events](#events)
+* [Repertoire](#repertoire)
+* [Programming](#programming)
 
 ### Events
 
@@ -241,8 +249,6 @@ Plot.plot({
     ],
 })
 
-html`<p />`
-
 // Repertoire changes chart
 // --------------------------------------------------
 
@@ -365,8 +371,6 @@ changeChart(
         .slice(0, showCount === 'Top 10' ? 10 : changeChartData.length)
 )
 
-html`<p />`
-
 md`Some dances dropped in ranking because I over-called them and then cut back, though I still love them:`
 
 changeChart(
@@ -379,8 +383,6 @@ changeChart(
         .toSorted(SORT_FNS['Change ±'])
         .toReversed()
 )
-
-html`<p />`
 
 md`Others dropped because I decided I didn't like them as much after all or they contain sequences I decided to excise from my repertoire, like the courtesy turn into circle left in After The Solstice:`
 
@@ -414,3 +416,94 @@ changeChart(
         ].includes(d.title))
         .toSorted(SORT_FNS['Most Popular 2024'])
 )
+
+md`### Programming`
+
+events2024 = data.filter(d => d.date.getFullYear() === 2024)
+
+excludeFromDanceCounts = [
+    new Date(2024, 0, 7), // 2024-01-07 BIDA combo scottish/contras
+    new Date(2024, 4, 16), // 2024-05-16 Nantucket
+    new Date(2024, 8, 19), // 2024-09-19 Nantucket
+]
+
+eventsNoWeirdPrograms = events2024.filter(
+    // Include events as long as none of the exclusion dates match their date
+    event => excludeFromDanceCounts.every(
+        date => d3.timeDay.count(date, event.date) !== 0
+    )
+)
+
+Plot.plot({
+    marginBottom: 50,
+    style: {
+        fontSize: '14px',
+    },
+    y: {
+        label: '↑ Slots #',
+        grid: true,
+        domain: [
+            d3.min(eventsNoWeirdPrograms, d => d.program.flat().length) - 0.5,
+            d3.max(eventsNoWeirdPrograms, d => d.program.flat().length) + 0.5
+        ],
+        ticks: d3.range(
+            d3.min(eventsNoWeirdPrograms, d => d.program.flat().length),
+            d3.max(eventsNoWeirdPrograms, d => d.program.flat().length) + 1
+        ),
+        tickFormat: d3.format('d'),
+        tickSize: 0,
+    },
+    x: {
+        type: 'point',
+        label: 'Event Duration',
+        tickFormat: t => `${t} min`,
+        tickSize: 0,
+    },
+    marks: [
+        Plot.link(eventsNoWeirdPrograms, Plot.groupX(
+            {
+                y1: data => d3.min(data, d => d.program.flat().length),
+                y2: data => d3.max(data, d => d.program.flat().length),
+            },
+            {
+                x: 'durationMin',
+                strokeWidth: 10,
+                strokeLinecap: 'round',
+            },
+        )),
+        // Median Dots
+        Plot.dot(eventsNoWeirdPrograms, Plot.groupX(
+            { y: data => d3.median(data, d => d.program.flat().length) },
+            {
+                x: 'durationMin',
+                r: 20,
+                fill: 'var(--color-base)',
+                stroke: 'var(--color-background)',
+                strokeWidth: 3,
+            }
+        )),
+        // Median Text
+        Plot.text(eventsNoWeirdPrograms, Plot.groupX(
+            {
+                y: data => d3.median(data, d => d.program.flat().length),
+                text: data => d3.format('~f')(d3.median(data, d => d.program.flat().length)),
+            },
+            {
+                x: 'durationMin',
+                fill: 'var(--color-background)',
+                textSize: 12,
+                fontWeight: 'bold',
+            }
+        )),
+    ]
+})
+
+twoHalfEvents = events2024.filter(d => d.program.length === 2)
+
+md`Of the **${events2024.length}** events I called, **${twoHalfEvents.length}** had two "halves" (as is common for contra dance events). The three that did not were:
+
+* The 90 minute dance session at [Boskone 2024](https://schedule.boskone.org/id/413)
+* The two hour Smith College dance, where I persuaded the band and organizers that we did not need a break for a short event.
+* The 90 minute session at [Somerville Porchfest](https://chromamine.com/2024/05/calling-contras-at-porchfest-2024/)`
+
+

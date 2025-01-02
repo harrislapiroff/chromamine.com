@@ -1,7 +1,7 @@
 ---
 name: Nantucket Contra Dance
 date: 2024-05-16T19:00
-date_end: 2023-05-16T22:00
+date_end: 2024-05-16T21:30
 tzid: America/New_York
 band: Sam Zakon-Anderson and Eric Boodman
 description: |+
