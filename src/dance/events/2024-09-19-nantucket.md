@@ -26,6 +26,7 @@ program:
       author: Robert Cromartie
   - - title: Circle-Keeper-Shuffle
       author: Unknown
+      type: barn
     - title: Uptown Downtown
       author: Traditional
       type: square
