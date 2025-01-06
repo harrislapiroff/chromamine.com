@@ -1,8 +1,8 @@
 ---
 title: Dance Calling By The Numbers, 2024
 date: 2024-12-19
-categories: []
-tags: []
+categories: [Dance]
+tags: [contra, ECD, calling]
 eleventyExcludeFromCollections: true
 # xposts:
 #   - label: Mastodon
@@ -111,9 +111,7 @@ Plot.plot({
             Plot.stackY({
                 x: d => d.date.getFullYear(),
                 r: 3,
-                fill: 'var(--color-base)',
-                stroke: 'var(--color-background)',
-                strokeWidth: 1,
+                inset: 0.5,
             })
         ),
         Plot.rect(
@@ -121,8 +119,9 @@ Plot.plot({
             Plot.pointer(Plot.stackY({
                 x: d => d.date.getFullYear(),
                 r: 3,
+                inset: 0.5,
                 fill: 'var(--color-link)',
-                title: d => `${d.name} (${d.date.toDateString()})`,
+                title: d => `${d.city} (${d.date.toDateString()})`,
                 tip: {
                     fill: 'var(--color-background)',
                 },
@@ -160,20 +159,44 @@ Plot.plot({
     },
     height: 200,
     marginLeft: 0,
+    marginRight: 0,
     marginTop: 15,
+    marginBottom: 20,
     y: {
         axis: false,
+        grid: true,
     },
     x: {
         tickFormat: d3.format('$,.0f'),
-        label: 'Pay →',
+        label: null,
         tickSize: 0,
     },
     marks: [
         Plot.rectY(PAY_DATA, Plot.binX(
             { y: 'count' },
-            { x: { value: d => d, interval: 25 } },
+            {
+                x: { value: d => d, interval: 25 },
+                z: (_, i) => i, // Separates bars into boxes
+                r: 3,
+                inset: 0.5,
+            },
         )),
+        Plot.rectY(PAY_DATA, Plot.pointer(Plot.binX(
+            {
+                y: 'count',
+                title: d => d3.format('$,.2d')(d),
+            },
+            {
+                x: { value: d => d, interval: 25 },
+                z: (_, i) => i, // Separates bars into boxes
+                r: 3,
+                fill: 'var(--color-link)',
+                tip: {
+                    fill: 'var(--color-background)',
+                },
+                inset: 0.5,
+            },
+        ))),
         Plot.text(PAY_DATA, Plot.binX(
             {
                 y: 'count',
@@ -187,16 +210,12 @@ Plot.plot({
                 filter: d => d > 0,
             }
         )),
-        Plot.gridY({
-            interval: 1,
-            stroke: 'var(--color-background)',
-            opacity: 1,
-        }),
-        Plot.ruleY([0]),
     ],
 })
 
 md`### Repertoire
+
+*Note: I would have liked to include choreography for the dances in this blog post, but choreography permissions are complicated and encoding the choreo for every dance I called this year would be a Project with a capital P. You can look up the choreo for most of these dances on [The Callers Box](https://www.ibiblio.org/contradance/thecallersbox/)*.
 
 One thing I'm interested in understanding is what different callers' repertoires look like. I have the impression that some callers have large repertoires and can call a lot of events without repeating and others have smaller repertoires and repeat dances frequently. I have no idea what the average is or where I fall in that spread.
 
@@ -209,9 +228,11 @@ dances = data.reduce((dances, event) => {
             // Programs are nested arrays to represent sections of an evening
             .flat()
             // Add some event data back into the datum
-            .map(d => ({
+            .map((d, i) => ({
                 ...d,
-                date: event.date
+                date: event.date,
+                city: event.city,
+                slot: i,
             }))
     )
 }, [])
@@ -221,6 +242,7 @@ myContras = dances.filter(d => !d.caller)
     .filter(d => !d.medley)
 
 myContras2324 = myContras.filter(d => d.date.getFullYear() >= 2023)
+myContras24 = myContras.filter(d => d.date.getFullYear() === 2024)
 
 groupedDances = Array.from(
         d3.group(myContras2324, d => d.title, d => d.date.getFullYear())
@@ -237,7 +259,7 @@ groupedDances = Array.from(
 
 md`In 2024 I called a total of:
 
-* **${myContras.filter(d => d.date.getFullYear() === 2024).length}** dance slots, with
+* **${myContras24.length}** dance slots, with
 * **${new Set(myContras.filter(d => d.date.getFullYear() === 2024).map(d => d.title)).size}** distinct sequences.
 * The most number of times I called a sequence was **${d3.max(groupedDances, d => d['2024'])}** times (Train Delay, by Maia McCormick – empirically my favorite dance to call this year!)
 * There were **${groupedDances.filter(d => d['2024'] === 1).length}** sequences that I only called once each.`
@@ -258,7 +280,7 @@ Plot.plot({
     },
     marks: [
         Plot.dot(
-            myContras.filter(d => d.date.getFullYear() === 2024),
+            myContras24,
             Plot.stackY({
                 x: 'title',
                 fill: 'var(--color-base)',
@@ -266,7 +288,7 @@ Plot.plot({
             })
         ),
         Plot.dot(
-            myContras.filter(d => d.date.getFullYear() === 2024),
+            myContras24,
             Plot.stackY(Plot.pointerX({
                 x: 'title',
                 r: 4,
@@ -458,7 +480,7 @@ changeChart(
 
 md`### Programming
 
-Typically for a 2h30 or 3h event I'll aim to get 12 dances in. This is pretty tight for a 2h30 event and I try to fit it by programmings some short slots (say, a mixer or a no walkthrough). For a 3h event it's a little more leisurely and I can allow myself more teaching time, even a brief technique demo or two. Often, though, I'm simply less efficient than I plan. My median dance counts are a little lower (10.5 for 2h50 minute events, 11 for 3h minute events). In one instance last year I was actually *more* efficient than I planned to be and got *13* dances into a 3h event.`
+Typically for a 2h30 or 3h event I'll aim to get 12 dances in. This is pretty tight for a 2h30 event and I try to fit it by programmings some short slots (say, a mixer or a no walkthrough). For a 3h event it's more leisurely and I can allow myself more teaching time, even a brief technique demo or two. Often, though, I'm simply less efficient than I plan. My median dance counts are a little lower (10.5 for 2h30 events, 11 for 3h events). In one instance last year I was actually *more* efficient than I planned to be and got *13* dances into a 3h event.`
 
 events2024 = data.filter(d => d.date.getFullYear() === 2024)
 
@@ -555,10 +577,139 @@ Plot.plot({
     ]
 })
 
-twoHalfEvents = events2024.filter(d => d.program.length === 2)
+twoHalfEvents = eventsNoWeirdPrograms.filter(d => d.program.length === 2)
 
-md`Of the **${events2024.length}** events I called, **${twoHalfEvents.length}** had two "halves" (as is common for contra dance events).`
+md`The majority of events I called in 2024 had two "halves" with a break between (as is the norm for contra and ECD events). I usually aim to make the first half longer than the second, e.g., 7 and 5 for a 12-dance evening. This is a chart of the programs for all these events I called in 2024 with the break for each marked as well as the median break position overall:`
+
+{
+    const opts = ({
+        eventHeight: 14,
+        danceWidth: 14,
+        fontSize: 14,
+        marginLeft: 50,
+        marginRight: 50,
+        facetSpacing: 10,
+        r: 3.5,
+    })
+
+    // Facet by duration
+    const facets = d3.groups(twoHalfEvents, d => d.durationMin)
+
+    // Calculate width and height
+    const width = 13 * opts.danceWidth + opts.marginLeft + opts.marginRight
+    const height = twoHalfEvents.length * opts.eventHeight + facets.length * opts.facetSpacing
+
+    return htl.html`
+        <svg
+            width=${width}
+            height=${height}
+            viewbox="0 0 ${width} ${height}"
+        >
+            ${facets.map(([duration, events], i, facets) => {
+                // Calculate height of facets preceding this one
+                const y = facets.slice(0, i).reduce((acc, [_, events]) => acc + events.length, 0) * opts.eventHeight + (i + 0.5) * opts.facetSpacing
+                return htl.svg.fragment`<g transform="translate(0, ${y})">
+                    <line
+                        x1="0"
+                        y1=${-opts.facetSpacing / 2}
+                        x2=${width}
+                        y2=${-opts.facetSpacing / 2}
+                        stroke='var(--color-base)'
+                        stroke-width="1"
+                    />
+                    <text
+                        font-size=${opts.fontSize}
+                        x="0"
+                        y=${opts.fontSize}
+                        fill="var(--color-base)"
+                    >${hourFormat(duration)}</text>
+                    <g transform="translate(${opts.marginLeft}, 0)">
+                        ${events
+                            .sort((a, b) => a.date - b.date)
+                            .map(
+                                (event, i) => event.program.flat().map(
+                                    (d, j) => htl.svg.fragment`
+                                        <circle
+                                            cx=${j * opts.danceWidth + opts.r}
+                                            cy=${i * opts.eventHeight + opts.eventHeight / 2}
+                                            r=${opts.r}
+                                            fill='var(--color-base)'
+                                        />
+                                    `
+                                )
+                            ).flat()
+                        }
+                        ${events.map(
+                            (event, i) => htl.svg.fragment`
+                                <line
+                                    x1=${event.program[0].length * opts.danceWidth - (opts.danceWidth / 2 - opts.r)}
+                                    y1=${i * opts.eventHeight}
+                                    x2=${event.program[0].length * opts.danceWidth - (opts.danceWidth / 2 - opts.r)}
+                                    y2=${(i + 1) * opts.eventHeight}
+                                    stroke='var(--color-base)'
+                                    stroke-width='3'
+                                    stroke-linecap='round'
+                                />
+                            `
+                        )}
+                        <line
+                            x1=${d3.median(events, d => d.program[0].length) * opts.danceWidth - (opts.danceWidth / 2 - opts.r)}
+                            y1="0"
+                            x2=${d3.median(events, d => d.program[0].length) * opts.danceWidth - (opts.danceWidth / 2 - opts.r)}
+                            y2=${events.length * opts.eventHeight}
+                            stroke='var(--color-link)'
+                            stroke-width='1'
+                        />
+                    </g>
+                </g>`
+            })}
+        </svg>
+    `
+}
+
+md`I like to end a dance with something that's high energy, not too challenging, and ends in a partner swing. Here are my closers from 2024:`
+
+closers = events2024.map(d => d.program.flat()[d.program.flat().length - 1]).filter(d => d.type !== 'English' && d.type !== 'mixer')
 
 Plot.plot({
-
+    marginLeft: 200,
+    marginRight: 200,
+    marginTop: 0,
+    marginBottom: 0,
+    height: 25 * d3.groups(closers, d => d.title).length,
+    width: 400 + 15 * d3.max(d3.groups(closers, d => d.title), ([title, instances]) => instances.length),
+    style: {
+        fontSize: '14px',
+    },
+    y: {
+        tickSize: 0,
+        tickFormat: t => t.substring(0, 20) + (t.length > 21 ? '…' : ''),
+        domain: d3.groups(closers, d => d.title).sort((a, b) => b[1].length - a[1].length).map(([title, instances]) => title),
+    },
+    x: {
+        axis: false,
+        domain: [0, d3.max(d3.groups(closers, d => d.title), ([title, instances]) => instances.length)],
+    },
+    marks: [
+        // Bar marks for hover
+        Plot.barX(d3.groups(closers), Plot.pointerY({
+            x1: -20,
+            x2: 20,
+            y: d => d.title,
+            fill: 'var(--color-base)',
+            opacity: 0.1,
+            title: d => `${d.title}, ${d.author}`,
+            tip: {
+                fill: 'var(--color-background)',
+            },
+        })),
+        // Dot counts
+        Plot.dot(closers, Plot.stackX({
+            y: d => d.title,
+            fill: 'var(--color-base)',
+            r: 4,
+        })),
+    ]
 })
+
+md`Looking forward to more calling in 2025!`
