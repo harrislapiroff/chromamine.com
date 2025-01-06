@@ -11,6 +11,32 @@ eleventyExcludeFromCollections: true
 #     url: TBD
 ---
 
+// Make plots work in dark mode and use my font
+htl.svg.fragment`<style>
+    svg[class^='plot-'] {
+        background-color: transparent !important;
+        max-width: 100%;
+        margin-bottom: var(--line-height-base);
+    }
+    svg[class^='plot-'] text {
+        font-family: var(--font-family-base);
+    }
+    input[class^='inputs-'], select[class^='inputs-'] {
+        background-color: transparent;
+        border: 1px solid var(--color-base);
+    }
+
+    button.button {
+        background-color: transparent;
+        font-family: var(--font-family-base);
+        margin-bottom: var(--line-height-base);
+    }
+
+    svg[class^='plot-'] + button.button {
+        margin-top: calc(-1 * var(--line-height-base));
+    }
+</style>`
+
 PAY_DATA = [
     130,
     75,
@@ -45,23 +71,9 @@ data = {
     }))
 }
 
-// Make plots work in dark mode and use my font
-htl.svg.fragment`<style>
-    svg[class^='plot-'] {
-        background-color: transparent !important;
-        max-width: 100%;
-        margin-bottom: var(--line-height-base);
-    }
-    svg[class^='plot-'] text {
-        font-family: var(--font-family-base);
-    }
-    input[class^='inputs-'], select[class^='inputs-'] {
-        background-color: transparent;
-        border: 1px solid var(--color-base);
-    }
-</style>`
-
 md`I've just wrapped up another year of calling dances. It's been an exhilarating, busy year. I'm planning some more verbose reflections for later, but I also wanted, this year, to go deep on the quantitative elements of calling.
+
+_(The crowd chants: "Charts and graphs! Charts and graphs! Sharks and giraffes! 🦈s and 🦒s!")_
 
 ### Table of Contents
 
@@ -71,9 +83,15 @@ md`I've just wrapped up another year of calling dances. It's been an exhilaratin
 
 ### Events
 
-This year I called more dance events than ever before, a total of 29 (including two English Country Dance events and a double dance that I'm counting as *two* events), more than doubling my thirteen events the previous year:`
+In 2024 I called more dance events than ever before, 29 total (including two English Country Dance events and a double dance that I'm counting as *two* events), more than doubling my thirteen total in 2023:`
 
 Plot.plot({
+    marginLeft: 40,
+    marginRight: 0,
+    marginTop: 20,
+    marginBottom: 20,
+    width: d3.group(data, d => d.date.getFullYear()).size * 100 + 40,
+    height: 200,
     style: {
         fontSize: '14px',
     },
@@ -88,12 +106,27 @@ Plot.plot({
         tickSize: 0,
     },
     marks: [
-        Plot.barY(
+        Plot.rect(
             data,
-            Plot.groupX(
-                { y: 'count' },
-                { x: d => d.date.getFullYear() }
-            )
+            Plot.stackY({
+                x: d => d.date.getFullYear(),
+                r: 3,
+                fill: 'var(--color-base)',
+                stroke: 'var(--color-background)',
+                strokeWidth: 1,
+            })
+        ),
+        Plot.rect(
+            data,
+            Plot.pointer(Plot.stackY({
+                x: d => d.date.getFullYear(),
+                r: 3,
+                fill: 'var(--color-link)',
+                title: d => `${d.name} (${d.date.toDateString()})`,
+                tip: {
+                    fill: 'var(--color-background)',
+                },
+            }))
         ),
         Plot.text(
             data,
@@ -221,36 +254,47 @@ Plot.plot({
     },
     y: {
         axis: false,
+        domain: [-0.5, d3.max(groupedDances, d => d['2024']) + 0.5],
     },
     marks: [
-        Plot.waffleY(
-            groupedDances.filter(d => d['2024'] > 0),
-            {
+        Plot.dot(
+            myContras.filter(d => d.date.getFullYear() === 2024),
+            Plot.stackY({
                 x: 'title',
-                y: '2024',
-                rx: '100%',
-                multiple: 1,
-            }
+                fill: 'var(--color-base)',
+                r: 4,
+            })
         ),
-        Plot.waffleY(
-            groupedDances.filter(d => d['2024'] > 0),
-            Plot.pointerX({
+        Plot.dot(
+            myContras.filter(d => d.date.getFullYear() === 2024),
+            Plot.stackY(Plot.pointerX({
                 x: 'title',
-                y: '2024',
-                rx: '100%',
+                r: 4,
                 fill: 'var(--color-link)',
                 title: d => `${d['title']}, ${d['author']}`,
-                multiple: 1,
                 tip: {
                     fill: 'var(--color-background)',
                 },
-            })
+            }))
         ),
-    ],
+    ]
 })
 
 // Repertoire changes chart
 // --------------------------------------------------
+
+toggleButton = (labelFalse, labelTrue) => {
+    const el = htl.html`<button class="button">${labelFalse}</button>`
+    el.value = 0
+
+    el.onclick = () => {
+        el.value = (+el.value + 1) % 2
+        el.textContent = +el.value ? labelTrue : labelFalse
+        el.dispatchEvent(new CustomEvent('input', { bubbles: true }))
+    }
+
+    return el
+}
 
 totals = ({
     '2023': myContras2324.filter(d => d.date.getFullYear() === 2023).length,
@@ -357,19 +401,14 @@ viewof sortBy = Inputs.select(
     }
 )
 
-viewof showCount = Inputs.radio(
-    ['Top 10', 'All'],
-    {
-        label: 'Show',
-        value: 'Top 10',
-    }
-)
 
 changeChart(
     changeChartData
         .toSorted(SORT_FNS[sortBy])
-        .slice(0, showCount === 'Top 10' ? 10 : changeChartData.length)
+        .slice(0, +showAll ? changeChartData.length : 10)
 )
+
+viewof showAll = toggleButton('Show All ↓', 'Show Fewer ↑')
 
 md`Some dances dropped in ranking because I over-called them and then cut back, though I still love them:`
 
@@ -417,7 +456,9 @@ changeChart(
         .toSorted(SORT_FNS['Most Popular 2024'])
 )
 
-md`### Programming`
+md`### Programming
+
+Typically for a 2h30 or 3h event I'll aim to get 12 dances in. This is pretty tight for a 2h30 event and I try to fit it by programmings some short slots (say, a mixer or a no walkthrough). For a 3h event it's a little more leisurely and I can allow myself more teaching time, even a brief technique demo or two. Often, though, I'm simply less efficient than I plan. My median dance counts are a little lower (10.5 for 2h50 minute events, 11 for 3h minute events). In one instance last year I was actually *more* efficient than I planned to be and got *13* dances into a 3h event.`
 
 events2024 = data.filter(d => d.date.getFullYear() === 2024)
 
@@ -433,6 +474,8 @@ eventsNoWeirdPrograms = events2024.filter(
         date => d3.timeDay.count(date, event.date) !== 0
     )
 )
+
+hourFormat = min => `${Math.floor(min / 60)}h${String(min % 60).padStart(2, '0')}`
 
 Plot.plot({
     marginBottom: 50,
@@ -456,7 +499,7 @@ Plot.plot({
     x: {
         type: 'point',
         label: 'Event Duration',
-        tickFormat: t => `${t} min`,
+        tickFormat: hourFormat,
         tickSize: 0,
     },
     marks: [
@@ -495,15 +538,27 @@ Plot.plot({
                 fontWeight: 'bold',
             }
         )),
+        // Count Text
+        Plot.text(eventsNoWeirdPrograms, Plot.groupX(
+            {
+                y: data => d3.max(data, d => d.program.flat().length),
+                text: g => `n=${g.length}`,
+            },
+            {
+                x: 'durationMin',
+                fill: 'var(--color-base)',
+                textSize: 12,
+                fontWeight: 'bold',
+                dy: -30,
+            }
+        )),
     ]
 })
 
 twoHalfEvents = events2024.filter(d => d.program.length === 2)
 
-md`Of the **${events2024.length}** events I called, **${twoHalfEvents.length}** had two "halves" (as is common for contra dance events). The three that did not were:
+md`Of the **${events2024.length}** events I called, **${twoHalfEvents.length}** had two "halves" (as is common for contra dance events).`
 
-* The 90 minute dance session at [Boskone 2024](https://schedule.boskone.org/id/413)
-* The two hour Smith College dance, where I persuaded the band and organizers that we did not need a break for a short event.
-* The 90 minute session at [Somerville Porchfest](https://chromamine.com/2024/05/calling-contras-at-porchfest-2024/)`
+Plot.plot({
 
-
+})
