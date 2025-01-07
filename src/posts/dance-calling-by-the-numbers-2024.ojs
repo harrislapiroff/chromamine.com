@@ -1,0 +1,747 @@
+---
+title: Dance Calling By The Numbers, 2024
+date: 2024-12-19
+categories: [Dance]
+tags: [contra, ECD, calling]
+eleventyExcludeFromCollections: true
+seoImage: /media/dance-calling-by-the-numbers-2024/seo.png
+excerpt:
+    I've just wrapped up another year of calling dances. It's been an exhilarating, busy year. I'm planning some more verbose reflections for later, but I also wanted, this year, to go deep on the quantitative elements of calling.
+# xposts:
+#   - label: Mastodon
+#     url: TBD
+#   - label: Facebook
+#     url: TBD
+---
+
+// Make plots work in dark mode and use my font
+htl.svg.fragment`<style>
+    svg[class^='plot-'] {
+        background-color: transparent !important;
+        max-width: 100%;
+        margin-bottom: var(--line-height-base);
+    }
+    svg[class^='plot-'] text {
+        font-family: var(--font-family-base);
+    }
+    input[class^='inputs-'], select[class^='inputs-'] {
+        background-color: transparent;
+        border: 1px solid var(--color-base);
+    }
+
+    button.button {
+        background-color: transparent;
+        font-family: var(--font-family-base);
+        margin-bottom: var(--line-height-base);
+    }
+
+    svg[class^='plot-'] + button.button {
+        margin-top: calc(-1 * var(--line-height-base));
+    }
+</style>`
+
+// [pay $, duration (hr)]
+PAY_DATA = [
+    [130, 3],
+    [75, 3],
+    [120, 2.5],
+    [75, 3],
+    [80, 2.5],
+    [150, 3],
+    [150, 3],
+    [60, 3],
+    [160, 3],
+    [100, 2.5],
+    [100, 3],
+    [175, 3],
+    [100, 2.5],
+    [40, 2],
+    [50, 2],
+    [200, 2.5],
+    [305, 3],
+    [300, 2],
+    [228, 3],
+    [145, 3],
+    [120, 3],
+    [209.44, 3],
+]
+
+data = {
+    const jsonData = await (await fetch('/dance/data.json')).json()
+    return jsonData.map(d => ({
+        ...d,
+        date: new Date(d.date),
+        durationMin: d3.utcMinute.count(new Date(d.date), new Date(d.date_end)),
+    }))
+}
+
+md`I've just wrapped up another year of calling dances. It's been an exhilarating, busy year. I'm planning some more verbose reflections for later, but I also wanted, this year, to go deep on the quantitative elements of calling.
+
+_(The crowd chants: "Charts and graphs! Charts and graphs! Sharks and giraffes! 🦈s and 🦒s!")_
+
+### Table of Contents
+
+* [Events](#events)
+* [Repertoire](#repertoire)
+* [Programming](#programming)
+
+### Events
+
+In 2024 I called more dance events than ever before, 29 total (including two English Country Dance events and a double dance that I'm counting as *two* events), more than doubling my thirteen total in 2023:`
+
+Plot.plot({
+    marginLeft: 40,
+    marginRight: 0,
+    marginTop: 20,
+    marginBottom: 20,
+    width: d3.group(data, d => d.date.getFullYear()).size * 100 + 40,
+    height: 200,
+    style: {
+        fontSize: '14px',
+    },
+    x: {
+        tickFormat: d3.format('d'),
+        domain: d3.range(2019, 2025),
+        tickSize: 0,
+    },
+    y: {
+        label: '↑ Events #',
+        grid: true,
+        tickSize: 0,
+    },
+    marks: [
+        Plot.rect(
+            data,
+            Plot.stackY({
+                x: d => d.date.getFullYear(),
+                r: 3,
+                inset: 0.5,
+            })
+        ),
+        Plot.rect(
+            data,
+            Plot.pointer(Plot.stackY({
+                x: d => d.date.getFullYear(),
+                r: 3,
+                inset: 0.5,
+                fill: 'var(--color-link)',
+                title: d => `${d.city} (${d.date.toDateString()})`,
+                tip: {
+                    fill: 'var(--color-background)',
+                },
+            }))
+        ),
+        Plot.text(
+            data,
+            Plot.groupX(
+                {
+                    y: 'count',
+                    text: 'count',
+                },
+                {
+                    x: d => d.date.getFullYear(),
+                    lineAnchor: 'bottom',
+                    dy: -5,
+                }
+            ),
+        ),
+    ],
+})
+
+md`Of these, seven were volunteer gigs or I waived the fee. (If a series is new I'll waive the fee. If I'm splitting the evening with someone I'm mentoring, I'll often let them keep the full fee.) This left 22 paid gigs.`
+
+viewof payToggle = Inputs.radio(
+    ['Total $', 'Hourly $'],
+    {
+        label: 'Show',
+        value: 'Total $',
+    }
+)
+
+// Return either the total pay or the hourly pay depending on the selection
+getPayAmount = d => payToggle === 'Total $' ? d[0] : d[0] / d[1]
+unitSuffix = payToggle === 'Total $' ? '' : '/h'
+
+md`${payToggle === 'Hourly $' ? '<div class="note">I\'m calculating with hours dancing. This does not include beginner workshops, sound checks, etc., which would usually be an additional 30m–1h.</div>' : ''}
+
+* These paid me, on average,
+  **${d3.format('$,.2f')(d3.mean(PAY_DATA, getPayAmount))}${unitSuffix}**
+  /
+  **${d3.format('$,.2f')(d3.median(PAY_DATA, getPayAmount))}${unitSuffix}**
+  (mean/median).
+* The most I got paid was **${d3.format('$,.2f')(d3.max(PAY_DATA, getPayAmount))}${unitSuffix}**.
+* The least was **${d3.format('$,.2f')(d3.min(PAY_DATA, getPayAmount))}${unitSuffix}**.
+${payToggle === 'Total $' ? '* The amount a dance paid me with the most sig figs was **$209.44**.' : ''}
+${payToggle === 'Total $' ? `* I made a total of **${d3.format('$,.2f')(d3.sum(PAY_DATA, d => d[0]))}** calling dances this year.` : ''}
+* I did not track dance calling *expenses*. Maybe next year.
+`
+
+payInterval = payToggle === 'Total $' ? 25 : 10
+
+Plot.plot({
+    style: {
+        fontSize: '14px',
+    },
+    height: 200,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 15,
+    marginBottom: 20,
+    y: {
+        axis: false,
+        grid: true,
+    },
+    x: {
+        tickFormat: d3.format('$,.0f'),
+        label: null,
+        tickSize: 0,
+    },
+    marks: [
+        Plot.rectY(PAY_DATA, Plot.binX(
+            { y: 'count' },
+            {
+                x: { value: getPayAmount, interval: payInterval },
+                z: (_, i) => i, // Separates bars into boxes
+                r: 3,
+                inset: 0.5,
+            },
+        )),
+        Plot.rectY(PAY_DATA, Plot.pointer(Plot.binX(
+            {
+                y: 'count',
+                title: g => d3.format('$,.2d')(getPayAmount(g[0])),
+            },
+            {
+                x: { value: getPayAmount, interval: payInterval },
+                z: (_, i) => i, // Separates bars into boxes
+                r: 3,
+                fill: 'var(--color-link)',
+                tip: {
+                    fill: 'var(--color-background)',
+                },
+                inset: 0.5,
+            },
+        ))),
+        Plot.text(PAY_DATA, Plot.binX(
+            {
+                y: 'count',
+                text: 'count',
+            },
+            {
+                x: { value: getPayAmount, interval: payInterval },
+                lineAnchor: 'bottom',
+                dy: -3,
+                fill: 'var(--color-base)',
+                filter: d => getPayAmount(d) > 0,
+            }
+        )),
+    ],
+})
+
+md`### Repertoire
+
+<div class="note">I would have liked to include choreography for the dances in this blog post, but choreography permissions are complicated and encoding the choreo for every dance I called this year would be a Project with a capital P. You can look up the choreo for most of these dances on [The Callers Box](https://www.ibiblio.org/contradance/thecallersbox/).</div>
+
+One thing I'm interested in understanding is what different callers' repertoires look like. I have the impression that some callers have large repertoires and can call a lot of events without repeating and others have smaller repertoires and repeat dances frequently. I have no idea what the average is or where I fall in that spread.
+
+For the following, I've limited myself to contras since I haven't led enough English dances to have a meaningful dataset. I've also excluded medleys, mixers, and other barn dances for simplicity.`
+
+dances = data.reduce((dances, event) => {
+    if (!event.program) return dances
+    return dances.concat(
+        event.program
+            // Programs are nested arrays to represent sections of an evening
+            .flat()
+            // Add some event data back into the datum
+            .map((d, i) => ({
+                ...d,
+                date: event.date,
+                city: event.city,
+                slot: i,
+            }))
+    )
+}, [])
+
+myContras = dances.filter(d => !d.caller)
+    .filter(d => !d.type)
+    .filter(d => !d.medley)
+
+myContras2324 = myContras.filter(d => d.date.getFullYear() >= 2023)
+myContras24 = myContras.filter(d => d.date.getFullYear() === 2024)
+
+groupedDances = Array.from(
+        d3.group(myContras2324, d => d.title, d => d.date.getFullYear())
+            .entries()
+    )
+    .map(([title, counts]) => ({
+        title: title,
+        author: counts.get(2023) ? counts.get(2023)[0].author : counts.get(2024)[0].author,
+        '2023': counts.get(2023) ? counts.get(2023).length : 0,
+        '2024': counts.get(2024) ? counts.get(2024).length : 0,
+        '2023pct': counts.get(2023) ? (counts.get(2023).length / totals['2023']) : 0,
+        '2024pct': counts.get(2024) ? (counts.get(2024).length / totals['2024']) : 0,
+    }))
+
+md`In 2024 I called a total of:
+
+* **${myContras24.length}** dance slots, with
+* **${new Set(myContras.filter(d => d.date.getFullYear() === 2024).map(d => d.title)).size}** distinct sequences.
+* The most number of times I called a sequence was **${d3.max(groupedDances, d => d['2024'])}** times (Train Delay, by [Maia McCormick]() – empirically my favorite dance to call this year!)
+* There were **${groupedDances.filter(d => d['2024'] === 1).length}** sequences that I only called once each.`
+
+Plot.plot({
+    style: {
+        fontSize: '14px',
+    },
+    height: d3.max(groupedDances, d => d['2024']) * 10,
+    width: groupedDances.filter(d => d['2024'] > 0).length * 10,
+    x: {
+        axis: false,
+        domain: groupedDances.filter(d => d['2024'] > 0).sort((a, b) => a['2024'] - b['2024']).map(d => d.title),
+    },
+    y: {
+        axis: false,
+        domain: [-0.5, d3.max(groupedDances, d => d['2024']) + 0.5],
+    },
+    marks: [
+        Plot.dot(
+            myContras24,
+            Plot.stackY({
+                x: 'title',
+                fill: 'var(--color-base)',
+                r: 4,
+            })
+        ),
+        Plot.dot(
+            myContras24,
+            Plot.stackY(Plot.pointerX({
+                x: 'title',
+                r: 4,
+                fill: 'var(--color-link)',
+                title: d => `${d['title']}, ${d['author']}`,
+                tip: {
+                    fill: 'var(--color-background)',
+                },
+            }))
+        ),
+    ]
+})
+
+// Repertoire changes chart
+// --------------------------------------------------
+
+toggleButton = (labelFalse, labelTrue) => {
+    const el = htl.html`<button class="button">${labelFalse}</button>`
+    el.value = 0
+
+    el.onclick = () => {
+        el.value = (+el.value + 1) % 2
+        el.textContent = +el.value ? labelTrue : labelFalse
+        el.dispatchEvent(new CustomEvent('input', { bubbles: true }))
+    }
+
+    return el
+}
+
+totals = ({
+    '2023': myContras2324.filter(d => d.date.getFullYear() === 2023).length,
+    '2024': myContras2324.filter(d => d.date.getFullYear() === 2024).length,
+})
+
+SORT_FNS = ({
+    'Most Popular 2024': (a, b) => b['2024pct'] - a['2024pct'],
+    'Most Popular 2023': (a, b) => b['2023pct'] - a['2023pct'],
+    'Change ±': (a, b) => (b['2024pct'] - b['2023pct']) - (a['2024pct'] - a['2023pct']),
+})
+
+changeChart = (data) => {
+    return Plot.plot({
+        marginLeft: 200,
+        marginRight: 40,
+        marginTop: 20,
+        marginBottom: 20,
+        height: 25 * data.length + 40,
+        width: 600,
+        style: {
+            fontSize: '14px',
+        },
+        y: {
+            tickFormat: t => t.substring(0, 20) + (t.length > 21 ? '…' : ''),
+            title: t => t,
+            domain: data.map(d => d.title),
+            label: null,
+            tickSize: 0,
+            fontSize: 16,
+        },
+        x: {
+            domain: [-0.005, d3.max(changeChartData, d => Math.max(d['2023pct'], d['2024pct'])) + 0.005],
+            tickFormat: d3.format('.0%'),
+            ticks: d3.range(0, 0.07, 0.01),
+            grid: true,
+            axis: 'both',
+            tickSize: 0,
+        },
+        color: {
+            domain: d3.extent(changeChartData.map(d => d['2024pct'] - d['2023pct'])),
+            range: ['#C30', '#0C8'],
+        },
+        marks: [
+            // Bar marks for hover
+            Plot.barX(data, Plot.pointerY({
+                x1: -1,
+                x2: 1,
+                y: 'title',
+                height: 20,
+                fill: 'var(--color-base)',
+                opacity: 0.1,
+                title: d => `${d.title}, ${d.author}`,
+                tip: {
+                    fill: 'var(--color-background)',
+                },
+            })),
+            // Most of the data is here in these links!
+            Plot.link(data, {
+                x1: '2023pct',
+                x2: '2024pct',
+                y1: 'title',
+                y2: 'title',
+                stroke: d => d['2024pct'] - d['2023pct'],
+                strokeWidth: 3,
+                markerEnd: 'arrow',
+                markerStart: 'dot',
+            }),
+            // Text marks for the larger end
+            Plot.text(data, {
+                x: d => d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct'],
+                y: 'title',
+                text: d => d3.format('.1%')(d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct']),
+                dx: 8,
+                // dy: '0.3em',
+                textAnchor: 'start',
+                filter: d => (d['2023pct'] > d['2024pct'] ? d['2023pct'] : d['2024pct']) !== 0,
+                fontSize: 14,
+            }),
+            // Text marks for the smaller end
+            Plot.text(data, {
+                x: d => d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct'],
+                y: 'title',
+                text: d => d3.format('.1%')(d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct']),
+                dx: -8,
+                // dy: '0.3em',
+                textAnchor: 'end',
+                filter: d => (d['2023pct'] < d['2024pct'] ? d['2023pct'] : d['2024pct']) !== 0,
+                fontSize: 14,
+            }),
+        ]
+    })
+}
+
+md`My repertoire saw some changes this year. Here are the top 10 sequences I called in 2024 and their change in ranking from 2023 (percentages refer to what percentage of dance slots in my programs were filled with the particular sequence):
+
+<div class="note">Tica Tica Timing and Old Time Elixir #2 are combined into a single entry for my data as Dean Snipes and Linda Leslie devised the same sequence independently!</div>`
+
+changeChartData = groupedDances
+
+
+viewof sortBy = Inputs.select(
+    Object.keys(SORT_FNS),
+    {
+        label: 'Sort by',
+        value: 'Most Popular 2024',
+    }
+)
+
+
+changeChart(
+    changeChartData
+        .toSorted(SORT_FNS[sortBy])
+        .slice(0, +showAll ? changeChartData.length : 10)
+)
+
+viewof showAll = toggleButton('Show All ↓', 'Show Fewer ↑')
+
+md`Some dances dropped in ranking because I over-called them and then cut back, though I still love them:`
+
+changeChart(
+    changeChartData
+        .filter(d => [
+            'Twirly Minds Think Alike',
+            'Maliza\'s Magical Mystery Motion',
+            'Read Between The Lines',
+        ].includes(d.title))
+        .toSorted(SORT_FNS['Change ±'])
+        .toReversed()
+)
+
+md`Others dropped because I decided I didn't like them as much after all or they contain sequences I decided to excise from my repertoire, like the courtesy turn into circle left in After The Solstice:`
+
+changeChart(
+    changeChartData
+        .filter(d => ['After The Solstice', 'Rollin\' And Tumblin\''].includes(d.title))
+        .toSorted(SORT_FNS['Change ±'])
+        .toReversed()
+)
+
+md`And because I'm always trying to expand my repertoire, a number of new dances got added to my rotation in 2024, some of which quickly became favorites:`
+
+changeChart(
+    changeChartData
+        .filter(d => d['2023'] === 0)
+        .toSorted(SORT_FNS['Most Popular 2024'])
+        .slice(0, 5)
+)
+
+md`(It's interesting to note that many of my new acquisitions are in the "beginner-friendly" category!)
+
+A few dances stayed in roughly the same position in my repertoire:`
+
+changeChart(
+    changeChartData
+        .filter(d => [
+            'Butter',
+            'Soul Reversal',
+            'The Boys From Urbana',
+            'Tica Tica Timing/Old Time Elixir #2',
+        ].includes(d.title))
+        .toSorted(SORT_FNS['Most Popular 2024'])
+)
+
+md`### Programming
+
+Typically for a 2h30 or 3h event I'll aim to get 12 dances in. This is pretty tight for a 2h30 event and I try to fit it by programming some short slots (say, a mixer or a no walkthrough). For a 3h event it's more leisurely and I allow myself more teaching time, even a brief technique demo or two. Often, though, I'm simply less efficient than I plan. My median dance counts are a little lower (10.5 for 2h30 events, 11 for 3h events). In one instance last year I was actually *more* efficient than I planned to be and got *13* dances into a 3h event.
+
+Ranges and medians charted:`
+
+events2024 = data.filter(d => d.date.getFullYear() === 2024)
+
+excludeFromDanceCounts = [
+    new Date(2024, 0, 7), // 2024-01-07 BIDA combo scottish/contras
+    new Date(2024, 4, 16), // 2024-05-16 Nantucket
+    new Date(2024, 8, 19), // 2024-09-19 Nantucket
+]
+
+eventsNoWeirdPrograms = events2024.filter(
+    // Include events as long as none of the exclusion dates match their date
+    event => excludeFromDanceCounts.every(
+        date => d3.timeDay.count(date, event.date) !== 0
+    )
+)
+
+hourFormat = min => `${Math.floor(min / 60)}h${String(min % 60).padStart(2, '0')}`
+
+Plot.plot({
+    marginBottom: 50,
+    style: {
+        fontSize: '14px',
+    },
+    y: {
+        label: '↑ Slots #',
+        grid: true,
+        domain: [
+            d3.min(eventsNoWeirdPrograms, d => d.program.flat().length) - 0.5,
+            d3.max(eventsNoWeirdPrograms, d => d.program.flat().length) + 0.5
+        ],
+        ticks: d3.range(
+            d3.min(eventsNoWeirdPrograms, d => d.program.flat().length),
+            d3.max(eventsNoWeirdPrograms, d => d.program.flat().length) + 1
+        ),
+        tickFormat: d3.format('d'),
+        tickSize: 0,
+    },
+    x: {
+        type: 'point',
+        label: 'Event Duration',
+        tickFormat: hourFormat,
+        tickSize: 0,
+    },
+    marks: [
+        Plot.link(eventsNoWeirdPrograms, Plot.groupX(
+            {
+                y1: data => d3.min(data, d => d.program.flat().length),
+                y2: data => d3.max(data, d => d.program.flat().length),
+            },
+            {
+                x: 'durationMin',
+                strokeWidth: 10,
+                strokeLinecap: 'round',
+            },
+        )),
+        // Median Dots
+        Plot.dot(eventsNoWeirdPrograms, Plot.groupX(
+            { y: data => d3.median(data, d => d.program.flat().length) },
+            {
+                x: 'durationMin',
+                r: 20,
+                fill: 'var(--color-base)',
+                stroke: 'var(--color-background)',
+                strokeWidth: 3,
+            }
+        )),
+        // Median Text
+        Plot.text(eventsNoWeirdPrograms, Plot.groupX(
+            {
+                y: data => d3.median(data, d => d.program.flat().length),
+                text: data => d3.format('~f')(d3.median(data, d => d.program.flat().length)),
+            },
+            {
+                x: 'durationMin',
+                fill: 'var(--color-background)',
+                textSize: 12,
+                fontWeight: 'bold',
+            }
+        )),
+        // Count Text
+        Plot.text(eventsNoWeirdPrograms, Plot.groupX(
+            {
+                y: data => d3.max(data, d => d.program.flat().length),
+                text: g => `n=${g.length}`,
+            },
+            {
+                x: 'durationMin',
+                fill: 'var(--color-base)',
+                textSize: 12,
+                fontWeight: 'bold',
+                dy: -30,
+            }
+        )),
+    ]
+})
+
+twoHalfEvents = eventsNoWeirdPrograms.filter(d => d.program.length === 2)
+
+md`The majority of events I called in 2024 had two "halves" with a break between (as is the norm for contra and ECD events). I usually aim to make the first half longer than the second, e.g., 7 and 5 for a 12-dance evening. This is a chart of the programs for all these events I called in 2024 with the break for each marked as well as the median break position overall:`
+
+{
+    const opts = ({
+        eventHeight: 14,
+        danceWidth: 14,
+        fontSize: 14,
+        marginLeft: 50,
+        marginRight: 50,
+        facetSpacing: 10,
+        r: 3.5,
+    })
+
+    // Facet by duration
+    const facets = d3.groups(twoHalfEvents, d => d.durationMin)
+
+    // Calculate width and height
+    const width = 13 * opts.danceWidth + opts.marginLeft + opts.marginRight
+    const height = twoHalfEvents.length * opts.eventHeight + facets.length * opts.facetSpacing
+
+    return htl.html`
+        <svg
+            width=${width}
+            height=${height}
+            viewbox="0 0 ${width} ${height}"
+        >
+            ${facets.map(([duration, events], i, facets) => {
+                // Calculate height of facets preceding this one
+                const y = facets.slice(0, i).reduce((acc, [_, events]) => acc + events.length, 0) * opts.eventHeight + (i + 0.5) * opts.facetSpacing
+                return htl.svg.fragment`<g transform="translate(0, ${y})">
+                    <line
+                        x1="0"
+                        y1=${-opts.facetSpacing / 2}
+                        x2=${width}
+                        y2=${-opts.facetSpacing / 2}
+                        stroke='var(--color-base)'
+                        stroke-width="1"
+                    />
+                    <text
+                        font-size=${opts.fontSize}
+                        x="0"
+                        y=${opts.fontSize}
+                        fill="var(--color-base)"
+                    >${hourFormat(duration)}</text>
+                    <g transform="translate(${opts.marginLeft}, 0)">
+                        ${events
+                            .sort((a, b) => a.date - b.date)
+                            .map(
+                                (event, i) => event.program.flat().map(
+                                    (d, j) => htl.svg.fragment`
+                                        <circle
+                                            cx=${j * opts.danceWidth + opts.r}
+                                            cy=${i * opts.eventHeight + opts.eventHeight / 2}
+                                            r=${opts.r}
+                                            fill='var(--color-base)'
+                                        />
+                                    `
+                                )
+                            ).flat()
+                        }
+                        ${events.map(
+                            (event, i) => htl.svg.fragment`
+                                <line
+                                    x1=${event.program[0].length * opts.danceWidth - (opts.danceWidth / 2 - opts.r)}
+                                    y1=${i * opts.eventHeight}
+                                    x2=${event.program[0].length * opts.danceWidth - (opts.danceWidth / 2 - opts.r)}
+                                    y2=${(i + 1) * opts.eventHeight}
+                                    stroke='var(--color-base)'
+                                    stroke-width='3'
+                                    stroke-linecap='round'
+                                />
+                            `
+                        )}
+                        <line
+                            x1=${d3.median(events, d => d.program[0].length) * opts.danceWidth - (opts.danceWidth / 2 - opts.r)}
+                            y1="0"
+                            x2=${d3.median(events, d => d.program[0].length) * opts.danceWidth - (opts.danceWidth / 2 - opts.r)}
+                            y2=${events.length * opts.eventHeight}
+                            stroke='var(--color-link)'
+                            stroke-width='1'
+                        />
+                    </g>
+                </g>`
+            })}
+        </svg>
+    `
+}
+
+md`I like to end a dance with something that's high energy, not too challenging, and ends in a partner swing. Here are my closers from 2024:`
+
+closers = events2024.map(d => d.program.flat()[d.program.flat().length - 1]).filter(d => d.type !== 'English' && d.type !== 'mixer')
+
+Plot.plot({
+    marginLeft: 200,
+    marginRight: 200,
+    marginTop: 0,
+    marginBottom: 0,
+    height: 25 * d3.groups(closers, d => d.title).length,
+    width: 400 + 15 * d3.max(d3.groups(closers, d => d.title), ([title, instances]) => instances.length),
+    style: {
+        fontSize: '14px',
+    },
+    y: {
+        tickSize: 0,
+        tickFormat: t => t.substring(0, 20) + (t.length > 21 ? '…' : ''),
+        domain: d3.groups(closers, d => d.title).sort((a, b) => b[1].length - a[1].length).map(([title, instances]) => title),
+    },
+    x: {
+        axis: false,
+        domain: [0, d3.max(d3.groups(closers, d => d.title), ([title, instances]) => instances.length)],
+    },
+    marks: [
+        // Bar marks for hover
+        Plot.barX(d3.groups(closers), Plot.pointerY({
+            x1: -20,
+            x2: 20,
+            y: d => d.title,
+            fill: 'var(--color-base)',
+            opacity: 0.1,
+            title: d => `${d.title}, ${d.author}`,
+            tip: {
+                fill: 'var(--color-background)',
+            },
+        })),
+        // Dot counts
+        Plot.dot(closers, Plot.stackX({
+            y: d => d.title,
+            fill: 'var(--color-base)',
+            r: 4,
+        })),
+    ]
+})
+
+md`Looking forward to more calling in 2025!
+
+_Thanks to [Ruthie Byers](https://www.ruthiebyers.com/), [Emma Azelborn](https://emmaazelborn.com/), and [Maia McCormick](https://contra.maiamccormick.com/) for editing and ideas on this blog post._`

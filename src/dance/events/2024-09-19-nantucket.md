@@ -1,7 +1,7 @@
 ---
 name: Nantucket Contra Dance
 date: 2024-09-19T19:00
-date_end: 2024-09-19T22:00
+date_end: 2024-09-19T21:30
 tzid: America/New_York
 band: Sam Zakon-Anderson and Eric Boodman
 description: |+
@@ -26,6 +26,7 @@ program:
       author: Robert Cromartie
   - - title: Circle-Keeper-Shuffle
       author: Unknown
+      type: barn
     - title: Uptown Downtown
       author: Traditional
       type: square

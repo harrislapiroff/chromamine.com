@@ -1,6 +1,6 @@
 ---
 name: Pittsburgh Contra Dance
-date: 2024-06-28T19:30
+date: 2024-06-28T20:00
 date_end: 2024-06-28T23:00
 tzid: America/New_York
 band: Kingfisher

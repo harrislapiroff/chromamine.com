@@ -15,6 +15,7 @@ program:
       author: Will Mentor
     - title: Easy Circle Of Fun
       author: Linda Leslie
+      type: mixer
     - title: A-1 Reel
       author: Chris Weiler
     - title: Salmonella Evening

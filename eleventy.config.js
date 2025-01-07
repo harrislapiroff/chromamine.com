@@ -192,15 +192,18 @@ export default function(eleventyConfig) {
      * I.e., rendering Observable Notebooks as blog posts
      *------------------------------------*/
 
-    const runtimeOutputPath = "static/scripts/observable-runtime.js"
+    const runtimeOutputPath = "static/scripts/observable-runtime/"
     const inspectorOutputPath = "static/scripts/observable-inspector.js"
+    const globalOutputPath = "static/scripts/observable-global.js"
 
     // Pass through the runtime and inspector to be loaded and run on the client-side
     eleventyConfig.addPassthroughCopy({
         // Use the official Observable runtime
-        "node_modules/@observablehq/runtime/dist/runtime.js": runtimeOutputPath,
+        "node_modules/@observablehq/runtime/src/": runtimeOutputPath,
         // Use our own custom Inspector
-        "config/utils/ojs/client/inspector.mjs": inspectorOutputPath,
+        "config/utils/ojs/client/inspector.js": inspectorOutputPath,
+        // And our own custom global
+        "config/utils/ojs/client/global.js": globalOutputPath,
     })
 
     // Add the OJS format
@@ -211,8 +214,9 @@ export default function(eleventyConfig) {
         // Compile the notebook to HTML
         compile: async (inputContent) => {
             return async (data) => await compileObservable(inputContent, {
-                runtimePath: '/' + runtimeOutputPath,
+                runtimePath: '/' + runtimeOutputPath + 'index.js',
                 inspectorPath: '/' + inspectorOutputPath,
+                globalPath: '/' + globalOutputPath,
             })
         }
     })

@@ -1,6 +1,6 @@
 ---
 name: Indy Contra Dance
-date: 2024-07-02T18:40
+date: 2024-07-02T19:00
 date_end: 2024-07-02T21:00
 tzid: America/New_York
 band: Kingfisher
