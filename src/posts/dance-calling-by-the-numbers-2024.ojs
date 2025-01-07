@@ -37,29 +37,30 @@ htl.svg.fragment`<style>
     }
 </style>`
 
+// [pay $, duration (hr)]
 PAY_DATA = [
-    130,
-    75,
-    120,
-    75,
-    80,
-    150,
-    150,
-    60,
-    160,
-    100,
-    100,
-    175,
-    100,
-    40,
-    50,
-    200,
-    306,
-    300,
-    228,
-    145,
-    120,
-    209.44,
+    [130, 3],
+    [75, 3],
+    [120, 2.5],
+    [75, 3],
+    [80, 2.5],
+    [150, 3],
+    [150, 3],
+    [60, 3],
+    [160, 3],
+    [100, 2.5],
+    [100, 3],
+    [175, 3],
+    [100, 2.5],
+    [40, 2],
+    [50, 2],
+    [200, 2.5],
+    [305, 3],
+    [300, 2],
+    [228, 3],
+    [145, 3],
+    [120, 3],
+    [209.44, 3],
 ]
 
 data = {
@@ -146,11 +147,17 @@ Plot.plot({
 
 md`Of these, seven were volunteer gigs or I waived the fee. (If a series is new I'll waive the fee. If I'm splitting the evening with someone I'm mentoring, I'll often let them keep the full fee.) This left 22 paid gigs.
 
-* These paid me, on average, **${d3.format('$,.2f')(d3.mean(PAY_DATA))}**/**${d3.format('$,.2f')(d3.median(PAY_DATA))}** (mean/median).
-* The most I got paid was **${d3.format('$,.2f')(d3.max(PAY_DATA))}**.
-* The least was **${d3.format('$,.2f')(d3.min(PAY_DATA))}**.
+* These paid me, on average,
+  **${
+    d3.format('$,.2f')(d3.mean(PAY_DATA, d => d[0]))
+  }**/**${
+    d3.format('$,.2f')(d3.median(PAY_DATA, d => d[0]))
+  }**
+  (mean/median).
+* The most I got paid was **${d3.format('$,.2f')(d3.max(PAY_DATA, d => d[0]))}**.
+* The least was **${d3.format('$,.2f')(d3.min(PAY_DATA, d => d[0]))}**.
 * The amount a dance paid me with the most sig figs was **$209.44**.
-* I made a total of **${d3.format('$,.2f')(d3.sum(PAY_DATA))}** calling dances this year.
+* I made a total of **${d3.format('$,.2f')(d3.sum(PAY_DATA, d => d[0]))}** calling dances this year.
 * I did not track dance calling *expenses*. Maybe next year.`
 
 Plot.plot({
@@ -175,7 +182,7 @@ Plot.plot({
         Plot.rectY(PAY_DATA, Plot.binX(
             { y: 'count' },
             {
-                x: { value: d => d, interval: 25 },
+                x: { value: d => d[0], interval: 25 },
                 z: (_, i) => i, // Separates bars into boxes
                 r: 3,
                 inset: 0.5,
@@ -184,10 +191,10 @@ Plot.plot({
         Plot.rectY(PAY_DATA, Plot.pointer(Plot.binX(
             {
                 y: 'count',
-                title: d => d3.format('$,.2d')(d),
+                title: g => d3.format('$,.2d')(g[0][0]),
             },
             {
-                x: { value: d => d, interval: 25 },
+                x: { value: d => d[0], interval: 25 },
                 z: (_, i) => i, // Separates bars into boxes
                 r: 3,
                 fill: 'var(--color-link)',
@@ -203,11 +210,11 @@ Plot.plot({
                 text: 'count',
             },
             {
-                x: { value: d => d, interval: 25 },
+                x: { value: d => d[0], interval: 25 },
                 lineAnchor: 'bottom',
                 dy: -3,
                 fill: 'var(--color-base)',
-                filter: d => d > 0,
+                filter: d => d[0] > 0,
             }
         )),
     ],
