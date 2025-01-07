@@ -1,6 +1,7 @@
 ---
 name: Monday Contras
-date: 2024-01-29
+date: 2024-01-29T19:30
+date_end: 2024-01-29T22:30
 city: Concord MA
 tzid: America/New_York
 band: Larry Unger, Julie Metcalf, Jack O'Connor, Cecily Mills, Dan Afrik

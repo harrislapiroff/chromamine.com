@@ -1,6 +1,7 @@
 ---
 name: Rehoboth Contra Dance
-date: 2024-01-26
+date: 2024-01-26T19:30
+date_end: 2024-01-26T22:30
 city: Rehoboth MA
 tzid: America/New_York
 band: Black River Ironworks

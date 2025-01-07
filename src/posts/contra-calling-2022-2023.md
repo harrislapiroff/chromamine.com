@@ -55,7 +55,7 @@ Here are the different dance choreographies I called in 2023, their choreographe
 * *Salmonella Evening*, Steve Zakon-Anderson (3)
 * *The Barn Mixer*, Rick Mohr (3)
 * *Twirly Minds Think Alike*, Tavi Merrill (3)
-* *After the Solstice*, Lisa Greenleaf (2)
+* *After The Solstice*, Lisa Greenleaf (2)
 * *Are You 'Most Done*, Russell Owen (2)
 * *Chinese New Year*, Chris Page (2)
 * *Dancing Bears*, Brian DeMarcus (2)

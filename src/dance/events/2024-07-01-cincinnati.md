@@ -1,6 +1,6 @@
 ---
 name: Cincinnati Contra Dancers
-date: 2024-07-01T19:30
+date: 2024-07-01T20:00
 date_end: 2024-07-01T22:00
 tzid: America/New_York
 band: Kingfisher

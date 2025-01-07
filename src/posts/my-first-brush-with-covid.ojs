@@ -56,7 +56,7 @@ DEC_TO_TIME_OF_DAY = ({
 
 d3 = require('d3')
 
-bearableData = await FileAttachment('/media/my-first-brush-with-covid/bearable-data.csv').csv()
+bearableData = d3.csv('/media/my-first-brush-with-covid/bearable-data.csv')
 
 dayOfInfection = date => d3.utcDay.count(
     new Date(Date.UTC(2023, 10, 17)),
@@ -130,7 +130,7 @@ md`Notably my symptom tracker allows me to record five levels for any symptom: n
 Here also is a plot of my body temperature for the first few days of my infection, as measured on an oral thermometer approximately whenever it occurred to me to do so, hence the irregular timing. My base body temperature usually ranges between 96.5 and 97.5 °F.`
 
 temperatureData = await (
-    await FileAttachment('/media/my-first-brush-with-covid/body-temperature.csv').csv()
+    await d3.csv('/media/my-first-brush-with-covid/body-temperature.csv')
 ).map(
     d => ({
         // times are in UTC, need to be shifted to EST manually

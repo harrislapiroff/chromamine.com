@@ -1,7 +1,7 @@
 ---
 name: Thursday Night Contra
 date: 2024-06-27T19:30
-date_end: 2024-06-27T22:30
+date_end: 2024-06-27T22:00
 tzid: America/New_York
 band: Kingfisher
 bandURL: https://www.kingfisherband.com/
