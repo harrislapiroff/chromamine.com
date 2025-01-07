@@ -6,11 +6,11 @@ tags: [contra, ECD, calling]
 seoImage: /media/dance-calling-by-the-numbers-2024/seo.png
 excerpt:
     I've just wrapped up another year of calling dances. It's been an exhilarating, busy year. I'm planning some more verbose reflections for later, but I also wanted, this year, to go deep on the quantitative elements of calling.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113784457718071045
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0VdhiTRGFiJLoeXRTdaBnMnyMw9Qh5hNWzPKZSoN21sw845zTFnErkRExnxqy8oMvl
 ---
 
 // Make plots work in dark mode and use my font
@@ -501,6 +501,8 @@ changeChart(
             'Soul Reversal',
             'The Boys From Urbana',
             'Tica Tica Timing/Old Time Elixir #2',
+            'Hypnosis',
+            'Violet Ice'
         ].includes(d.title))
         .toSorted(SORT_FNS['Most Popular 2024'])
 )
