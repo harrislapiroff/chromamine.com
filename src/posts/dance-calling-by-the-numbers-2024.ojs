@@ -4,6 +4,9 @@ date: 2024-12-19
 categories: [Dance]
 tags: [contra, ECD, calling]
 eleventyExcludeFromCollections: true
+seoImage: /media/dance-calling-by-the-numbers-2024/seo.png
+excerpt:
+    I've just wrapped up another year of calling dances. It's been an exhilarating, busy year. I'm planning some more verbose reflections for later, but I also wanted, this year, to go deep on the quantitative elements of calling.
 # xposts:
 #   - label: Mastodon
 #     url: TBD
