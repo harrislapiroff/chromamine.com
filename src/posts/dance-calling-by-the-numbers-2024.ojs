@@ -144,7 +144,7 @@ Plot.plot({
     ],
 })
 
-md`Of these, seven were volunteer gigs or I waived the fee. (If a series is new I'll waive the fee. If I'm splitting the evening with someone I'm mentoring, I'll often let them keep the full fee.) This left over 22 paid gigs.
+md`Of these, seven were volunteer gigs or I waived the fee. (If a series is new I'll waive the fee. If I'm splitting the evening with someone I'm mentoring, I'll often let them keep the full fee.) This left 22 paid gigs.
 
 * These paid me, on average, **${d3.format('$,.2f')(d3.mean(PAY_DATA))}**/**${d3.format('$,.2f')(d3.median(PAY_DATA))}** (mean/median).
 * The most I got paid was **${d3.format('$,.2f')(d3.max(PAY_DATA))}**.
@@ -215,11 +215,11 @@ Plot.plot({
 
 md`### Repertoire
 
-*Note: I would have liked to include choreography for the dances in this blog post, but choreography permissions are complicated and encoding the choreo for every dance I called this year would be a Project with a capital P. You can look up the choreo for most of these dances on [The Callers Box](https://www.ibiblio.org/contradance/thecallersbox/)*.
+<div class="note">I would have liked to include choreography for the dances in this blog post, but choreography permissions are complicated and encoding the choreo for every dance I called this year would be a Project with a capital P. You can look up the choreo for most of these dances on [The Callers Box](https://www.ibiblio.org/contradance/thecallersbox/).</div>
 
 One thing I'm interested in understanding is what different callers' repertoires look like. I have the impression that some callers have large repertoires and can call a lot of events without repeating and others have smaller repertoires and repeat dances frequently. I have no idea what the average is or where I fall in that spread.
 
-For the following this data, I've limited myself to contras since I haven't led enough English Dances to have a meaningful dataset. I've also excluded medleys, mixers, and other barn dances for simplicity.`
+For the following, I've limited myself to contras since I haven't led enough English dances to have a meaningful dataset. I've also excluded medleys, mixers, and other barn dances for simplicity.`
 
 dances = data.reduce((dances, event) => {
     if (!event.program) return dances
@@ -261,7 +261,7 @@ md`In 2024 I called a total of:
 
 * **${myContras24.length}** dance slots, with
 * **${new Set(myContras.filter(d => d.date.getFullYear() === 2024).map(d => d.title)).size}** distinct sequences.
-* The most number of times I called a sequence was **${d3.max(groupedDances, d => d['2024'])}** times (Train Delay, by Maia McCormick – empirically my favorite dance to call this year!)
+* The most number of times I called a sequence was **${d3.max(groupedDances, d => d['2024'])}** times (Train Delay, by [Maia McCormick]() – empirically my favorite dance to call this year!)
 * There were **${groupedDances.filter(d => d['2024'] === 1).length}** sequences that I only called once each.`
 
 Plot.plot({
@@ -410,7 +410,9 @@ changeChart = (data) => {
     })
 }
 
-md`My repertoire saw some changes this year. Here are the top 10 sequences I called in 2024 and their change in ranking from 2023 (percentages refer to what percentage of dance slots in my programs were filled with the particular sequence):`
+md`My repertoire saw some changes this year. Here are the top 10 sequences I called in 2024 and their change in ranking from 2023 (percentages refer to what percentage of dance slots in my programs were filled with the particular sequence):
+
+<div class="note">Tica Tica Timing and Old Time Elixir #2 are combined into a single entry for my data as Dean Snipes and Linda Leslie devised the same sequence independently!</div>`
 
 changeChartData = groupedDances
 
@@ -480,7 +482,9 @@ changeChart(
 
 md`### Programming
 
-Typically for a 2h30 or 3h event I'll aim to get 12 dances in. This is pretty tight for a 2h30 event and I try to fit it by programmings some short slots (say, a mixer or a no walkthrough). For a 3h event it's more leisurely and I can allow myself more teaching time, even a brief technique demo or two. Often, though, I'm simply less efficient than I plan. My median dance counts are a little lower (10.5 for 2h30 events, 11 for 3h events). In one instance last year I was actually *more* efficient than I planned to be and got *13* dances into a 3h event.`
+Typically for a 2h30 or 3h event I'll aim to get 12 dances in. This is pretty tight for a 2h30 event and I try to fit it by programming some short slots (say, a mixer or a no walkthrough). For a 3h event it's more leisurely and I allow myself more teaching time, even a brief technique demo or two. Often, though, I'm simply less efficient than I plan. My median dance counts are a little lower (10.5 for 2h30 events, 11 for 3h events). In one instance last year I was actually *more* efficient than I planned to be and got *13* dances into a 3h event.
+
+Ranges and medians charted:`
 
 events2024 = data.filter(d => d.date.getFullYear() === 2024)
 
