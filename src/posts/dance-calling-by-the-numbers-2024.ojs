@@ -145,28 +145,43 @@ Plot.plot({
     ],
 })
 
-md`Of these, seven were volunteer gigs or I waived the fee. (If a series is new I'll waive the fee. If I'm splitting the evening with someone I'm mentoring, I'll often let them keep the full fee.) This left 22 paid gigs.
+md`Of these, seven were volunteer gigs or I waived the fee. (If a series is new I'll waive the fee. If I'm splitting the evening with someone I'm mentoring, I'll often let them keep the full fee.) This left 22 paid gigs.`
+
+viewof payToggle = Inputs.radio(
+    ['Total $', 'Hourly $'],
+    {
+        label: 'Show',
+        value: 'Total $',
+    }
+)
+
+// Return either the total pay or the hourly pay depending on the selection
+getPayAmount = d => payToggle === 'Total $' ? d[0] : d[0] / d[1]
+unitSuffix = payToggle === 'Total $' ? '' : '/h'
+
+md`${payToggle === 'Hourly $' ? '<div class="note">I\'m calculating with hours dancing. This does not include beginner workshops, sound checks, etc., which would usually be an additional 30m–1h.</div>' : ''}
 
 * These paid me, on average,
-  **${
-    d3.format('$,.2f')(d3.mean(PAY_DATA, d => d[0]))
-  }**/**${
-    d3.format('$,.2f')(d3.median(PAY_DATA, d => d[0]))
-  }**
+  **${d3.format('$,.2f')(d3.mean(PAY_DATA, getPayAmount))}${unitSuffix}**
+  /
+  **${d3.format('$,.2f')(d3.median(PAY_DATA, getPayAmount))}${unitSuffix}**
   (mean/median).
-* The most I got paid was **${d3.format('$,.2f')(d3.max(PAY_DATA, d => d[0]))}**.
-* The least was **${d3.format('$,.2f')(d3.min(PAY_DATA, d => d[0]))}**.
-* The amount a dance paid me with the most sig figs was **$209.44**.
-* I made a total of **${d3.format('$,.2f')(d3.sum(PAY_DATA, d => d[0]))}** calling dances this year.
-* I did not track dance calling *expenses*. Maybe next year.`
+* The most I got paid was **${d3.format('$,.2f')(d3.max(PAY_DATA, getPayAmount))}${unitSuffix}**.
+* The least was **${d3.format('$,.2f')(d3.min(PAY_DATA, getPayAmount))}${unitSuffix}**.
+${payToggle === 'Total $' ? '* The amount a dance paid me with the most sig figs was **$209.44**.' : ''}
+${payToggle === 'Total $' ? `* I made a total of **${d3.format('$,.2f')(d3.sum(PAY_DATA, d => d[0]))}** calling dances this year.` : ''}
+* I did not track dance calling *expenses*. Maybe next year.
+`
+
+payInterval = payToggle === 'Total $' ? 25 : 10
 
 Plot.plot({
     style: {
         fontSize: '14px',
     },
     height: 200,
-    marginLeft: 0,
-    marginRight: 0,
+    marginLeft: 20,
+    marginRight: 20,
     marginTop: 15,
     marginBottom: 20,
     y: {
@@ -182,7 +197,7 @@ Plot.plot({
         Plot.rectY(PAY_DATA, Plot.binX(
             { y: 'count' },
             {
-                x: { value: d => d[0], interval: 25 },
+                x: { value: getPayAmount, interval: payInterval },
                 z: (_, i) => i, // Separates bars into boxes
                 r: 3,
                 inset: 0.5,
@@ -191,10 +206,10 @@ Plot.plot({
         Plot.rectY(PAY_DATA, Plot.pointer(Plot.binX(
             {
                 y: 'count',
-                title: g => d3.format('$,.2d')(g[0][0]),
+                title: g => d3.format('$,.2d')(getPayAmount(g[0])),
             },
             {
-                x: { value: d => d[0], interval: 25 },
+                x: { value: getPayAmount, interval: payInterval },
                 z: (_, i) => i, // Separates bars into boxes
                 r: 3,
                 fill: 'var(--color-link)',
@@ -210,11 +225,11 @@ Plot.plot({
                 text: 'count',
             },
             {
-                x: { value: d => d[0], interval: 25 },
+                x: { value: getPayAmount, interval: payInterval },
                 lineAnchor: 'bottom',
                 dy: -3,
                 fill: 'var(--color-base)',
-                filter: d => d[0] > 0,
+                filter: d => getPayAmount(d) > 0,
             }
         )),
     ],
@@ -339,6 +354,7 @@ SORT_FNS = ({
 changeChart = (data) => {
     return Plot.plot({
         marginLeft: 200,
+        marginRight: 40,
         marginTop: 20,
         marginBottom: 20,
         height: 25 * data.length + 40,
@@ -723,4 +739,6 @@ Plot.plot({
     ]
 })
 
-md`Looking forward to more calling in 2025!`
+md`Looking forward to more calling in 2025!
+
+_Thanks to [Ruthie Byers](https://www.ruthiebyers.com/), [Emma Azelborn](https://emmaazelborn.com/), and [Maia McCormick](https://contra.maiamccormick.com/) for editing and ideas on this blog post._`
