@@ -437,7 +437,7 @@ changeChart = (data) => {
 
 md`My repertoire saw some changes this year. Here are the top 10 sequences I called in 2024 and their change in ranking from 2023 (percentages refer to what percentage of dance slots in my programs were filled with the particular sequence):
 
-<div class="note">Tica Tica Timing and Old Time Elixir #2 are combined into a single entry for my data as Dean Snipes and Linda Leslie devised the same sequence independently!</div>`
+<div class="note">Tica Tica Timing and Old Time Elixir #2 are combined into a single entry for my data as Dean Snipes and Linda Leslie devised the same sequence independently! Ditto Becket Brigade and The Glass Goddess, devised by Don Lennartson and David Glick respectively.</div>`
 
 changeChartData = groupedDances
 
