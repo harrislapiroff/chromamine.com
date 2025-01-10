@@ -1,6 +1,6 @@
 ---
 title: Changing the color of a character in Adobe Illustrator with scripting
-date: 2025-01-10
+date: 2025-01-09
 categories: [Software]
 tags: [graphic design, javascript, web]
 images:
@@ -10,11 +10,11 @@ images:
   gray:
     src: image-1.png
     alt: Screenshot of a stanza of lyrics with lyric lines divided by slashes. The text is blue, but the slashes are a light gray.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113802023727974191
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02mfWzVR6ZwMu2PwwoweBKAmJghVwTQEfw5in9WsPHN6sFYswo1GNHVy2WWigdW4yjl
 ---
 
 I've been working on a CD album insert for [Emma](https://emmaazelborn.com/) as a design project. It has a lot of song lyrics and for compactness we've replaced line breaks in the lyrics with slashes:
@@ -25,7 +25,7 @@ I thought it would be nice if the slashes played their role as more muted visual
 
 {% image images.gray %}
 
-This was a tedious thing to do manually one-by-one for roughly 150 slashes. I also couldn't find a way to do it quickly in the Illustrator GUI – find and replace worked only on text, not formatting, and I couldn't find other functionality that would work. I ended up writing a quick script in Javascript to do it for me:
+This was a tedious thing to do manually one-by-one for roughly 150 slashes, especially if I was going to have to do it multiple times through rounds of editing. I also couldn't find a way to do it quickly in the Illustrator GUI – find and replace worked only on text, not formatting, and I couldn't find other functionality that would work. I ended up writing a quick script in Javascript to do it for me:
 
 ```js
 const docRef = app.activeDocument;
