@@ -20,18 +20,23 @@
         +med-dn
             margin-right: 0
 
-        // TODO: pictures should probably live inside of figures and
-        // these styles should be split between them
-        picture, figure
+        figure
             display: block
+
+            picture
+                display: block
 
             source, img
                 border-radius: 0.4rem
 
             +tiny-dn
-                margin: 0 calc(-1 * var(--page-padding)) var(--line-height-base)
+                picture
+                    margin: 0 calc(-1 * var(--page-padding))
                 source, img
                     border-radius: 0
+
+            figcaption
+                font-style: italic
 
         > p:first-child > picture:first-child
             margin-top: var(--line-height-base)
