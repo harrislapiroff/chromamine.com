@@ -3,11 +3,11 @@ title: If your bank calls you, don't give them anything
 date: 2025-01-14
 categories: [Miscellany]
 tags: [personal finance, security]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113829111776039299
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02Q6HvPB4AjjqgTiKArZ7MgQbXuQNVeYgMuyxdChTy6EGtRLZkn3Dq1T7hTaMm4Ckl
 ---
 
 I just got a fraudulent call from someone pretending to be my bank, so I thought I'd share this tidbit of security wisdom that I hope a lot of people already know, but just in case you don't: **Don't share personal information with your bank if they called you first.**
