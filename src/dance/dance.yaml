@@ -29,29 +29,7 @@ testimonials:
 
 dances:
   upcoming:
-
-    - name: Seacoast Contra
-      date: 2025-01-06T20:00
-      date_end: 2025-01-06T22:30
-      tzid: America/New_York
-      band: Strange Charm (Brad Robinson, Jim DiCarlo) with guest musicians Andrea and George Calvey
-      street: Newfields Town Hall, 65 Main St.
-      city: Newfields, NH
-      url: https://seacoastcontra.com
-      description: |+
-        Workshop at 7:30PM
-        Dancing from 8:00–10:30PM
       
-    - name: Boston Gender Free English Country Dance
-      date: 2025-01-28T19:30
-      date_end: 2025-01-28T22:00
-      tzid: America/New_York
-      band: Jean Monroe, Emma Azelborn, Sean Smith
-      street: First Church In Jamaica Plain, 6 Eliot St
-      city: Boston MA
-      url: https://www.lcfd.org/bgfe.html
-      description: Tentative event, may not happen.
-
     - name: Thursday Contras
       date: 2025-02-06T19:10
       date_end: 2025-02-06T22:00
@@ -63,6 +41,15 @@ dances:
       description: |+
         Workshop at 7:10PM  
         Dancing from 7:30PM–10PM
+
+    - name: Kingston ECD
+      date: 2025-03-08T19:30
+      date_end: 2025-03-08T22:00
+      tzid: America/New_York
+      band: Bill Ouimette, Emma Azelborn
+      street: Quonochotaug Grange, 5662 Post Road
+      city: Charlestown RI
+      url: https://kingstonenglish.wordpress.com/
 
     - name: Boston Gender Free English Country Dance
       date: 2025-03-25T19:30
@@ -94,6 +81,29 @@ dances:
       description: |+
         Workshop at 7:15PM  
         Dancing from 7:30–10:30PM
+      
+    - name: Brooklyn Contra
+      date: 2025-07-12T20:00
+      date_end: 2025-07-12T23:00
+      tzid: America/New_York
+      band: Good Company
+      description: |+
+        Workshop at 7:30PM  
+        Dancing from 8–11PM
+      street: 339 8th Street
+      city: Brooklyn NY
+      url: https://www.brooklyncontra.org/
+
+    - name: Brooklyn Contra
+      date: 2025-11-16T17:00
+      date_end: 2025-11-16T20:00
+      tzid: America/New_York
+      description: |+
+        Workshop at 4:30PM  
+        Dancing from 5–8PM
+      street: 339 8th Street
+      city: Brooklyn NY
+      url: https://www.brooklyncontra.org/
 
   past:
     - name: Brooklyn Contra
