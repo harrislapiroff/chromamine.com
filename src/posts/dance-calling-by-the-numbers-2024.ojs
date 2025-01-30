@@ -265,7 +265,7 @@ myContras = dances.filter(d => !d.caller)
     .filter(d => !d.type)
     .filter(d => !d.medley)
 
-myContras2324 = myContras.filter(d => d.date.getFullYear() >= 2023)
+myContras2324 = myContras.filter(d => d.date.getFullYear() >= 2023 && d.date.getFullYear() <= 2024)
 myContras24 = myContras.filter(d => d.date.getFullYear() === 2024)
 
 groupedDances = Array.from(
