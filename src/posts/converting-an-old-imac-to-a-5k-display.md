@@ -68,11 +68,11 @@ images:
     src: 15-defect.jpeg
     alt: A corner of the imac screen showing a white pixel field. There's a pinkish tint at the edges and a slightly darkened splotch.
     caption: The defects in question.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113918642210378397
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid05cQugqYam8AysmrSeuFbs1EyMjfV8tUAQCAfZFoojwNibkoK5wMYKTYfXWYMqKyml
 ---
 
 Last year my 2015 (or possibly late 2014) iMac died after a decade of service. Around the same time I acquired a new Mac mini. Unlike the iMac, the Mac mini doesn't have a built-in monitor. I needed to acquire a new one. Unfortunately even newer displays in my price range would be a quality-of-life step down from the iMac screen I was migrating away from. New 5K monitors are $800+ and better quality ones – such as the [$1,600 Apple Studio Display][asd] – are much more expensive.
@@ -119,7 +119,7 @@ Quite a bit cheaper than a new $1,600 display! I did cheap out on the board and 
 
 [^3]: Though in the event it did not contain the humongous T25 6-pointed star bit needed for one of the screws in the iMac and I had to improvise by using a slightly off-size triangular bit instead.
 
-Even if I had bought those, this still was much cheaper. Even purchasing on iMacs of that generation can be done readily for $200–400. If you're lucky you can find a broken one that has the screen intact for even a bit cheaper[^4].
+Even if I had bought those, this still was much cheaper. Even purchasing iMacs of that generation can be done readily for $200–400. If you're lucky you can find a broken one that has the screen intact for even a bit cheaper[^4].
 
 [^4]: Though my experience is that those ones get snapped up pretty quickly and ones listed "for parts" on eBay usually have a cracked screen – which, alas, is the part I want.
 
@@ -141,7 +141,7 @@ The driverboard also has a speaker port, which I assume could be connected to in
 
 Though I largely plan to use the monitor via the USB-C/Thunderbolt cable, I exposed an HDMI cable as well, just in case.
 
-In spite any flaws, overall, I'm *delighted* with how this project turned out. It saved me a lot of money on a new display and I had a lot of fun with the process of doing it. I'm even considering buying *another* used iMac to build myself another a second 5k display!
+In spite any flaws, overall, I'm *delighted* with how this project turned out. It saved me a lot of money on a new display and I had a lot of fun with the process of doing it. I'm even considering buying *another* used iMac to build myself a second 5k display!
 
 {% image images.done %}
 
