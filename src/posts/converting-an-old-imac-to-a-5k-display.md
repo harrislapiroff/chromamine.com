@@ -81,7 +81,7 @@ Last year my 2015 (or possibly late 2014) iMac died after a decade of service. A
 
 I opted to save money and reduce electronics waste by repurposing the still-intact iMac screen. Sadly, when Apple released the "Retina Display" 5K iMac in 2014, they discontinued [the functionality][target display] that allowed iMacs to serve as displays for other computers[^1]. Using it this way now requires buying a "driverboard" to serve as the liaison between my Mac mini and the iMac screen, gutting the iMac, and installing the driverboard inside the empty chassis.
 
-[^1]: I believe, at the time, this was understandable, as none of the external ports on the display could support 5K video. It is a bit of a shame that they have never added this feature back though given the evidence that for all-in-one computers, some components are exhausted faster than others.
+[^1]: I believe, at the time, this was understandable, as none of the external ports on an iMac could support 5K video. It is a bit of a shame that they have never added this feature back though given the evidence that for all-in-one computers, some components are exhausted faster than others.
 
 [target display]: https://support.apple.com/en-us/105126
 
@@ -125,7 +125,7 @@ Even if I had bought those, this still was much cheaper. Even purchasing iMacs o
 
 The project was overall successful, though there are a few things I'm somewhat dissatisfied with:
 
-The driverboard included USB-A ports for mouse and keyboard peripherals as well as an audio jack – all of which connect through the the computer that's attached via USB-C/Thunderbolt. This allows the display to also serve as a peripheral hub. That's not a thing I'm dissatisfied with; it's actually extremely nice! I purchased 1 foot extender cables to expose those ports outside the chassis. Unfortunately once I had it completed I noticed that my speakers produce a constant high-pitched tone when plugged in. I wish I had noticed this before I sealed it up! Maybe next time I open it, I'll see if it's fixable, but until then I can't use the audio port in that state. The USB-A ports work great, though.
+The driverboard included USB-A ports for mouse and keyboard peripherals as well as an audio jack – all of which connect through to the computer that's attached via USB-C/Thunderbolt. This allows the display to also serve as a peripheral hub. That's not a thing I'm dissatisfied with; it's actually extremely nice! I purchased 1 foot extender cables to expose those ports outside the chassis. Unfortunately once I had it completed I noticed that my speakers produce a constant high-pitched tone when plugged in. I wish I had noticed this before I sealed it up! Maybe next time I open it, I'll see if it's fixable, but until then I can't use the audio port in that state. The USB-A ports work great, though.
 
 The attached buttonboard is pretty awkward and the ribbon cable it came with is pretty short. I have it poking out of the chassis, but haven't figured out any ergonomic place to attach it. I wish it supported OS control of the brightness and contrast, because adjusting them with the buttonboard is *a process.*
 
