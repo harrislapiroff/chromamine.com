@@ -150,7 +150,7 @@ Some photos of my process:
 
 There are a few things I'm somewhat dissatisfied with:
 
-The driverboard included USB-A ports for mouse and keyboard peripherals as well as an audio jack – all of which connect through the the computer that's attached via USB-C/Thunderbolt. This allows the display to also serve as a peripheral hub, which is extremely nice! I purchased 1 foot extenders to expose those ports outside the chassis. Unfortunately once I had it sealed up I noticed that my speakers produced a constant high-pitched tone when plugged in. I wish I had noticed this in my testing before I sealed it up so I could have checked if there was some adjustment of cables that would fix it. As it stands, I can't use the audio port in that state. The USB-A peripheral ports work great, though!
+The driverboard included USB-A ports for mouse and keyboard peripherals as well as an audio jack – all of which connect through the the computer that's attached via USB-C/Thunderbolt. This allows the display to also serve as a peripheral hub, which is extremely nice! I purchased 1 foot extenders to expose those ports outside the chassis. Unfortunately once I had it completed I noticed that my speakers produced a constant high-pitched tone when plugged in. I wish I had noticed this in my testing before I sealed it so I could have checked if there was some adjustment of cables that would fix it. As it stands, I can't use the audio port in that state. The USB-A peripheral ports work great, though!
 
 The driverboard also had a speaker port, which I assume could be connected to the internal iMac speakers. It didn't come with a cable to do so, however, and it didn't seem worth figuring out what I would need *and* how to fit the board and speakers both in the chassis, just to have access to some speakers that are lower quality than my existing desk speakers.
 
@@ -164,4 +164,4 @@ One reason I got a cheaper board that only supported 8-bit color depth instead o
 
 {% image images.defect %}
 
-Overall, I'm really happy with this project – happy enough that I'm considering buying another used iMac to build myself another for a 2× 5k display setup! I'm going to keep my ear to the ground for a good deal.
+Overall, I'm really happy with this project. It saved me a lot of money on a new display and I had a lot of fun with the process of doing it. I'm considering buying another used iMac to build myself another a second 5k display!
