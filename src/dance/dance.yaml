@@ -51,6 +51,18 @@ dances:
       city: Charlestown RI
       url: https://kingstonenglish.wordpress.com/
 
+    - name: Monday Contras
+      date: 2025-03-10T19:30
+      date_end: 2025-03-10T22:30
+      tzid: America/New_York
+      band: Julie Metcalf and company
+      description: |+
+        Workshop at 7PM  
+        Dancing from 7:30–10:30PM
+      street: Concord Scout House, 74 Walden St
+      city: Concord MA
+      url: http://mondaycontras.com/
+
     - name: Boston Gender Free English Country Dance
       date: 2025-03-25T19:30
       date_end: 2025-03-25T22:00
