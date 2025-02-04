@@ -1,0 +1,35 @@
+.email-form
+    display: flex
+    margin-top: calc(var(--line-height-base) * 0.5)
+
+    &__input
+        box-sizing: border-box
+        background: transparent
+        border: 1px solid var(--color-base)
+        border-radius: 3px 0 0 3px
+        font: inherit
+        line-height: calc(var(--line-height-base) * 1.25)
+        height: calc(var(--line-height-base) * 1.25)
+        color: var(--color-base)
+        font-style: normal
+        flex-grow: 1
+        padding: 0 calc(1ch - 1px)
+    
+    &__submit
+        box-sizing: border-box
+        background: var(--color-link)
+        border: 0
+        border-radius: 0 3px 3px 0
+        color: var(--color-background)
+        font: inherit
+        line-height: calc(var(--line-height-base) * 1.25)
+        height: calc(var(--line-height-base) * 1.25)
+        width: calc(var(--line-height-base) * 1.25)
+
+        &:after
+            content: "→"
+
+        &:hover
+            background: var(--color-link-hover)
+            cursor: pointer
+            transition: background 0.2s
