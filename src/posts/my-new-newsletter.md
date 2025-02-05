@@ -1,8 +1,8 @@
 ---
 title: My New Newsletter
 date: 2025-02-05
-categories: []
-tags: []
+categories: [Miscellany]
+tags: [anti-corporate internet, email, web, Buttondown]
 # xposts:
 #   - label: Mastodon
 #     url: TBD
@@ -26,20 +26,22 @@ You can now sign up to get my blog posts in your email inbox by subscribing with
   </button>
 </form>
 
+And as an initial test, to ensure that this mic is on (*tap tap skreeeEEEEEEE*), later today, I'll send out this blog post to all subscribers.
+
 # What?
 
-The content of this newsletter will be my blog posts, more or less as they are here. It's simply another option for being alerted to new writing from me. The other options, that already existed, are: [Facebook][], [Mastodon][], [Bluesky][], and [RSS][].
+The content of this newsletter will be my blog posts, more or less as they are here. It's another option for being alerted to new writing from me. The other options are still: [Facebook][], [Mastodon][], [Bluesky][], and [RSS][].
 
 [Facebook]: https://www.facebook.com/harrislap/
 [Mastodon]: https://social.coop/@harris
 [Bluesky]: https://bsky.app/profile/harris.social.coop.ap.brid.gy
 [RSS]: /feeds/posts.xml
 
-I will send out one email per post, not a digest. For the past six months volume has been an average of **3⅓ posts per month** – though it's worth a note that this has increased lately, hitting a new record of *six* posts in January.
+I will send out one email per post, not a digest. For the past six months volume has been an average of **3⅓ posts per month**. This has increased a bit lately, hitting a new record of *six* posts in January.
 
 # Why?
 
-I've spent time thinking lately about how to grow less reliant on corporate (I might cheekily say "legacy") social media platforms for connecting with friends and community and for sharing my writing and projects. One conclusion I've drawn is that I need to diversify the ways I distribute my writing and hear back from readers so that, in the future, if I decide to drop a platform, it won't feel like I'm losing touch with _everyone_.
+I've been thinking about how to grow less reliant on corporate (I might cheekily say, "legacy") social media platforms for connecting with friends, community, and readers. One conclusion I've drawn is that I need to diversify the ways I distribute my writing and the ways I hear from people in reply. In the future, if I decide to drop a platform, it won't feel like I'm losing touch with _everyone_.
 
 Email strikes me as a _particularly good_ distribution channel:
 
@@ -48,15 +50,15 @@ Email strikes me as a _particularly good_ distribution channel:
 - It's a distribution channel that is in my control. I rely on my [mailing list provider][Buttondown], of course, but if I become dissatisfied with them, I can take my email list and go elsewhere. This is much harder to do with Facebook friends, Discord servers, or Bluesky followers.
 - Almost everyone has an email address.
 
-This isn't a unique line of thought. It's not a coincidence that the social media fragmentation era has been met with the [Substack][] era – though I will say that Substack seems to be hard at work [increasing lock-in by becoming another walled garden][ss-notes].
+[^1]: It is arguably subject to the whims of email service providers, but there's not much precedent for, e.g., Gmail deleting emails out of your inbox without your consent.
+[^2]: I recognize that this isn't true of all newsletters, but it will be for mine, at least until I become wildly famous. I don't anticipate having a subscribership large enough for this to be a chore. I expect my subscribers will mostly be my personal friends who I will be *delighted* to receive correspondence from.
+
+This isn't a unique line of thought. It's not a coincidence that the social media fragmentation era has been met with the [Substack][] newsletter era – though even Substack now does seems to be hard at work [increasing lock-in and walling off parts of their garden][ss-notes].
 
 [Substack]: https://substack.com/
 [ss-notes]: https://www.theverge.com/2023/4/5/23670452/substack-notes-tweets-posts-twitter
 
-I know lots of people who hate email, though. If that's you – the newsletter might not be for you. That's OK! That's why I have all the other options for following me as well.
-
-[^1]: It is arguably subject to the whims of email service providers, but there's not much precedent for, e.g., Gmail deleting emails out of your inbox without your consent.
-[^2]: I recognize that this isn't true of all newsletters, but it will be for mine, at least until I become wildly famous. I don't anticipate having a subscribership large enough for this to be a chore. I expect my subscribers will mostly be my personal friends who I will be *delighted* to receive correspondence from.
+I know lots of people who hate email, though. If that's you – the newsletter might not be for you. That's OK! That's why the other options exist.
 
 # How?
 
