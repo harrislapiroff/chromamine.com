@@ -3,11 +3,11 @@ title: My New Newsletter
 date: 2025-02-05
 categories: [Miscellany]
 tags: [anti-corporate internet, email, web, Buttondown]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113952145899465345
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02qiE3oR3sE6uvzaYwDPctpE8jGS5naCUngMWQjMS8oB2KvLDZNdEThALzmPN54B2Zl
 ---
 
 You can now sign up to get my blog posts in your email inbox by subscribing with this form.
