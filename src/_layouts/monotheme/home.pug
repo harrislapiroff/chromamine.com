@@ -80,6 +80,20 @@ block sidebar
                 .roles-list__action= "Read more or book me →"
 
     section.sidebar-section
+        header.sidebar-section__header 
+            h2= "Get new posts by email"
+            form.email-form(
+                action="https://buttondown.com/api/emails/embed-subscribe/harrislapiroff"
+                method="post"
+                target="popupwindow"
+                onsubmit="window.open('https://buttondown.com/harrislapiroff', 'popupwindow')"
+            )
+                label.sr-only(for="bd-email") Email Address
+                input.email-form__input(type="email" name="email" id="bd-email")
+                button.email-form__submit(type="submit")
+                    span.sr-only= "Subscribe"
+
+    section.sidebar-section
         header.sidebar-section__header
             h2= "Reach me elsewhere:"
         ul.bulletless
