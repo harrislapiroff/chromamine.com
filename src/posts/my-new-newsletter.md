@@ -50,7 +50,7 @@ I've been thinking about how to grow less reliant on corporate (I might cheekily
 Email strikes me as a _particularly good_ distribution channel:
 
 - It naturally produces a redundant and distributed archive of my writing in the inboxes of subscribers. This archive is not subject to the whims of social media platform owners and content moderators.[^1]
-- Unlike RSS – or my webpage itself, for that matter – it's a two-way channel. When I send out a newsletter, a reader can reply right where they're reading it.[^2]
+- Unlike RSS – or my website itself, for that matter – it's a two-way channel. When I send out a newsletter, a reader can reply right where they're reading it.[^2]
 - It's a distribution channel that is in my control. I rely on my [mailing list provider][Buttondown], of course, but if I become dissatisfied with them, I can take my email list and go elsewhere. This is much harder to do with Facebook friends, Discord servers, or Bluesky followers.
 - Almost everyone has an email address.
 
