@@ -28,6 +28,10 @@ You can now sign up to get my blog posts in your email inbox by subscribing with
 
 And as an initial test, to ensure that this mic is on (*tap tap skreeeEEEEEEE*), later today, I'll send out this blog post to all subscribers.
 
+:::update
+This email has now been sent!
+:::
+
 # What?
 
 The content of this newsletter will be my blog posts, more or less as they are here. It's another option for being alerted to new writing from me. The other options are still: [Facebook][], [Mastodon][], [Bluesky][], and [RSS][].
