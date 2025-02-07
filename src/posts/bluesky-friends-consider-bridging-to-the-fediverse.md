@@ -3,11 +3,11 @@ title: Bluesky friends, consider bridging to the Fediverse!
 date: 2025-02-07
 categories: [Software]
 tags: [web, social media]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/113963780664509051
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid027fM3sub6ZEanrCovCWFrfnw9f1mh3jvgGie3tvPCZtn8K3AiT1jgGtTMqzPEmfJPl
 ---
 
 :::note
