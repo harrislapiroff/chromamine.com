@@ -27,7 +27,7 @@ As I and others have been exploring our social media horizons beyond the legacy 
 [skepticism]: /2024/11/try-mastodon/
 [about]: /2024/12/blueskys-enshittification-risk/
 
-Frustratingly, though both services are based on (theoretically[^1]) decentralized protocols, they made different architectural decisions which prevent first-class interoperation.
+Frustratingly, though both Mastodon and Bluesky are based on (theoretically[^1]) decentralized protocols, they made different architectural decisions which prevent first-class interoperation.
 
 [^1]: Bluesky is based on a decentralized protocol they developed, [AT Proto][], but in practice it is almost entirely controlled by _Bluesky, the VC-funded startup_. It's likely to remain so for the foreseeable future. If you would like to read *too much* about the question of Bluesky's decentralization, there's no better writer on the subject than [Christine Lemmer-Webber](https://dustycloud.org/blog/how-decentralized-is-bluesky/).
 
