@@ -1,0 +1,25 @@
+<header webc:root="override">
+    <a href="/" class="go-home" webc:if="homelink">← Return home</a>
+    <h1>Hi, I'm <span>Harris Lapiroff</span>.</h1>
+</header>
+
+<style webc:scoped="site-header">
+    :host {
+        margin-bottom: calc(var(--line-height-base) * 4);
+    }
+
+    :host > h1 {
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-normal);
+        margin-bottom: calc(var(--line-height-base) * 4);
+    }
+
+    :host > h1 > span {
+        font-weight: var(--font-weight-bold);
+    }
+
+    :host > .go-home {
+        display: block;
+        margin-top: calc(-1 * var(--line-height-base));
+    }
+</style>
