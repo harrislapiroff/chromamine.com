@@ -1,7 +1,9 @@
 import path from "node:path"
+import fs from "fs/promises"
+
 import pluginRss from "@11ty/eleventy-plugin-rss"
 import pugPlugin from "@11ty/eleventy-plugin-pug"
-import fs from "fs/promises"
+import pluginWebc from "@11ty/eleventy-plugin-webc"
 
 // Note: For the upgrade to 11ty 3.x we will want to replace this
 // with 11ty's built-in glob util seen here:
@@ -219,6 +221,11 @@ export default function(eleventyConfig) {
                 globalPath: '/' + globalOutputPath,
             })
         }
+    })
+
+    // Add WebC
+    eleventyConfig.addPlugin(pluginWebc, {
+        components: 'src/_components/**/*.webc',
     })
 
     return {
