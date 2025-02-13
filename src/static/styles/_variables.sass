@@ -1,0 +1,85 @@
+@import mixins
+
+\:root
+    --font-family-base: 'IBM Plex Mono', monospace
+    --font-size-base: 1.6rem
+    --font-weight-normal: 400
+    --font-weight-bold: 600
+    --line-height-base: 2.5rem
+    --border-radius-base: 0.4rem
+
+    --color-55-white: lch(55% 2 87)
+    --color-55-black: lch(45% 2 87)
+    --color-75-black: lch(25% 2 87)
+    --color-85-black: lch(15% 2 87)
+    --color-75-white: lch(75% 2 87)
+    --color-85-white: lch(85% 2 87)
+    --color-95-black: lch(5% 0 0)
+    --color-85-white: lch(85% 0 0)
+    --color-almost-white: lch(90% 2 87)
+    --color-almost-black: lch(10% 2 87)
+    --color-pink: lch(29% 132 339)
+    --color-pink-brighter: lch(50% 132 339)
+    --color-pink-hover: lch(20% 132 339)
+    --color-pink-brighter-hover: lch(50% 132 339)
+    --color-blue-35: lch(35% 132 200)
+    --color-blue-45: lch(45% 132 200)
+    --color-red-pink: lch(50% 132 25)
+    --color-red-pink-brighter: lch(70% 132 25)
+    --color-blue: lch(50% 132 200)
+    --color-blue-dark: lch(35% 132 200)
+    --color-apple-bright: lch(70% 132 100)
+    --color-apple-dark: lch(40% 132 100)
+
+    --color-background: var(--color-almost-white)
+    --color-background-code: var(--color-85-black)
+    --color-foreground-code: var(--color-almost-white)
+
+    --color-base: var(--color-75-black)
+    --color-text-muted: var(--color-55-black)
+    --color-text-striking: var(--color-85-black)
+    --color-text-alert: var(--color-apple-dark)
+    --color-link: var(--color-pink)
+    --color-link-hover: var(--color-pink-hover)
+    --color-link-visited: var(--color-blue-35)
+    --color-transparent-bg-faint: lch(0% 0 0 / 0.05)
+    --color-accent-1: var(--color-red-pink)
+    --color-update: var(--color-blue-dark)
+
+    --site-sidebar-width: 30rem
+    --column-gap-base: 5rem
+    --page-padding: 15ch
+    --blog-post-sidebar-width: 20rem
+    --blog-post-column-gap: 3rem
+
+    --tiny: 760px
+    --small: 960px
+    --medium: 1200px
+
+    +dark-mode
+        --font-weight-normal: 300
+        --color-background: var(--color-almost-black)
+        --color-background-code: var(--color-95-black)
+        --color-foreground-code: var(--color-almost-white)
+        --color-base: var(--color-75-white)
+        --color-text-muted: var(--color-55-white)
+        --color-text-striking: var(--color-85-white)
+        --color-text-alert: var(--color-apple-bright)
+        --color-link: var(--color-pink-brighter)
+        --color-link-hover: var(--color-pink-brighter-hover)
+        --color-link-visited: var(--color-blue-45)
+        --color-transparent-bg-faint: lch(100% 0 0 / 0.05)
+        --color-accent-1: var(--color-red-pink-brighter)
+        --color-update: var(--color-blue)
+
+    +high-contrast
+        --font-weight-normal: 400
+
+    +small-dn
+        --font-size-base: 1.4rem
+        --page-padding: 8ch
+        --column-gap-base: 3rem
+        --site-sidebar-width: 22.5rem
+
+    +tiny-dn
+        --page-padding: 5ch
