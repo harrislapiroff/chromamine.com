@@ -4,7 +4,7 @@
 // current page. We want to have the same permalink format for all blog posts
 // without having to duplicate the logic in each template language.
 export default {
-    layout: 'monotheme/post.pug',
+    layout: 'post.webc',
     categories: [],
     eleventyComputed: {
         // YYYY/MM/page-name/
