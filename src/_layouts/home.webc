@@ -10,9 +10,11 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <body>
         <site-layout>
-            <site-header slot="header" @homelink="true"></site-header>
-            <main slot="main" @raw="$data.content">
+            <site-header slot="header"></site-header>
+            <main slot="main">
+                Homepage
             </main>
+            <home-sidebar slot="sidebar"></home-sidebar>
         </site-layout>
     </body>
 </html>
