@@ -1,0 +1,49 @@
+<section class="sidebar-section">
+    <header class="sidebar-section__header">
+        <h2>Looking for something specific?</h2>
+    </header>
+    <div class="roles-list">
+        <role-button
+            @url="/software"
+            :@roles="['Software Engineer', 'Manager', 'Designer']"
+            @description="I'm engineering manager for Web at Freedom of the Press Foundation and do freelance data processing and visualization."
+            @action="Read more or hire me"
+        ></role-button>
+        <role-button
+            @url="/software"
+            :@roles="['Dance Organizer', 'Caller']"
+            @description="I'm engineering manager for Web at Freedom of the Press Foundation and do freelance data processing and visualization."
+            @action="Read more or hire me"
+        ></role-button>
+    </div>
+</section>
+
+<section class="sidebar-section">
+    <header class="sidebar-section__header">
+        <h2>Get new posts by email</h2>
+    </header>
+    <form class="email-form" action="https://buttondown.com/api/emails/embed-subscribe/harrislapiroff" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/harrislapiroff', 'popupwindow')"></form>
+        <label class="sr-only" for="bd-email">Email Address</label>
+        <input class="email-form__input" type="email" name="email" id="bd-email">
+        <button class="email-form__submit" type="submit">
+            <span class="sr-only">Subscribe</span>
+        </button>
+    </form>
+</section>
+
+<section class="sidebar-section">
+    <header class="sidebar-section__header">
+        <h2>Reach me elsewhere:</h2>
+    </header>
+    <ul class="bulletless">
+        <li>
+            <a href="https://social.coop/@harris" rel="me">Mastodon</a>
+        </li>
+        <li>
+            <a href="https://github.com/harrislapiroff/" rel="me">GitHub</a>
+        </li>
+        <li>
+            <a href="mailto:blog@chromamine.com" rel="me">Email</a>
+        </li>
+    </ul>
+</section>

@@ -1,2 +1,17 @@
-<page webc:nokeep>
-</page>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="fediverse:creator" content="@harris@social.coop">
+        <title @text="$data.title"></title>
+		<link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
+        <link rel="stylesheet" :href="rev('/static/styles/styles.css')" webc:keep />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <body>
+        <site-layout>
+            <site-header slot="header" @homelink="true"></site-header>
+            <main slot="main" @raw="$data.content"></main>
+        </site-layout>
+    </body>
+</html>
