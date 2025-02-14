@@ -1,0 +1,20 @@
+<a href="url" webc:root="override">
+    <h3 class="title">
+        I'm a
+        <comment webc:ignore>
+            Interestingly there seems to be some casting or something happening that causes
+            the array prop `roles` to be passed as an object instead with integer keys.
+            Therefore the order of parameters for the loop is key, value, rather than the
+            typical item, index arrangement for arrays.
+        </comment>
+        <span webc:for="(k, v) in roles">
+            <span @text="v" webc:nokeep></span><span webc:if="+k < roles.length - 2" webc:nokeep>, </span><span webc:if="+k === roles.length - 2" webc:nokeep> and </span>
+        </span>
+    </h3>
+    <div class="description" @text="description"></div>
+    <div class="action"><span @text="action" webc:nokeep></span> →</div>
+</a>
+
+<comment webc:ignore>TODO: Implement styles</comment>
+<style webc:scoped="role">
+</style>
