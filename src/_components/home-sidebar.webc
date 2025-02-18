@@ -24,7 +24,7 @@
 </sidebar-section>
 
 <sidebar-section heading="Reach me elsewhere:">
-    <ul class="bulletless">
+    <link-list>
         <li>
             <a href="https://social.coop/@harris" rel="me">Mastodon</a>
         </li>
@@ -34,5 +34,5 @@
         <li>
             <a href="mailto:blog@chromamine.com" rel="me">Email</a>
         </li>
-    </ul>
+    </link-list>
 </sidebar-section>
