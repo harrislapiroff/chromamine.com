@@ -1,0 +1,185 @@
+<div @raw="content"></div>
+
+<style webc:scoped="rich-text">
+    a:visited:not(.button, .footnote-ref) {
+        color: var(--color-link-visited);
+    }
+
+    p,
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: var(--line-height-base);
+    }
+
+    li {
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    li::marker {
+        color: var(--color-text-muted);
+    }
+
+    ul > li {
+        list-style-type: "- ";
+    }
+
+    ul ul,
+    ul ol,
+    ol ul,
+    ol ol {
+        margin-left: 2ch;
+        margin-top: var(--line-height-base);
+    }
+
+    strong {
+        font-weight: var(--font-weight-bold);
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    hr {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    hr::before {
+        content: "* * *";
+        display: block;
+        margin-bottom: var(--line-height-base);
+        color: var(--color-text-muted);
+    }
+
+    h1::before,
+    h2::before,
+    h3::before,
+    h4::before,
+    h5::before {
+        content: "§";
+        display: block;
+        width: 2ch;
+        margin-left: -2ch;
+        float: left;
+        color: var(--color-text-muted);
+        font-style: normal;
+    }
+
+    h3 {
+        color: var(--color-text-striking);
+        font-weight: var(--font-weight-bold);
+    }
+
+    h4 {
+        font-style: italic;
+    }
+
+    h5 {
+        color: var(--color-text-muted);
+    }
+
+    blockquote {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 4ch;
+    }
+
+    strong {
+        font-weight: var(--font-weight-bold);
+    }
+
+    pre.hljs,
+    pre.observablehq--md-pre {
+        margin: calc(var(--line-height-base) / 2) -2ch !important;
+        padding: calc(var(--line-height-base) / 2) 2ch !important;
+        overflow-x: auto;
+    }
+
+    @media (max-width: var(--tiny)) {
+        pre.hljs, pre.observablehq--md-pre {
+            margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2) !important;
+            padding: calc(var(--line-height-base) / 2) var(--page-padding) !important;
+        }
+    }
+
+    pre.hljs,
+    pre.hljs > code,
+    pre.observablehq--md-pre,
+    pre.observablehq--md-pre > code {
+        font-family: inherit;
+        background-color: var(--color-background-code) !important;
+    }
+
+    code {
+        font-family: inherit;
+        margin: 0 -0.25ch;
+        padding: 0.25ch 0.25ch;
+        background: var(--color-background-code);
+        color: var(--color-foreground-code);
+        border-radius: 0.4rem;
+    }
+
+    pre > code,
+    pre > code.hljs {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    figure {
+        display: block;
+    }
+
+    picture {
+        display: block;
+    }
+
+    source,
+    img {
+        border-radius: 0.4rem;
+    }
+
+    @media (max-width: var(--tiny)) {
+        picture {
+            margin: 0 calc(-1 * var(--page-padding));
+        }
+
+        source,
+        img {
+            border-radius: 0;
+        }
+    }
+
+    figcaption {
+        font-style: italic;
+    }
+
+    .footnotes::before {
+        content: "Footnotes";
+        display: block;
+        color: var(--color-text-muted);
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    .footnotes li {
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    .footnotes li > *:last-child {
+        margin-bottom: 0;
+    }
+
+    .update {
+        /* TODO: mixins.labeled-box("Update", var(--color-update)) */
+    }
+
+    .note {
+        /* TODO: mixins.labeled-box("Note", var(--color-text-alert)) */
+    }
+</style>

@@ -1,0 +1,66 @@
+<article webc:root="override">
+    <header>
+        <div class="categories" @raw="post.data.categories?.join(', ')"></div>
+
+        <h2 class="title" webc:if="headerlink">
+            <a class="title-link" :href="post.url" @raw="post.data.title"></a>
+        </h2>
+        <h2 webc:else @raw="post.data.title"></h2>
+
+        <time :datetime="post.data.date.toISOString()" @raw="dateFormat(post.data.date, '%B %d, %Y')"></time>
+
+        <span class="draft-label" webc:if="post.eleventyExcludeFromCollections">Draft</span>
+    </header>
+    <div class="content">
+        <rich-text :@content="post.content"></rich-text>
+    </div>
+    <!--- TODO: add footer links --->
+</article>
+
+<style webc:scoped="blog-post">
+    .categories {
+        color: var(--color-text-muted);
+        font-style: italic;
+    }
+
+    .title {
+        font-weight: var(--font-weight-bold);
+        display: inline;
+    }
+
+    header > time {
+        display: inline-block;
+        color: var(--color-text-muted);
+    }
+
+    .title-link {
+        color: var(--color-text-striking);
+    }
+
+    .title-link:hover {
+        color: var(--color-link-hover);
+        text-decoration: underline;
+        text-decoration-color: var(--color-base);
+    }
+
+    .title-link::before {
+        display: block;
+        float: left;
+        margin-left: -2ch;
+        width: 2ch;
+        content: "¶";
+    }
+
+    .content > p:first-child > picture:first-child {
+        margin-top: var(--line-height-base);
+    }
+
+    .draft-label {
+        font-size: .8em;
+        text-transform: uppercase;
+        padding: .1em .3em;
+        border: 1px dashed var(--color-text-muted);
+        border-radius: 2px;
+        margin-left: 1.25em;
+    }
+</style>

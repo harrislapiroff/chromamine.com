@@ -12,7 +12,10 @@
         <site-layout>
             <site-header slot="header"></site-header>
             <main slot="main">
-                Homepage
+                <blog-post
+                    :@headerlink="true"
+                    :@post="$data.collections.posts.sort((a, b) => b.date - a.date)[0]"
+                ></blog-post>
             </main>
             <home-sidebar slot="sidebar"></home-sidebar>
         </site-layout>
