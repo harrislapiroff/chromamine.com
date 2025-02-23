@@ -1,0 +1,6 @@
+<div>
+    Also posted on:
+    <link-list-commas :@links="links">
+        <li webc:for="(_, link) in links"><a :href="link.url" @raw="link.label"></a></li>
+    </link-list-commas>
+</div>
