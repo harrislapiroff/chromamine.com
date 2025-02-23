@@ -1,3 +1,12 @@
+<script webc:setup>
+    const HOME_PAGE_POSTS = 1
+
+    const posts = $data.collections.posts
+        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+        .sort((a, b) => b.date - a.date)
+        .slice(0, HOME_PAGE_POSTS)
+</script>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -13,19 +22,12 @@
             <site-header slot="header"></site-header>
             <main slot="main">
                 <blog-post
+                    webc:for="(idx, post) in posts"
                     :@headerlink="true"
-                    :@post="post($data.collections.posts.sort((a, b) => b.date - a.date)[0])"
+                    :@post="post"
                 ></blog-post>
             </main>
             <home-sidebar slot="sidebar"></home-sidebar>
         </site-layout>
     </body>
 </html>
-
-<script webc:setup>
-    // Normalize the structure of post data
-    const post = (post) => ({
-        ...post,
-        ...post.data,
-    })
-</script>
