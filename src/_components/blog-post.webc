@@ -1,13 +1,13 @@
-<article webc:root="override">
+<article>
     <header>
-        <div class="categories" @raw="post.data.categories?.join(', ')"></div>
+        <div class="categories" @raw="post.categories?.join(', ')"></div>
 
         <h2 class="title" webc:if="headerlink">
-            <a class="title-link" :href="post.url" @raw="post.data.title"></a>
+            <a class="title-link" :href="post.url" @raw="post.title"></a>
         </h2>
-        <h2 webc:else @raw="post.data.title"></h2>
+        <h2 webc:else @raw="post.title"></h2>
 
-        <time :datetime="post.data.date.toISOString()" @raw="dateFormat(post.data.date, '%B %d, %Y')"></time>
+        <time :datetime="post.date.toISOString()" @raw="dateFormat(post.date, '%B %d, %Y')"></time>
 
         <span class="draft-label" webc:if="post.eleventyExcludeFromCollections">Draft</span>
     </header>
