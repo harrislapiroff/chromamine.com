@@ -13,7 +13,7 @@
             <site-header slot="header"></site-header>
             <main slot="main">
                 <blog-post
-                    :@headerlink="true"
+                    :@headerlink="false"
                     :@post="$data"
                 ></blog-post>
             </main>
