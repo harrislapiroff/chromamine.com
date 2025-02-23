@@ -2,10 +2,10 @@
     <header>
         <div class="categories" @raw="post.categories?.join(', ')"></div>
 
-        <h2 class="title" webc:if="headerlink">
-            <a class="title-link" :href="post.url" @raw="post.title"></a>
+        <h2 class="title">
+            <a class="title-link" :href="post.url" @raw="post.title" webc:if="headerlink"></a>
+            <span class="title-linkless" @raw="post.title" webc:else></span>
         </h2>
-        <h2 webc:else @raw="post.title"></h2>
 
         <time :datetime="post.date.toISOString()" @raw="dateFormat(post.date, '%B %d, %Y')"></time>
 
@@ -33,7 +33,7 @@
         color: var(--color-text-muted);
     }
 
-    .title-link {
+    .title-link, .title-linkless {
         color: var(--color-text-striking);
     }
 
@@ -43,7 +43,7 @@
         text-decoration-color: var(--color-base);
     }
 
-    .title-link::before {
+    .title-link::before, .title-linkless::before {
         display: block;
         float: left;
         margin-left: -2ch;
