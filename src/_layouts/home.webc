@@ -1,10 +1,16 @@
 <script webc:setup>
-    const HOME_PAGE_POSTS = 1
+    const FULL_POST_COUNT = 1
+    const MORE_POST_COUNT = 5
 
     const posts = $data.collections.posts
         .map(p => ({...p, ...p.data, date: new Date(p.date)}))
         .sort((a, b) => b.date - a.date)
-        .slice(0, HOME_PAGE_POSTS)
+        .slice(0, FULL_POST_COUNT)
+
+    const morePosts = $data.collections.posts
+        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+        .sort((a, b) => b.date - a.date)
+        .slice(FULL_POST_COUNT, FULL_POST_COUNT + MORE_POST_COUNT)
 </script>
 
 <!doctype html>
@@ -21,13 +27,28 @@
         <site-layout>
             <site-header slot="header"></site-header>
             <main slot="main">
-                <blog-post
-                    webc:for="(idx, post) in posts"
-                    :@headerlink="true"
-                    :@post="post"
-                ></blog-post>
+                <div class="home-section">
+                    <blog-post
+                        webc:for="(idx, post) in posts"
+                        :@headerlink="true"
+                        :@post="post"
+                    ></blog-post>
+                </div>
+                <div class="home-section">
+                    <section-header>Older Posts</section-header>
+                    <blog-post-list-compact
+                        :@posts="morePosts"
+                    ></blog-post-list-compact>
+                    <a href="/archive">All <span class="archive-count" @raw="$data.collections.posts.length"></span> older posts →</a>
+                </div>
             </main>
             <home-sidebar slot="sidebar"></home-sidebar>
         </site-layout>
     </body>
 </html>
+
+<style>
+    .archive-count {
+        font-weight: var(--font-weight-bold);
+    }
+</style>
