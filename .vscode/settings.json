@@ -1,5 +1,8 @@
 {
     "markdown.copyFiles.destination": {
         "src/posts/*": "../media/${documentBaseName}/${fileName}"
+    },
+    "files.associations": {
+        "*.webc": "html"
     }
 }
