@@ -25,6 +25,10 @@
 <!--- TODO: Implement footnote behavior --->
 
 <style webc:scoped="blog-post">
+    :host {
+        margin-bottom: calc(3 * var(--line-height-base));
+    }
+
     .categories {
         color: var(--color-text-muted);
         font-style: italic;

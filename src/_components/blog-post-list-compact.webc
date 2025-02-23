@@ -1,0 +1,44 @@
+<ul webc:root="override">
+    <li webc:for="(_, post) in posts">
+        <a :href="post.url">
+            <span class="title" @raw="post.title"></span>
+            <span class="date" @raw="dateFormat(post.date, '%B %d, %Y')"></span>
+        </a>
+    </li>
+</ul>
+
+<style webc:scoped="blog-post-list-compact">
+    :host {
+        overflow: hidden;
+        height: auto;
+        transition: height 0.3s ease;
+        margin-bottom: 0;
+    }
+
+    li {
+        margin-bottom: calc(var(--line-height-base) * 0.5);
+    }
+
+    li > a {
+        display: block;
+    }
+
+    li a:hover {
+        text-decoration: none;
+    }
+
+    .title {
+        color: var(--color-base);
+        font-weight: var(--font-weight-bold);
+    }
+
+    a:hover > .title {
+        color: var(--color-link-hover);
+        text-decoration: underline;
+    }
+
+    .date {
+        display: inline-block; /* Avoid linebreaks */
+        color: var(--color-text-muted);
+    }
+</style>
