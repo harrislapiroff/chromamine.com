@@ -1,0 +1,40 @@
+---
+layout: page.webc
+title: Archive
+---
+
+<script webc:setup>
+    const slugify = str => str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+    const tags = Object.keys(collections)
+        .filter(t => !['all', 'posts', 'danceEvents'].includes(t))
+        .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+        .map(t => ({
+            name: t,
+            count: collections[t].length,
+            url: `/tags/${slugify(t)}/`,
+        }))
+    const posts = collections.posts
+        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+    const postsByYear = posts.reduce((acc, post) => {
+        const year = post.date.getFullYear()
+        if (!acc[year]) acc[year] = []
+        acc[year].push(post)
+        return acc
+    }, {})
+</script>
+
+<h2>Tags</h2>
+<ul class="archive-list archive-list--tags">
+    <li class="archive-list__item" webc:for="(_, tag) in tags">
+        <a class="archive-list__item-link" :href="tag.url">
+            <span @raw="tag.name"></span>
+            <span @raw="`${tag.count} post${pluralize(tag.count)}`"></span>
+        </a>
+    </li>
+</ul>
+
+<h2>Posts</h2>
+<div webc:for="(year, postList) in postsByYear">
+    <h3 @raw="year"></h3>
+    <blog-post-list-compact :@posts="postList"></blog-post-list-compact>
+</div>
