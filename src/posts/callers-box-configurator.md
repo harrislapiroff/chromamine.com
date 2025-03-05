@@ -7,11 +7,11 @@ images:
   screenshot:
     src: screenshot.png
     alt: Screenshot of a firefox window showing a dance from the website The Caller's Box. The role terms used are Larks and Robins. Overlaid on top of the website is a settings popover with fields for specifying which role terms to use, whether to use "Right Shoulder Round," and whether to enable the plugin at all.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/114110815251155305
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02cWExUNNFsRM2kArxHZAWhgUEJaJ9zZL7AaBnNrxvxGGkqmwK2Qa19FtQreoJ4MfHl
 ---
 
 {% image images.screenshot %}
@@ -25,7 +25,7 @@ Many contra dance callers use [The Caller's Box][], a phenomenal dance choreogra
 The plugin
 
 * replaces "Men"/"Women" with either "Larks"/"Robins" or "Leads"/"Follows,"
-* replaces "gypsy" with "right shoulder round"/"left shoulder round"
+* replaces "gypsy" with "right shoulder round"/"left shoulder round," and
 * replaces any figures containing the above words with appropriate alternates.
 
 There's a few limitations, all of which I'm open to resolving in the future (I accept [pull requests][]!):
