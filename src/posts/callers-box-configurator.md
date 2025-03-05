@@ -3,12 +3,18 @@ title: Caller's Box Configurator
 date: 2025-03-05
 categories: ['Dance', 'Software']
 tags: [contra, calling, choreography]
+images:
+  screenshot:
+    src: screenshot.png
+    alt: Screenshot of a firefox window showing a dance from the website The Caller's Box. The role terms used are Larks and Robins. Overlaid on top of the website is a settings popover with fields for specifying which role terms to use, whether to use "Right Shoulder Round," and whether to enable the plugin at all.
 # xposts:
 #   - label: Mastodon
 #     url: TBD
 #   - label: Facebook
 #     url: TBD
 ---
+
+{% image images.screenshot %}
 
 Many contra dance callers use [The Caller's Box][], a phenomenal dance choreography database from Chris Page and Michael Dyck. For those of us who primarily call gender free dances, though, using it requires mental translation from gendered role terms to gender neutral ones. I've created a browser plugin, **Caller's Box Configurator**, to fix this.
 
