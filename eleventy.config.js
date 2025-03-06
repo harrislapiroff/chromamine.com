@@ -160,6 +160,9 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({
         'node_modules/@ibm/plex/IBM-Plex-Mono/fonts/split/woff2/*.woff2': 'static/monotheme'
     })
+    eleventyConfig.addPassthroughCopy({
+        'node_modules/@ibm/plex/IBM-Plex-Mono/fonts/split/woff2/*.woff2': 'static/styles'
+    })
 
     /* Custom filters
      *-------------------------------------*/
