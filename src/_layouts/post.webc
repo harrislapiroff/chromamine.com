@@ -8,6 +8,7 @@
 		<link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
         <link rel="stylesheet" :href="rev('/static/styles/styles.css')" webc:keep />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    </head>
     <body>
         <site-layout>
             <site-header slot="header" @homelink="1"></site-header>
