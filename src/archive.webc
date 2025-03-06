@@ -14,7 +14,14 @@ title: Archive
             url: `/tags/${slugify(t)}/`,
         }))
     const posts = collections.posts
-        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+        // Quirk: Trying to merge p with p.data completely like so:
+        //
+        //     .map(p => ({ ...p, ...p.data, date: new Date(p.date) }))
+        //
+        // causes first build to fail for some reason. Instead, we do a
+        // more targeted merge, but specifying the attributes we need to
+        // copy.
+        .map(p => ({ ...p.data, url: p.url, date: new Date(p.date) }))
     const postsByYear = posts.reduce((acc, post) => {
         const year = post.date.getFullYear()
         if (!acc[year]) acc[year] = []
