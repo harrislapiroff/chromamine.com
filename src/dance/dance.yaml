@@ -38,6 +38,27 @@ dances:
       city: Boston MA
       url: https://www.lcfd.org/bgfe.html
 
+    - name: Monday Contras
+      date: 2025-04-14T19:30
+      date_end: 2025-04-14T22:30
+      tzid: America/New_York
+      band: Julie Metcalf, Milo Pierick, Max Newman
+      description: |+
+        Workshop at 7PM  
+        Dancing from 7:30–10:30PM
+      street: Concord Scout House, 74 Walden St
+      city: Concord MA
+      url: http://mondaycontras.com/
+
+    - name: Hackmatack Contra Dance
+      date: 2025-06-01T18:30
+      date_end: 2025-06-01T21:00
+      tzid: America/New_York
+      band: Here On The Hill (Rosemary Powell, Victoria Horner, Annie McDougall)
+      street: 538 School Street (Route 9)
+      city: Berwick ME
+      url: https://www.hackmatackplayhouse.org/contra-dances
+
     - name: Flying Shoes First Friday Dance
       date: 2025-06-06T20:00
       date_end: 2025-06-06T23:00
@@ -61,7 +82,6 @@ dances:
       city: Cumberland ME
       url: https://www.facebook.com/groups/726222849231519/
 
-
     - name: Common Floor Contra
       date: 2025-06-08T19:30
       date_end: 2025-06-08T22:00
@@ -74,17 +94,6 @@ dances:
       street: 400 Deering Ave
       city: Portland ME
       url: https://www.commonfloorcontra.dance/
-
-    - name: Rehoboth Contra Dance
-      date: 2025-06-27T19:30
-      date_end: 2025-06-27T22:30
-      tzid: America/New_York
-      street: Blanding Public Library, 124 Bay State Road
-      city: Rehoboth MA
-      url: https://rehobothcontradance.com/
-      description: |+
-        Workshop at 7:15PM  
-        Dancing from 7:30–10:30PM
       
     - name: Brooklyn Contra
       date: 2025-07-12T20:00
@@ -98,6 +107,62 @@ dances:
       city: Brooklyn NY
       url: https://www.brooklyncontra.org/
 
+    - name: Kingston ECD
+      date: 2025-08-09T19:30
+      date_end: 2025-08-09T22:00
+      tzid: America/New_York
+      band: Clara Stefanov-Wagner, Emma Azelborn, Lisa DeSiro
+      street: Quonochotaug Grange, 5662 Post Road
+      city: Charlestown RI
+      url: https://kingstonenglish.wordpress.com/
+
+    - name: Thursday Contras
+      date: 2025-11-06T19:30
+      date_end: 2025-11-06T22:00
+      tzid: America/New_York
+      band: Here on the Hill
+      street: Concord Scout House, 74 Walden Street
+      city: Concord MA
+      url: https://www.neffa.org/thursday-contras/
+      description: |+
+        Workshop at 7:10PM  
+        Dancing from 7:30PM–10PM
+
+    - name: CDNY Contra Dance
+      date: 2025-11-08T20:00
+      date_end: 2025-11-08T22:45
+      tzid: America/New_York
+      description: |+
+        Workshop at 7:30PM  
+        Dancing from 8–10:45PM
+      street: 201 West 13th Street
+      city: New York NY
+      url: https://cdny.org/
+
+    - name: Mt. Airy Contra Dance
+      date: 2025-11-13T20:00
+      date_end: 2025-11-13T22:30
+      tzid: America/New_York
+      band: Here on the Hill
+      description: |+
+        Workshop at 7:30PM  
+        Dancing from 8–10:30PM
+      street: 6815 Emlen Street
+      city: Philadelphia PA
+      url: https://thursdaycontra.com/
+
+    - name: Swingin' Tern
+      date: 2025-11-15T19:30
+      date_end: 2025-11-15T22:30
+      tzid: America/New_York
+      band: Here on the Hill
+      description: |+
+        Workshop at 7PM  
+        Dancing from 7:30–10:30PM
+      street: St. Paul's Episcopal Church, 200 Main Street
+      city: Chatham NJ
+      url: https://folkproject.org/swingin-tern/
+
     - name: Brooklyn Contra
       date: 2025-11-16T17:00
       date_end: 2025-11-16T20:00
@@ -108,391 +173,3 @@ dances:
       street: 339 8th Street
       city: Brooklyn NY
       url: https://www.brooklyncontra.org/
-
-  past:
-    - name: Brooklyn Contra
-      date: 2023-08-06T16:30
-      date_end: 2023-08-06T20:00
-      tzid: America/New_York
-      band: Riverside
-      description: |+
-        Workshop at 4:30PM  
-        Dancing from 5–8PM
-      street: 339 8th Street
-      city: Brooklyn NY
-
-    - name: Monday Contras
-      date: 2023-08-14T19:30
-      date_end: 2023-08-14T22:30
-      tzid: America/New_York
-      band: Julie Metcalf, Max Newman, and Jack O'Connor
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
-      city: Concord MA
-      url: http://mondaycontras.com/
-
-    - name: Downtown Amherst Contra Dance
-      date: 2023-08-16T19:00
-      date_end: 2023-08-16T22:00
-      tzid: America/New_York
-      band: Casey Murray and Molly Tucker
-      bandURL: https://www.caseyandmolly.com/
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10PM
-      street: 99 Main Street
-      city: Amherst MA
-      url: http://amherstcontra.org/Amherst_Contradance/Home.html
-
-    - name: Contra Montreal
-      date: 2023-09-09T18:30
-      date_end: 2023-09-09T21:30
-      tzid: America/Montreal
-      band: Chimney Swift
-      bandURL: https://chimneyswiftband.wixsite.com/2020
-      street: 7355 Ave Christophe-Colomb
-      city: Montreal QC
-      description: |+
-        Workshop at 6:30PM  
-        Dancing from 7–9:30PM
-      url: https://www.contramontreal.org/
-
-    - name: BFMS Wednesday Contra
-      date: 2023-09-20T19:30
-      date_end: 2023-09-20T22:30
-      tzid: America/New_York
-      band: Larry Unger and Caroline McCaskey
-      street:  2200 St. Paul Street
-      city: Baltimore MD
-      description: |+
-        Workshop at 7:30PM  
-        Dancing from 8–10:30PM
-      url: https://www.bfms.org/squarecontra.php
-
-    - name: Common Floor Contra
-      date: 2023-07-30T19:30
-      date_end: 2023-07-30T22:00
-      tzid: America/New_York
-      band: Henry Yoshimura, Gianna Marzilli Ericson and Rebecca Rose Weiss
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10PM
-      street: 400 Deering Ave
-      city: Portland ME
-      url: https://www.commonfloorcontra.dance/
-
-    - name: Monday Contras
-      date: 2023-10-30T19:30
-      date_end: 2023-10-30T22:30
-      tzid: America/New_York
-      band: Eric Boodman, Larry Unger, and Jack O'Connor
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden Street
-      city: Concord MA
-      url: http://mondaycontras.com/
-
-    - name: Lenox Contra Dance
-      date: 2023-11-18T19:15
-      date_end: 2023-11-18T22:30
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 65 Walker Street
-      city: Lenox MA
-      description: |+
-        Workshop at 7:15PM  
-        Dancing from 7:30–10:30PM
-      url: https://lenoxcontradance.org/
-
-    - name: Boston Intergenerational Dance Advocates
-      date: 2024-01-07T19:30
-      date_end: 2022-01-07T22:30
-      tzid: America/New_York
-      band: Torrent
-      bandURL: https://www.instagram.com/torrentcontra/
-      street: 1950 Massachusetts Avenue
-      city: Cambridge MA
-      url: https://www.bidadance.org/
-      description: |+
-        A **special** night with a combination of Contra (called by me) and Scottish Ceilidh (called by Kat Dutton)  
-        Workshop at 7:00PM  
-        Dancing from 7:30–10:30PM
-        
-    - name: Rehoboth Contra Dance
-      date: 2024-01-26T19:30
-      date_end: 2024-01-26T22:30
-      tzid: America/New_York
-      band: Black River Ironworks
-      bandURL: https://www.facebook.com/BlackRiverIronworks/
-      street: Blanding Public Library, 124 Bay State Road
-      city: Rehoboth MA
-      url: https://camillastreeter.hatch.one/rehobothcontradance
-      description: |+
-        Workshop at 7:15PM  
-        Dancing from 7:30–10:30PM
-
-    - name: Monday Contras
-      date: 2024-01-29T19:30
-      date_end: 2024-29-30T22:30
-      tzid: America/New_York
-      band: Julie Metcalf, Larry Unger, Jack O'Connor, with Cecily Mills and Dan Afrik sitting in
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden Street
-      city: Concord MA
-      url: http://mondaycontras.com/
-
-    - name: Boskone (Science Fiction Convention)
-      date: 2024-02-09T18:30
-      date_end: 2024-02-09T20:00
-      tzid: America/New_York
-      band: Chimney Swift
-      bandURL: https://chimneyswiftband.wixsite.com/2020
-      street: The Westin Boston Seaport District, 425 Summer Street
-      city: Boston MA
-      url: https://boskone.org/
-      description: |+
-        Convention pass required ([Register](https://boskone.org/registration/buy-a-membership/))  
-        Workshop at 6:00PM  
-        Dancing from 6:30PM – 8:00PM
-
-    - name: Thursday Contras
-      date: 2024-02-15T19:10
-      date_end: 2024-02-15T22:00
-      tzid: America/New_York
-      band: Crossover (Carol Bittenson, Len Bittenson, and Alex Cumming)
-      street: Concord Scout House, 74 Walden Street
-      city: Concord MA
-      url: https://www.neffa.org/thursday-contras/
-      description: |+
-        Workshop at 7:10PM  
-        Dancing from 7:30PM–10PM
-
-    - name: Monday Contras
-      date: 2024-04-08T19:30
-      date_end: 2024-04-08T22:30
-      tzid: America/New_York
-      band: Good Company (Helen Kuhar, Rohan Weeden, Cecily Mills), Dan Afrik, Jack O'Connor
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
-      city: Concord MA
-      url: http://mondaycontras.com/
-
-    - name: Northboro Contra Dance
-      date: 2024-04-27T14:00
-      date_end: 2024-04-27T16:30
-      tzid: America/New_York
-      band: Dandelion (Rick Kaufman, Lily Wise, and Jeff Kaufman)
-      street: First Parish UU Church 40 Church St
-      city: Northboro MA
-      url: https://northborocontra.com/
-
-    - name: Brooklyn Contra (Advanced Dance)
-      date: 2024-05-04T15:30
-      date_end: 2024-05-04T18:30
-      tzid: America/New_York
-      band: Good Company (Helen Kuhar, Cecily Mills, Rohan Weeden)
-      description: |+
-        Advanced dance from 3:30PM – 6:30PM  
-        Workshop at 7:30PM  
-        Dancing from 8–11PM
-      street: 339 8th Street
-      city: Brooklyn NY
-
-    - name: Brooklyn Contra
-      date: 2024-05-04T15:30
-      date_end: 2024-05-04T18:30
-      tzid: America/New_York
-      band: Good Company (Helen Kuhar, Cecily Mills, Rohan Weeden)
-      description: |+
-        Advanced dance from 7:30PM – 11:00PM  
-        Workshop at 7:30PM  
-        Dancing from 8–11PM
-      street: 339 8th Street
-      city: Brooklyn NY
-
-    - name: Somerville Porchfest
-      date: 2024-05-11T14:00
-      date_end: 2024-05-11T15:15
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 69 Morrison Avenue
-      city: Somerville MA
-      description: |+
-        Part of the [Somerville Porchfest](https://www.somervilleartscouncil.org/porchfest)  
-        Dancing from 2–3:15PM (no workshop)  
-        Rain date: May 12th
-
-    - name: Monday Contras
-      date: 2024-05-13T19:30
-      date_end: 2024-05-13T22:30
-      tzid: America/New_York
-      band: Julie Metcalf, Max Newman, Jack O'Connor, Cecily Mills, Dan Afrik, and Abi Sandy
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
-      city: Concord MA
-      url: http://mondaycontras.com/
-
-    - name: Nantucket Contra Dance
-      date: 2023-05-16T19:00
-      date_end: 2023-05-16T22:00
-      tzid: America/New_York
-      band: Sam Zakon-Anderson and Eric Boodman
-      description: |+
-        Nantucket's first community contra dance!
-      street: American Legion, 21 Washington St
-      city: Nantucket MA
-      url: https://www.facebook.com/groups/651711967114830/
-
-    - name: Lenox Contra Dance
-      date: 2024-05-18T19:15
-      date_end: 2024-05-18T22:30
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 65 Walker Street
-      city: Lenox MA
-      description: |+
-        Workshop at 7:15PM  
-        Dancing from 7:30–10:30PM
-      url: https://lenoxcontradance.org/
-
-    - name: "CANCELLED: Thursday Contras"
-      date: 2024-06-20T19:10
-      date_end: 2024-06-20T22:00
-      tzid: America/New_York
-      band: Eric Boodman and Eric Eid-Reiner
-      street: Concord Scout House, 74 Walden Street
-      city: Concord MA
-      url: https://www.neffa.org/thursday-contras/
-      description: |+
-        _Dance cancelled due to heat._  
-        Workshop at 7:10PM  
-        Dancing from 7:30PM–10PM
-
-    - name: Monday Contras
-      date: 2024-06-24T19:30
-      date_end: 2024-06-24T22:30
-      tzid: America/New_York
-      band: Julie Metcalf, Dan Afrik, Cecily Mills, and Jack O'Connor
-      description: |+
-        Shared evening of calling with Tommy Linden
-
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
-      city: Concord MA
-      url: http://mondaycontras.com/
-
-    - name: Thursday Night Contra
-      date: 2024-06-27T19:30
-      date_end: 2024-06-27T22:30
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 295 Gregory Street
-      city: Rochester NY
-      url: https://cdrochester.org/events/thursday-night-contra-175/
-
-    - name: Pittsburgh Contra Dance
-      date: 2024-06-28T19:30
-      date_end: 2024-06-28T23:00
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 5604 Solway Street
-      city: Pittsburgh PA
-      description: |+
-        Workshop at 7:30PM  
-        Dancing from 8–11PM
-      url: https://pittsburghcontra.org/
-
-    - name: Bloomington Old-Time Music & Dance Group
-      date: 2024-06-29T19:00
-      date_end: 2024-06-29T22:30
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 909 E 2nd Street
-      city: Bloomington IN
-      description: |+
-        Dancing from 7:30–9:30PM  
-        Arrive 15 or preferably 30 minutes early for a beginner lesson
-      url: https://www.bloomingtoncontra.org/
-
-    - name: Childgrove Country Dancers
-      date: 2024-06-30T19:00
-      date_end: 2024-06-30T21:30
-      tzid: America/Chicago
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      city: St Louis MO
-
-    - name: Cincinnati Contra Dancers
-      date: 2024-07-01T19:30
-      date_end: 2024-07-01T22:00
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street: 322 Wyoming Avenue
-      city: Wyoming OH
-      description: |+
-        Workshop at 7:30PM  
-        Dancing from 8:00–10:00PM
-      url: https://cincinnaticontradance.org/
-
-    - name: Indy Contra Dance
-      date: 2024-07-02T18:40
-      date_end: 2024-07-02T21:00
-      tzid: America/New_York
-      band: Kingfisher
-      bandURL: https://www.kingfisherband.com/
-      street:  2717 W 10th Street
-      city: Indianapolis IN
-      description: |+
-        Workshop at 6:40PM  
-        Dancing from 7:00–9:00PM
-      url: https://indycontra.org/
-
-    - name: Nantucket Contra Dance
-      date: 2024-09-19T19:00
-      date_end: 2024-09-19T22:00
-      tzid: America/New_York
-      band: Sam Zakon-Anderson and Eric Boodman
-      description: |+
-        Nantucket's second community contra dance!
-      city: Nantucket MA
-
-    - name: Montpelier Contra Dance
-      date: 2024-09-21T20:00
-      date_end: 2024-09-21T23:00
-      tzid: America/New_York
-      band: Starling
-      street: 6612 Vt Route 12
-      city: West Berlin VT
-      description: |+
-        Workshop at 7:40PM  
-        Dancing from 8:00–11:00PM
-      url: https://capitalcitygrange.org/event/dance-dance-7-2020-06-20-2020-10-17/2024-09-21/
-
-    - name: Monday Contras
-      date: 2024-11-25T19:30
-      date_end: 2024-11-25T22:30
-      tzid: America/New_York
-      band: Julie Metcalf, Larry Unger, Jack O'Connor
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
-      city: Concord MA
-      url: http://mondaycontras.com/
