@@ -9,6 +9,6 @@
     tags prop in the wrapper component, or it will simply render [object Object]
     --->
     <link-list-commas :@tags="tags">
-        <li webc:for="(_, tag) in tags"><a :href="`/tags/${slugify(tag)}`" @raw="tag"></a></li>
+        <li webc:for="tag of tags"><a :href="`/tags/${slugify(tag)}`" @raw="tag"></a></li>
     </link-list-commas>
 </div>
