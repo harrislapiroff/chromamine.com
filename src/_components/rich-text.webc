@@ -1,4 +1,4 @@
-<div @raw="content"></div>
+<div @raw="content" webc:nokeep></div>
 
 <style webc:scoped="rich-text">
     a:visited:not(.button, .footnote-ref) {
@@ -102,7 +102,7 @@
         overflow-x: auto;
     }
 
-    @media (max-width: var(--tiny)) {
+    @media (max-width: 640px) {
         pre.hljs, pre.observablehq--md-pre {
             margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2) !important;
             padding: calc(var(--line-height-base) / 2) var(--page-padding) !important;
@@ -145,7 +145,7 @@
         border-radius: 0.4rem;
     }
 
-    @media (max-width: var(--tiny)) {
+    @media (max-width: 640px) {
         picture {
             margin: 0 calc(-1 * var(--page-padding));
         }
