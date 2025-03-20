@@ -1,5 +1,5 @@
 <ul webc:root="override">
-    <li webc:for="(_, post) in posts">
+    <li webc:for="post of posts">
         <a :href="post.url">
             <span class="title" @raw="post.title"></span>
             <span class="date" @raw="dateFormat(post.date, '%B %d, %Y')"></span>

@@ -21,7 +21,7 @@ Sometimes variables have the be reiterated on components to get passed through t
 <div webc:root="override">
     Tags:
     <link-list-commas>
-        <li webc:for="(_, tag) in tags"><a :href="`/tags/${slugify(tag)}`" @raw="tag"></a></li>
+        <li webc:for="tag of tags"><a :href="`/tags/${slugify(tag)}`" @raw="tag"></a></li>
     </link-list-commas>
 </div>
 ```
@@ -36,7 +36,7 @@ in some contexts, instead of rendering a list of tags, the `<li>`s simply render
 <div webc:root="override">
     Tags:
     <link-list-commas :@tags="tags">
-        <li webc:for="(_, tag) in tags"><a :href="`/tags/${slugify(tag)}`" @raw="tag"></a></li>
+        <li webc:for="tag of tags"><a :href="`/tags/${slugify(tag)}`" @raw="tag"></a></li>
     </link-list-commas>
 </div>
 ```
