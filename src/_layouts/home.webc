@@ -30,7 +30,7 @@
             <main slot="main">
                 <div class="home-section">
                     <blog-post
-                        webc:for="(idx, post) in posts"
+                        webc:for="post of posts"
                         :@headerlink="true"
                         :@post="post"
                     ></blog-post>
