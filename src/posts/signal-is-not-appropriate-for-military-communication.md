@@ -83,8 +83,7 @@ I don't know a lot (anything) about the government systems used for communicatin
 - A limited number of people who have access to the system *at all*
 - Usage limited to particular locations or devices
 
-(It is possible there are safeguards Signal could add that would be worth the trade-offs for most people. The state-of-art on security moves ever forward. I'm sure they're talking about it.)
-
+(It is possible there are safeguards Signal could add that would be worth the trade-offs for most people. The state-of-the-art on security moves ever forward. I'm sure they're talking about it.)
 The Trump administration *did* demonstrate incompetence in this case, but the incompetence was not primarily that they used Signal *poorly* but that they used it *at all*. They also, notably, demonstrated malice by using Signal, most likely, for the purpose of evading data retention laws.
 
 Also: Your web browser is not spying on your Signal chats and reporting their contents to advertisers. There's a lot of [creepy ways][] that advertisers collect or deduce information about you, but specifically reading messages in Signal isn't one of them. Both Android and iOS have built-in protections that prevent apps from reading each others' data. If they didn't, there would be no reason for Signal to exist at all, let alone for security experts to promote it, as [they](https://ssd.eff.org/module/how-to-use-signal) [do](https://freedom.press/digisec/blog/signal-beginners/).
