@@ -87,7 +87,9 @@ I don't know a lot (anything) about the government systems used for communicatin
 
 The Trump administration *did* demonstrate incompetence in this case, but the incompetence was not primarily that they used Signal *poorly* but that they used it *at all*. They also, notably, demonstrated malice by using Signal, most likely, for the purpose of evading data retention laws.
 
-Also: Your web browser is not spying on your Signal chats and reporting their contents to advertisers. It just isn't. If that was happening, there would be no reason for Signal to exist at all, let alone for security experts to promote it, as [they](https://ssd.eff.org/module/how-to-use-signal) [do](https://freedom.press/digisec/blog/signal-beginners/). It would be game over from the start.
+Also: Your web browser is not spying on your Signal chats and reporting their contents to advertisers. There's a lot of [creepy ways][] that advertisers collect or deduce information about you, but specifically reading messages in Signal isn't one of them. Both Android and iOS have built-in protections that prevent apps from reading each others' data. If they didn't, there would be no reason for Signal to exist at all, let alone for security experts to promote it, as [they](https://ssd.eff.org/module/how-to-use-signal) [do](https://freedom.press/digisec/blog/signal-beginners/).
+
+[creepy ways]: https://www.eff.org/deeplinks/2024/09/ftc-report-confirms-commercial-surveillance-out-control
 
 [^1]: This is all without even mentioning that the original post details the process for *adding someone to a group* but not for *creating a group*, which is likely the process that was used here.
 [^2]: I've never made the specific error of adding someone to a group chat, but I've definitely made the similar error of sending a message to the wrong person, multiple times, and I've had it happen to me multiple times. This sort of thing is common, and tolerable for most uses.
