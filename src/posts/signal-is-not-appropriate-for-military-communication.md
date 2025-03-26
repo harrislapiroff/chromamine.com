@@ -13,7 +13,7 @@ tags: [security, politics, war]
 First off, here are two things that are true and not contradicted by my writing that follows:
 
 1. The Trump administration is full of people who are incompetent, malicious, and bad at their jobs, whose primary qualifications are sycophancy.
-2. Signal is an *excellent* secure messaging app for most people who are not coordinating military operations.
+2. Signal is an *excellent* secure messaging app for most people, who are not coordinating military operations.
 
 With that out of the way, I've seen a [Facebook post][] that's *kind of* misinformation shared around in the past few days. I don't usually make it my job to correct all misinformation on the internet, but this one was shared enough and touches subjects where I have knowledge. It also provides an opportunity to explore how to think like a security professional!
 
@@ -37,7 +37,7 @@ The problem with [government agents using Signal to conduct military operations]
 [of]: https://reductress.com/post/woman-texting-group-chat-about-crush-double-checks-that-atlantic-editor-not-in-here/
 [them]: https://bsky.app/profile/did:plc:sq4srjwg5noukbywa5stn6ar/post/3ll56ohqtzs23
 
-To quote [Actual Security Expert Matt Blaze][blaze] – I recommend a follow, if you're interested in this stuff – [wrote][blaze-post]:
+As [Actual Security Expert Matt Blaze][blaze] – I recommend a follow, if you're interested in this stuff – [wrote][blaze-post]:
 
 [blaze]: https://federate.social/@mattblaze/
 [blaze-post]: https://federate.social/@mattblaze/114219067469829677
@@ -70,7 +70,7 @@ It's actually quite easy to accidentally add someone to a Signal group.[^1] Just
 - if you're adding multiple people and you accidentally select an additional person without noticing, or
 - if your BFF added someone and you happened not to notice the notification or just assumed they were fine because, after all, your BFF added them.
 
-All of these are normal human errors that I could certainly make and I bet you could too.[^2] Confirmation dialogs can help, but people also [learn to ignore them][nng-confirmation].
+All of these are normal human errors that I could certainly make and I bet you could too.[^2] Confirmation dialogs help, but people also [learn to ignore them][nng-confirmation].
 
 Nor is it a flaw for Signal to make this process easy. Good secure software makes an effort to systematically prevent users from making mistakes like this, but often security trades off with usability. Design needs to balance consequences with interface friction. For most Signal users, adding the wrong person to a group chat might be an embarrassing social faux pas, but mostly *it isn't a felony violation of the Espionage Act*.[^3]
 
