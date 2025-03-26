@@ -19,7 +19,9 @@ With that out of the way, I've seen a [Facebook post][] of misinformation shared
 
 [Facebook post]: /media/signal-is-not-appropriate-for-military-communication/post.png
 
-I don't call myself a professional security expert, but I work alongside experts on a daily basis and have a general idea of what sort of things they think about. Specifically, I work professionally on interface design and product management for projects where security is a core concern.
+I don't call myself a security expert, but I work alongside experts on a daily basis and have a general idea of what sort of things they think about. Specifically, I work professionally on interface design and product management for [projects][] where security is a core concern.
+
+[projects]: https://dangerzone.rocks/
 
 Here's a point about security that I think laypeople often miss:
 
