@@ -1,0 +1,26 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - posts
+    - all
+layout: page.webc
+eleventyComputed:
+  title: "<f @raw=\"tag\" webc:nokeep></f>"
+  permalink: "tags/<f @raw=\"slugify(tag)\" webc:nokeep></f>/"
+---
+
+<h2>Posts tagged with “<f @raw="$data.tag" webc:nokeep></f>”</h2>
+
+<blog-post-list-compact
+    :@collections="$data.collections"
+    :@posts="
+        collections[tag]?.map(
+            p => ({ ...p.data, url: p.url, date: new Date(p.date) })
+        ).sort(
+            (a, b) => b.date - a.date
+        )
+    "
+></blog-post-list-compact>
