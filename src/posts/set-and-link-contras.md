@@ -81,4 +81,7 @@ A few open questions I have about these dances:
 - In "Set And Link Contra," is the _big_ balance right to progress satisfying or awkward? We didn't have enough dancers to test the progression. A different option might be to make it Becket CW and slide _left_, then balance back to the _right_. (I suspect slide _right_, balance _right_ would feel too muddy.)
 - Balance right and left as a couple isn't natural to contra dancers. Is there a way to lead into it that makes it more natural? (Notably: a couple of my test dancers had done at least a little Scottish and they both liked it, but one dancer who had _only_ done contra found it awkward.)
 - Alternatively is there a different way of doing that balances that would be more at home in a contra? I think balancing together and away wouldn't give good momentum into turning over the right shoulder, but perhaps balancing in and out in a ring would work?
+  :::update
+  **2025-05-03:** After trying this with a larger group of dancers, people fairly universally agreed that the balance in and out felt bad for the set-and-link, particularly for the right hand dancer casting around the outside.
+  :::
 - In "Broken Link," I'm still not sure if the set and link into a robins left hand allemande sequence feels good. When I tested it myself it felt flowy in a weaving sort of way, but some of my test dancers reported it was awkward. We didn't take time to workshop it to see if the flow felt better once the set and link was more familiar.
