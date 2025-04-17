@@ -29,26 +29,16 @@ testimonials:
 
 dances:
   upcoming:
-    - name: Boston Gender Free English Country Dance
-      date: 2025-03-25T19:30
-      date_end: 2025-03-25T22:00
+    - name: 4th Friday Contra for Experienced Dancers
+      date: 2025-04-25T20:00
+      date_end: 2025-04-25T23:00
       tzid: America/New_York
-      band: Jean Monroe, Emma Azelborn, Brian Wilson
-      street: First Church In Jamaica Plain, 6 Eliot St
-      city: Boston MA
-      url: https://www.lcfd.org/bgfe.html
-
-    - name: Monday Contras
-      date: 2025-04-14T19:30
-      date_end: 2025-04-14T22:30
-      tzid: America/New_York
-      band: Julie Metcalf, Milo Pierick, Max Newman
+      band: Good Company
       description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10:30PM
-      street: Concord Scout House, 74 Walden St
-      city: Concord MA
-      url: http://mondaycontras.com/
+        For experienced dancers!
+      street: "Guiding Star Grange #1, 401 Chapman Street"
+      city: Greenfield MA
+      url: https://www.guidingstargrange.org/
 
     - name: Hackmatack Contra Dance
       date: 2025-06-01T18:30
@@ -65,8 +55,6 @@ dances:
       tzid: America/New_York
       band: Here On The Hill (Rosemary Powell, Victoria Horner)
       description: |+
-        Musicians warmup at 6:00PM  
-        Community Dance w/ Lisa Newcomb, Chrissy Fowler, and All Comers Band at 6:30PM  
         Workshop at 7:30PM  
         Dancing from 8–11PM  
       street: First Church in Belfast UCC, 8 Court St
