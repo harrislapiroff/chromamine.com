@@ -1,5 +1,15 @@
 @import ../mixins
 
+.page-title
+    font-weight: var(--font-weight-bold)
+    color: var(--color-text-striking)
+    &::before
+        display: block
+        float: left
+        margin-left: -2ch
+        width: 2ch
+        content: "¶"
+
 .page-content
     @extend %rich-text
 
