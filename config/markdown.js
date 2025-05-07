@@ -6,6 +6,7 @@ import markdownIt from "markdown-it"
 import markdownFootnotes from "markdown-it-footnote"
 import markdownContainer from "markdown-it-container"
 import markdownAbbr from "markdown-it-abbr"
+import markdownItAttrs from "markdown-it-attrs"
 
 import hljs from "highlight.js"
 import Image from "@11ty/eleventy-img"
@@ -33,6 +34,7 @@ export const md = markdownIt(mdOptions)
     .use(markdownAbbr)
     .use(markdownContainer, 'update')
     .use(markdownContainer, 'note')
+    .use(markdownItAttrs, { allowedAttributes: ['rel'] })
 
 // Render footnotes simply in an ordered list
 md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'
