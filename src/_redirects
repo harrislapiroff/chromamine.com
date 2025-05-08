@@ -1,2 +1,4 @@
+/contra /dance
 /contra/* /dance/:splat
+/contact /elsewhere
 /contact/ /elsewhere/
