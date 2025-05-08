@@ -3,11 +3,11 @@ title: My New Contact Page
 date: 2025-05-07
 categories: [Miscellany]
 tags: [anti-corporate internet, web, social media]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/114468474884425142
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0pLzTa3dVcfL2qhV6TzMQpHFF1cmjxq5PEqRSwP8SGpeuV2Vj9woKZ4sRTNXJwu95l
 ---
 
 Recently, as some of my friends are leaving or thinking about leaving Facebook, I've had more of them share forms to collect contact information from friends they might otherwise lose touch with. I think this is a great idea – to make our connections robust against the whims of social media platforms – and to that end I will happily fill out as many contact forms as my friends want to send me.
