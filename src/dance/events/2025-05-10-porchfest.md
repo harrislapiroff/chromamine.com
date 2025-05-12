@@ -1,7 +1,7 @@
 ---
 name: Somerville Porchfest
-date: 2024-05-10T14:00
-date_end: 2024-05-10T16:00
+date: 2025-05-10T14:00
+date_end: 2025-05-10T16:00
 tzid: America/New_York
 band: Jeff Kaufman, Charlie Steiner, Weiwei Chen, Rohan Weeden, Rick Kaufman, Sam Zakon-Anderson
 street: 69 Morrison Avenue
