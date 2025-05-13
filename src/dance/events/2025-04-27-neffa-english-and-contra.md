@@ -1,7 +1,7 @@
 ---
 name: "NEFFA: English and Contra"
-date: 2025-05-27T12:00
-date_end: 2025-05-27T12:50
+date: 2025-04-27T12:00
+date_end: 2025-04-27T12:50
 tzid: America/New_York
 band: Tabbies' Delight
 description: A selection of English and Contra dances that illuminate connections and contrasts between the two forms, how they are connected by history and how they still interweave.
