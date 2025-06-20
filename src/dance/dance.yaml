@@ -29,50 +29,6 @@ testimonials:
 
 dances:
   upcoming:
-
-    - name: Hackmatack Contra Dance
-      date: 2025-06-01T18:30
-      date_end: 2025-06-01T21:00
-      tzid: America/New_York
-      band: Here On The Hill (Rosemary Powell, Victoria Horner, Annie McDougall)
-      street: 538 School Street (Route 9)
-      city: Berwick ME
-      url: https://www.hackmatackplayhouse.org/contra-dances
-
-    - name: Flying Shoes First Friday Dance
-      date: 2025-06-06T20:00
-      date_end: 2025-06-06T23:00
-      tzid: America/New_York
-      band: Here On The Hill (Rosemary Powell, Victoria Horner)
-      description: |+
-        Workshop at 7:30PM  
-        Dancing from 8–11PM  
-      street: First Church in Belfast UCC, 8 Court St
-      city: Belfast ME
-      url: https://www.belfastflyingshoes.org/
-
-    - name: Cumberland County Contra Dance
-      date: 2025-06-07T19:30
-      date_end: 2025-06-07T22:30
-      tzid: America/New_York
-      band: Here On The Hill (Rosemary Powell, Victoria Horner)
-      street: West Cumberland Community Hall, 115 Blackstrap Road
-      city: Cumberland ME
-      url: https://www.facebook.com/groups/726222849231519/
-
-    - name: Common Floor Contra
-      date: 2025-06-08T19:30
-      date_end: 2025-06-08T22:00
-      tzid: America/New_York
-      band: Stomp Rocket
-      bandUrl: https://www.facebook.com/profile.php?id=100037978610914
-      description: |+
-        Workshop at 7PM  
-        Dancing from 7:30–10PM
-      street: 400 Deering Ave
-      city: Portland ME
-      url: https://www.commonfloorcontra.dance/
-      
     - name: Brooklyn Contra
       date: 2025-07-12T20:00
       date_end: 2025-07-12T23:00

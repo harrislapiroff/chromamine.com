@@ -36,7 +36,7 @@ program:
     type: English
   - title: Trip to Provence
     author: Susan Kevra
-    type: English d
+    type: English
   - title: Minnows
     author: Melissa Running
     type: English
