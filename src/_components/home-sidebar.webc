@@ -6,7 +6,7 @@
         @action="Read more or hire me"
     ></role-button>
     <role-button
-        @url="/software"
+        @url="/dance"
         :@roles="['Dance Organizer', 'Caller']"
         @description="I'm engineering manager for Web at Freedom of the Press Foundation and do freelance data processing and visualization."
         @action="Read more or hire me"
