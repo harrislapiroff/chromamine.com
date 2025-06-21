@@ -8,19 +8,13 @@
     <role-button
         @url="/dance"
         :@roles="['Dance Organizer', 'Caller']"
-        @description="I'm engineering manager for Web at Freedom of the Press Foundation and do freelance data processing and visualization."
-        @action="Read more or hire me"
+        @description="I organize and call contra dances, square dances, and English country dances in the New England area and beyond."
+        @action="Read more or book me"
     ></role-button>
 </sidebar-section>
 
 <sidebar-section heading="Get new posts by email">
-    <form class="email-form" action="https://buttondown.com/api/emails/embed-subscribe/harrislapiroff" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/harrislapiroff', 'popupwindow')">
-        <label class="sr-only" for="bd-email">Email Address</label>
-        <input class="email-form__input" type="email" name="email" id="bd-email">
-        <button class="email-form__submit" type="submit">
-            <span class="sr-only">Subscribe</span>
-        </button>
-    </form>
+    <newsletter-form></newsletter-form>
 </sidebar-section>
 
 <sidebar-section heading="Reach me elsewhere:">
@@ -34,5 +28,14 @@
         <li>
             <a href="mailto:blog@chromamine.com" rel="me">Email</a>
         </li>
+        <li>
+            <a href="/elsewhere/">More &rarr;</a>
+        </li>
     </link-list>
 </sidebar-section>
+
+<style webc:scoped="home-sidebar">
+    [href="/elsewhere/"] {
+        font-style: italic;
+    }
+</style>
