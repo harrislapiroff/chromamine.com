@@ -11,6 +11,11 @@
         .map(p => ({...p, ...p.data, date: new Date(p.date)}))
         .sort((a, b) => b.date - a.date)
         .slice(FULL_POST_COUNT, FULL_POST_COUNT + MORE_POST_COUNT)
+
+    const featuredPosts = $data.collections.posts
+        .filter(p => $data.config.featured.includes(p.data.title))
+        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+        .sort((a, b) => b.date - a.date)
 </script>
 
 <!doctype html>
@@ -28,20 +33,25 @@
         <site-layout>
             <site-header slot="header"></site-header>
             <main slot="main">
-                <div class="home-section">
+                <section>
+                    <section-header>Featured Posts</section-header>
+                    <blog-post-grid-micro :@posts="featuredPosts"></blog-post-grid-micro>
+                </section>
+                <section>
+                    <section-header>Latest Posts</section-header>
                     <blog-post
                         webc:for="post of posts"
                         :@headerlink="true"
                         :@post="post"
                     ></blog-post>
-                </div>
-                <div class="home-section">
+                </section>
+                <section>
                     <section-header>Older Posts</section-header>
                     <blog-post-list-compact
                         :@posts="morePosts"
                     ></blog-post-list-compact>
                     <a href="/archive" class="archive-link">All <span class="archive-count" @raw="$data.collections.posts.length"></span> older posts →</a>
-                </div>
+                </section>
             </main>
             <home-sidebar slot="sidebar"></home-sidebar>
         </site-layout>
