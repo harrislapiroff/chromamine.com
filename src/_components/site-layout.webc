@@ -29,10 +29,12 @@
 
     :host .main {
         grid-area: main;
+        container-type: inline-size;
     }
 
     :host .sidebar {
         grid-area: sidebar;
+        container-type: inline-size;
     }
 
     @media (max-width: 960px) {
