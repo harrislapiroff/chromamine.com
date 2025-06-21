@@ -1,0 +1,37 @@
+<a :href="post.url" webc:root="override">
+    <div class="categories" @raw="post.categories.join(', ')"></div>
+    <h2 class="title" @raw="post.title"></h2>
+    <time :datetime="post.date.toISOString()" @raw="dateFormat(post.date, '%B %d, %Y')"></time>
+</a>
+
+<style webc:scoped="blog-post-micro">
+    :host {
+        padding: calc(0.5 * var(--line-height-base)) 2ch;
+    }
+
+    .categories {
+        color: var(--color-text-muted);
+        font-style: italic;
+    }
+
+    .title {
+        display: inline;
+        font-weight: var(--font-weight-bold);
+        color: var(--color-text-striking);
+    }
+
+    time {
+        display: inline-block;
+        color: var(--color-text-muted);
+    }
+
+    :host:hover {
+        background-color: var(--color-transparent-bg-faint);
+        text-decoration: none;
+    }
+
+    :host:hover .title {
+        color: var(--color-link-hover);
+        text-decoration: underline;
+    }
+</style>

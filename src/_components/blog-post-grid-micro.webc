@@ -1,0 +1,17 @@
+<div webc:root="override">
+    <blog-post-micro webc:for="post of posts" :@post="post"></blog-post-micro>
+</div>
+
+<style webc:scoped="blog-post-grid-micro">
+    :host {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+        margin-bottom: var(--line-height-base);
+    }
+
+    @container (max-width: 680px) {
+        :host {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
