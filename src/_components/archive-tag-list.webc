@@ -1,0 +1,18 @@
+<ul>
+    <li webc:for="(_, tag) in tags">
+        <archive-tag :@tag="tag"></archive-tag>
+    </li>
+</ul>
+
+<style webc:scoped="archive-tag-list">
+    :host ul > li {
+        display: inline-block;
+        margin-right: 2ch;
+        margin-bottom: calc(0.5 * var(--line-height-base));
+    }
+
+    :host ul.closed {
+        --visible-rows: 2;
+        height: calc(var(--visible-rows) * 1.5 * var(--line-height-base));
+    }
+</style>
