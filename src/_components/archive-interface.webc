@@ -1,0 +1,13 @@
+<h2>Tags</h2>
+
+<archive-tag-list :@tags="tags"></archive-tag-list>
+
+<h2>Posts</h2>
+<!---
+Quirk: WebC docs claim that webc:for works with any iterable, but it throws an error
+when I don't cast this Set to an array.
+--->
+<div webc:for="year of Array.from(new Set(posts.map(p => p.date.getFullYear())))">
+    <h3 @raw="year"></h3>
+    <blog-post-list-compact :@posts="posts.filter(p => p.date.getFullYear() === year)"></blog-post-list-compact>
+</div>
