@@ -11,6 +11,11 @@
 
     .name {
         font-weight: var(--font-weight-bold);
+        color: inherit;
+    }
+
+    :host:visited .name {
+        color: var(--color-text-muted);
     }
 
     .count {
