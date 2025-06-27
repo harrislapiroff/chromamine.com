@@ -27,4 +27,6 @@ title: Archive
         .sort((a, b) => b.date - a.date)
 </script>
 
-<archive-interface :@tags="tags" :@posts="posts"></archive-interface>
+<rich-text>
+    <archive-interface :@tags="tags" :@posts="posts"></archive-interface>
+</rich-text>
