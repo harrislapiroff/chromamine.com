@@ -2,7 +2,6 @@
 
 <archive-tag-list :@tags="tags"></archive-tag-list>
 
-<h2>Posts</h2>
 <!---
 Quirk: WebC docs claim that webc:for works with any iterable, but it throws an error
 when I don't cast this Set to an array.

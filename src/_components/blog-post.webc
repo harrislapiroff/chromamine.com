@@ -2,10 +2,8 @@
     <header>
         <div class="categories" @raw="post.categories?.join(', ')"></div>
 
-        <h2 class="title">
-            <a class="title-link" :href="post.url" @raw="post.title" webc:if="headerlink"></a>
-            <span class="title-linkless" @raw="post.title" webc:else></span>
-        </h2>
+        <!--- I don't know why reiterating the post object is necessary here --->
+        <page-title :@post="post" :@href="post.url" :@title="post.title"></page-title>
 
         <time :datetime="post.date.toISOString()" @raw="dateFormat(post.date, '%B %d, %Y')"></time>
 
@@ -34,32 +32,9 @@
         font-style: italic;
     }
 
-    .title {
-        font-weight: var(--font-weight-bold);
-        display: inline;
-    }
-
     header > time {
         display: inline-block;
         color: var(--color-text-muted);
-    }
-
-    .title-link, .title-linkless {
-        color: var(--color-text-striking);
-    }
-
-    .title-link:hover {
-        color: var(--color-link-hover);
-        text-decoration: underline;
-        text-decoration-color: var(--color-base);
-    }
-
-    .title-link::before, .title-linkless::before {
-        display: block;
-        float: left;
-        margin-left: -2ch;
-        width: 2ch;
-        content: "¶";
     }
 
     .content > p:first-child > picture:first-child {
