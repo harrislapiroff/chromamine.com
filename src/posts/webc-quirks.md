@@ -127,6 +127,25 @@ This did:
 </div>
 ```
 
+# Can't use imports in `<script webc:setup>`
+
+None of these examples work:
+
+```html
+<script webc:setup>
+  import Fetch from '@11ty/eleventy-fetch'
+</script>
+
+<script webc:setup>
+  const Fetch = await import('@11ty/eleventy-fetch')
+</script>
+
+<script webc:setup>
+  const Fetch = require('@11ty/eleventy-fetch')
+</script>
+```
+
+All silently fail and prevent build.
 
 # Error reporting is quite bad
 
@@ -138,7 +157,7 @@ Check the dynamic attribute: `@raw="myFunction()"`
 
 or something similar, with a stack trace that is quite long and doesn't always include useful information.
 
-Sometimes, WebC doesn't generate an error at all, just bails without building.
+`webc:setup` scripts sometimes (always?) seem to not raise errors at all.Sometimes, WebC doesn't generate an error at all, just bails without building.
 
 Sometimes the error is in the middle of the output instead of at the end. (This seems to be mostly true on my sites that have `eleventy.after` listeners wired up that have output.)
 
