@@ -161,6 +161,8 @@
         font-style: italic;
     }
 
+    /* Footnotes
+     *----------*/
     .footnotes::before {
         content: "Footnotes";
         display: block;
@@ -176,7 +178,12 @@
         margin-bottom: 0;
     }
 
-    .update, .note {
+
+    /* Labeled box mixin
+     * See: https://chromamine.com/2025/07/mixins-with-vanilla-css/
+     *------------------*/
+
+    .update, .note, .dance-card {
         border: 0.1rem solid var(--color);
         color: var(--color);
         padding-top: calc(var(--line-height-base) / 2 - 0.1rem);
@@ -203,6 +210,8 @@
             margin-bottom: 0;
         }
     }
+    /* Markdown IT container
+     *----------------------*/
 
     .update {
         --color: var(--color-update);
@@ -213,4 +222,86 @@
         --color: var(--color-text-alert);
         --label: "Note";
     }
+
+    /* Dance Card Shortcode
+     *---------------------*/
+    .dance-card {
+        --color: var(--color-base);
+        --label: "Dance";
+        max-width: 50ch;
+    }
+
+    .dance-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    .dance-header .dance-title {
+        grid-column: 1;
+        font-weight: var(--font-weight-bold);
+    }
+
+    .dance-header .dance-formation {
+        grid-column: 2;
+        text-align: right;
+    }
+
+    .dance-header .dance-author {
+        grid-column: 1;
+        grid-row: 2;
+        font-style: italic;
+    }
+
+    .dance-section {
+        display: grid;
+        grid-template-columns: 2ch 1fr;
+        gap: 2ch;
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    .dance-section .dance-section-label {
+        grid-column: 1;
+        text-align: right;
+        font-weight: var(--font-weight-bold);
+    }
+
+    .dance-section .dance-section-lines {
+        grid-column: 2;
+    }
+
+    .dance-notes {
+        --dance-box-padding: 2ch;
+        border-top: 0.1rem solid var(--color-base);
+        position: relative;
+        margin: 0 calc(-1 * var(--dance-box-padding));
+        padding: calc(var(--line-height-base) - 1rem) var(--dance-box-padding) 0 var(--dance-box-padding);
+    }
+
+    .dance-notes::before {
+        display: block;
+        content: "Notes";
+        position: absolute;
+        top: calc(-1 * var(--line-height-base) / 2);
+        left: var(--dance-box-padding);
+        font-size: 0.8em;
+        text-transform: uppercase;
+        background: var(--color-background);
+        padding: 0 0.5ch;
+    }
+
+    .dance-notes-label, .dance-notes-content, .dance-notes-content > p {
+        display: inline;
+    }
+
+    .dance-notes-label {
+        font-weight: var(--font-weight-bold);
+        text-transform: uppercase;
+    }
+
+    .dance-notes-label::after {
+        content: ": ";
+    }
+
+
 </style>
