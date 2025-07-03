@@ -82,7 +82,7 @@ def foo():
 
 This text includes a `bit of` code.
 
-{% button "Test Button" "https://example.com" %}
+{% button "Test Button" "https://example.com" %} {% button "Download Button" "https://example.com" "download" %}
 
 {% stl "/media/3d-cad-with-solvespace/cap-58mm-lo.stl" %}
 
