@@ -2,7 +2,6 @@ import '@oddbird/popover-polyfill'
 
 import { computePosition, flip, shift } from '@floating-ui/dom'
 
-
 const positionPopover = (a, popover) => {
     computePosition(a, popover, {
         placement: 'bottom-start',
@@ -25,7 +24,15 @@ const togglePopover = (a, popover) => {
             togglePopover(a, popover)
             document.removeEventListener('click', hidePopover)
         }
+        a._hidePopoverListener = hidePopover
         document.addEventListener('click', hidePopover)
+    } else {
+        // When hiding the popover, remove any existing document click listener
+        // We need to track the hidePopover function to remove it properly
+        if (a._hidePopoverListener) {
+            document.removeEventListener('click', a._hidePopoverListener)
+            a._hidePopoverListener = null
+        }
     }
 }
 
