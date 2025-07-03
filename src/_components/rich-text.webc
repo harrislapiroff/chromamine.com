@@ -428,6 +428,24 @@
         color: var(--color-background);
         text-decoration: none;
     }
+
+    /* Image Grid
+    *-----------*/
+    .image-grid {
+        display: flex;
+        margin: 0 -1ch;
+        align-items: center;
+    }
+
+    @media (max-width: 640px) {
+        .image-grid {
+            flex-direction: column;
+        }
+    }
+
+    .image-grid__item {
+        padding: 0 1ch;
+    }
 </style>
 
 <!---
