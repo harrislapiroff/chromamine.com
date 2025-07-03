@@ -1,0 +1,60 @@
+<script webc:setup>
+    // This doesn't work because you can't import things here.
+    import Fetch from '@11y/eleventy-fetch'
+
+    const MATERIAL_GITHUB_ROOT = "https://raw.githubusercontent.com/google/material-design-icons"
+    const MATERIAL_GIT_REF = "941fa95d7f6084a599a54ca71bc565f48e7c6d9e"
+    const OPTIONS = {
+        size: [20, 24, 40, 48],
+        weight: [100, 200, 300, 400, 500, 600, 700],
+        grade: [-25, 0, 200],
+        fill: [true, false],
+        style: ['outlined', 'rounded', 'sharp'],
+    }
+    // These are the default values for these options and should not be included in URLs
+    const NULLISH = {
+        weight: 400,
+        grade: 0,
+    }
+    // Simple function that, when provided a value returns:
+    // 1. the value interpolated into tpl is the value is not nullish
+    // 2. an empty string if the value is nullish or matches the provided nullish value
+    const val = (v, nullish, tpl) => !!v || v === nullish ? tpl.replace("%s", v) : ""
+
+    // Generates a URL like:
+    // https://raw.githubusercontent.com/google/material-design-icons/941fa95d7f6084a599a54ca71bc565f48e7c6d9e/symbols/web/10k/materialsymbolsoutlined/10k_wght700gradN25fill1_48px.svg
+    const generateMaterialIconURL = (name, {
+        size = 24,
+        weight = 400,
+        grade = 0,
+    } = {}) => {
+        if (!OPTIONS.size.includes(size)) throw new Error(`Size must be one of ${OPTIONS.size.join(", ")}`)
+        if (!OPTIONS.weight.includes(weight)) throw new Error(`Weight must be one of ${OPTIONS.weight.join(", ")}`)
+        if (!OPTIONS.grade.includes(grade)) throw new Error(`Grade must be one of ${OPTIONS.grade.join(", ")}`)
+        return [
+            MATERIAL_GITHUB_ROOT,
+            '/',
+            MATERIAL_GIT_REF,
+            '/symbols/web/',
+            name,
+            '/materialsymbols',
+            style,
+            '/',
+            name,
+            '_',
+            val(weight, NULLISH.weight, "wght%s"),
+            val(grade, NULLISH.grade, "grad%s"),
+            val(fill, NULLISH.fill, "fill%s"),
+            '_',
+            size,
+            'px.svg',
+        ].join("")
+    }
+
+    const getMaterialIconSVG = async (name, opts = {}) => {
+        const url = generateMaterialIconURL(name, opts)
+        const svg = await Fetch(url, { duration: '*', type: 'xml' })
+        return svg
+    }
+</script>
+
