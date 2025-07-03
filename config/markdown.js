@@ -15,6 +15,8 @@ export const mdOptions = {
     typographer: true,
     html: true,
     highlight: function (str, lang) {
+        // Use stylus for sass
+        if (lang === 'sass') lang = 'stylus'
         if (lang && hljs.getLanguage(lang)) {
             try {
                 return (
