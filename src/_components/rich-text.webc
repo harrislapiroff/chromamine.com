@@ -175,11 +175,41 @@
         margin-bottom: 0;
     }
 
+    .update, .note {
+        border: 0.1rem solid var(--color);
+        color: var(--color);
+        padding-top: calc(var(--line-height-base) / 2 - 0.1rem);
+        padding-bottom: calc(var(--line-height-base) / 2 - 0.1rem);
+        padding-right: calc(2ch - 0.1rem);
+        padding-left: calc(2ch - 0.1rem);
+        margin: var(--line-height-base) 0;
+        border-radius: var(--border-radius-base);
+        position: relative;
+
+        &::before {
+            display: block;
+            content: var(--label);
+            position: absolute;
+            top: calc(-1 * var(--line-height-base) / 2);
+            left: -1ch;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            background: var(--color-background);
+            padding: 0 0.5ch;
+        }
+
+        & > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
     .update {
-        /* TODO: mixins.labeled-box("Update", var(--color-update)) */
+        --color: var(--color-update);
+        --label: "Update";
     }
 
     .note {
-        /* TODO: mixins.labeled-box("Note", var(--color-text-alert)) */
+        --color: var(--color-text-alert);
+        --label: "Note";
     }
 </style>
