@@ -1,5 +1,5 @@
 ---
-layout: monotheme/page.pug
+layout: page.webc
 title: "Harris Lapiroff: Software Engineer, Designer, Manager"
 ---
 
