@@ -1,4 +1,5 @@
 <div @raw="content" webc:nokeep></div>
+<slot></slot>
 
 <style webc:scoped="rich-text">
     a:visited:not(.button, .footnote-ref) {
