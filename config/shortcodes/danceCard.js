@@ -30,7 +30,7 @@ const danceCard = (danceCollection, title) => {
                         ${k !== 'general' ? `<div class="dance-notes-label">${k}</div>` : ''}
                         <div class="dance-notes-content">${md.render(v)}</div>
                     </div>
-                `)}
+                `).join('')}
             </div>
         ` : ''}
     </div>`.replace(/([\n\r]|[\s]{4})/g, '')
