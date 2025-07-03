@@ -1,6 +1,8 @@
 <div @raw="content" webc:nokeep></div>
 <slot></slot>
 
+<link rel="stylesheet" href="../../node_modules/highlight.js/styles/night-owl.css"></link>
+
 <style webc:scoped="rich-text">
     a:visited:not(.button, .footnote-ref) {
         color: var(--color-link-visited);
