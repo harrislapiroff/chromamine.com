@@ -22,9 +22,9 @@ images:
     caption: A 3D printed Irish whistle stand
     alt: A wooden-colored 3D printed stand holding several Irish whistles in organized slots.
 dances:
-  - title: Soul Reversal
-    author: Tavi Merrill
-    formation: Becket Indecent
+  - title: Festival Reel
+    author: Will Mentor
+    formation: Becket
     choreo:
       a1:
         - Slice L
@@ -37,6 +37,10 @@ dances:
         - Larks DSD
       b2:
         - Ptr B&Sw
+    notes:
+      a1: _Slice_, not slide.
+      b1: Robins can pull into the DSD if they like
+      general: All figures end where they started until the progression.
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed non risus. suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. cras elementum ultrices diam. maecenas ligula massa, varius a, semper congue, euismod non, mi. proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.
@@ -106,7 +110,7 @@ This is a note container. It also has special styling to draw attention to impor
 
 ## Dance Card Shortcode
 
-{% dancecard dances "Soul Reversal" %}
+{% dancecard dances "Festival Reel" %}
 
 ## Image Grid Shortcode
 
