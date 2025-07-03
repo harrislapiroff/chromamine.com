@@ -305,5 +305,26 @@
         content: ": ";
     }
 
+    /* Button
+     *------*/
 
+     .button {
+        display: inline-block;
+        border: 0.1rem solid var(--color-base);
+        padding: calc(var(--line-height-base) / 2 - 0.1rem) calc(1ch * 2 - 0.1rem);
+        color: var(--color-base);
+    }
+
+    .button:visited {
+        color: var(--color-base);
+    }
+
+    .button:hover {
+        background-color: var(--color-base);
+        color: var(--color-background);
+    }
+
+    .button-download::after {
+        content: ' ↓';
+    }
 </style>
