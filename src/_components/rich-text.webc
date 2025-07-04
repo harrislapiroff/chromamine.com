@@ -451,7 +451,7 @@
 <!---
 unscoped styles for footnotes which are hoisted out of the rich text element
 by javascript
--->
+--->
 <style>
     .footnote-popover {
         perspective: 20rem;
