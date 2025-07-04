@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename)
 
 const BLOG_POST_DIR = path.join(__dirname, '..', 'src', 'posts')
 const MEDIA_DIR = path.join(__dirname, '..', 'src', 'media')
-const EDITOR = 'code'
+const EDITOR = process.env.EDITOR || 'code'
 
 const slugify = (value) => value.toLowerCase().replace(/\s/g, '-')
 
