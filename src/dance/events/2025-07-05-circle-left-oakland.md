@@ -41,7 +41,7 @@ A pretty good evening. I pitched the level a bit too high and for hubris didn't 
 
 I've concluded that I've now swung too far in the direction of being verbose when teaching. Adding in the style points and history notes has become a bit too much and I should swing back a bit in the other direction.
 
-In particular I stumbled a bit over the teach of the hey in Rockin Robin. It's kind of a tricky hey to teach and I also flubbed a bit (taught it as a half hey when it should have been a full hey).
+In particular I stumbled a bit over the teach of the hey in Rockin Robin. It's kind of a tricky hey to teach and I also flubbed a bit (taught it as a half hey when it should have been a full hey and had to correct).
 
 The medley went well and people seemed proud of themselves for achieving it.
 
