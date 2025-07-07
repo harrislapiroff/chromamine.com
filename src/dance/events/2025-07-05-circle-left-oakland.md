@@ -28,7 +28,7 @@ program:
       author: Maia McCormick
   - - title: The Baby Rose
       author: David Kaynor
-    - title: Medley: Airpants, Butter, Tica Tica Timing/Old Time Elixir #2
+    - title: Medley: "Airpants, Butter, Tica Tica Timing/Old Time Elixir #2"
       author: Lisa Greenleaf, Gene Hubert, Dean Snipes/Linda Leslie
       medley: true
     - title: A Thing of Trust
