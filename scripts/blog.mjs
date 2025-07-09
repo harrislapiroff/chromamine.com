@@ -12,7 +12,30 @@ const __dirname = path.dirname(__filename)
 
 const BLOG_POST_DIR = path.join(__dirname, '..', 'src', 'posts')
 const MEDIA_DIR = path.join(__dirname, '..', 'src', 'media')
-const EDITOR = process.env.EDITOR || 'code'
+// Function to check if a command exists
+const commandExists = (command) => {
+    try {
+        child_process.execSync(`which ${command.split(' ')[0]}`, { stdio: 'ignore' })
+        return true
+    } catch {
+        return false
+    }
+}
+
+// Fallback chain for editors: EDITOR env var -> code -> vim -> nano
+const findEditor = () => {
+    if (process.env.EDITOR) return process.env.EDITOR
+    
+    const candidates = ['code', 'vim', 'nano', 'vi']
+    for (const editor of candidates) {
+        if (commandExists(editor)) return editor
+    }
+    
+    // Last resort
+    return 'vi'
+}
+
+const EDITOR = findEditor()
 
 const slugify = (value) => value.toLowerCase().replace(/\s/g, '-')
 
@@ -56,10 +79,21 @@ program.command('new <title> [slug]')
         console.log(`Created ${mediaDir}`)
 
         // Open blog post in editor
-        console.log(editor, filepath)
-        child_process.spawn(editor, [filepath], {
-            stdio: 'inherit'
-        })
+        console.log(`Opening ${filepath} with ${editor}`)
+        
+        // Handle EDITOR that might contain arguments (like "code --wait" or "subl -w")
+        if (editor.includes(' ')) {
+            // If editor contains spaces, parse it as a shell command
+            const editorCommand = `${editor} "${filepath}"`
+            child_process.spawn('sh', ['-c', editorCommand], {
+                stdio: 'inherit'
+            })
+        } else {
+            // Simple case: editor is just an executable name
+            child_process.spawn(editor, [filepath], {
+                stdio: 'inherit'
+            })
+        }
     })
 
 const SORT_FUNCTIONS = {
