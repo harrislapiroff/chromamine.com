@@ -12,7 +12,11 @@ const __dirname = path.dirname(__filename)
 
 const BLOG_POST_DIR = path.join(__dirname, '..', 'src', 'posts')
 const MEDIA_DIR = path.join(__dirname, '..', 'src', 'media')
-const EDITOR = process.env.EDITOR || 'code'
+
+// Resolve the editor to use.
+// Precedence: $VISUAL -> $EDITOR -> fallback to VS Code ("code --wait").
+// Using $VISUAL first follows conventional CLI tooling behaviour.
+const EDITOR = process.env.VISUAL || process.env.EDITOR || 'code --wait'
 
 const slugify = (value) => value.toLowerCase().replace(/\s/g, '-')
 
@@ -55,10 +59,15 @@ program.command('new <title> [slug]')
         fs.mkdirSync(mediaDir)
         console.log(`Created ${mediaDir}`)
 
-        // Open blog post in editor
-        console.log(editor, filepath)
+        // Spawn the editor. Use a shell so that "editor" may contain flags
+        // (e.g. "code --wait" or "vim -O").
+        // Passing the file path as an argument lets simple commands ("vim")
+        // still work while also supporting commands that already include
+        // their own arguments.
         child_process.spawn(editor, [filepath], {
-            stdio: 'inherit'
+            stdio: 'inherit',
+            shell: true,
+            env: process.env
         })
     })
 
