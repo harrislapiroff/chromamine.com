@@ -8,11 +8,11 @@ images:
   sharesheet:
     src: share-sheet.jpg
     alt: An iOS share sheet with the Clean Copy Link shortcut highlighted by a red circle
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/114826225736438172
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02qxwrRdtsGJiSqiK88LRXQP3mKo6ayfHLCuDCbjFtQnWf3ZstoxyXbKqTgWYxVCq5l
 ---
 
 _[Jump to shortcut &darr;](#download-shortcut)_
