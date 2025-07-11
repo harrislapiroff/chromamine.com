@@ -13,11 +13,11 @@ images:
   euro:
     src: euro-adapter.jpg
     alt: The same white adapter, unplugged and in hand, revealing two cylindrical "European-style" prongs and three USB ports on the underside.
-# xposts:
-#  - label: Mastodon
-#    url: 
-#  - label: Facebook
-#    url:
+xposts:
+ - label: Mastodon
+   url: https://social.coop/@harris/114836857638299945
+ - label: Facebook
+   url: https://www.facebook.com/harrislap/posts/pfbid0xQmt74XnBYAucA7PSBDSFVFUNYeLtFNTAtKW7Kk3hsWuiPoRYMyyUxRRwaEfgogwl
 ---
 
 One minor travel annoyance I've regularly encountered is that airplane outlets don't hold U.S.-style power plugs ([types A/B][]) snugly. My devices come unplugged frequently during a flight. This is especially frustrating to manage in the awkward under seat area.
