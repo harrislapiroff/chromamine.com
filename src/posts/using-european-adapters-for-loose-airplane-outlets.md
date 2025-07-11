@@ -1,8 +1,8 @@
 ---
 title: Using European adapters for loose airplane outlets
 date: 2025-07-11
-categories: []
-tags: []
+categories: [Miscellany]
+tags: [travel, hardware]
 images:
   loose:
     src: loose.jpg
@@ -20,20 +20,20 @@ images:
 #    url:
 ---
 
-One minor travel annoyance I've regularly encountered is that airplane outlets don't hold U.S.-style power plugs ([types A/B][]) snugly. My devices come unplugged frequently during a flight, especially frustrating when it's fussy to navigate that awkward under seat space.
+One minor travel annoyance I've regularly encountered is that airplane outlets don't hold U.S.-style power plugs ([types A/B][]) snugly. My devices come unplugged frequently during a flight. This is especially frustrating to manage in the awkward under seat area.
 
 [types A/B]: https://en.wikipedia.org/wiki/NEMA_connector
 
 {% image images.loose %}
 
-While taking a couple trips to Europe this past year, I discovered that airplane outlets are international and specifically that [type E/F][] plugs (used in a number of European countries and beyond) fit more snugly and hold for the entire flight.
+While taking a couple trips to Europe this past year, I noticed that airplane outlets are international and found that [type C/E/F][] plugs (used in a number of European countries and beyond) fit more snugly and hold for the entire flight.
 
-[type E/F]: https://en.wikipedia.org/wiki/Schuko
+[type C/E/F]: https://en.wikipedia.org/wiki/Schuko
 
 {% image images.snug %}
 
-Especially since I'm almost always charging USB-powered devices and many newer international adapters include USB ports, I don't even have to use an *additional* adapter, just a *different* one.
+Since I'm almost always charging USB-powered devices and modern international adapters often include USB ports, I don't even have to use an *additional* adapter, just a *different* one.
 
 {% image images.euro %}
 
-I now pack an international adapter whenever I fly, even if I'm just traveling domestically. 
+I now pack an international adapter whenever I fly, even if I'm traveling domestically. 
