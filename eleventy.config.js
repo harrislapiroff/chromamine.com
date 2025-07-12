@@ -4,6 +4,7 @@ import fs from "fs/promises"
 import pluginRss from "@11ty/eleventy-plugin-rss"
 import pugPlugin from "@11ty/eleventy-plugin-pug"
 import pluginWebc from "@11ty/eleventy-plugin-webc"
+import { RenderPlugin } from "@11ty/eleventy"
 
 // Note: For the upgrade to 11ty 3.x we will want to replace this
 // with 11ty's built-in glob util seen here:
@@ -171,6 +172,10 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("pluralize", pluralize)
     eleventyConfig.addFilter("getSEOExcerpt", getSEOExcerpt)
     eleventyConfig.addFilter("getSEOImage", getSEOImage)
+
+    /* Add renderTemplate shortcode
+     *-------------------------------------*/
+    eleventyConfig.addPlugin(RenderPlugin)
 
     /* Allow YAML configuration files
      *-------------------------------------*/

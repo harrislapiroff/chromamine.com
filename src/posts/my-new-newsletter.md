@@ -12,19 +12,11 @@ xposts:
 
 You can now sign up to get my blog posts in your email inbox by subscribing with this form.
 
-<form
-  class="email-form email-form--inline"
-  action="https://buttondown.com/api/emails/embed-subscribe/harrislapiroff"
-  method="post"
-  target="popupwindow"
-  onsubmit="window.open('https://buttondown.com/harrislapiroff', 'popupwindow')"
->
-  <label class="email-form__label" for="bd-email-blog">Email Address</label>
-  <input class="email-form__input" type="email" name="email" id="bd-email-blog">
-  <button class="email-form__submit" type="submit">
-    <span class="sr-only">Subscribe</span>
-  </button>
-</form>
+{% renderTemplate "webc" %}
+  <p>
+    <newsletter-form></newsletter-form>
+  </p>
+{% endrenderTemplate %}
 
 And as an initial test, to ensure that this mic is on (*tap tap skreeeEEEEEEE*), later today, I'll send out this blog post to all subscribers.
 
