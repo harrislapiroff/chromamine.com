@@ -29,19 +29,19 @@ A few months ago, while designing the songbook for [Emma][]'s [Magnolia Sun][] a
 [Magnolia Sun]: https://distrokid.com/hyperfollow/emmaazelborn1/magnolia-sun
 [chord over lyrics]: https://en.wikipedia.org/wiki/Chord_chart#Format:_Chords_over_lyrics_(ASCII)
 
-Emma provided me with a document of monospace-formatted lyrics with chords above each line, aligned exactly as she wanted them. Slightly less common for chord charts, she also wanted to indicated beats without chord changes – in that case using `/` marks.
+Emma provided me with a document of monospace-formatted lyrics with chords above each line, aligned exactly as she wanted them. Less common for chord charts, she also wanted to indicate beats without chord changes – in this case using `/` marks.
 
 {% image images.ascii %}
 
-I could have copied these into InDesign as is, alternating the text styles of lines of chords versus lyrics and adjusting the spacing on chords using the spacebar, but this would be frustrating if I made design revisions later that would change the metrics of my selected typefaces. If I wasn't prepared to commit to the text styles from the outset, changing the typeface, changing the size, changing the weight, etc. of either text style would require me to redo the spacing manually for the whole book. Even if those styles were set in stone, proofreading changes would be an error-prone nightmare – changes to the lyrics would require also manually adjusting the chord spacing above them.
+I could have copied these into InDesign as is, alternating the text styles of lines of chords versus lyrics and adjusting the spacing on chords using the spacebar, but this would be frustrating if I made design revisions later that would change the metrics of my selected typefaces. If I wasn't prepared to commit to the text styles from the outset, changing the typeface, size, weight, etc. of either text style would require me to redo the spacing manually for the whole book. Even if those styles were set in stone, proofreading changes would be an error-prone nightmare – changes to the lyrics would require also manually adjusting the chord spacing above them.
 
-InDesign has a feature for positioning objects relative to a particular point in text, as is needed here, [anchored objects][]. With these, I was able to align chords above specific locations in the text and have them move when the text changed, maintaining their position relative to the text anchor.
+InDesign has a feature for positioning objects relative to a particular point in text, as is needed here: [anchored objects][]. With these, I was able to align chords above specific locations in the text and have them move when the text changed, maintaining their position relative to the text anchor.
 
 [anchored objects]: https://helpx.adobe.com/indesign/using/anchored-objects.html
 
 {% image images.anchored %}
 
-Unfortunately the process for creating an anchor requires tedious configuration, which would have to be done for every single chord change or beat marker – a total of over 1,000 instances in formatting the full songbook.
+Unfortunately, the process for creating an anchor requires tedious configuration, which would have to be done for every single chord change or beat marker – a total of over 1,000 instances in formatting the full songbook.
 
 {% image images.anchorSettings %}
 
@@ -156,15 +156,15 @@ When Emma herself did an editing pass, I encouraged her to leave chords in the p
 
 # A few notes on the script
 
-Should you try to use this script yourself, there's a few things to note:
+Should you try to use this script yourself, here's a few things to note:
 
 1. The script requires that paragraph styles for **"Chords"** and **"Beats"** already exist with those names.
 
-2. Since Emma wanted beat markers, I wrote special handling to to detect beats (so that it could apply the correct paragraph style) and to add non-breaking spaces between sequences of multiple beats (mostly used at the ends of lines for beats before the next line).
+2. Since Emma wanted beat markers, I wrote special handling to detect beats (so that it could apply the correct paragraph style) and to add non-breaking spaces between sequences of multiple beats (mostly used at the ends of lines for beats before the next line).
 
-3. Unfortunately I wrote an error into the line that detects the beat format and it fires false positives on "slash chords" (which indicate a chord with a different bass note) such as `G/A`. Fortunately there were few enough slash chords in the book that it would have been more work to fix this than just correct the few instances there were.
+3. Unfortunately, I wrote a bug into the line that identifies when I was inserting a beat `/` intead of a chord. The script incorrectly classifies "slash chords" (which indicate a chord with a different bass note, like `G/A`) as beat markers because they contain a `/` character. There were few enough slash chords in the book that it would have been more work to fix this than to manually correct the few instances.
 
-4. In the end we decided on a slightly more ornate style for slash chords that was easier to format manually anyway.
+4. In the end, we decided on a slightly more ornate style for slash chords that was easier to format manually anyway.
 
    {% image images.slash %}
 
