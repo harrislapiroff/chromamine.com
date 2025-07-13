@@ -15,8 +15,9 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid0xj85Hac7q1nnbZpxtNqzcuomxMGSJSM4AfyasYZ9rydUKYP1WYm7D6PHRwDFoiTHl
 ---
 
-I've rewritten this blog's templates in [WebC][]. As with many architectural refactors, the site will largely look the same – with the exception of a few minor design tweaks I made in the process – but under the hood it's using an entirely new template engine.
+I've [rewritten][] this blog's templates in [WebC][]. As with many architectural refactors, the site will largely look the same – with the exception of a few minor design tweaks I made in the process – but under the hood it's using an entirely new template engine.
 
+[rewritten]: https://github.com/harrislapiroff/chromamine.com/pull/57
 [WebC]: https://www.11ty.dev/docs/languages/webc/
 
 # What is WebC?
