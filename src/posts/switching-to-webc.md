@@ -8,12 +8,11 @@ images:
     src: ide.png
     alt: Screenshot of a code editor with a file named newsletter-form.webc open. The code is syntax highlighted, even the custom form-control element in the middle of the page and the CSS styles at the bottom.
     caption: Editing a WebC component in my code editor.
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/114846781704432154
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0xj85Hac7q1nnbZpxtNqzcuomxMGSJSM4AfyasYZ9rydUKYP1WYm7D6PHRwDFoiTHl
 ---
 
 I've rewritten this blog's templates in [WebC][]. As with many architectural refactors, the site will largely look the same – with the exception of a few minor design tweaks I made in the process – but under the hood it's using an entirely new template engine.
