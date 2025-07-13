@@ -22,8 +22,10 @@ I've rewritten this blog's templates in [WebC][]. As with many architectural ref
 
 # What is WebC?
 
-WebC is a template language created by Eleventy creator Zach Leatherman and maintained under the Eleventy project. It borrows syntax from HTML (and particularly [HTML Web Components][]) to render templates at build time[^1]. Example WebC syntax looks like this:
+WebC is a template language created by [Eleventy][] creator [Zach Leatherman][] and maintained under the Eleventy project. It borrows syntax from HTML (and particularly [HTML Web Components][]) to render templates at build time[^1]. Example WebC syntax looks like this:
 
+[Eleventy]: https://www.11ty.dev/
+[Zach Leatherman]: https://www.zachleat.com/
 [HTML Web Components]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
 
 `post-card.webc`:
@@ -86,9 +88,10 @@ The single-file component authoring model is *excellent*. As seen in the example
 In my experience, this encourages cleaner, better-organized code on multiple fronts.
 
 * The ability to include styles and javascript code in the same file encourages encapsulation and progressive enhancement. I write an HTML component that works and then I write styles and javascript in the same file that improve it.
-* Not only can you include client-side code using `<script />` tags, but you can include build-time code using `<script webc:setup />`. In my experience this reduces [action-at-a-distance][] code. Processing that I might otherwise have put in a shortcode instead ends up directly in the component that requires the processing.
+* Not only can you include client-side code using `<script />` tags, but you can include build-time code using `<script webc:setup />`. In my experience this reduces [action-at-a-distance][] code. Processing that I might otherwise have put in a [shortcode][] instead ends up directly in the component that requires the processing.
 
 [action-at-a-distance]: https://en.wikipedia.org/wiki/Action_at_a_distance_(computer_programming)
+[shortcode]: https://www.11ty.dev/docs/shortcodes/
 
 Now that I've used this authoring model for a few months, it's been pretty hard to go back to writing components any other way.
 
@@ -116,7 +119,9 @@ It took me several months, on and off, of banging my head against it to find wor
 
 ## No Client-Side Hydration
 
-Though WebC is pretty good for simple progressive enhancement use-cases, if you have any components complex enough that require rendering templates on the client-side, WebC doesn't support that and you'll need to turn to another library – which leaves me wishing I could go all in on building templates with that other library (whether Preact, Vue, or something else) instead. WebC supports that through a library called [Is-Land](https://www.11ty.dev/docs/languages/webc/#use-with-is-land), which I wasn't able to get working at all, even following the examples in the docs.
+Though WebC is pretty good for simple progressive enhancement use-cases, if you have any components complex enough that require rendering templates on the client-side (i.e., [hydration][]), WebC doesn't support that and you'll need to turn to another library – which leaves me wishing I could go all in on building templates with that other library (whether Preact, Vue, or something else) instead. WebC supports that through a library called [Is-Land](https://www.11ty.dev/docs/languages/webc/#use-with-is-land), which I wasn't able to get working at all, even following the examples in the docs.
+
+[hydration]: https://web.dev/articles/rendering-on-the-web#hydration
 
 # Going Forward
 
