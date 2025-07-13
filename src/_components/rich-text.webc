@@ -161,6 +161,7 @@
 
     figcaption {
         font-style: italic;
+        margin-top: calc(var(--line-height-base) / 2);
     }
 
     /* Footnotes
