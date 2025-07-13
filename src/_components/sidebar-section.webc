@@ -1,0 +1,17 @@
+<section webc:root="override">
+    <h2 @raw="heading"></h2>
+    <div class="body">
+        <slot></slot>
+    </div>
+</section>
+
+<style webc:scoped="sidebar-section">
+    :host {
+        margin-bottom: calc(var(--line-height-base) * 2)
+    }
+
+    h2 {
+        font-style: italic;
+        margin-bottom: calc(var(--line-height-base) / 2)
+    }
+</style>

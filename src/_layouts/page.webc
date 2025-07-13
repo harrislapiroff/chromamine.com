@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="fediverse:creator" content="@harris@social.coop">
+        <title @text="$data.title"></title>
+		<link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
+        <link rel="stylesheet" :href="rev('/static/styles/styles.css')" webc:keep />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <script :src="getBundleFileUrl('js')" type="module" webc:keep></script>
+        <script src="/static/scripts/index.js" type="module" webc:keep></script>
+    </head>
+    <body>
+        <site-layout>
+            <site-header slot="header" @homelink="1"></site-header>
+            <main slot="main">
+                <page-title :@title="$data.title"></page-title>
+                <rich-text :@content="$data.content"></rich-text>
+            </main>
+        </site-layout>
+    </body>
+</html>

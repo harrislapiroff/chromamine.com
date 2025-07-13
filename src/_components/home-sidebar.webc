@@ -1,0 +1,41 @@
+<sidebar-section heading="Looking for something specific?">
+    <role-button
+        @url="/software"
+        :@roles="['Software Engineer', 'Manager', 'Designer']"
+        @description="I'm engineering manager for Web at Freedom of the Press Foundation and do freelance data processing and visualization."
+        @action="Read more or hire me"
+    ></role-button>
+    <role-button
+        @url="/dance"
+        :@roles="['Dance Organizer', 'Caller']"
+        @description="I organize and call contra dances, square dances, and English country dances in the New England area and beyond."
+        @action="Read more or book me"
+    ></role-button>
+</sidebar-section>
+
+<sidebar-section heading="Get new posts by email">
+    <newsletter-form></newsletter-form>
+</sidebar-section>
+
+<sidebar-section heading="Reach me elsewhere:">
+    <link-list>
+        <li>
+            <a href="https://social.coop/@harris" rel="me">Mastodon</a>
+        </li>
+        <li>
+            <a href="https://github.com/harrislapiroff/" rel="me">GitHub</a>
+        </li>
+        <li>
+            <a href="mailto:blog@chromamine.com" rel="me">Email</a>
+        </li>
+        <li>
+            <a href="/elsewhere/">More &rarr;</a>
+        </li>
+    </link-list>
+</sidebar-section>
+
+<style webc:scoped="home-sidebar">
+    [href="/elsewhere/"] {
+        font-style: italic;
+    }
+</style>

@@ -1,0 +1,24 @@
+<a :href="tag.url" webc:root="override" data-count="tag.count" data-name="tag.name">
+    <span class="name" @raw="tag.name"></span>
+    <span class="count" @raw="`(${tag.count} post${pluralize(tag.count)})`"></span>
+</a>
+
+<style webc:scoped="archive-tag">
+    :host {
+        display: inline-block;
+        color: inherit;
+    }
+
+    .name {
+        font-weight: var(--font-weight-bold);
+        color: inherit;
+    }
+
+    :host:visited .name {
+        color: var(--color-text-muted);
+    }
+
+    .count {
+        color: var(--color-text-muted);
+    }
+</style>

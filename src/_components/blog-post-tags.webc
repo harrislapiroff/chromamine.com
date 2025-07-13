@@ -1,0 +1,14 @@
+<script webc:setup>
+    const slugify = str => str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+</script>
+
+<div webc:root="override">
+    Tags:
+    <!---
+    I don't know why but in some contexts it is necessary to reiterate the
+    tags prop in the wrapper component, or it will simply render [object Object]
+    --->
+    <link-list-commas :@tags="tags">
+        <li webc:for="tag of tags"><a :href="`/tags/${slugify(tag)}`" @raw="tag"></a></li>
+    </link-list-commas>
+</div>

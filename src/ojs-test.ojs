@@ -4,7 +4,7 @@ date: 2023-10-17
 categories: ['None']
 tags: [none]
 eleventyExcludeFromCollections: true
-layout: monotheme/post.pug
+layout: page.webc
 xposts:
     - label: None
       url: https://example.com/

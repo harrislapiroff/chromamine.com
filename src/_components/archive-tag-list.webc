@@ -1,0 +1,101 @@
+<ul>
+    <li webc:for="(_, tag) in tags">
+        <archive-tag :@tag="tag"></archive-tag>
+    </li>
+</ul>
+<button class="toggle-button" aria-label="Show more tags">
+    More ↓
+</button>
+
+<style webc:scoped="archive-tag-list">
+    :host ul > li {
+        display: inline-block;
+        margin-right: 2ch;
+        margin-bottom: calc(0.5 * var(--line-height-base));
+    }
+
+    :host.closed ul {
+        --visible-rows: 2;
+        height: calc(var(--visible-rows) * 1.5 * var(--line-height-base));
+        overflow: hidden;
+    }
+
+    /* Hide toggle button by default */
+    :host .toggle-button {
+        display: none;
+    }
+
+    /* Toggle button -- displays if javascript is on */
+    :host .toggle-button {
+        /* Unbutton */
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        /* Layout */
+        width: 100%;
+        display: flex;
+        margin-bottom: var(--line-height-base);
+        position: relative;
+        flex-direction: row;
+        text-transform: uppercase;
+    }
+
+    :host .toggle-button::after {
+        content: "";
+        display: block;
+        flex-grow: 2;
+        background: var(--color-base);
+        height: 1px;
+        margin-top: calc(var(--line-height-base) / 2);
+        margin-left: 1ch;
+    }
+
+    :host .toggle-button:hover {
+        text-decoration: none;
+        color: var(--color-link-hover);
+    }
+
+    :host .toggle-button:hover::after {
+        background: var(--color-link-hover);
+    }
+</style>
+
+<script>
+    class ArchiveTagList extends HTMLElement {
+        constructor() {
+            super();
+            this.classList.add('closed');
+            this.classList.add('js');
+        }
+
+        connectedCallback() {
+            const toggleButton = this.querySelector('.toggle-button');
+            if (toggleButton) {
+                toggleButton.addEventListener('click', () => this.toggleVisibility());
+            }
+        }
+
+        toggleVisibility() {
+            const toggleButton = this.querySelector('.toggle-button');
+            const isClosed = this.classList.contains('closed');
+
+            if (isClosed) {
+                // Show all tags
+                this.classList.remove('closed');
+                toggleButton.textContent = 'Less ↑';
+                toggleButton.setAttribute('aria-label', 'Show fewer tags');
+            } else {
+                // Hide tags (show only first 2 rows)
+                this.classList.add('closed');
+                toggleButton.textContent = 'More ↓';
+                toggleButton.setAttribute('aria-label', 'Show more tags');
+            }
+        }
+    }
+
+    customElements.define('archive-tag-list', ArchiveTagList);
+</script>
