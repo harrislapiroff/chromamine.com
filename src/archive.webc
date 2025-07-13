@@ -1,0 +1,30 @@
+---
+layout: page.webc
+title: Archive
+---
+
+<script webc:setup>
+    const slugify = str => str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+
+    const tags = Object.keys(collections)
+        .filter(t => !['all', 'posts', 'danceEvents'].includes(t))
+        .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+        .map(t => ({
+            name: t,
+            count: collections[t].length,
+            url: `/tags/${slugify(t)}/`,
+        }))
+
+    const posts = collections.posts
+        // Quirk: Trying to merge p with p.data completely like so:
+        //
+        //     .map(p => ({ ...p, ...p.data, date: new Date(p.date) }))
+        //
+        // causes first build to fail for some reason. Instead, we do a
+        // more targeted merge, but specifying the attributes we need to
+        // copy.
+        .map(p => ({ ...p.data, url: p.url, date: new Date(p.date) }))
+        .sort((a, b) => b.date - a.date)
+</script>
+
+<archive-interface :@tags="tags" :@posts="posts"></archive-interface>

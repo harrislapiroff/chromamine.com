@@ -1,0 +1,52 @@
+<article webc:root="override">
+    <header>
+        <div class="categories" @raw="post.categories?.join(', ')"></div>
+
+        <!--- I don't know why reiterating the post object is necessary here --->
+        <page-title :@post="post" :@href="post.url" :@title="post.title"></page-title>
+
+        <time :datetime="post.date.toISOString()" @raw="dateFormat(post.date, '%B %d, %Y')"></time>
+
+        <span class="draft-label" webc:if="post.eleventyExcludeFromCollections">Draft</span>
+    </header>
+    <div class="content">
+        <rich-text :@content="post.content"></rich-text>
+    </div>
+    <!---
+    I don't know why this optional chaining is necessary -- WebC sometimes
+    complains that `post` is not defined here
+    --->
+    <blog-post-tags :@tags="post?.tags" webc:if="post.tags"></blog-post-tags>
+    <blog-post-xposts :@links="post.xposts" webc:if="post.xposts"></blog-post-xposts>
+</article>
+
+<!--- TODO: Implement footnote behavior --->
+
+<style webc:scoped="blog-post">
+    :host {
+        margin-bottom: calc(3 * var(--line-height-base));
+    }
+
+    .categories {
+        color: var(--color-text-muted);
+        font-style: italic;
+    }
+
+    header > time {
+        display: inline-block;
+        color: var(--color-text-muted);
+    }
+
+    .content > p:first-child > picture:first-child {
+        margin-top: var(--line-height-base);
+    }
+
+    .draft-label {
+        font-size: .8em;
+        text-transform: uppercase;
+        padding: .1em .3em;
+        border: 1px dashed var(--color-text-muted);
+        border-radius: 2px;
+        margin-left: 1.25em;
+    }
+</style>

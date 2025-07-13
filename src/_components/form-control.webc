@@ -1,0 +1,78 @@
+<slot></slot>
+
+<script>
+    /* FormControl
+    *
+    * This is a lightweight wrapper around a form label and field
+    * that adds classes based on form-state that can be used for styling.
+    *
+    * It adds the following HTML classes:
+    *
+    * - empty: the input contains no value
+    * - filled: the opposite of empty
+    * - pristine: the input has not been modified since page load
+    *   (this will be false even if the input was modified back to its original value)
+    * - touched: the opposite of pristine
+    * - focused: the input is the active element
+    * - blurred: the opposite of focused
+    *
+    * When using this component, it is recommended to add default styles that use
+    * none of these classes and make the form control functional even in a
+    * no-js context.
+    *
+    * Example usage:
+    *
+    *     <form-control>
+    *         <label for="field-id">Field Name</label>
+    *         <input type="text" id="field-id" />
+    *     </form-control>
+    */
+    class FormControl extends HTMLElement {
+        constructor() {
+            super()
+
+            // State
+            this.pristine = true
+            this.focused = false
+        }
+
+        connectedCallback() {
+            // Elements
+            this.input = this.querySelector('input, textarea, select')
+
+            // Events
+            this.input.addEventListener('input', (e) => this.handleChange(e))
+            this.input.addEventListener('focus', (e) => this.handleFocus(e))
+            this.input.addEventListener('blur', (e) => this.handleBlur(e))
+
+            // Run first DOM update
+            this.updateDom()
+        }
+
+        handleFocus(e) {
+            this.focused = true
+            this.updateDom()
+        }
+
+        handleBlur(e) {
+            this.focused = false
+            this.updateDom()
+        }
+
+        handleChange(e) {
+            this.pristine = false
+            this.updateDom()
+        }
+
+        updateDom() {
+            this.classList.toggle('empty', this.input.value === '' || !this.input.value)
+            this.classList.toggle('filled', !!this.input.value)
+            this.classList.toggle('pristine', this.pristine)
+            this.classList.toggle('touched', !this.pristine)
+            this.classList.toggle('focused', this.focused)
+            this.classList.toggle('blurred', !this.focused)
+        }
+    }
+
+    customElements.define("form-control", FormControl)
+</script>

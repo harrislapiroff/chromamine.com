@@ -1,6 +1,6 @@
 ---
 title: Contact & Elsewhere
-layout: monotheme/page.pug
+layout: page.webc
 ---
 
 My primary home on the internet is this website – but there's a number of other services you can find me on or reach me privately through.

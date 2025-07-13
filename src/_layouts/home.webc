@@ -1,0 +1,71 @@
+<script webc:setup>
+    const FULL_POST_COUNT = 1
+    const MORE_POST_COUNT = 5
+
+    const posts = $data.collections.posts
+        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+        .sort((a, b) => b.date - a.date)
+        .slice(0, FULL_POST_COUNT)
+
+    const morePosts = $data.collections.posts
+        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+        .sort((a, b) => b.date - a.date)
+        .slice(FULL_POST_COUNT, FULL_POST_COUNT + MORE_POST_COUNT)
+
+    const featuredPosts = $data.collections.posts
+        .filter(p => $data.config.featured.includes(p.data.title))
+        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+        .sort((a, b) => b.date - a.date)
+</script>
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="fediverse:creator" content="@harris@social.coop">
+        <title @text="$data.title"></title>
+		<link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
+        <link rel="stylesheet" :href="rev('/static/styles/styles.css')" webc:keep />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <script :src="getBundleFileUrl('js')" type="module" webc:keep></script>
+        <script src="/static/scripts/index.js" type="module" webc:keep></script>
+    </head>
+    <body>
+        <site-layout>
+            <site-header slot="header"></site-header>
+            <main slot="main">
+                <section>
+                    <section-header>Featured Posts</section-header>
+                    <blog-post-grid-micro :@posts="featuredPosts"></blog-post-grid-micro>
+                </section>
+                <section>
+                    <section-header>Latest Posts</section-header>
+                    <blog-post
+                        webc:for="post of posts"
+                        :@headerlink="true"
+                        :@post="post"
+                    ></blog-post>
+                </section>
+                <section>
+                    <section-header>Older Posts</section-header>
+                    <blog-post-list-compact
+                        :@posts="morePosts"
+                    ></blog-post-list-compact>
+                    <a href="/archive" class="archive-link">All <span class="archive-count" @raw="$data.collections.posts.length"></span> older posts →</a>
+                </section>
+            </main>
+            <home-sidebar slot="sidebar"></home-sidebar>
+        </site-layout>
+    </body>
+</html>
+
+<style>
+    .archive-count {
+        font-weight: var(--font-weight-bold);
+    }
+    .archive-link {
+        display: inline-block;
+        margin-bottom: calc(var(--line-height-base)*2.5);
+    }
+</style>

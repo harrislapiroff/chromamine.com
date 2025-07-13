@@ -1,0 +1,48 @@
+<a :href="url" webc:root="override">
+    <h3 class="title">
+        I'm a
+        <span webc:for="(role, i) of roles">
+            <!---
+                It's important not to have a space or linebreak between these two elements,
+                hence keeping them on the same line
+            --->
+            <span @text="role" class="role-name"></span><span webc:if="i < roles.length - 2" webc:nokeep>,</span>
+            <span webc:if="i === roles.length - 2" webc:nokeep>and</span>
+        </span>
+    </h3>
+    <div class="description" @text="description"></div>
+    <div class="action"><span @text="action" webc:nokeep></span> →</div>
+</a>
+
+<style webc:scoped="role-button">
+    :host {
+        display: block; /* Necessary because this is an <a> */
+        color: inherit;
+        margin: 0 calc(-1 * var(--line-height-base) / 2);
+        padding: calc(var(--line-height-base) / 2);
+    }
+
+    .title {
+        font-weight: var(--font-weight-bold);
+    }
+
+    .role-name {
+        color: var(--color-accent-1);
+    }
+
+    .action {
+        color: var(--color-link);
+        font-style: italic;
+    }
+
+    :host:hover {
+        background: var(--color-transparent-bg-faint);
+        text-decoration: none;
+    }
+
+    :host:hover .action {
+        color: var(--color-link-hover);
+        text-decoration: underline;
+        text-decoration-color: var(--color-base);
+    }
+</style>

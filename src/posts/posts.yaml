@@ -1,3 +1,0 @@
-layout: monotheme/post.pug
-permalink: "{{ page.date | date: '%Y/%m' }}/{{ page.fileSlug }}/"
-categories: []

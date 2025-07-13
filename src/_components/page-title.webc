@@ -1,0 +1,29 @@
+<h2 webc:root="override">
+    <a class="title-link" :href="href" @raw="title" webc:if="href"></a>
+    <span class="title-linkless" @raw="title" webc:else></span>
+</h2>
+
+<style webc:scoped="page-title">
+    :host {
+        font-weight: var(--font-weight-bold);
+        display: inline;
+    }
+
+    .title-link, .title-linkless {
+        color: var(--color-text-striking);
+    }
+
+    .title-link:hover {
+        color: var(--color-link-hover);
+        text-decoration: underline;
+        text-decoration-color: var(--color-base);
+    }
+
+    .title-link::before, .title-linkless::before {
+        display: block;
+        float: left;
+        margin-left: -2ch;
+        width: 2ch;
+        content: "¶";
+    }
+</style>

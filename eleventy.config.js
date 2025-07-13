@@ -1,7 +1,10 @@
 import path from "node:path"
+import fs from "fs/promises"
+
 import pluginRss from "@11ty/eleventy-plugin-rss"
 import pugPlugin from "@11ty/eleventy-plugin-pug"
-import fs from "fs/promises"
+import pluginWebc from "@11ty/eleventy-plugin-webc"
+import { RenderPlugin } from "@11ty/eleventy"
 
 // Note: For the upgrade to 11ty 3.x we will want to replace this
 // with 11ty's built-in glob util seen here:
@@ -104,7 +107,7 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/robots.txt")
     eleventyConfig.addPassthroughCopy("src/_headers")
     eleventyConfig.addPassthroughCopy("src/_redirects")
-    eleventyConfig.addPassthroughCopy("src/static/monotheme/images")
+    eleventyConfig.addPassthroughCopy("src/static/styles/images")
 
     /* Add RSS
      *-------------------------------------*/
@@ -156,7 +159,7 @@ export default function(eleventyConfig) {
     // Copy font files from node_modules since they won't be automatically
     // imported with their corresponding CSS
     eleventyConfig.addPassthroughCopy({
-        'node_modules/@ibm/plex/IBM-Plex-Mono/fonts/split/woff2/*.woff2': 'static/monotheme'
+        'node_modules/@ibm/plex/IBM-Plex-Mono/fonts/split/woff2/*.woff2': 'static/styles'
     })
 
     /* Custom filters
@@ -169,6 +172,10 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("pluralize", pluralize)
     eleventyConfig.addFilter("getSEOExcerpt", getSEOExcerpt)
     eleventyConfig.addFilter("getSEOImage", getSEOImage)
+
+    /* Add renderTemplate shortcode
+     *-------------------------------------*/
+    eleventyConfig.addPlugin(RenderPlugin)
 
     /* Allow YAML configuration files
      *-------------------------------------*/
@@ -219,6 +226,11 @@ export default function(eleventyConfig) {
                 globalPath: '/' + globalOutputPath,
             })
         }
+    })
+
+    // Add WebC
+    eleventyConfig.addPlugin(pluginWebc, {
+        components: 'src/_components/**/*.webc',
     })
 
     return {

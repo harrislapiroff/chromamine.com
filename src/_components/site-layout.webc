@@ -1,0 +1,52 @@
+<div class="header">
+    <slot name="header"></slot>
+</div>
+
+<div class="main">
+    <slot name="main"></slot>
+</div>
+
+<div class="sidebar">
+    <slot name="sidebar"></slot>
+</div>
+
+<style webc:scoped="site-layout">
+    :host {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: auto var(--site-sidebar-width);
+        grid-template-areas:
+            "header sidebar"
+            "main sidebar";
+        grid-column-gap: var(--column-gap-base);
+        padding: var(--page-padding);
+        max-width: 100%;
+    }
+
+    :host .header {
+        grid-area: header;
+    }
+
+    :host .main {
+        grid-area: main;
+        container-type: inline-size;
+    }
+
+    :host .sidebar {
+        grid-area: sidebar;
+        container-type: inline-size;
+    }
+
+    @media (max-width: 960px) {
+        :host {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, auto);
+            grid-template-areas:
+                "header"
+                "main"
+                "sidebar";
+
+        }
+    }
+
+</style>

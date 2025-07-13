@@ -1,0 +1,10 @@
+<div>
+    Also posted on:
+    <!---
+    I don't know why but in some contexts it is necessary to reiterate the
+    links prop in the wrapper component, or it will simply render [object Object]
+    --->
+    <link-list-commas :@links="links">
+        <li webc:for="link of links"><a :href="link.url" @raw="link.label"></a></li>
+    </link-list-commas>
+</div>

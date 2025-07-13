@@ -1,0 +1,483 @@
+<div @raw="content" webc:nokeep></div>
+<slot></slot>
+
+<link rel="stylesheet" href="../../node_modules/highlight.js/styles/night-owl.css"></link>
+
+<style webc:scoped="rich-text">
+    a:visited:not(.button, .footnote-ref) {
+        color: var(--color-link-visited);
+    }
+
+    p,
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: var(--line-height-base);
+    }
+
+    li {
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    li::marker {
+        color: var(--color-text-muted);
+    }
+
+    ul > li {
+        list-style-type: "- ";
+    }
+
+    ul ul,
+    ul ol,
+    ol ul,
+    ol ol {
+        margin-left: 2ch;
+        margin-top: var(--line-height-base);
+    }
+
+    strong {
+        font-weight: var(--font-weight-bold);
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    hr {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    hr::before {
+        content: "* * *";
+        display: block;
+        margin-bottom: var(--line-height-base);
+        color: var(--color-text-muted);
+    }
+
+    h1::before,
+    h2::before,
+    h3::before,
+    h4::before,
+    h5::before {
+        content: "§";
+        display: block;
+        width: 2ch;
+        margin-left: -2ch;
+        float: left;
+        color: var(--color-text-muted);
+        font-style: normal;
+    }
+
+    h3 {
+        color: var(--color-text-striking);
+        font-weight: var(--font-weight-bold);
+    }
+
+    h4 {
+        font-style: italic;
+    }
+
+    h5 {
+        color: var(--color-text-muted);
+    }
+
+    blockquote {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 4ch;
+    }
+
+    strong {
+        font-weight: var(--font-weight-bold);
+    }
+
+    pre.hljs,
+    pre.observablehq--md-pre {
+        margin: calc(var(--line-height-base) / 2) -2ch !important;
+        padding: calc(var(--line-height-base) / 2) 2ch !important;
+        overflow-x: auto;
+    }
+
+    @media (max-width: 640px) {
+        pre.hljs, pre.observablehq--md-pre {
+            margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2) !important;
+            padding: calc(var(--line-height-base) / 2) var(--page-padding) !important;
+        }
+    }
+
+    pre.hljs,
+    pre.hljs > code,
+    pre.observablehq--md-pre,
+    pre.observablehq--md-pre > code {
+        font-family: inherit;
+        background-color: var(--color-background-code) !important;
+    }
+
+    code {
+        font-family: inherit;
+        margin: 0 -0.25ch;
+        padding: 0.25ch 0.25ch;
+        background: var(--color-background-code);
+        color: var(--color-foreground-code);
+        border-radius: 0.4rem;
+    }
+
+    pre > code,
+    pre > code.hljs {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    figure {
+        display: block;
+    }
+
+    picture {
+        display: block;
+    }
+
+    source,
+    img {
+        border-radius: 0.4rem;
+    }
+
+    @media (max-width: 640px) {
+        picture {
+            margin: 0 calc(-1 * var(--page-padding));
+        }
+
+        source,
+        img {
+            border-radius: 0;
+        }
+    }
+
+    figcaption {
+        font-style: italic;
+        margin-top: calc(var(--line-height-base) / 2);
+    }
+
+    /* Footnotes
+     *----------*/
+    .footnotes::before {
+        content: "Footnotes";
+        display: block;
+        color: var(--color-text-muted);
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    .footnotes li {
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    .footnotes li > *:last-child {
+        margin-bottom: 0;
+    }
+
+
+    /* Labeled box mixin
+     * See: https://chromamine.com/2025/07/mixins-with-vanilla-css/
+     *------------------*/
+
+    .update, .note, .dance-card {
+        border: 0.1rem solid var(--color);
+        color: var(--color);
+        padding-top: calc(var(--line-height-base) / 2 - 0.1rem);
+        padding-bottom: calc(var(--line-height-base) / 2 - 0.1rem);
+        padding-right: calc(2ch - 0.1rem);
+        padding-left: calc(2ch - 0.1rem);
+        margin: var(--line-height-base) 0;
+        border-radius: var(--border-radius-base);
+        position: relative;
+
+        &::before {
+            display: block;
+            content: var(--label);
+            position: absolute;
+            top: calc(-1 * var(--line-height-base) / 2);
+            left: -1ch;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            background: var(--color-background);
+            padding: 0 0.5ch;
+        }
+
+        & > :last-child {
+            margin-bottom: 0;
+        }
+    }
+    /* Markdown IT container
+     *----------------------*/
+
+    .update {
+        --color: var(--color-update);
+        --label: "Update";
+    }
+
+    .note {
+        --color: var(--color-text-alert);
+        --label: "Note";
+    }
+
+    /* Dance Card Shortcode
+     *---------------------*/
+    .dance-card {
+        --color: var(--color-base);
+        --label: "Dance";
+        max-width: 50ch;
+    }
+
+    .dance-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    .dance-header .dance-title {
+        grid-column: 1;
+        font-weight: var(--font-weight-bold);
+    }
+
+    .dance-header .dance-formation {
+        grid-column: 2;
+        text-align: right;
+    }
+
+    .dance-header .dance-author {
+        grid-column: 1;
+        grid-row: 2;
+        font-style: italic;
+    }
+
+    .dance-section {
+        display: grid;
+        grid-template-columns: 2ch 1fr;
+        gap: 2ch;
+        margin-bottom: calc(var(--line-height-base) / 2);
+    }
+
+    .dance-section .dance-section-label {
+        grid-column: 1;
+        text-align: right;
+        font-weight: var(--font-weight-bold);
+    }
+
+    .dance-section .dance-section-lines {
+        grid-column: 2;
+    }
+
+    .dance-notes {
+        --dance-box-padding: 2ch;
+        border-top: 0.1rem solid var(--color-base);
+        position: relative;
+        margin: 0 calc(-1 * var(--dance-box-padding));
+        padding: calc(var(--line-height-base) - 1rem) var(--dance-box-padding) 0 var(--dance-box-padding);
+    }
+
+    .dance-notes::before {
+        display: block;
+        content: "Notes";
+        position: absolute;
+        top: calc(-1 * var(--line-height-base) / 2);
+        left: var(--dance-box-padding);
+        font-size: 0.8em;
+        text-transform: uppercase;
+        background: var(--color-background);
+        padding: 0 0.5ch;
+    }
+
+    .dance-notes-label, .dance-notes-content, .dance-notes-content > p {
+        display: inline;
+    }
+
+    .dance-notes-label {
+        font-weight: var(--font-weight-bold);
+        text-transform: uppercase;
+    }
+
+    .dance-notes-label::after {
+        content: ": ";
+    }
+
+    /* Button
+     *------*/
+
+     .button {
+        display: inline-block;
+        border: 0.1rem solid var(--color-base);
+        padding: calc(var(--line-height-base) / 2 - 0.1rem) calc(1ch * 2 - 0.1rem);
+        color: var(--color-base);
+    }
+
+    .button:visited {
+        color: var(--color-base);
+    }
+
+    .button:hover {
+        background-color: var(--color-base);
+        color: var(--color-background);
+    }
+
+    .button-download::after {
+        content: ' ↓';
+    }
+
+    /* Footnotes
+     *----------*/
+
+     .footnote-ref--interactive {
+        width: 3.5ch;
+        margin: -0.1rem calc(0.25ch - 0.1rem);
+        height: 1em;
+        line-height: 1em;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 0.4rem;
+        text-align: center;
+        border: 0.1rem solid var(--color-base);
+        color: var(--color-base);
+    }
+
+    .footnote-ref--interactive:visited {
+        color: var(--color-base);
+    }
+
+    .footnote-ref--interactive:hover {
+        text-decoration: none;
+        color: var(--color-background);
+        background-color: var(--color-base);
+    }
+
+    .footnote-ref--interactive::after {
+        display: inline-block;
+        content: '•••';
+        font-weight: normal;
+        transition: transform 0.2s ease;
+        height: 1em;
+    }
+
+    .footnote-ref--active {
+        background-color: var(--color-base);
+        border-radius: 0.4rem 0.4rem 0 0;
+        color: var(--color-background) !important;
+    }
+
+    /* STL Viewer
+     *-----------*/
+    .stl-viewer {
+        position: relative;
+    }
+
+    .stl-viewer__actions {
+        display: inline-flex;
+        position: absolute;
+        top: var(--line-height-base);
+        right: 0;
+    }
+
+    @media (max-width: 640px) {
+        .stl-viewer__actions {
+            right: var(--page-padding);
+        }
+    }
+
+    .stl-viewer__action, a.stl-viewer__action {
+        --border-radius: 0.4rem;
+        background: transparent;
+        color: var(--color-base);
+        border: 1px solid var(--color-base);
+        border-left: 0;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        display: block;
+        width: 1.5em;
+        height: var(--line-height-base);
+        line-height: calc(var(--line-height-base) - 0.2rem);
+        box-sizing: border-box;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .stl-viewer__action:first-child, a.stl-viewer__action:first-child {
+        border-left: 1px solid var(--color-base);
+        border-top-left-radius: var(--border-radius);
+        border-bottom-left-radius: var(--border-radius);
+    }
+
+    .stl-viewer__action:last-child, a.stl-viewer__action:last-child {
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+    }
+
+    .stl-viewer__action:visited, a.stl-viewer__action:visited {
+        color: var(--color-base);
+    }
+
+    .stl-viewer__action:hover, a.stl-viewer__action:hover {
+        background: var(--color-link-hover);
+        border-color: var(--color-link-hover);
+        color: var(--color-background);
+        text-decoration: none;
+    }
+
+    /* Image Grid
+    *-----------*/
+    .image-grid {
+        display: flex;
+        margin: 0 -1ch;
+        align-items: center;
+    }
+
+    @media (max-width: 640px) {
+        .image-grid {
+            flex-direction: column;
+        }
+    }
+
+    .image-grid__item {
+        padding: 0 1ch;
+    }
+</style>
+
+<!---
+unscoped styles for footnotes which are hoisted out of the rich text element
+by javascript
+--->
+<style>
+    .footnote-popover {
+        perspective: 20rem;
+        position: absolute;
+        background: var(--color-background);
+        border: 0.1rem solid var(--color-base);
+        padding: calc(var(--line-height-base) / 2) calc(2ch - 0.1rem);
+        max-width: 30ch;
+        transform-origin: 50% 0;
+        transition: opacity 0.35s ease-out;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .footnote-popover :first-child {
+        margin-top: 0;
+    }
+
+    .footnote-popover :last-child {
+        margin-bottom: 0;
+    }
+
+    .footnote-popover--active {
+        opacity: 1;
+        display: block;
+        pointer-events: auto;
+    }
+</style>
