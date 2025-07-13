@@ -1,8 +1,13 @@
 ---
 title: Switching to WebC
-date: 2025-07-04
+date: 2025-07-13
 categories: [Software]
 tags: [web, 11ty]
+images:
+  ide:
+    src: ide.png
+    alt: Screenshot of a code editor with a file named newsletter-form.webc open. The code is syntax highlighted, even the custom form-control element in the middle of the page and the CSS styles at the bottom.
+    caption: Editing a WebC component in my code editor.
 # eleventyExcludeFromCollections: true
 # xposts:
 #   - label: Mastodon
@@ -11,53 +16,110 @@ tags: [web, 11ty]
 #     url: TBD
 ---
 
-I've just switched this blog from using [Pug](https://pugjs.org/api/getting-started.html) for layout templates to [WebC](https://github.com/11ty/webc).
+I've rewritten this blog's templates in [WebC][]. As with many architectural refactors, the site will largely look the same – with the exception of a few minor design tweaks I made in the process – but under the hood it's using an entirely new template engine.
 
-When I started this migration I was eager to switch to a template language that would be easy to work with and well-maintained. Now that I've made the switch, my feelings about WebC are much more complicated. The migration took me roughly six months of development, on and off, running into a ton of rough edges and with several false starts.
+[WebC]: https://www.11ty.dev/docs/languages/webc/
+
+# What is WebC?
+
+WebC is a template language created by Eleventy creator Zach Leatherman and maintained under the Eleventy project. It borrows syntax from HTML (and particularly [HTML Web Components][]) to render templates at build time[^1]. Example WebC syntax looks like this:
+
+[HTML Web Components]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
+
+`post-card.webc`:
+
+```html
+<div class="card">
+  <h1 :@text="post.title"></h1>
+  <p :@text="post.description"></p>
+</div>
+
+<style webc:scoped>
+  :host {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+</style>
+```
+
+`post-list.webc`:
+
+```html
+<post-card @webc:for="item in collections.posts" :@post="item"></post-card>
+```
+
+[^1]: I often refer to "build-time" when talking about Eleventy projects, which is similar to "server-side" for more traditional web applications. It's work that happens prior to serving the site rather than "client-side" in the browser.
+
+For reference, the same code in [Pug][] (the template language I switched away from) could look something like this:
+
+[Pug]: https://pugjs.org/
+
+`post-card.pug`:
+
+```pug
+.card
+  h1= post.title
+  p= post.description
+```
+
+`post-list.pug`:
+
+```pug
+each post in collections.posts
+  include post-card.pug
+```
+
+And the styling would live elsewhere.
 
 # The Good
 
-Here's some of the things I like about WebC:
+Here are some of the things I like about WebC:
 
 ## Single-File Component Authoring
 
-The single-file component authoring model is *excellent*. I hadn't realized how much brainpower I was expending on switching back and forth between HTML, CSS, and javascript files until I didn't have to do it anymore. It's very powerful being able to want to edit just one part of my site and being able to do it entirely in one file.
+The single-file component authoring model is *excellent*. As seen in the example above, WebC is designed for each component to have markup (HTML) and styles (CSS) together in the same file, as well as behavior (javascript). I hadn't realized until I switched how much brainpower it takes switching between separate HTML, CSS, and JS files.
 
-Similarly, being able to add build-time processing using [`<script webc:setup>` at the component level](https://www.11ty.dev/docs/languages/webc/#using-java-script-to-setup-your-component) also feels like an upgrade from writing template tags and filters in a distant location. The whole authoring experience feels very ergonomic.
+In my experience, this encourages cleaner, better-organized code on multiple fronts.
 
-It's really hard to go back to any other way after writing this way for a while.
+* The ability to include styles and javascript code in the same file encourages encapsulation and progressive enhancement. I write an HTML component that works and then I write styles and javascript in the same file that improve it.
+* Not only can you include client-side code using `<script />` tags, but you can include build-time code using `<script webc:setup />`. In my experience this reduces [action-at-a-distance][] code. Processing that I might otherwise have put in a shortcode instead ends up directly in the component that requires the processing.
 
-## Static File Bundling
+[action-at-a-distance]: https://en.wikipedia.org/wiki/Action_at_a_distance_(computer_programming)
 
-As a counterpart to the above, it's really nice that WebC automatically collects all the styles and scripts associated with my components and bundles them into a single file.
+Now that I've used this authoring model for a few months, it's been pretty hard to go back to writing components any other way.
 
 ## HTML-Like Syntax
 
-One annoyance of using Pug was that it's obscure and doesn't have a strong ecosystem around it. This has obvious side-effects like not being able to find a lot of support when I'm stuck on something, but also crops up in more subtle quality-of-life ways, for example:
+There are some unexpected advantages to having a syntax borrowed from HTML for my template language – mainly that the ecosystem of tools for authoring HTML just work for WebC without any need to install additional extensions. I just tell my code editor that I'm working with HTML syntax and off I go (notably this also gets HTML and CSS syntax highlighting and tooling for free).
 
-* Not having a great IDE extension for it
-* Not having syntax highlighting for it everywhere (for example posting on my blog or Discord)
-
-WebC may be similarly obscure, but its syntax matches HTML very closely, so most of the time, tools made for editing and sharing HTML Just Work™.
+{% image images.ide %}
 
 # The Bad
 
-I wish it were all sunshines and rainbows, but, alas. Here's some misgivings I have about WebC:
+I had high hopes for my switch to WebC, but I'm finding it hard to recommend unreservedly. Here are some of the issues I discovered along the way:
 
-## HTML-Like Syntax
+## Lack of Support and Community
 
-I'm somewhat undecided on how I feel about WebC borrowing so much syntax from HTML and Web Components. I'm an experienced web developer, so I'm mostly able to navigate the distinctions with ease, but I worry the language is less accessible to developers who might have a harder time understanding what's WebC, what's Web Components, and what's HTML – and especially who might have a harder time understanding what is only part of the build-time code and what actually gets rendered on the page.
+I switched away from [Pug][] partially because, even though I like its compact syntax, I was tired of working in a language that wasn't well maintained and didn't have a good community to turn to for support. WebC is an official Eleventy project, which gave me hope that it would be different. Unfortunately, it hasn't seen any significant updates in a couple years and there are few enough people using it that when I asked [questions in the Eleventy Discord](https://discord.com/channels/741017160297611315/1389794802928980020) or [reported](https://github.com/11ty/webc/issues/225) and [added to](https://github.com/11ty/webc/issues/214#issuecomment-2677064030) issues on GitHub, I was largely met with silence. I find myself wondering if I've traded out one obscure unsupported language for another.
 
 ## Rough Edges
 
-I ran into a ton of bugs and unexpected behavior when working with WebC. The documentation also isn't great, so there were a lot of times when I encountered an issue and didn't know whether it was a bug or whether I had misunderstood how it was supposed to work. And though WebC is an official Eleventy project, it hasn't been widely adopted and it hasn't seen many updates in recent years, so I haven't been able to get much support from the community in solving issues I ran into. I'm feeling a little worried that I've traded out one obscure language for another.
+The above might be fine if WebC was already a mature language, but unfortunately it isn't – and unfortunately, like much of Eleventy's documentation, the WebC documentation isn't especially gentle or thorough.[^1] Error reporting is nigh non-existent. Most of the time I would either get a cryptic error message or building would fail silently with no error message at all. Because the documentation is rough, it wasn't always clear to me if I was encountering a bug or doing something incorrectly.
 
-A lot of this is pretty vague, but I have a list of specific quirks I ran into that I'm finalizing for publication as a future post.
+[^1]: To his great credit, Leatherman puts a lot of emphasis on video tutorials, and watching [some of those](https://www.youtube.com/watch?v=p0wDUK0Z5Nw) *was* very instructive for me!
+
+It took me several months, on and off, of banging my head against it to find workarounds for all the issues I encountered, but I've finally gotten there. I've accumulated a list of WebC quirks that I'm hoping to publish later this week.
 
 ## No Client-Side Hydration
 
-Though WebC is pretty good for simple progressive enhancement use-cases, if you have any components complex enough that require rendering templates on the client-side, WebC doesn't support that and you'll need to turn to another library. WebC supports that through a library called [Is-Land](https://www.11ty.dev/docs/languages/webc/#use-with-is-land), which I wasn't able to get working at all following the examples in the docs.
+Though WebC is pretty good for simple progressive enhancement use-cases, if you have any components complex enough that require rendering templates on the client-side, WebC doesn't support that and you'll need to turn to another library – which leaves me wishing I could go all in on building templates with that other library (whether Preact, Vue, or something else) instead. WebC supports that through a library called [Is-Land](https://www.11ty.dev/docs/languages/webc/#use-with-is-land), which I wasn't able to get working at all, even following the examples in the docs.
 
 # Going Forward
 
-I'm hoping the advantages of WebC will speed up my development going forward and let me add features to my site that I've long had planned (a better interface for drilling into my archive with search and filtering, pulling data from my various web presences, etc.) but I'm a little nervous the rough edges will continue to slow me down. I'll keep trying it for now and see how it goes.
+Despite my complaints, I find the authoring model so smooth that I pushed through and rebuilt my website in WebC. I'm hoping this will make me faster at improving my website and adding features I've long dreamed of.[^2] Hopefully the WebC project will pick up and see more improvements soon – and maybe I'll even be able to help out.
+
+[^2]: Comments sourced from around the web, more interactive playful design elements, a better way to search and filter posts, to name a few.
