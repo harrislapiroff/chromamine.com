@@ -24,6 +24,8 @@ I've rewritten this blog's templates in [WebC][]. As with many architectural ref
 
 WebC is a template language created by [Eleventy][] creator [Zach Leatherman][] and maintained under the Eleventy project. It borrows syntax from HTML (and particularly [HTML Web Components][]) to render templates at build time[^1]. Example WebC syntax looks like this:
 
+[^1]: I often refer to "build-time" when talking about Eleventy projects, which is similar to "server-side" for more traditional web applications. It's work that happens prior to serving the site rather than "client-side" in the browser.
+
 [Eleventy]: https://www.11ty.dev/
 [Zach Leatherman]: https://www.zachleat.com/
 [HTML Web Components]: https://developer.mozilla.org/en-US/docs/Web/Web_Components
@@ -53,8 +55,6 @@ WebC is a template language created by [Eleventy][] creator [Zach Leatherman][] 
 ```html
 <post-card @webc:for="item in collections.posts" :@post="item"></post-card>
 ```
-
-[^1]: I often refer to "build-time" when talking about Eleventy projects, which is similar to "server-side" for more traditional web applications. It's work that happens prior to serving the site rather than "client-side" in the browser.
 
 For reference, the same code in [Pug][] (the template language I switched away from) could look something like this:
 
@@ -111,9 +111,9 @@ I switched away from [Pug][] partially because, even though I like its compact s
 
 ## Rough Edges
 
-The above might be fine if WebC was already a mature language, but unfortunately it isn't – and unfortunately, like much of Eleventy's documentation, the WebC documentation isn't especially gentle or thorough.[^1] Error reporting is nigh non-existent. Most of the time I would either get a cryptic error message or building would fail silently with no error message at all. Because the documentation is rough, it wasn't always clear to me if I was encountering a bug or doing something incorrectly.
+The above might be fine if WebC was already a mature language, but unfortunately it isn't – and unfortunately, like much of Eleventy's documentation, the WebC documentation isn't especially gentle or thorough.[^2] Error reporting is nigh non-existent. Most of the time I would either get a cryptic error message or building would fail silently with no error message at all. Because the documentation is rough, it wasn't always clear to me if I was encountering a bug or doing something incorrectly.
 
-[^1]: To his great credit, Leatherman puts a lot of emphasis on video tutorials, and watching [some of those](https://www.youtube.com/watch?v=p0wDUK0Z5Nw) *was* very instructive for me!
+[^2]: To his great credit, Leatherman puts a lot of emphasis on video tutorials, and watching [some of those](https://www.youtube.com/watch?v=p0wDUK0Z5Nw) *was* very instructive for me!
 
 It took me several months, on and off, of banging my head against it to find workarounds for all the issues I encountered, but I've finally gotten there. I've accumulated a list of WebC quirks that I'm hoping to publish later this week.
 
@@ -125,6 +125,6 @@ Though WebC is pretty good for simple progressive enhancement use-cases, if you 
 
 # Going Forward
 
-Despite my complaints, I find the authoring model so smooth that I pushed through and rebuilt my website in WebC. I'm hoping this will make me faster at improving my website and adding features I've long dreamed of.[^2] Hopefully the WebC project will pick up and see more improvements soon – and maybe I'll even be able to help out.
+Despite my complaints, I find the authoring model so smooth that I pushed through and rebuilt my website in WebC. I'm hoping this will make me faster at improving my website and adding features I've long dreamed of.[^3] Hopefully the WebC project will pick up and see more improvements soon – and maybe I'll even be able to help out.
 
-[^2]: Comments sourced from around the web, more interactive playful design elements, a better way to search and filter posts, to name a few.
+[^3]: Comments sourced from around the web, more interactive playful design elements, a better way to search and filter posts, to name a few.
