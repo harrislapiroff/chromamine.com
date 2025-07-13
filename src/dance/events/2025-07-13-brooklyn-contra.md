@@ -1,7 +1,7 @@
 ---
 name: Brooklyn Contra
-date: 2025-07-13T20:00
-date_end: 2025-07-13T23:00
+date: 2025-07-12T20:00
+date_end: 2025-07-12T23:00
 tzid: America/New_York
 band: Good Company
 description: |+
