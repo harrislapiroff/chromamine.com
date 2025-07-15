@@ -7,7 +7,7 @@ tags: [web, 11ty]
 #   - label: Mastodon
 #     url: TBD
 #   - label: Facebook
-#     url: TBD
+#     url: https://www.facebook.com/harrislap/posts/pfbid033z9UJ7bnrVL9qrgMKR2rjSKPBv7B2eKHJJ2tBo6cHhm3YqKcH3z5gmhueLintocCl
 ---
 
 Earlier this week I [posted about rough edges I encountered using WebC][webc-post]. I wanted to follow up with specific technical details from the ones I documented in the process of converting my website to it. Disappointingly, when I've raised these issues in the [11ty/web](https://github.com/11ty/webc) GitHub repo or in the Eleventy Discord, I haven't been able to get any feedback to resolve them or even a suggested pathway for contributing fixes myself. I love the concepts behind WebC, but I'm struggling to recommend it to anyone until there's evidence of bugs being resolved over time.
@@ -24,7 +24,7 @@ I hope this post will be read in the spirit that I wrote it: not as an entitled 
 
 * [GitHub 11ty/webc issue #214 →](https://github.com/11ty/webc/issues/214)
 
-Sometimes variables have to be reiterated on components to get passed through the subtree or unexpected behavior occurs, in particular when passing variables through a component that uses slots doesn't seem to work. For example, in this example of `tags.webc`, this did not work:
+Sometimes variables have to be reiterated on components to get passed through the subtree or unexpected behavior occurs, in particular passing variables through a component that uses slots doesn't seem to work. For example, in this example of `tags.webc`, this did not work:
 
 ```html
 <div webc:root="override">
