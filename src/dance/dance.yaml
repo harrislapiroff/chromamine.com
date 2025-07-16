@@ -38,6 +38,18 @@ dances:
       city: Charlestown RI
       url: https://kingstonenglish.wordpress.com/
 
+    - name: Montpelier Contra Dance
+      date: 2025-08-16T20:00
+      date_end: 2025-08-16T23:00
+      tzid: America/New_York
+      band: Atlantic Crossing
+      description: |+
+        Newcomers lesson offered around 7:45 PM  
+        Dancing from 8–11 PM
+      street: Capital City Grange Hall, 6612 Vermont Rt. 12
+      city: Berlin VT
+      url: https://capitalcitygrange.org/dancing/contradancing/
+
     - name: Thursday Contras
       date: 2025-11-06T19:30
       date_end: 2025-11-06T22:00
