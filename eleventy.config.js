@@ -2,7 +2,6 @@ import path from "node:path"
 import fs from "fs/promises"
 
 import pluginRss from "@11ty/eleventy-plugin-rss"
-import pugPlugin from "@11ty/eleventy-plugin-pug"
 import pluginWebc from "@11ty/eleventy-plugin-webc"
 import { RenderPlugin } from "@11ty/eleventy"
 
@@ -181,19 +180,6 @@ export default function(eleventyConfig) {
      *-------------------------------------*/
     eleventyConfig.addDataExtension("yaml", contents => yaml.safeLoad(contents))
 
-    /* Pug support
-    *-------------------------------------*/
-    eleventyConfig.addPlugin(pugPlugin, {
-        filters: eleventyConfig.getFilters()
-    })
-
-    /* Pug filter support
-     * see: https://github.com/11ty/eleventy/issues/1523#issuecomment-733419587
-     *------------------------------------*/
-    global.filters = eleventyConfig.javascriptFunctions
-    eleventyConfig.setPugOptions({
-        globals: ['filters'],
-    })
 
     /* OJS templates
      * I.e., rendering Observable Notebooks as blog posts
