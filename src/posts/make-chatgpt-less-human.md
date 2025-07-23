@@ -3,11 +3,11 @@ title: Make ChatGPT Less Human
 date: 2025-07-23
 categories: [Software]
 tags: [machine learning]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/114902951450178662
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02pQra1S7WdeE8uCA4ny1kRAD6rJ8MWi36yrjYT5Z7X2SQAz3cwLcEkF5hFvPmA9Chl
 ---
 
 Last year, I saw an example in [a paper][paper] that compared different ways chatbots could interact. It proposed this prompt:
