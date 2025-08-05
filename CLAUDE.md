@@ -66,3 +66,23 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
 - Dance events collection built from `src/dance/events/*.md`
 - Global configuration in `src/_data/config.yaml`
 - Dynamic data fetching (e.g., Flickr API) in `src/_data/flickr.js`
+
+## Code Style
+
+### JavaScript Style Guide
+- **No semicolons**: This codebase follows a no-semicolon style
+- **Single quotes**: Use single quotes for strings
+- **2-space indentation**: Use 2 spaces for indentation
+- **No trailing commas**: Avoid trailing commas in objects and arrays
+
+### ESLint Configuration
+An `.eslintrc.js` file is configured to enforce these style rules:
+- `semi: ['error', 'never']` - No semicolons
+- `quotes: ['error', 'single']` - Single quotes
+- `indent: ['error', 2]` - 2-space indentation
+- `comma-dangle: ['error', 'never']` - No trailing commas
+
+### Date Handling
+- Use `date-fns` for date manipulation and formatting
+- Use `d3-array` for data processing and grouping
+- Prefer semantic functions like `startOfDay()`, `endOfDay()` over manual calculations
