@@ -35,6 +35,10 @@
                     ></blog-post-list-compact>
                     <a href="/archive" class="archive-link">All <span class="archive-count" @raw="$data.collections.posts.length"></span> older posts →</a>
                 </section>
+                <section>
+                    <section-header>Photos</section-header>
+                    <photos-day :@photoDay="photoDay" webc:for="photoDay of flickr.photosByDate"></photos-day>
+                </section>
             </main>
             <home-sidebar slot="sidebar"></home-sidebar>
         </site-layout>
