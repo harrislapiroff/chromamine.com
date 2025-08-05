@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "PROD=0 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules\" eleventy --serve",
-    "build": "PROD=1 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules\" eleventy",
+    "serve": "PROD=0 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules --require dotenv/config\" eleventy --serve",
+    "build": "PROD=1 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules --require dotenv/config\" eleventy",
     "blog": "node scripts/blog.mjs"
   },
   "keywords": [],
@@ -21,6 +21,7 @@
     "@alex.garcia/unofficial-observablehq-compiler": "^0.6.0-alpha.9",
     "@observablehq/parser": "^6.0.0",
     "commander": "^11.1.0",
+    "dotenv": "^17.2.1",
     "eleventy-plugin-rev": "^2.0.0",
     "eleventy-sass": "^3.0.0-beta.0",
     "esbuild": "^0.25.6",
@@ -31,6 +32,7 @@
     "yaml": "^2.3.3"
   },
   "dependencies": {
+    "@11ty/eleventy-fetch": "^5.1.0",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
     "@floating-ui/dom": "^1.6.3",
     "@ibm/plex": "^6.3.0",
@@ -40,6 +42,7 @@
     "@react-three/fiber": "^8.16.1",
     "@types/three": "^0.163.0",
     "d3": "^7.8.5",
+    "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "markdown-it-abbr": "^2.0.0",
     "markdown-it-attrs": "^4.3.1",
