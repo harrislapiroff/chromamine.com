@@ -154,5 +154,11 @@ This is a [reference-style link][example] and another [one][example2].
 [example]: https://example.com/
 [example2]: https://example.org/ "Optional title"
 
+## WebC tests
+
+{% renderTemplate 'webc' %}
+  <material-icon @name="gallery_thumbnail" :@size="24" :@optical-size="24" :@weight="100" :@fill="false" @style="sharp" :@debug="true"></material-icon>
+{% endrenderTemplate %}
+
 [^1]: This is the first footnote. It contains some additional information that might be useful to the reader.
 [^2]: This is the second footnote. Footnotes can contain **bold text**, *italic text*, and even `inline code`.

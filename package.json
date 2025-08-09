@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "PROD=0 NODE_OPTIONS=\"--experimental-require-module\" eleventy --serve",
-    "build": "PROD=1 NODE_OPTIONS=\"--experimental-require-module\" eleventy",
+    "serve": "PROD=0 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules\" eleventy --serve",
+    "build": "PROD=1 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules\" eleventy",
     "blog": "node scripts/blog.mjs"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "3.0",
+    "@11ty/eleventy-fetch": "^5.1.0",
     "@11ty/eleventy-img": "^3.1.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@alex.garcia/unofficial-observablehq-compiler": "^0.6.0-alpha.9",
