@@ -1,0 +1,101 @@
+<article webc:root="override">
+    <h2>
+        <symbol-header-inner @symbol="photo_camera" :@title="`Uploaded on ${dateFormat(photoDay.date, '%B %d, %Y')}`" :@href="photoDay.flickrUrl"></symbol-header-inner>
+    </h2>
+    <div class="day">
+        <a
+            webc:for="photo of photoDay.photos.slice(0, photoDay.photos.length === PREVIEW_PHOTOS ? photoDay.photos.length : PREVIEW_PHOTOS - 1)"
+            :href="photo.flickrUrl"
+            target="_blank"
+        >
+            <eleventy-image :src="photo.urls.large" :alt="photo.title" sizes="500,300" widths="500,300" loading="lazy"></eleventy-image>
+        </a>
+        <a class="more-photos-link" webc:if="photoDay.photos.length > PREVIEW_PHOTOS" :href="photoDay.flickrUrl" target="_blank">
+            <eleventy-image :src="photoDay.photos[PREVIEW_PHOTOS - 1].urls.large" :alt="photoDay.photos[PREVIEW_PHOTOS - 1].title" sizes="500" loading="lazy"></eleventy-image>
+            <span class="more-link">
+                <span class="plus-text">+</span>
+                <i webc:nokeep @text="photoDay.photos.length - PREVIEW_PHOTOS"></i>
+                <span class="more-text">more</span> →
+            </span>
+        </a>
+    </div>
+</article>
+
+<style webc:scoped="photos-day">
+    :host {
+        margin-top: calc(0.5 * var(--line-height-base));
+    }
+
+    h2 {
+        margin-bottom: calc(0.5 * var(--line-height-base));
+    }
+
+    .day {
+        --height: round(down, 25cqw, var(--line-height-base));
+        --border-color: var(--color-base);
+        display: flex;
+        width: 100%;
+        gap: calc(0.5 * var(--line-height-base)) 1ch;
+    }
+
+    .day a {
+        border: 0.1rem solid var(--border-color);
+        flex-shrink: 1;
+    }
+
+    .day a:hover {
+        --border-color: var(--color-link);
+    }
+
+    .day a:last-child {
+        min-width: 15cqw;
+    }
+
+    .day img {
+        display: block;
+        height: calc(var(--height) - 0.2rem);
+        object-fit: cover;
+        width: auto;
+        max-width: 100%;
+    }
+
+    .day a.more-photos-link {
+        position: relative;
+        min-width: 15cqw;
+    }
+
+    .more-photos-link .more-link {
+        position: absolute;
+        bottom: -0.1rem;
+        right: -0.1rem;
+        background-color: var(--color-background);
+        padding: 0 0.5ch 0 1ch;
+        color: var(--border-color);
+        border-width: 0.1rem 0 0 0.1rem;
+        border-style: solid;
+        border-color: var(--border-color);
+    }
+    .plus-text {
+        display: none;
+    }
+
+    @container (max-width: 600px) {
+        .day {
+            --height: calc(4 * var(--line-height-base));
+            flex-wrap: wrap;
+        }
+        /* Text needs to be shorter to render well on mobile */
+        .plus-text {
+            display: inline;
+            margin-right: -1ch;
+        }
+        .more-text {
+            display: none;
+        }
+    }
+
+</style>
+
+<script webc:setup>
+    const PREVIEW_PHOTOS = 5
+</script>

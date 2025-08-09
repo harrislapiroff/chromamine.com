@@ -10,6 +10,12 @@
     <slot name="sidebar"></slot>
 </div>
 
+<div class="footer">
+    <slot name="footer">
+        <site-footer></site-footer>
+    </slot>
+</div>
+
 <style webc:scoped="site-layout">
     :host {
         display: grid;
@@ -17,7 +23,8 @@
         grid-template-columns: auto var(--site-sidebar-width);
         grid-template-areas:
             "header sidebar"
-            "main sidebar";
+            "main sidebar"
+            "footer footer";
         grid-column-gap: var(--column-gap-base);
         padding: var(--page-padding);
         max-width: 100%;
@@ -37,6 +44,10 @@
         container-type: inline-size;
     }
 
+    :host .footer {
+        grid-area: footer;
+    }
+
     @media (max-width: 960px) {
         :host {
             grid-template-columns: 1fr;
@@ -44,7 +55,8 @@
             grid-template-areas:
                 "header"
                 "main"
-                "sidebar";
+                "sidebar"
+                "footer";
 
         }
     }
