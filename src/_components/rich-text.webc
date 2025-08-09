@@ -457,6 +457,7 @@ by javascript
     .footnote-popover {
         perspective: 20rem;
         position: absolute;
+        top: 0;
         background: var(--color-background);
         border: 0.1rem solid var(--color-base);
         padding: calc(var(--line-height-base) / 2) calc(2ch - 0.1rem);
