@@ -1,5 +1,7 @@
-<article>
-    <h2 @raw="dateFormat(photoDay.date, '%B %d, %Y')"></h2>
+<article webc:root="override">
+    <h2>
+        <symbol-header-inner @symbol="photo_camera" :@title="dateFormat(photoDay.date, '%B %d, %Y')" :@href="photoDay.flickrUrl"></symbol-header-inner>
+    </h2>
     <div class="day">
         <a
             webc:for="photo of photoDay.photos.slice(0, photoDay.photos.length === PREVIEW_PHOTOS ? photoDay.photos.length : PREVIEW_PHOTOS - 1)"
@@ -20,6 +22,14 @@
 </article>
 
 <style webc:scoped="photos-day">
+    :host {
+        margin-top: calc(0.5 * var(--line-height-base));
+    }
+
+    h2 {
+        margin-bottom: calc(0.5 * var(--line-height-base));
+    }
+
     .day {
         --height: round(down, 25cqw, var(--line-height-base));
         --border-color: var(--color-base);

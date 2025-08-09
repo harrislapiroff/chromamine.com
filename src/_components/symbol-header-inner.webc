@@ -1,0 +1,40 @@
+<template webc:if="!href" webc:nokeep>
+    <span class="symbol">
+        <material-icon :@name="symbol" :@size="24" :@weight="100" :@fill="false" @style="sharp"></material-icon>
+    </span>
+    <span @raw="title" webc:nokeep></span>
+</template>
+<template webc:if="href" webc:nokeep>
+    <a :href="href">
+        <span class="symbol">
+            <material-icon :@name="symbol" :@size="24" :@weight="100" :@fill="false" @style="sharp"></material-icon>
+        </span>
+        <span @raw="title" webc:nokeep></span>
+    </a>
+</template>
+
+<style webc:scoped="symbol-header-inner">
+    :host > a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    :host > a:hover {
+        text-decoration: underline;
+        color: var(--color-link-hover);
+    }
+
+    .symbol {
+        --width: 24px;
+        float: left;
+        margin-left: calc(-1 * var(--width) - 0.5 * 1ch);
+        text-align: right;
+        width: var(--width);
+
+        svg {
+            vertical-align: middle;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+</style>
