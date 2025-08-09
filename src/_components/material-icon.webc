@@ -1,3 +1,27 @@
+<!---
+Material Icon
+
+This is a WebC component that renders an icon from Google's Material Design Symbols as an inline SVG.
+
+It supports the following attributes:
+- `name`: The name of the icon to render (any string that matches a Material Design Symbol name--should be lowercase with underscores).
+- `size`: The size of the icon in pixels (any integer).
+- `opticalSize`: The optical size of the icon in pixels (20, 24, 40, 48).
+- `weight`: The weight of the icon (100, 200, 300, 400, 500, 600, 700).
+- `grade`: The grade of the icon (-25, 0, 200).
+- `fill`: Whether the icon should be filled (true, false).
+- `style`: The style of the icon ('outlined', 'rounded', 'sharp').
+- `debug`: Whether to show debug information (true, false).
+
+It fetches SVGs from the Material Design Icons GitHub repository and caches them permanently using Eleventy Fetch.
+
+Usage:
+
+    <material-icon @name="gallery_thumbnail" :@size="24" :@weight="100" :@fill="false" @style="sharp" :@debug="true"></material-icon>
+
+Note, following WebC syntax, properties that are strings do not require a preceding colon, properties that are numbers or booleans do.
+--->
+
 <script webc:setup>
     const { default: Fetch } = await import('@11ty/eleventy-fetch')
 
