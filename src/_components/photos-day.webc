@@ -1,6 +1,6 @@
 <article webc:root="override">
     <h2>
-        <symbol-header-inner @symbol="photo_camera" :@title="dateFormat(photoDay.date, '%B %d, %Y')" :@href="photoDay.flickrUrl"></symbol-header-inner>
+        <symbol-header-inner @symbol="photo_camera" :@title="`Uploaded on ${dateFormat(photoDay.date, '%B %d, %Y')}`" :@href="photoDay.flickrUrl"></symbol-header-inner>
     </h2>
     <div class="day">
         <a
@@ -8,7 +8,7 @@
             :href="photo.flickrUrl"
             target="_blank"
         >
-            <eleventy-image :src="photo.urls.large" :alt="photo.title" sizes="500" loading="lazy"></eleventy-image>
+            <eleventy-image :src="photo.urls.large" :alt="photo.title" sizes="500,300" widths="500,300" loading="lazy"></eleventy-image>
         </a>
         <a class="more-photos-link" webc:if="photoDay.photos.length > PREVIEW_PHOTOS" :href="photoDay.flickrUrl" target="_blank">
             <eleventy-image :src="photoDay.photos[PREVIEW_PHOTOS - 1].urls.large" :alt="photoDay.photos[PREVIEW_PHOTOS - 1].title" sizes="500" loading="lazy"></eleventy-image>
