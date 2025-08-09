@@ -1,0 +1,25 @@
+<photos-day :@photoDay="photoDay" webc:for="photoDay of photoDays"></photos-day>
+<a href="https://www.flickr.com/photos/harrislapiroff/" class="all-photos-link" target="_blank">
+    All <span class="photo-count" @raw="unnest(photoDays).length"></span> photos on <span class="flickr-link">Flickr</span> →
+</a>
+
+<script webc:setup>
+    const unnest = photoDays => photoDays.flatMap(day => day.photos)
+</script>
+
+<style webc:scoped="home-photos">
+    :host {
+        display: block;
+        max-width: 80rem;
+        container-type: inline-size;
+    }
+
+    .all-photos-link {
+        display: inline-block;
+        margin-top: var(--line-height-base);
+    }
+
+    .photo-count, .flickr-link {
+        font-weight: var(--font-weight-bold);
+    }
+</style>

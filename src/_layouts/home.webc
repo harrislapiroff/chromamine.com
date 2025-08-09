@@ -37,7 +37,7 @@
                 </section>
                 <section>
                     <section-header>Photos</section-header>
-                    <photos-day :@photoDay="photoDay" webc:for="photoDay of flickr.photosByDate.slice(0, 3)"></photos-day>
+                    <home-photos :@photo-days="flickr.photosByDate.slice(0, 3)"></home-photos>
                 </section>
             </main>
             <home-sidebar slot="sidebar"></home-sidebar>
