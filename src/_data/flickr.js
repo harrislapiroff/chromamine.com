@@ -1,21 +1,39 @@
 import Fetch from "@11ty/eleventy-fetch"
 import { group, sort } from "d3-array"
 import { format, startOfDay, endOfDay, getUnixTime, fromUnixTime } from "date-fns"
-import { createFlickr, FetchTransport } from "flickr-sdk"
+import { createFlickr } from "flickr-sdk"
 
-// Custom transport that uses Eleventy Fetch for caching
-class EleventyFetchTransport extends FetchTransport {
-  constructor(options = {}) {
-    super(options)
-    this.cacheDuration = options.cacheDuration || "1h"
-  }
+/* CachingFlickr
+ *
+ * This is a wrapper around the Flickr SDK that caches the results of API calls.
+ * This slightly complex approach is required because Flickr API requests use OAuth,
+ * which includes a timestamp in the request. That makes them not cacheable based on URL alone,
+ * so instead we use this custom client that caches based on API method anc parameters.
+ */
+class CachingFlickr {
+    // Note: This does not distinguish between different auths, so it's not safe to use for multiple users in a single process.
+    constructor({auth, transport, cacheDuration = "1h"}) {
+        this.flickr = createFlickr(auth, transport).flickr
+        this.cacheDuration = cacheDuration
+    }
 
-  async request(url) {
-    return Fetch(url, {
-      duration: this.cacheDuration,
-      type: "json"
-    })
-  }
+    cacheKey(method, params) {
+        const sortedKeys = Object.keys(params).sort()
+        const paramString = sortedKeys.map(key => `${key}=${params[key]}`).join('&')
+        return `${method.replace(/\./g, '-')}-${paramString}`
+    }
+
+    async query(method, params) {
+        const cacheKey = this.cacheKey(method, params)
+
+        return await Fetch(async () => {
+            return await this.flickr(method, params)
+        }, {
+            requestId: cacheKey,
+            duration: this.cacheDuration,
+            type: "json",
+        })
+    }
 }
 
 export default async function() {
@@ -35,17 +53,17 @@ export default async function() {
   }
 
   try {
-    // Initialize Flickr SDK with custom transport
-    const { flickr } = createFlickr({
+    // Initialize cached Flickr client
+    const auth = {
       consumerKey: FLICKR_API_KEY,
       consumerSecret: FLICKR_API_SECRET,
       oauthToken: FLICKR_OAUTH_TOKEN,
-      oauthTokenSecret: FLICKR_OAUTH_SECRET,
-      transport: new EleventyFetchTransport({ cacheDuration: "1h" })
-    })
+      oauthTokenSecret: FLICKR_OAUTH_SECRET
+    }
+    const flickr = new CachingFlickr({ auth })
 
-    // Get user ID from username
-    const userData = await flickr('flickr.people.findByUsername', { username: USERNAME })
+    // Get user ID from username (cached)
+    const userData = await flickr.query('flickr.people.findByUsername', { username: USERNAME })
     const userId = userData.user.nsid
 
     // Get all public photos with geo data (with pagination)
@@ -54,7 +72,7 @@ export default async function() {
     const perPage = 500
 
     while (true) {
-      const photosData = await flickr('flickr.people.getPublicPhotos', {
+      const photosData = await flickr.query('flickr.people.getPublicPhotos', {
         user_id: userId,
         extras: 'date_upload,date_taken,description,tags,url_s,url_q,url_m,url_l,url_o,geo',
         per_page: perPage,
@@ -97,26 +115,19 @@ export default async function() {
     const geotaggedPhotos = basicPhotos.filter(photo => photo.hasGeoData)
     console.log(`Found ${geotaggedPhotos.length} geotagged photos, fetching location details...`)
 
-    // Create a transport with longer caching for location data
-    const { flickr: locationFlickr } = createFlickr({
-      consumerKey: FLICKR_API_KEY,
-      consumerSecret: FLICKR_API_SECRET,
-      oauthToken: FLICKR_OAUTH_TOKEN,
-      oauthTokenSecret: FLICKR_OAUTH_SECRET,
-      transport: new EleventyFetchTransport({ cacheDuration: "7d" })
-    })
-
     const photosWithLocations = await Promise.all(
       basicPhotos.map(async photo => {
         if (!photo.hasGeoData) {
           return { ...photo, location: null }
         }
 
-        try {
-          const locationData = await locationFlickr('flickr.photos.geo.getLocation', {
-            photo_id: photo.id
-          })
+        // Cache location data per photo with longer duration
+        const locationFlickr = new CachingFlickr({ auth, cacheDuration: "30d" })
+        const locationData = await locationFlickr.query('flickr.photos.geo.getLocation', {
+          photo_id: photo.id
+        })
 
+        try {
           if (locationData.photo && locationData.photo.location) {
             const loc = locationData.photo.location
             return {
@@ -160,7 +171,7 @@ export default async function() {
         const date = startOfDay(firstPhoto.dateUpload)
         const minUploadDate = getUnixTime(startOfDay(firstPhoto.dateUpload))
         const maxUploadDate = getUnixTime(endOfDay(firstPhoto.dateUpload))
-        
+
         return {
           date,
           photos,
@@ -182,6 +193,7 @@ export default async function() {
 
   } catch (error) {
     console.error('Error fetching Flickr photos:', error)
+    console.error('Error stack:', error.stack)
     return {
       photos: [],
       photosByDate: [],
