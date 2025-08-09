@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "PROD=0 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules --require dotenv/config\" eleventy --serve",
     "build": "PROD=1 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules --require dotenv/config\" eleventy",
-    "blog": "node scripts/blog.mjs"
+    "blog": "node scripts/blog.mjs",
+    "flickr-oauth": "NODE_OPTIONS=\"--require dotenv/config\" node scripts/generate-flickr-oauth.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "jsdom": "^22.1.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.3",
+    "prompts": "^2.4.2",
     "yaml": "^2.3.3"
   },
   "dependencies": {
@@ -43,6 +45,7 @@
     "@types/three": "^0.163.0",
     "d3": "^7.8.5",
     "date-fns": "^4.1.0",
+    "flickr-sdk": "^7.1.0",
     "gray-matter": "^4.0.3",
     "markdown-it-abbr": "^2.0.0",
     "markdown-it-attrs": "^4.3.1",
