@@ -1,5 +1,5 @@
 <photos-day :@photoDay="photoDay" webc:for="photoDay of photoDays"></photos-day>
-<a href="https://www.flickr.com/photos/harrislapiroff/" class="all-photos-link" target="_blank">
+<a href="https://www.flickr.com/photos/chromamine/" class="all-photos-link" target="_blank">
     All <span class="photo-count" @raw="unnest(photoDays).length"></span> photos on <span class="flickr-link">Flickr</span> →
 </a>
 
