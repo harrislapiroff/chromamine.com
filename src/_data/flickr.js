@@ -1,13 +1,50 @@
 import Fetch from "@11ty/eleventy-fetch"
 import { group, sort } from "d3-array"
 import { format, startOfDay, endOfDay, getUnixTime, fromUnixTime } from "date-fns"
+import { createFlickr } from "flickr-sdk"
+
+/* CachingFlickr
+ *
+ * This is a wrapper around the Flickr SDK that caches the results of API calls.
+ * This slightly complex approach is required because Flickr API requests use OAuth,
+ * which includes a timestamp in the request. That makes them not cacheable based on URL alone,
+ * so instead we use this custom client that caches based on API method anc parameters.
+ */
+class CachingFlickr {
+    // Note: This does not distinguish between different auths, so it's not safe to use for multiple users in a single process.
+    constructor({auth, transport, cacheDuration = "1h"}) {
+        this.flickr = createFlickr(auth, transport).flickr
+        this.cacheDuration = cacheDuration
+    }
+
+    cacheKey(method, params) {
+        const sortedKeys = Object.keys(params).sort()
+        const paramString = sortedKeys.map(key => `${key}=${params[key]}`).join('&')
+        return `${method.replace(/\./g, '-')}-${paramString}`
+    }
+
+    async query(method, params) {
+        const cacheKey = this.cacheKey(method, params)
+
+        return await Fetch(async () => {
+            return await this.flickr(method, params)
+        }, {
+            requestId: cacheKey,
+            duration: this.cacheDuration,
+            type: "json",
+        })
+    }
+}
 
 export default async function() {
   const FLICKR_API_KEY = process.env.FLICKR_API_KEY
+  const FLICKR_API_SECRET = process.env.FLICKR_API_SECRET
+  const FLICKR_OAUTH_TOKEN = process.env.FLICKR_OAUTH_TOKEN
+  const FLICKR_OAUTH_SECRET = process.env.FLICKR_OAUTH_SECRET
   const USERNAME = 'harrislapiroff'
 
-  if (!FLICKR_API_KEY) {
-    console.warn('FLICKR_API_KEY environment variable not set. Returning empty photo data.')
+  if (!FLICKR_API_KEY || !FLICKR_API_SECRET || !FLICKR_OAUTH_TOKEN || !FLICKR_OAUTH_SECRET) {
+    console.warn('Required Flickr environment variables not set. Returning empty photo data.')
     return {
       photos: [],
       photosByDate: [],
@@ -16,49 +53,42 @@ export default async function() {
   }
 
   try {
-    // First, get the user ID from the username
-    const userUrl = `https://api.flickr.com/services/rest/?method=flickr.people.findByUsername&api_key=${FLICKR_API_KEY}&username=${USERNAME}&format=json&nojsoncallback=1`
-
-    const userData = await Fetch(userUrl, {
-      duration: "1d", // Cache for 1 day
-      type: "json"
-    })
-
-    if (userData.stat !== 'ok') {
-      throw new Error(`Flickr API error: ${userData.message}`)
+    // Initialize cached Flickr client
+    const auth = {
+      consumerKey: FLICKR_API_KEY,
+      consumerSecret: FLICKR_API_SECRET,
+      oauthToken: FLICKR_OAUTH_TOKEN,
+      oauthTokenSecret: FLICKR_OAUTH_SECRET
     }
+    const flickr = new CachingFlickr({ auth })
 
+    // Get user ID from username (cached)
+    const userData = await flickr.query('flickr.people.findByUsername', { username: USERNAME })
     const userId = userData.user.nsid
 
-    // Get public photos for the user (with pagination support)
+    // Get all public photos with geo data (with pagination)
     let allPhotos = []
     let page = 1
-    const perPage = 500 // Maximum allowed by Flickr API
+    const perPage = 500
 
     while (true) {
-      const photosUrl = `https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=${FLICKR_API_KEY}&user_id=${userId}&format=json&nojsoncallback=1&extras=date_upload,date_taken,description,tags,url_s,url_q,url_m,url_l,url_o&per_page=${perPage}&page=${page}`
-
-      const photosData = await Fetch(photosUrl, {
-        duration: "1h", // Cache for 1 hour
-        type: "json"
+      const photosData = await flickr.query('flickr.people.getPublicPhotos', {
+        user_id: userId,
+        extras: 'date_upload,date_taken,description,tags,url_s,url_q,url_m,url_l,url_o,geo',
+        per_page: perPage,
+        page: page
       })
 
-      if (photosData.stat !== 'ok') {
-        throw new Error(`Flickr API error: ${photosData.message}`)
-      }
-
-      // Add photos from this page
       allPhotos.push(...photosData.photos.photo)
 
-      // Check if we've got all pages
       if (page >= photosData.photos.pages) {
         break
       }
-
       page++
     }
 
-    const photos = allPhotos.map(photo => ({
+    // First pass: map basic photo data and identify geotagged photos
+    const basicPhotos = allPhotos.map(photo => ({
       id: photo.id,
       title: photo.title,
       description: photo.description._content || '',
@@ -72,8 +102,62 @@ export default async function() {
         large: photo.url_l,
         original: photo.url_o
       },
+      hasGeoData: !!(photo.latitude && photo.longitude && photo.latitude !== 0 && photo.longitude !== 0),
+      coords: photo.latitude && photo.longitude && photo.latitude !== 0 && photo.longitude !== 0 ? {
+        latitude: parseFloat(photo.latitude),
+        longitude: parseFloat(photo.longitude),
+        accuracy: photo.accuracy ? parseInt(photo.accuracy) : null
+      } : null,
       flickrUrl: `https://www.flickr.com/photos/${userId}/${photo.id}/`
     }))
+
+    // Second pass: fetch detailed location data for geotagged photos
+    const geotaggedPhotos = basicPhotos.filter(photo => photo.hasGeoData)
+    console.log(`Found ${geotaggedPhotos.length} geotagged photos, fetching location details...`)
+
+    const photosWithLocations = await Promise.all(
+      basicPhotos.map(async photo => {
+        if (!photo.hasGeoData) {
+          return { ...photo, location: null }
+        }
+
+        // Cache location data per photo with longer duration
+        const locationFlickr = new CachingFlickr({ auth, cacheDuration: "30d" })
+        const locationData = await locationFlickr.query('flickr.photos.geo.getLocation', {
+          photo_id: photo.id
+        })
+
+        try {
+          if (locationData.photo && locationData.photo.location) {
+            const loc = locationData.photo.location
+            return {
+              ...photo,
+              location: {
+                ...photo.coords,
+                locality: loc.locality?._content || null,
+                county: loc.county?._content || null,
+                region: loc.region?._content || null,
+                country: loc.country?._content || null,
+                displayName: [
+                  loc.locality?._content,
+                  loc.region?._content,
+                  loc.country?._content
+                ].filter(Boolean).join(', ')
+              }
+            }
+          } else {
+            // Keep coordinates even if detailed location fetch fails
+            return { ...photo, location: photo.coords }
+          }
+        } catch (error) {
+          console.warn(`Failed to fetch location for photo ${photo.id}:`, error.message)
+          // Keep coordinates even if detailed location fetch fails
+          return { ...photo, location: photo.coords }
+        }
+      })
+    )
+
+    const photos = photosWithLocations
 
     // Sort photos by upload date (newest first) using d3.sort
     const sortedPhotos = sort(photos, d => -d.dateUpload)
@@ -87,7 +171,7 @@ export default async function() {
         const date = startOfDay(firstPhoto.dateUpload)
         const minUploadDate = getUnixTime(startOfDay(firstPhoto.dateUpload))
         const maxUploadDate = getUnixTime(endOfDay(firstPhoto.dateUpload))
-        
+
         return {
           date,
           photos,
@@ -96,7 +180,9 @@ export default async function() {
       }
     )
 
+    const photosWithDetailedLocations = sortedPhotos.filter(p => p.location && p.location.displayName)
     console.log(`Fetched ${sortedPhotos.length} photos from Flickr for user ${USERNAME}`)
+    console.log(`${photosWithDetailedLocations.length} photos have detailed location data`)
 
     return {
       photos: sortedPhotos,
@@ -107,6 +193,7 @@ export default async function() {
 
   } catch (error) {
     console.error('Error fetching Flickr photos:', error)
+    console.error('Error stack:', error.stack)
     return {
       photos: [],
       photosByDate: [],

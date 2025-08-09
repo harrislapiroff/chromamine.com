@@ -1,6 +1,12 @@
 <article webc:root="override">
     <h2>
-        <symbol-header-inner @symbol="photo_camera" :@title="`Uploaded on ${dateFormat(photoDay.date, '%B %d, %Y')}`" :@href="photoDay.flickrUrl"></symbol-header-inner>
+        <symbol-header-inner
+            @symbol="photo_camera"
+            :@title="`Uploaded on ${dateFormat(photoDay.date, '%B %d, %Y')} ${locationSummary(photoDay) ? `— ${locationSummary(photoDay)}` : ''}`"
+            :@href="photoDay.flickrUrl"
+        >
+            <div class="photo-location" :@raw="locationSummary(photoDay)" webc:if="locationSummary(photoDay)"></div>
+        </symbol-header-inner>
     </h2>
     <div class="day">
         <a
@@ -98,4 +104,11 @@
 
 <script webc:setup>
     const PREVIEW_PHOTOS = 5
+
+    const locationSummary = photoDay => {
+        const locations = Array.from(new Set(photoDay.photos.map(photo => photo.location?.locality).filter(Boolean)))
+        if (locations.length === 0) return null
+        // Join with commas and 'and'
+        return locations.slice(0, -1).join(', ') + (locations.length > 1 ? ' and ' : '') + locations[locations.length - 1]
+    }
 </script>
