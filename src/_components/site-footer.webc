@@ -1,0 +1,57 @@
+<footer webc:root="override">
+    <section-header>Footer</section-header>
+    <div class="content">
+        <div class="copyright">
+            ©
+            <y class="year" @raw="`${getOldestPostYear($data.collections)}–${getNewestPostYear($data.collections)}`" webc:nokeep></y>
+            Harris Lapiroff
+            <div class="copyright-terms">
+                You may republish content from this site provided that you attribute it to me,
+                you make no changes, and you do not turn a profit from sharing it.
+                In legalese:
+                <a class="cc-link" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>
+            </div>
+        </div>
+        <div class="site-links">
+            <link-list>
+                <li><a href="/">Home</a></li>
+                <li><a href="/archive">Archive</a></li>
+                <li><a href="/software">Software</a></li>
+                <li><a href="/dance">Dance</a></li>
+                <li><a href="/dance">Elsewhere</a></li>
+            </link-list>
+        </div>
+    </div>
+</footer>
+
+<script webc:setup>
+    const getOldestPostYear = collections => collections.posts[0].date.getFullYear()
+    const getNewestPostYear = collections => collections.posts[collections.posts.length - 1].date.getFullYear()
+</script>
+
+<style webc:scoped="site-footer">
+    :host {
+        margin-top: calc(2 * var(--line-height-base));
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--line-height-base) 2ch;
+    }
+
+    .copyright-terms {
+        font-style: italic;
+        margin-top: var(--line-height-base);
+    }
+
+    .cc-link {
+        white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+        .content {
+            grid-template-columns: 1fr 0.5fr;
+        }
+    }
+</style>

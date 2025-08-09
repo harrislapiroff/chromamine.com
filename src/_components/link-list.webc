@@ -1,9 +1,10 @@
-<ul>
+<ul webc:root="override">
     <slot></slot>
 </ul>
 
-<style>
-    ul {
+<style webc:scoped="link-list">
+    :host {
         list-style-type: none;
+        margin: 0;
     }
 </style>

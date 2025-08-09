@@ -4,6 +4,7 @@ import fs from "fs/promises"
 import pluginRss from "@11ty/eleventy-plugin-rss"
 import pluginWebc from "@11ty/eleventy-plugin-webc"
 import { RenderPlugin } from "@11ty/eleventy"
+import { eleventyImagePlugin } from "@11ty/eleventy-img"
 
 // Note: For the upgrade to 11ty 3.x we will want to replace this
 // with 11ty's built-in glob util seen here:
@@ -216,7 +217,10 @@ export default function(eleventyConfig) {
 
     // Add WebC
     eleventyConfig.addPlugin(pluginWebc, {
-        components: 'src/_components/**/*.webc',
+        components: [
+            'src/_components/**/*.webc',
+            "npm:@11ty/eleventy-img/*.webc",
+        ],
     })
 
     return {
