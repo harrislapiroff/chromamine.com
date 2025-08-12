@@ -1,0 +1,7 @@
+<pre @raw="stringify(value)"></pre>
+
+<script webc:setup>
+    const { default: util } = await import('node:util')
+
+    const stringify = (v, depth = 2) => util.inspect(v, { depth })
+</script>

@@ -27,6 +27,7 @@ Note, following WebC syntax, properties that are strings do not require a preced
 
     const MATERIAL_GITHUB_ROOT = "https://raw.githubusercontent.com/google/material-design-icons"
     const MATERIAL_GIT_REF = "941fa95d7f6084a599a54ca71bc565f48e7c6d9e"
+    const FALLBACK_ICON = `${MATERIAL_GITHUB_ROOT}/${MATERIAL_GIT_REF}/symbols/web/indeterminate_question_box/materialsymbolsrounded/indeterminate_question_box_20px.svg`
     const OPTIONS = {
         opticalSize: [20, 24, 40, 48],
         weight: [100, 200, 300, 400, 500, 600, 700],
@@ -89,7 +90,12 @@ Note, following WebC syntax, properties that are strings do not require a preced
         color = 'currentColor',
     }) => {
         const url = generateMaterialIconURL(name, { opticalSize, weight, grade, fill, style })
-        const svg = await Fetch(url, { duration: '*', type: 'text' })
+        let svg
+        try {
+            svg = await Fetch(url, { duration: '*', type: 'text' })
+        } catch (e) {
+            svg = await Fetch(FALLBACK_ICON, { duration: '*', type: 'text' })
+        }
 
         // Add fill, width, and height attributes to the outer <svg> tag
         // Note: for some reason Eleventy Fetch sometimes returns SVG as a buffer instead of a string, so we convert it defensively
