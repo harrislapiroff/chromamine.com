@@ -1,3 +1,5 @@
+<weather-bug></weather-bug>
+
 <sidebar-section heading="Looking for something specific?">
     <role-button
         @url="/software"
