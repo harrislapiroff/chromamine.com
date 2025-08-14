@@ -8,35 +8,52 @@ import markdownContainer from "markdown-it-container"
 import markdownAbbr from "markdown-it-abbr"
 import markdownItAttrs from "markdown-it-attrs"
 
-import hljs from "highlight.js"
+import shikiPlugin from "@shikijs/markdown-it"
 import Image from "@11ty/eleventy-img"
 
 export const mdOptions = {
     typographer: true,
     html: true,
-    highlight: function (str, lang) {
-        // Use stylus for sass
-        if (lang === 'sass') lang = 'stylus'
-        if (lang && hljs.getLanguage(lang)) {
-            try {
-                return (
-                    '<pre class="hljs"><code>' +
-                    hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                    '</code></pre>'
-                )
-            } catch (__) {}
-        }
-
-        return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-    }
 }
 
+// Create markdown instance first without shiki
 export const md = markdownIt(mdOptions)
     .use(markdownFootnotes)
     .use(markdownAbbr)
     .use(markdownContainer, 'update')
     .use(markdownContainer, 'note')
     .use(markdownItAttrs, { allowedAttributes: ['rel'] })
+
+// Initialize shiki plugin asynchronously
+async function initShiki() {
+    md.use(await shikiPlugin({
+        themes: {
+            light: 'github-light',
+            dark: 'one-dark-pro'
+        },
+        defaultTheme: 'dark',
+        // Add language aliases
+        langAlias: {
+            'sass': 'scss',
+            'openscad': 'c', // Map openscad to C for basic syntax highlighting
+            'scad': 'c' // Map scad to C for basic syntax highlighting
+        },
+        // Fallback to text highlighting for unsupported languages
+        defaultLanguage: 'text',
+        // Add CSS classes to match existing styling
+        transformers: [
+            {
+                name: 'add-classes',
+                pre(node) {
+                    this.addClassToHast(node, 'shiki')
+                }
+            }
+        ]
+    }))
+}
+
+// Initialize shiki
+await initShiki()
 
 // Render footnotes simply in an ordered list
 md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'
