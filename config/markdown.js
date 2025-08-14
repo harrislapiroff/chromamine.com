@@ -9,6 +9,7 @@ import markdownAbbr from "markdown-it-abbr"
 import markdownItAttrs from "markdown-it-attrs"
 
 import shikiPlugin from "@shikijs/markdown-it"
+import { transformerMetaHighlight } from "@shikijs/transformers"
 import Image from "@11ty/eleventy-img"
 
 export const mdOptions = {
@@ -47,7 +48,9 @@ async function initShiki() {
                 pre(node) {
                     this.addClassToHast(node, 'shiki')
                 }
-            }
+            },
+            // Add the meta highlight transformer
+            transformerMetaHighlight()
         ]
     }))
 }

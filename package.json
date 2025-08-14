@@ -22,6 +22,7 @@
     "@alex.garcia/unofficial-observablehq-compiler": "^0.6.0-alpha.9",
     "@observablehq/parser": "^6.0.0",
     "@shikijs/markdown-it": "^3.9.2",
+    "@shikijs/transformers": "^3.9.2",
     "commander": "^11.1.0",
     "dotenv": "^17.2.1",
     "eleventy-plugin-rev": "^2.0.0",
