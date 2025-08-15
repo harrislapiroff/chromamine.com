@@ -15,13 +15,13 @@ If someone claiming to be me contacts you from a different platform or account, 
 
 Contact me directly via:
 
-* **Email:** [blog@chromamine.com][email-link]§rel="me"§  
+* **Email:** [blog@chromamine.com][email-link]{rel="me"}  
   My email provider is [Fastmail][] and I'm [very happy with them][fastmail-blog].
 
-* **Signal:** [harris.001][signal-link]§rel="me"§    
+* **Signal:** [harris.001][signal-link]{rel="me"}    
   To verify my identity on Signal, check that my half of our [safety number] matches: `94702 53678 76548 07566 67423 24082`
 
-* **iMessage:** [blog@chromamine.com][imessage-link]§rel="me"§  
+* **iMessage:** [blog@chromamine.com][imessage-link]{rel="me"}  
 
 [email-link]: mailto:blog@chromamine.com
 [Fastmail]: /2023/10/switching-to-fastmail

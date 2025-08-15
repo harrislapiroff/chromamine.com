@@ -24,11 +24,8 @@ export const md = markdownIt(mdOptions)
     .use(markdownContainer, 'update')
     .use(markdownContainer, 'note')
     .use(markdownItAttrs, { 
-        allowedAttributes: ['rel'],
-        // Change delimiter to avoid conflict with shiki's {} syntax
-        // Using § which is unlikely to appear in regular text
-        leftDelimiter: '§',
-        rightDelimiter: '§'
+        allowedAttributes: ['rel']
+        // Use default {} delimiters
     })
 
 // Initialize shiki plugin asynchronously
@@ -49,8 +46,20 @@ async function initShiki() {
         defaultLanguage: 'text',
         // Parse meta string to handle highlighting
         parseMetaString: (metaString) => {
-            // Return the meta string to be handled by transformers
-            return metaString ? { __raw: metaString } : undefined
+            // The meta string should contain our highlight info
+            // It will be passed after the language, e.g., "js {2-3}"
+            if (metaString) {
+                const trimmed = metaString.trim()
+                const highlightMatch = trimmed.match(/^\{([\d,-]+)\}$/)
+                if (highlightMatch) {
+                    return { 
+                        __raw: highlightMatch[0],
+                        highlight: highlightMatch[1]
+                    }
+                }
+                return { __raw: metaString }
+            }
+            return undefined
         },
         // Add CSS classes to match existing styling
         transformers: [
