@@ -26,8 +26,9 @@ export const md = markdownIt(mdOptions)
     .use(markdownItAttrs, { 
         allowedAttributes: ['rel'],
         // Change delimiter to avoid conflict with shiki's {} syntax
-        leftDelimiter: '%{',
-        rightDelimiter: '}%'
+        // Using § which is unlikely to appear in regular text
+        leftDelimiter: '§',
+        rightDelimiter: '§'
     })
 
 // Initialize shiki plugin asynchronously

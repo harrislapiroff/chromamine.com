@@ -164,14 +164,16 @@
     .shiki .highlighted {
         display: inline-block;
         width: 100%;
-        background-color: color-mix(in lch, var(--color-accent-1) 15%, transparent 85%);
+        /* Light mode: subtle yellow/amber highlight */
+        background-color: rgba(251, 191, 36, 0.12); /* amber-400 at 12% opacity */
         margin: 0 -2ch;
         padding: 0 2ch;
     }
 
     @media (prefers-color-scheme: dark) {
         .shiki .highlighted {
-            background-color: color-mix(in lch, var(--color-accent-1) 10%, transparent 90%);
+            /* Dark mode: subtle blue-gray highlight */
+            background-color: rgba(148, 163, 184, 0.08); /* slate-400 at 8% opacity */
         }
     }
 
