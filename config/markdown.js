@@ -23,7 +23,12 @@ export const md = markdownIt(mdOptions)
     .use(markdownAbbr)
     .use(markdownContainer, 'update')
     .use(markdownContainer, 'note')
-    .use(markdownItAttrs, { allowedAttributes: ['rel'] })
+    .use(markdownItAttrs, { 
+        allowedAttributes: ['rel'],
+        // Change delimiter to avoid conflict with shiki's {} syntax
+        leftDelimiter: '%{',
+        rightDelimiter: '}%'
+    })
 
 // Initialize shiki plugin asynchronously
 async function initShiki() {
@@ -41,6 +46,11 @@ async function initShiki() {
         },
         // Fallback to text highlighting for unsupported languages
         defaultLanguage: 'text',
+        // Parse meta string to handle highlighting
+        parseMetaString: (metaString) => {
+            // Return the meta string to be handled by transformers
+            return metaString ? { __raw: metaString } : undefined
+        },
         // Add CSS classes to match existing styling
         transformers: [
             {
