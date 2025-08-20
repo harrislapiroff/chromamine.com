@@ -31,8 +31,8 @@ export const md = markdownIt(mdOptions)
 async function initShiki() {
     md.use(await shikiPlugin({
         themes: {
-            light: 'github-light',
-            dark: 'one-dark-pro'
+            light: 'github-dark',
+            dark: 'github-dark-default',
         },
         defaultTheme: 'dark',
         // Add language aliases

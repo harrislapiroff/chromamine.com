@@ -98,6 +98,7 @@
 
     pre.shiki,
     pre.observablehq--md-pre {
+        font-family: inherit;
         margin: calc(var(--line-height-base) / 2) -2ch !important;
         padding: calc(var(--line-height-base) / 2) 2ch !important;
         overflow-x: auto;
@@ -149,7 +150,7 @@
             /* Use shiki's dark background */
             background-color: var(--shiki-dark-bg) !important;
         }
-        
+
         .shiki,
         .shiki span {
             color: var(--shiki-dark) !important;
