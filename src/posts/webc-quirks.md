@@ -157,10 +157,14 @@ This worked:
     <li webc:for="item of Array.from(new Set(['one', 'two', 'three']))" @raw="item"></li> <!-- [!code highlight] -->
 </ul>
 ```
-
 In my testing,I got similar behavior when using `<script webc:setup>` to create the variables.
 
+:::update
+This is [now fixed!](https://github.com/11ty/webc/commit/18d2c37dd65d2c5022258759a564e0b9e006907e)
+:::
+
 # Can't use imports in `<script webc:setup>`
+
 * [GitHub 11ty/webc issue #225 →](https://github.com/11ty/webc/issues/225)
 * [Discord post July 1, 2025 →](https://discord.com/channels/741017160297611315/1389794802928980020/1389794802928980020)
 
