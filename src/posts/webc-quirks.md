@@ -40,7 +40,8 @@ Instead of rendering a list of tags, the `<li>` simply renders as an `[object Ob
 ```html
 <div webc:root="override">
     Tags:
-    <link-list-commas :@tags="tags">
+    <!-- [!code word:\:@tags="tags"] -->
+    <link-list-commas :@tags="tags"> <!-- [!code highlight] -->
         <li webc:for="tag of tags"><a :href="`/tags/${slugify(tag)}`" @raw="tag"></a></li>
     </link-list-commas>
 </div>
@@ -113,10 +114,11 @@ This workaround works:
 
 ```html
 <script webc:setup>
-    const uppercase = t => t.toUpperCase();
+    const uppercase = t => t.toUpperCase(); // [!code highlight]
 </script>
 
-<h1 @raw="uppercase(title)"></h1>
+<!-- [!code word:uppercase(title)] -->
+<h1 @raw="uppercase(title)"></h1> <!-- [!code highlight] -->
 ```
 
 This makes sense, once this is understood: `webc:setup` scripts are run _once per component file_ not for every instance. But it should be documented. I put in a documentation pull request for it, which hasn't yet received feedback.
@@ -151,7 +153,8 @@ This worked:
 
 ```html
 <ul>
-    <li webc:for="item of Array.from(new Set(['one', 'two', 'three']))" @raw="item"></li>
+    <!-- [!code word:Array.from(new Set(['one', 'two', 'three'\]))] -->
+    <li webc:for="item of Array.from(new Set(['one', 'two', 'three']))" @raw="item"></li> <!-- [!code highlight] -->
 </ul>
 ```
 
@@ -178,6 +181,18 @@ None of these examples work:
 ```
 
 All silently fail, while preventing the build.
+
+:::update
+**Fri Aug 15, 2025:** In fact the second example here does work but requires a different way of unpacking the result. This works:
+
+```html
+<script webc:setup>
+  const { default: Fetch } = await import('@11ty/eleventy-fetch') // [!code highlight]
+</script>
+```
+
+Additionally, things should be smoother on the import front once [this change](https://github.com/11ty/webc/pull/229) lands.
+:::
 
 # Error reporting is bad
 

@@ -9,7 +9,10 @@ import markdownAbbr from "markdown-it-abbr"
 import markdownItAttrs from "markdown-it-attrs"
 
 import shikiPlugin from "@shikijs/markdown-it"
-import { transformerMetaHighlight } from "@shikijs/transformers"
+import {
+    transformerNotationHighlight,
+    transformerNotationWordHighlight,
+} from "@shikijs/transformers"
 import Image from "@11ty/eleventy-img"
 
 export const mdOptions = {
@@ -31,7 +34,7 @@ export const md = markdownIt(mdOptions)
 async function initShiki() {
     md.use(await shikiPlugin({
         themes: {
-            light: 'github-dark',
+            light: 'github-light',
             dark: 'github-dark-default',
         },
         defaultTheme: 'dark',
@@ -43,21 +46,14 @@ async function initShiki() {
         },
         // Fallback to text highlighting for unsupported languages
         defaultLanguage: 'text',
-        // Parse meta string to handle highlighting
-        parseMetaString: (metaString) => {
-            // Return the meta string to be handled by transformers
-            return metaString ? { __raw: metaString } : undefined
-        },
         // Add CSS classes to match existing styling
         transformers: [
-            {
-                name: 'add-classes',
-                pre(node) {
-                    this.addClassToHast(node, 'shiki')
-                }
-            },
-            // Add the meta highlight transformer
-            transformerMetaHighlight()
+            // Add notation highlight transformer
+            // https://shiki.style/packages/transformers#transformernotationhighlight
+            transformerNotationHighlight(),
+            // Add the notation word highlight transformer
+            // https://shiki.style/packages/transformers#transformernotationwordhighlight
+            transformerNotationWordHighlight(),
         ]
     }))
 }
