@@ -8,35 +8,52 @@ import markdownContainer from "markdown-it-container"
 import markdownAbbr from "markdown-it-abbr"
 import markdownItAttrs from "markdown-it-attrs"
 
-import hljs from "highlight.js"
+import ShikiPlugin from "@shikijs/markdown-it"
+import {
+    transformerNotationHighlight,
+    transformerNotationWordHighlight,
+} from "@shikijs/transformers"
 import Image from "@11ty/eleventy-img"
 
 export const mdOptions = {
     typographer: true,
     html: true,
-    highlight: function (str, lang) {
-        // Use stylus for sass
-        if (lang === 'sass') lang = 'stylus'
-        if (lang && hljs.getLanguage(lang)) {
-            try {
-                return (
-                    '<pre class="hljs"><code>' +
-                    hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                    '</code></pre>'
-                )
-            } catch (__) {}
-        }
-
-        return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-    }
 }
 
+const shikiPlugin = await ShikiPlugin({
+    themes: {
+        light: 'github-light',
+        dark: 'github-dark-default',
+    },
+    defaultTheme: 'dark',
+    // Add language aliases
+    langAlias: {
+        'sass': 'scss',
+        'openscad': 'c', // Map openscad to C for basic syntax highlighting
+        'scad': 'c' // Map scad to C for basic syntax highlighting
+    },
+    // Fallback to text highlighting for unsupported languages
+    defaultLanguage: 'text',
+    transformers: [
+        // Add notation highlight transformer
+        // https://shiki.style/packages/transformers#transformernotationhighlight
+        transformerNotationHighlight(),
+        // Add the notation word highlight transformer
+        // https://shiki.style/packages/transformers#transformernotationwordhighlight
+        transformerNotationWordHighlight(),
+    ]
+})
+
+// Create markdown instance first without shiki
 export const md = markdownIt(mdOptions)
     .use(markdownFootnotes)
     .use(markdownAbbr)
     .use(markdownContainer, 'update')
     .use(markdownContainer, 'note')
-    .use(markdownItAttrs, { allowedAttributes: ['rel'] })
+    .use(markdownItAttrs, {
+        allowedAttributes: ['rel'],
+    })
+    .use(shikiPlugin)
 
 // Render footnotes simply in an ordered list
 md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'

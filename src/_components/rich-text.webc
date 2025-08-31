@@ -1,8 +1,6 @@
 <div @raw="content" webc:nokeep></div>
 <slot></slot>
 
-<link rel="stylesheet" href="../../node_modules/highlight.js/styles/night-owl.css"></link>
-
 <style webc:scoped="rich-text">
     a:visited:not(.button, .footnote-ref) {
         color: var(--color-link-visited);
@@ -98,25 +96,33 @@
         font-weight: var(--font-weight-bold);
     }
 
-    pre.hljs,
+    pre.shiki,
     pre.observablehq--md-pre {
+        font-family: inherit;
         margin: calc(var(--line-height-base) / 2) -2ch !important;
         padding: calc(var(--line-height-base) / 2) 2ch !important;
         overflow-x: auto;
+        /* Light mode: 5% darker than page background */
+        background-color: color-mix(in lch, var(--color-background) 95%, black 5%) !important;
     }
 
     @media (max-width: 640px) {
-        pre.hljs, pre.observablehq--md-pre {
+        pre.shiki, pre.observablehq--md-pre {
             margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2) !important;
             padding: calc(var(--line-height-base) / 2) var(--page-padding) !important;
         }
     }
 
-    pre.hljs,
-    pre.hljs > code,
+    pre.shiki > code,
     pre.observablehq--md-pre,
     pre.observablehq--md-pre > code {
         font-family: inherit;
+        /* No background for inner elements */
+        background-color: transparent !important;
+    }
+
+    /* Keep the custom background for non-shiki code blocks */
+    pre.observablehq--md-pre {
         background-color: var(--color-background-code) !important;
     }
 
@@ -130,9 +136,57 @@
     }
 
     pre > code,
-    pre > code.hljs {
+    pre > code.shiki,
+    pre.shiki > code {
         margin: 0 !important;
         padding: 0 !important;
+        /* No background for code inside pre blocks */
+        background: none !important;
+    }
+
+    /* Shiki dark mode support */
+    @media (prefers-color-scheme: dark) {
+        pre.shiki {
+            /* Use shiki's dark background */
+            background-color: var(--shiki-dark-bg) !important;
+        }
+
+        .shiki,
+        .shiki span {
+            color: var(--shiki-dark) !important;
+            /* Optional, if you also want font styles */
+            font-style: var(--shiki-dark-font-style) !important;
+            font-weight: var(--shiki-dark-font-weight) !important;
+            text-decoration: var(--shiki-dark-text-decoration) !important;
+        }
+    }
+
+    /* Highlighted lines in code blocks */
+    .shiki .highlighted {
+        display: inline-block;
+        width: 100%;
+        /* Light mode: subtle yellow/amber highlight */
+        background-color: rgba(251, 191, 36, 0.25);
+        margin: 0 -2ch;
+        padding: 0 2ch;
+    }
+
+    .shiki .highlighted-word {
+        display: inline-block;
+        /* Light mode: subtle yellow/amber highlight */
+        background-color: rgba(251, 191, 36, 0.5);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .shiki .highlighted {
+            /* Dark mode: subtle blue-gray highlight */
+            background-color: rgba(148, 163, 184, 0.08);
+        }
+
+        .shiki .highlighted-word {
+            /* Dark mode: subtle blue-gray highlight */
+            background-color: rgba(148, 163, 184, 0.2);
+        }
     }
 
     figure {
