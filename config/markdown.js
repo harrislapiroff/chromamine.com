@@ -8,7 +8,7 @@ import markdownContainer from "markdown-it-container"
 import markdownAbbr from "markdown-it-abbr"
 import markdownItAttrs from "markdown-it-attrs"
 
-import shikiPlugin from "@shikijs/markdown-it"
+import ShikiPlugin from "@shikijs/markdown-it"
 import {
     transformerNotationHighlight,
     transformerNotationWordHighlight,
@@ -20,6 +20,30 @@ export const mdOptions = {
     html: true,
 }
 
+const shikiPlugin = await ShikiPlugin({
+    themes: {
+        light: 'github-light',
+        dark: 'github-dark-default',
+    },
+    defaultTheme: 'dark',
+    // Add language aliases
+    langAlias: {
+        'sass': 'scss',
+        'openscad': 'c', // Map openscad to C for basic syntax highlighting
+        'scad': 'c' // Map scad to C for basic syntax highlighting
+    },
+    // Fallback to text highlighting for unsupported languages
+    defaultLanguage: 'text',
+    transformers: [
+        // Add notation highlight transformer
+        // https://shiki.style/packages/transformers#transformernotationhighlight
+        transformerNotationHighlight(),
+        // Add the notation word highlight transformer
+        // https://shiki.style/packages/transformers#transformernotationwordhighlight
+        transformerNotationWordHighlight(),
+    ]
+})
+
 // Create markdown instance first without shiki
 export const md = markdownIt(mdOptions)
     .use(markdownFootnotes)
@@ -29,37 +53,7 @@ export const md = markdownIt(mdOptions)
     .use(markdownItAttrs, {
         allowedAttributes: ['rel'],
     })
-
-// Initialize shiki plugin asynchronously
-async function initShiki() {
-    md.use(await shikiPlugin({
-        themes: {
-            light: 'github-light',
-            dark: 'github-dark-default',
-        },
-        defaultTheme: 'dark',
-        // Add language aliases
-        langAlias: {
-            'sass': 'scss',
-            'openscad': 'c', // Map openscad to C for basic syntax highlighting
-            'scad': 'c' // Map scad to C for basic syntax highlighting
-        },
-        // Fallback to text highlighting for unsupported languages
-        defaultLanguage: 'text',
-        // Add CSS classes to match existing styling
-        transformers: [
-            // Add notation highlight transformer
-            // https://shiki.style/packages/transformers#transformernotationhighlight
-            transformerNotationHighlight(),
-            // Add the notation word highlight transformer
-            // https://shiki.style/packages/transformers#transformernotationwordhighlight
-            transformerNotationWordHighlight(),
-        ]
-    }))
-}
-
-// Initialize shiki
-await initShiki()
+    .use(shikiPlugin)
 
 // Render footnotes simply in an ordered list
 md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'
