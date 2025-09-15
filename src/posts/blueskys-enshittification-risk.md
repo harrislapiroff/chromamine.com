@@ -10,6 +10,12 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid03n1ae36eQCvnK9pjgn2C11fD7AV1M2pjtMkMWtFrmWE7KvkJKMvadsDGz5C2dfFKl
 ---
 
+:::update
+**September 15, 2025:** As of recently the [Blacksky](https://www.blackskyweb.xyz/) project seems to have successfully launched independent implementations of the core parts of the ATProto stack (a personal data store, a relay, and an app) that allow someone to interact with Bluesky users while not using Bluesky. Another effort, [Northsky](https://northskysocial.com), is underway as well.
+
+At the moment, Bluesky still controls the overwhelming majority of the ATProto network, and it's not clear that Blacksky (or Northsky) could survive if Bluesky either failed or moderated their networks out of existence—Blacksky's user count, as of last estimates I saw, is still in "could be a rounding error" territory on overall ATProto users—but, if these projects thrive and successfully pick up substantial cohorts of users, I (and Doctorow) will be proven wrong. Bluesky will be a viable decentralized network.
+:::
+
 [Cory Doctorow][]:
 
 [Cory Doctorow]: https://pluralistic.net/2024/11/02/ulysses-pact/
