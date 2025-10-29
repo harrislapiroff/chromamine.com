@@ -41,7 +41,7 @@
         font-style: italic;
     }
 
-    img {
+    img, video {
         max-width: 100%;
         height: auto;
     }
@@ -193,7 +193,7 @@
         display: block;
     }
 
-    picture {
+    picture, video {
         display: block;
     }
 
