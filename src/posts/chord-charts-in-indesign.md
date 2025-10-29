@@ -22,11 +22,11 @@ images:
   chordPage:
     src: HBL_4350.jpg
     alt: An open page from the songbook showing "Getting Easier" with chord symbols positioned above lyrics, demonstrating chord-over-lyrics formatting.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/115458799783591919
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0w4XrjAzjV2Mhamke4LnrDwXgMGz8XeRRJYVdcuRFGxPBSjURMzP51wwWhcj51Hfal
 ---
 
 {% image images.chordPage %}
