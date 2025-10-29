@@ -22,11 +22,11 @@ images:
   chordPage:
     src: HBL_4350.jpg
     alt: An open page from the songbook showing "Getting Easier" with chord symbols positioned above lyrics, demonstrating chord-over-lyrics formatting.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/115458799783591919
+  - label: Facebook
+    url: https://www.facebook.com/story.php?story_fbid=10228196433349365
 ---
 
 {% image images.chordPage %}
@@ -159,7 +159,7 @@ Fortunately, I [have a hammer][illustrator-post] and I know a nail when I see on
 I was able to bind the script to a keyboard shortcut, which produced a reasonably smooth workflow for adding chords over lyrics.
 
 <figure>
-  <video src="/media/chord-charts-in-indesign/workflow.mov" autoplay controls />
+  <video src="/media/chord-charts-in-indesign/workflow.mov" autoplay controls playsinline />
 </figure>
 
 When Emma did an editing pass herself, I asked her to leave chords in the position that had been set for them relative to the anchor to minimize the risk of moving chords to the wrong location or losing track of where they were anchored. There were some instances where the default alignment wasn't close enough to what she wanted and in those situations it was helpful that InDesign's anchored objects *can* be moved freely when needed and still maintain their position relative to the anchor.
