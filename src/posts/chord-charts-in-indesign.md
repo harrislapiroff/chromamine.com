@@ -34,7 +34,7 @@ images:
 Earlier this year, while designing the songbook for [Emma][]'s [Magnolia Sun][] album, I encountered the challenge of creating "[chord over lyrics][]" style chord charts.
 
 [Emma]: https://emmaazelborn.com/
-[Magnolia Sun]: https://distrokid.com/hyperfollow/emmaazelborn1/magnolia-sun
+[Magnolia Sun]: https://emmaazelborn.com/projects/magnolia-sun/
 [chord over lyrics]: https://en.wikipedia.org/wiki/Chord_chart#Format:_Chords_over_lyrics_(ASCII)
 
 Emma provided me with a document of monospace-formatted lyrics with chords above each line, aligned exactly as she wanted them. She also wanted to indicate beats without chord changes – in this case using `/` marks, which is slightly less common for chord charts.
@@ -188,7 +188,7 @@ Should you try to use this script yourself, here's a few things to note:
 
 ***
 
-The "Magnolia Sun" songbook and album both are available for purchase online.
+The "Magnolia Sun" songbook and album both are [available for purchase online](https://emmaazelborn.bandcamp.com/).
 
 {% image images.songbook %}
 
