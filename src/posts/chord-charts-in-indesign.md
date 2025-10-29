@@ -37,11 +37,11 @@ Earlier this year, while designing the songbook for [Emma][]'s [Magnolia Sun][] 
 [Magnolia Sun]: https://distrokid.com/hyperfollow/emmaazelborn1/magnolia-sun
 [chord over lyrics]: https://en.wikipedia.org/wiki/Chord_chart#Format:_Chords_over_lyrics_(ASCII)
 
-Emma provided me with a document of monospace-formatted lyrics with chords above each line, aligned exactly as she wanted them. Less common for chord charts, she also wanted to indicate beats without chord changes – in this case using `/` marks.
+Emma provided me with a document of monospace-formatted lyrics with chords above each line, aligned exactly as she wanted them. She also wanted to indicate beats without chord changes – in this case using `/` marks, which is slightly less common for chord charts.
 
 {% image images.ascii %}
 
-I could have copied these into InDesign as is, alternating the text styles of lines of chords versus lyrics and adjusting the spacing on chords using the spacebar, but this would be frustrating if I made design revisions later that changed the metrics of my typefaces. I wasn't prepared to commit to the text styles from the outset, so changing typeface, size, weight, etc. would require me to redo the spacing manually for the entire book. Even if those styles *were* set in stone, proofreading changes would be an error-prone nightmare – changes to the lyrics would require also manually adjusting the chord spacing above them.
+I could have copied this into InDesign as is, changing the text styles for lines of chords to be distinct from lyrics and adjusting the spacing using the spacebar, but this would be frustrating if I made design revisions later that changed the metrics of my typefaces. I wasn't prepared to commit to the text styles from the outset. Changing typeface, size, weight, etc. would require me to redo the spacing manually for the entire book. Even if those styles *were* set in stone, proofreading changes would be an error-prone nightmare – changes to the lyrics would require also manually adjusting the chord spacing above them.
 
 InDesign has a feature for positioning objects relative to a particular location in text: [anchored objects][]. With these, I was able to align chords above specific locations in the text and have them move when the text changed, maintaining their position relative to the text anchor.
 
@@ -49,7 +49,7 @@ InDesign has a feature for positioning objects relative to a particular location
 
 {% image images.anchored %}
 
-Unfortunately, the process for creating an anchor requires tedious configuration, which would have to be done for every single chord change or beat marker – a total of over 1,000 instances.
+Unfortunately, the process for creating an anchor requires navigating a tedious configuration modal, which I needed to do for every single chord change or beat marker – a total of over 1,000 instances.
 
 {% image images.anchorSettings %}
 
@@ -162,7 +162,7 @@ I was able to bind the script to a keyboard shortcut, which produced a reasonabl
   <video src="/media/chord-charts-in-indesign/workflow.mov" autoplay controls />
 </figure>
 
-When Emma herself did an editing pass, I encouraged her to leave chords in the position that had been automatically set for them relative to the anchor. I thought this would minimize the risk of moving chords to the wrong location or losing track of where they were anchored. There were some instances where the default alignment just wasn't close enough to what she wanted and in those situations it was helpful that InDesign's anchored objects *can* be moved freely when needed and still maintain their position relative to the anchor.
+When Emma did an editing pass herself, I asked her to leave chords in the position that had been set for them relative to the anchor to minimize the risk of moving chords to the wrong location or losing track of where they were anchored. There were some instances where the default alignment wasn't close enough to what she wanted and in those situations it was helpful that InDesign's anchored objects *can* be moved freely when needed and still maintain their position relative to the anchor.
 
 # A few notes on the script
 
