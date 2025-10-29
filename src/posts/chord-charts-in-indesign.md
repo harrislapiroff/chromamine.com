@@ -1,6 +1,6 @@
 ---
 title: Chord charts in InDesign
-date: 2025-07-11
+date: 2025-10-29
 categories: [Software]
 tags: [graphic design, javascript, web, LLMs]
 images:
@@ -16,6 +16,12 @@ images:
   slash:
     src: slash.png
     alt: A line of lyrics labeled "Outro." Above the lyrics is a line of chords, one of which is C/D where the C is raised above a diagonal slash and the D is lowered below it, like a fraction.
+  songbook:
+    src: HBL_4349.jpg
+    alt: A purple songbook cover titled "Magnolia Sun" by Emma Azelborn, featuring a white magnolia flower illustration against a blue background with purple flowers.
+  chordPage:
+    src: HBL_4350.jpg
+    alt: An open page from the songbook showing "Getting Easier" with chord symbols positioned above lyrics, demonstrating chord-over-lyrics formatting.
 # xposts:
 #   - label: Mastodon
 #     url: TBD
@@ -23,7 +29,9 @@ images:
 #     url: TBD
 ---
 
-A few months ago, while designing the songbook for [Emma][]'s [Magnolia Sun][] album, I encountered the challenge of creating "[chord over lyrics][]" style chord charts.
+{% image images.chordPage %}
+
+Earlier this year, while designing the songbook for [Emma][]'s [Magnolia Sun][] album, I encountered the challenge of creating "[chord over lyrics][]" style chord charts.
 
 [Emma]: https://emmaazelborn.com/
 [Magnolia Sun]: https://distrokid.com/hyperfollow/emmaazelborn1/magnolia-sun
@@ -33,15 +41,15 @@ Emma provided me with a document of monospace-formatted lyrics with chords above
 
 {% image images.ascii %}
 
-I could have copied these into InDesign as is, alternating the text styles of lines of chords versus lyrics and adjusting the spacing on chords using the spacebar, but this would be frustrating if I made design revisions later that would change the metrics of my selected typefaces. If I wasn't prepared to commit to the text styles from the outset, changing the typeface, size, weight, etc. of either text style would require me to redo the spacing manually for the whole book. Even if those styles were set in stone, proofreading changes would be an error-prone nightmare – changes to the lyrics would require also manually adjusting the chord spacing above them.
+I could have copied these into InDesign as is, alternating the text styles of lines of chords versus lyrics and adjusting the spacing on chords using the spacebar, but this would be frustrating if I made design revisions later that changed the metrics of my typefaces. I wasn't prepared to commit to the text styles from the outset, so changing typeface, size, weight, etc. would require me to redo the spacing manually for the entire book. Even if those styles *were* set in stone, proofreading changes would be an error-prone nightmare – changes to the lyrics would require also manually adjusting the chord spacing above them.
 
-InDesign has a feature for positioning objects relative to a particular point in text, as is needed here: [anchored objects][]. With these, I was able to align chords above specific locations in the text and have them move when the text changed, maintaining their position relative to the text anchor.
+InDesign has a feature for positioning objects relative to a particular location in text: [anchored objects][]. With these, I was able to align chords above specific locations in the text and have them move when the text changed, maintaining their position relative to the text anchor.
 
 [anchored objects]: https://helpx.adobe.com/indesign/using/anchored-objects.html
 
 {% image images.anchored %}
 
-Unfortunately, the process for creating an anchor requires tedious configuration, which would have to be done for every single chord change or beat marker – a total of over 1,000 instances in formatting the full songbook.
+Unfortunately, the process for creating an anchor requires tedious configuration, which would have to be done for every single chord change or beat marker – a total of over 1,000 instances.
 
 {% image images.anchorSettings %}
 
@@ -50,10 +58,12 @@ Fortunately, I [have a hammer][illustrator-post] and I know a nail when I see on
 [illustrator-post]: /2025/01/changing-the-color-of-a-character-in-adobe-illustrator-with-scripting/
 [indesign-scripting]: https://helpx.adobe.com/indesign/using/scripting.html
 
-[^1]: [Claude 3.7 Sonnet with Thinking][claude], my favored model for helping with coding tasks at the time. Used via [GitHub Copilot][]'s VSCode integration.
+[^1]: [Claude 3.7 Sonnet with Thinking][claude], my favored model for helping with coding tasks at the time I was working on this. Used via [GitHub Copilot][]'s VSCode integration. As of this writing, I'm more likely to be using [Anthropic][]'s own [Claude Code][].
 
 [claude]: https://www.anthropic.com/news/visible-extended-thinking
 [GitHub Copilot]: https://github.com/features/copilot
+[Anthropic]: https://www.anthropic.com/
+[Claude Code]: https://www.claude.com/product/claude-code
 
 ```js
 // insert-chord.jsx
@@ -174,12 +184,14 @@ Should you try to use this script yourself, here's a few things to note:
    [C]it's been g[/]etting h[F]ard[/]er to [C]sing[/  /  /]
    ```
 
-   or something similar. I think I could have written a script that would process that and automatically create the anchor objects for me all at once. By the time I had this insight I figured it would take her as much time to redo her text doc as it would take me to create the chords one by one in InDesign.
+   or something similar. I think I could have written a script that would process that and create all the anchor objects in one go. By the time I had this insight, I figured it would take her as much time to redo the text doc as it would take me to finish formatting the chords one by one in InDesign.
 
 ***
 
-The songbook is not yet available for purchase online, but the album Magnolia Sun is and, I may be biased, but it's a wonderful record and I can't recommend it enough.
+The "Magnolia Sun" songbook and album both are available for purchase online.
 
-{% button "Buy Magnolia Sun on Bandcamp" "https://emmaazelborn.bandcamp.com/album/magnolia-sun" %}
+{% image images.songbook %}
+
+{% button "Buy the album" "https://emmaazelborn.bandcamp.com/album/magnolia-sun" %} {% button "Buy the songbook" "https://emmaazelborn.bandcamp.com/merch/magnolia-sun-songbook-liner-notes" %}
 
 You can also listen on your [favorite streaming service](https://album.link/b/1983118898), wherever that may be.
