@@ -38,7 +38,7 @@ dances:
       city: Petaluma CA
       url: https://nbcds.org/event/petaluma-contra/
       description: |+
-        Beginner's lesson at 6:00PM
+        Beginner's lesson at 6:00PM  
         Dancing from 6:30–9:30PM
 
     - name: Thursday Contras
@@ -50,7 +50,7 @@ dances:
       city: Concord MA
       url: https://www.neffa.org/thursday-contras/
       description: |+
-        Workshop at 7:10PM
+        Workshop at 7:10PM  
         Dancing from 7:30PM–10PM
 
     - name: CDNY Contra Dance
@@ -73,7 +73,7 @@ dances:
       band: Here on the Hill
       bandURL: https://www.instagram.com/hereonthehill.band/
       description: |+
-        Introductory lesson at 7:30PM
+        Introductory lesson at 7:30PM  
         Dancing from 8–10:30PM
       street: Lovely Lane United Methodist Church, 2200 St. Paul Street
       city: Baltimore MD
