@@ -29,32 +29,11 @@ testimonials:
 
 dances:
   upcoming:
-    - name: Kingston ECD
-      date: 2025-08-09T19:30
-      date_end: 2025-08-09T22:00
-      tzid: America/New_York
-      band: Clara Stefanov-Wagner, Emma Azelborn, Lisa DeSiro
-      street: Quonochotaug Grange, 5662 Post Road
-      city: Charlestown RI
-      url: https://kingstonenglish.wordpress.com/
-
-    - name: Montpelier Contra Dance
-      date: 2025-08-16T20:00
-      date_end: 2025-08-16T23:00
-      tzid: America/New_York
-      band: Atlantic Crossing
-      description: |+
-        Newcomers lesson offered around 7:45 PM  
-        Dancing from 8–11 PM
-      street: Capital City Grange Hall, 6612 Vermont Rt. 12
-      city: Berlin VT
-      url: https://capitalcitygrange.org/dancing/contradancing/
-
     - name: Thursday Contras
       date: 2025-11-06T19:30
       date_end: 2025-11-06T22:00
       tzid: America/New_York
-      band: Here on the Hill
+      band: The NEFFA Open Band
       street: Concord Scout House, 74 Walden Street
       city: Concord MA
       url: https://www.neffa.org/thursday-contras/
@@ -66,12 +45,25 @@ dances:
       date: 2025-11-08T20:00
       date_end: 2025-11-08T22:45
       tzid: America/New_York
+      band: Here on the Hill
       description: |+
         Workshop at 7:30PM  
         Dancing from 8–10:45PM
       street: 201 West 13th Street
       city: New York NY
       url: https://cdny.org/
+
+    - name: BFMS Wednesday Contra Dance
+      date: 2025-11-12T20:00
+      date_end: 2025-11-12T22:30
+      tzid: America/New_York
+      band: Here on the Hill
+      description: |+
+        Introductory lesson at 7:30PM
+        Dancing from 8–10:30PM
+      street: Lovely Lane United Methodist Church, 2200 St. Paul Street
+      city: Baltimore MD
+      url: https://www.bfms.org/squarecontra.php
 
     - name: Mt. Airy Contra Dance
       date: 2025-11-13T20:00
