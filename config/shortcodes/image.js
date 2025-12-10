@@ -1,4 +1,5 @@
 import Image from "@11ty/eleventy-img"
+import { minify } from 'html-minifier-terser'
 import { md } from '../markdown.js'
 import { errorBoundary } from './utils.js'
 
@@ -25,10 +26,18 @@ const image = async function (imgObj) {
         loading: imgObj.loading || 'lazy',
     })
 
-    return `<figure>
+    const html = `<figure>
         ${pictureTag}
         ${imgObj.caption ? `<figcaption>${md.render(imgObj.caption)}</figcaption>` : ''}
     </figure>`
+
+    // Stripping whitespace helps this tag play nice with
+    // the markdown renderer.
+    return await minify(html, {
+        collapseWhitespace: true,
+        removeComments: true,
+        preserveLineBreaks: false
+    })
 }
 
 export default errorBoundary(image)
