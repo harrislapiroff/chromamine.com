@@ -159,7 +159,7 @@ Fortunately, I [have a hammer][illustrator-post] and I know a nail when I see on
 I was able to bind the script to a keyboard shortcut, which produced a reasonably smooth workflow for adding chords over lyrics.
 
 <figure>
-  <video src="/media/chord-charts-in-indesign/workflow.mov" autoplay controls loop playsinline />
+  <video src="/media/chord-charts-in-indesign/workflow.mov" autoplay controls loop playsinline></video>
 </figure>
 
 When Emma did an editing pass herself, I asked her to leave chords in the position that had been set for them relative to the anchor to minimize the risk of moving chords to the wrong location or losing track of where they were anchored. There were some instances where the default alignment wasn't close enough to what she wanted and in those situations it was helpful that InDesign's anchored objects *can* be moved freely when needed and still maintain their position relative to the anchor.
