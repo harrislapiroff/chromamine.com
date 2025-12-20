@@ -76,7 +76,7 @@ One particular restriction I had to think about for this case was the slope of t
   </g>
 </svg>
 
-At the steeper slopes, there's plenty of overlap for each successive layer to grip onto the previous one, but at shallower ones there's a less, and at the extremes, you're printing over thin air. Slope is always a concern in designing for 3D printing, but the problem is amplified when thinking in vase mode since there isn't any internal infill to support the structure.
+At the steeper slopes, there's plenty of overlap for each successive layer to grip onto the previous one, but at shallower ones there's a less, and at the extremes, you're printing over thin air. Slope is always a concern in designing for 3D printing, but the problem is amplified when thinking in vase mode since the perimeters are only one wall thick and there's no internal infill to support the structure.
 
 Vase mode prints are usually open on the top (hence "vase") since they can't be sealed on top with either a flat or shallow surface. I wanted mine to be closed on top (which is actually the bottom of the ornament, but they're printed upside-down), but a sphere shape wouldn't work – slopes get too shallow at the ends – so I designed them to come to a point, keeping the slopes safe to print in vase mode.
 
