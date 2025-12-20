@@ -5,9 +5,9 @@ categories: [Miscellany]
 tags: [3D printing, making]
 xposts:
   - label: Mastodon
-    url: TBD
+    url: https://social.coop/@harris/115754088989677947
   - label: Facebook
-    url: TBD
+    url: https://www.facebook.com/harrislap/posts/pfbid02twNYUZtjn4QYUfyLfADyPzqKub6zJS5BzhZ7NFXjCrNz5YixVJKk63y3fr44naCul
 images:
   colorshift:
     src: HBL_4711.jpg
@@ -29,7 +29,7 @@ images:
 
 {% button "Just want the files? Get them on Printables ↗" "https://www.printables.com/model/1518800-vase-mode-christmas-ornament-collection" %}
 
-I designed a set of 10 christmas ornaments that can be 3D printed in vase mode for P[rintables' Winter Holidays Decorations contest][contest].
+I designed a set of 10 Christmas ornaments that can be 3D printed in vase mode for [Printables' Winter Holidays Decorations contest][contest].
 
 [contest]: https://www.printables.com/contest/498-winter-holidays-decorations-2025
 
@@ -41,7 +41,7 @@ Typically in the type of 3D printing I do (called [FFF/FDM][][^1]) plastic filam
 
 [FFF/FDM]: https://en.wikipedia.org/wiki/Fused_filament_fabrication
 
-[^1]: Fun fact: When this approach was first invented, it was called "FDM" for "Fused Deposition Modeling." But the company that originally patented it also trademarked the acronym, so other companies call it "FFF" for "Fused Filament Fabrication," but the FDM acronym remains popular in casual conversations about 3D printing.
+[^1]: Fun fact: When this approach was first invented, it was called "FDM" for "Fused Deposition Modeling." But the company that originally patented it also trademarked the abbreviation, so other companies call it "FFF" for "Fused Filament Fabrication," but the FDM abbreviation remains popular in casual conversations about 3D printing.
 
 - Vase mode prints have no visible "seams" where extrusion stopped and started on each layer,
 - They're generally quicker to print because there's no travel time for the printhead, only print time, and
