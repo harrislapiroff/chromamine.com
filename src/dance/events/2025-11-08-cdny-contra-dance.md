@@ -12,6 +12,31 @@ street: 201 West 13th Street
 city: New York NY
 url: https://cdny.org/
 program:
+- - title: A-1 Reel
+    author: Chris Weiler
+  - title: Heartbeat Contra
+    author: Don Flaherty
+  - title: Midwinter Night's Dream
+    author: Linda Leslie
+  - title: It Came To Me In A Dream
+    author: Maia McCormick
+  - title: Al's Safeway Produce
+    author: Robert Cromartie
+  - title: United We Dance
+    author: Bob Isaacs
+  - title: Delphiniums and Daisies
+    author: Tanya Rotenberg
+- - title: Dancing Bears
+    author: Brian DeMarcus
+  - title: "Medley: The Baby Rose, Butter, Tica Tica Timing/Old Time Elixir #2"
+    author: David Kaynor, Gene Hubert, Dean Snipes/Linda Leslie
+    medley: true
+  - title: Labor of Love
+    author: Kathy Anderson
+  - title: A Pirate's Life for Me
+    author: Nathaniel Jack
+  - title: Maliza's Magical Mystery Motion
+    author: Cary Ravitz
 ---
 
 A good evening. There were many beginners, but I still attempted an ambitious program and mostly people followed along well. I got some good feedback from Maia (who said I mostly did well but she could give me nitpicks if I wanted them):
