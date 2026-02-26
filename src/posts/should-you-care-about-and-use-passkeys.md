@@ -30,14 +30,14 @@ When you think about this a little more deeply, doesn't this *already* feel a bi
 
 The cool thing is, that it turns out, once you start having them talking directly to each other, you can rethink the premise of the whole system to create something that's *more* secure.
 
-Instead of sending a password to a website, the website and your "credential manager" (this is what I'm going to call your password manager from now on, since most of them can now do more than handle passwords) can perform a "handshake" using public key cryptography. Your credential manager still holds a secret key it created for that website but it's actually a long, unguessable, cryptographic secret key. More importantly, the secret is never actually shared with the website. Your credential manager is able to cryptographically sign some data with it to prove that it has the correct secret key, but it never has to send the secret key itself. The result is that passkeys behave kind of like passwords under pre-passkey best practices:
+Instead of sending a password to a website, the website and your **credential manager** (this is what I'm going to call your password manager since it does more than passwords) can perform a "handshake" using public key cryptography. Your credential manager still holds a secret key it created for that website but it's actually a long, unguessable, cryptographic secret key. More importantly, the secret is never actually shared with the website. Your credential manager is able to cryptographically sign some data with it to prove that it has the correct secret key, but it never has to send the secret key itself. The result is that passkeys behave kind of like passwords under pre-passkey best practices:
 
 1. They're stored in your credential manager.
 2. They're unique for each site.
 
-*But* in addition to that you get these additional security benefits. Unlike passwords, passkeys:
+*But* in addition to that you get additional security benefits. Unlike passwords, passkeys:
 
-1. cannot be compromised in a data breach, because the website never has access to the secret at all – they never even have access to a cryptographic hash of the secret, which is the current best practice for password storage, but can still be cracked in some circumstances.
+1. cannot be compromised in a data breach, because the website never has access to the secret at all – they never even have access to a cryptographic hash of the secret, as most sites today do for passwords.
 2. are phishing resistant because your credential manager simply won't perform a handshake with a fake website. It won't even offer to.
 
 All of this security complexity is hidden behind software, so the user experience is more like:
@@ -51,7 +51,7 @@ I think some of the confusion around passkeys is simply that this feels *too* ea
 
 Okay, but
 
-## Where are my passkeys stored?
+# Where are my passkeys stored?
 
 Just like your passwords, they're stored in your credential manager. If you don't have a credential manager like [1Password][], [Dashlane][], or [BitWarden][], they'll most likely be stored in your operating system native credential manager. Just like your passwords they'll be available anywhere your credential manager is available.
 
@@ -59,37 +59,39 @@ Just like your passwords, they're stored in your credential manager. If you don'
 [Dashlane]: https://www.dashlane.com
 [BitWarden]: https://bitwarden.com
 
-Some passkeys are synced across devices (all of the ones I use stored in 1Password are) but you *can* create passkeys that are bound to a specific device. You can have more than one passkey for authenticating to a service, so if, for example, you were really security-conscious, you might create a separate passkey for each device you use to access your email account. Later on, if you lost your phone, you could revoke the passkey associated with that phone. For me, I'd rather just have all my passkeys available on every device – which is 1Password's default behavior anyway.
+Some passkeys are **synced** across devices (all of the ones I use stored in 1Password are) but you *can* create passkeys that are **device-bound**. You can have more than one passkey for authenticating to a service, so if, for example, you were really security-conscious, you might create a separate passkey for each device you use to access your email account. Later on, if you lost your phone, you could revoke the passkey associated with that phone. For me, I'd rather just have all my passkeys available on every device – which is 1Password's default behavior anyway.
 
-## What if I lose my passkeys?
+# What if I lose my passkeys?
 
 In ~2 years of using passkeys, I have not had the experience of losing any. I trust my password manager to manage my passkeys just as much as I trust it to manage my passwords.
 
 Additionally, we're still in what will be a long transition phase for passkeys. Ultimately, passkeys are the authentication method of the future and will largely replace passwords, but, during this transition phase, virtually all services will still allow you to log in with a password. So you can experiment with enabling passkeys on accounts without worrying that you'll be locked out, as long as you still have your password as well.
 
-## What if I need to log into something on a device I don't own?
+# What if I need to log into something on a device I don't own?
 
-There is a flow for logging into a device that doesn't have your passkey – I'll call that a third-party device. When you try to log into a service, the third party device shows a QR code which you can scan with a device that you *do* own and that does have your passkey. The device that you do own will perform the security check as well as some added security (like a proximity check) and you'll be logged into the third-party device. I haven't actually tried this flow myself, so I can't report on its usability, but it sounds very similar to the way I log into apps on my Google TV so that I don't have the use the @#%!ing on screen keyboard.
+There is a flow for logging into a device that doesn't have your passkey. When you try to log into a service, the party device will show a QR code which you can scan with a device that you *do* own, like your phone. Your phone will perform the authentication process with some added security (like a proximity check) and you'll be logged in on the other device. I haven't actually tried this flow myself, so I can't report on its usability, but it sounds very similar to the way I log into apps on my Google TV to avoid using the @#%!ing on screen keyboard.
 
-And, again, at least for now, most services will still let you authenticate with a password instead.
+And, again, at least for now, if all else fails, most services will continue to let you authenticate with a password instead.
 
-## What about people who don't have password managers?
+# What about people who don't have password managers?
 
 If you don't already have a credential manager, all major operating systems have one built in. Your web browser will likely default to using that. At least some of those are also designed to sync your credentials across devices that you own (via, for example, iCloud Keychain, for Apple devices).
 
-## Doesn't this create a single point of compromise?
+# Doesn't this create a single point of compromise?
 
-Indeed, if all of your passkeys are stored in one place, that does create a single point of compromise. But wait a second, isn't that already true when you're using a password manager? One nice thing about having a single credential storage is that you can make authenticating with that have higher requirements than authenticating with individual websites. For example 1Password requires:
+Indeed, if all of your passkeys are stored in one place, that does create a single point of compromise. But wait a second, isn't that already true when you're using a password manager? One nice thing about having a single credential storage is that you can make unlocking that a more secure process than you could if you were worrying about 20 or 100 services. For example 1Password requires:
 
-1. Me to either enter my master password or authenticate with biometrics (FaceID or TouchID, depending on the device) just to access my credentials.
+1. Either a master password or biometrics (FaceID or TouchID, depending on the device) to access credentials.
 2. The master password at least once every two weeks.
-2. If I want to set it up on a new device, that I have access to a long secret key or another device that already has 1Password setup.
+2. A long secret key or a device with 1Password already installed in order to install 1Password on a new device.
 
 My credential manager is the bank vault that is protected with multiple layers of security. Everything else that uses passkeys, I just have to click a button (and scan my finger).
 
 ***
 
-Passkeys are still fairly new, so they aren't supported everywhere or even most places. I also expect there's going to be some rough edges or user experience flows that need to be worked out, but I'll also say, when I sat down to researching it for this post, I was impressed at how much stuff was already thought through. Things that I thought would be issues (like logging in on third-party devices) it turns out already have reasonable workflows. I think the security folks who have been working on this know how hard it is to get people to adopt new security practices and they worked hard to make it seamless and foolproof before the big push. I won't promise it'll all work perfectly – at this stage you'll still be an early adopter – but I can say (while acknowledging that I'm on the more tech- and security-savvy end of the spectrum) I've been using passkeys for at least some services for two years and have yet to run into any major issues.
+Passkeys are still relatively new, so they aren't supported everywhere or even most places. I expect there's going to be some rough edges or user experience flows that need to be worked out, but I will say, when I sat down to research this post, I was impressed at how much stuff was already thought through. Things that I thought would be issues (like logging in on third-party devices) already have reasonable workflows.
+
+I think the security folks who have been working on this know how hard it is to get people to adopt new security practices and they worked hard to make it seamless and foolproof before the big push. I won't promise it'll all work perfectly – at this stage you'll still be an early adopter – but I can say (while acknowledging that I'm on the more tech- and security-savvy end of the spectrum) I've been using passkeys for at least some services for two years and have yet to run into any major problems with them.
 
 For further reading, I recommend Wired's explainer _[How Passkeys Work – and How To Use Them](https://www.wired.com/story/what-is-a-passkey-and-how-to-use-them/)_.
 
