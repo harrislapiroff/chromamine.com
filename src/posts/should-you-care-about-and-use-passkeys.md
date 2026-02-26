@@ -26,11 +26,11 @@ I want to try to explain passkeys to the sort of person I just described and why
 
 You already don't have to memorize these passwords – it's possible you never even see some of them at all if you have the password manager automatically fill it for you. Logging in with a password isn't proving that you "know" a secret, it's proving that you *have access* to a secret.
 
-When you think about this a little more deeply, doesn't this *already* feel a bit like a stopgap solution? There's a piece of software that asks your for a secret to prove your identity. There's another piece of software that stores your secret. You're responsible for making sure that the second piece of software conveys your secret to the first piece of software, even though you yourself may never even look at that secret. Isn't it weird that we still make that secret short and human-readable? Isn't it weird that you're being asked to serve as an intermediary between these two pieces of software. Shouldn't we just make these pieces of software *talk directly to each other*?
+When you think about this a little more deeply, doesn't this *already* feel a bit like a stopgap solution? There's a piece of software that asks your for a secret to prove your identity. There's another piece of software that stores your secret. You're responsible for making sure that the second piece of software conveys your secret to the first piece of software, even though you yourself may never even look at that secret. Isn't it weird that we still make that secret short and human-readable? Isn't it weird that you're being asked to serve as an intermediary between these two pieces of software? Shouldn't we just make them *talk directly to each other*?
 
-The cool thing is, that it turns out, once you start having them talking directly to each other, you can rethink the premise of the whole system to create something that's *more* secure.
+The cool thing is, that it turns out, once you start connecting them directly, you can rethink the premise of the whole system to create something that's *more* secure.
 
-Instead of sending a password to a website, the website and your **credential manager** (this is what I'm going to call your password manager since it does more than passwords) can perform a "handshake" using public key cryptography. Your credential manager still holds a secret key it created for that website but it's actually a long, unguessable, cryptographic secret key. More importantly, the secret is never actually shared with the website. Your credential manager is able to cryptographically sign some data with it to prove that it has the correct secret key, but it never has to send the secret key itself. The result is that passkeys behave kind of like passwords under pre-passkey best practices:
+Instead of sending a password to a website, the website and your **credential manager** (this is what I'm going to call your password manager since it handles more than passwords) can perform a "handshake" using public key cryptography. Your credential manager still holds a secret key it created for that website but it's actually a long, unguessable, cryptographic secret key. More importantly, the secret is never actually shared with the website. Your credential manager is able to cryptographically sign some data with it to prove that it has the correct secret key, but it never has to send the secret key itself. The result is that passkeys behave kind of like passwords under pre-passkey best practices:
 
 1. They're stored in your credential manager.
 2. They're unique for each site.
@@ -59,7 +59,7 @@ Just like your passwords, they're stored in your credential manager. If you don'
 [Dashlane]: https://www.dashlane.com
 [BitWarden]: https://bitwarden.com
 
-Some passkeys are **synced** across devices (all of the ones I use stored in 1Password are) but you *can* create passkeys that are **device-bound**. You can have more than one passkey for authenticating to a service, so if, for example, you were really security-conscious, you might create a separate passkey for each device you use to access your email account. Later on, if you lost your phone, you could revoke the passkey associated with that phone. For me, I'd rather just have all my passkeys available on every device – which is 1Password's default behavior anyway.
+Some passkeys are **synced** across devices (all of the ones I use stored in 1Password are) but you *can* create passkeys that are **device-bound**. You can have more than one passkey for authenticating to a service, so if, for example, you are really security-conscious, you might create a separate passkey for each device you use to access your email account. Later on, if you lost your phone, you could revoke the passkey associated with that phone. For myself, I'd rather just have all my passkeys synced across on every device – which is 1Password's default behavior anyway.
 
 # What if I lose my passkeys?
 
@@ -72,10 +72,6 @@ Additionally, we're still in what will be a long transition phase for passkeys. 
 There is a flow for logging into a device that doesn't have your passkey. When you try to log into a service, the party device will show a QR code which you can scan with a device that you *do* own, like your phone. Your phone will perform the authentication process with some added security (like a proximity check) and you'll be logged in on the other device. I haven't actually tried this flow myself, so I can't report on its usability, but it sounds very similar to the way I log into apps on my Google TV to avoid using the @#%!ing on screen keyboard.
 
 And, again, at least for now, if all else fails, most services will continue to let you authenticate with a password instead.
-
-# What about people who don't have password managers?
-
-If you don't already have a credential manager, all major operating systems have one built in. Your web browser will likely default to using that. At least some of those are also designed to sync your credentials across devices that you own (via, for example, iCloud Keychain, for Apple devices).
 
 # Doesn't this create a single point of compromise?
 
@@ -95,6 +91,6 @@ I think the security folks who have been working on this know how hard it is to 
 
 For further reading, I recommend Wired's explainer _[How Passkeys Work – and How To Use Them](https://www.wired.com/story/what-is-a-passkey-and-how-to-use-them/)_.
 
-If you use passkeys and run into issues, I'd be interested in hearing what they are in the comments on Facebook or Mastodon or directly to [my email][].
+If you use passkeys and run into issues, I'd be interested in hearing what they are to inform updates to this post. You can comment on Facebook or Mastodon or directly to [my email][].
 
 [my email]: mailto:blog@chromamine.com
