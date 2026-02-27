@@ -8,11 +8,11 @@ images:
     src: image.png
     alt: A screenshot of the 1Password app asking if I want to use a passkey to sign in to GitHub.
     caption: Instead of dealing with the login form on the left, I just click the button on the right to sign in.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/116141307790677963
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0368tBAzsWMPkgWgwnJ1mV8LjMAom926Dqzn9EvqrVQCCpUZjqwuken8QzR44aYgrFl
 ---
 
 You're relatively tech- and security-savvy. You might not always be at the cutting edge or use the most paranoid security measures, but you use a password manager, you know about two-factor authentication and use it on at least some of your accounts. You know not to reuse passwords. Lately, though, you're seeing a lot of sites prompt you to create a "passkey" without a lot of explanation. Maybe you have a vague idea that someone thinks this is the future of logging in or something. Should you push the button? Is it going to be some new annoying security tool to manage? Where does the passkey live anyway? Why is everyone prompting you to do this when you're just trying to check your email? Are you going to risk getting locked out if you say yes, but something goes wrong?
