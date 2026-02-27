@@ -31,9 +31,11 @@ When you think about this a little more deeply, doesn't this *already* feel a bi
 
 The cool thing is that, it turns out, once you start connecting them directly, you can rethink the premise of the whole system to create something that's *more* secure.
 
-Instead of sending a password to a website, the website and your **credential manager** (this is what I'm going to call your password manager since it handles more than passwords) can perform a "handshake" using [public key cryptography][]. Your credential manager still holds a secret key it created for that website, but unlike a password, it's an unguessable, cryptographic secret key. More importantly, the secret is never actually shared with the website. Your credential manager is able to cryptographically sign some data with it to prove that it has the correct secret key, but it never has to send the secret key itself. The result is that passkeys behave kind of like passwords under pre-passkey best practices:
+Instead of sending a password to a website, the website and your **credential manager** (this is what I'm going to call your password manager since it handles more than passwords) can perform a "handshake" using [public key cryptography][]. Your credential manager still holds a secret key it created for that website, but unlike a password, it's an unguessable, cryptographic secret key. More importantly, the secret is never actually shared with the website. Your credential manager is able to cryptographically sign some data with it to prove that it has the correct secret key,[^1] but it never has to send the secret key itself. The result is that passkeys behave kind of like passwords under pre-passkey best practices:
 
 [public key cryptography]: https://en.wikipedia.org/wiki/Public-key_cryptography
+
+[^1]: I'm glossing over a lot of details here, but public key cryptography is *incredibly cool*. When I first learned that it was possible to create a pair of encryption keys where one decrypts whatever the other encrypts and vice versa – without needing both keys – it seemed like magic. Eventually I took a number theory course and I learned the math behind it and it *still seems like magic*.
 
 1. They're stored in your credential manager.
 2. They're unique for each site.
