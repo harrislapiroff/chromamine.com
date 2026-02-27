@@ -2,15 +2,53 @@ import Token from 'markdown-it/lib/token.mjs'
 import { md as baseMd } from '../../markdown.js'
 
 /**
+ * Skip past a string literal (single-quoted, double-quoted, or template literal)
+ * starting at position i (which should be the opening quote character).
+ * Returns the index after the closing quote.
+ */
+function skipString(source, i) {
+  const quote = source[i]
+  i++ // skip opening quote
+  while (i < source.length) {
+    if (source[i] === '\\') {
+      i += 2 // skip escaped character
+      continue
+    }
+    if (quote === '`' && source[i] === '$' && source[i + 1] === '{') {
+      // Nested ${} inside template literal — recurse with brace counting
+      i += 2
+      let depth = 1
+      while (i < source.length && depth > 0) {
+        if (source[i] === '\\') { i += 2; continue }
+        if (source[i] === '\'' || source[i] === '"' || source[i] === '`') {
+          i = skipString(source, i)
+          continue
+        }
+        if (source[i] === '{') depth++
+        else if (source[i] === '}') depth--
+        if (depth > 0) i++
+      }
+      if (i < source.length) i++ // skip closing }
+      continue
+    }
+    if (source[i] === quote) {
+      return i + 1 // skip closing quote
+    }
+    i++
+  }
+  return i // unterminated string
+}
+
+/**
  * Extract inline ${...} expressions from markdown source, replacing them
- * with placeholder spans. Handles balanced braces.
+ * with placeholder spans. Handles balanced braces and skips over string
+ * literals so that braces inside strings don't break the balancing.
  */
 function extractInlineExpressions(source, cells) {
   let result = ''
   let i = 0
 
   while (i < source.length) {
-    // Look for ${ but not inside fenced code blocks
     if (source[i] === '$' && source[i + 1] === '{') {
       // Count balanced braces to find the end
       let depth = 0
@@ -18,9 +56,17 @@ function extractInlineExpressions(source, cells) {
       let j = i + 1
 
       while (j < source.length) {
-        if (source[j] === '{') {
+        const ch = source[j]
+
+        // Skip over string/template literals
+        if (ch === '\'' || ch === '"' || ch === '`') {
+          j = skipString(source, j)
+          continue
+        }
+
+        if (ch === '{') {
           depth++
-        } else if (source[j] === '}') {
+        } else if (ch === '}') {
           depth--
           if (depth === 0) {
             const expr = source.slice(start, j)
@@ -54,7 +100,6 @@ function extractInlineExpressions(source, cells) {
  */
 function extractInlineExpressionsFromProse(source, cells) {
   let result = ''
-  let i = 0
   const lines = source.split('\n')
   let inFence = false
   let fenceChar = ''
@@ -126,6 +171,10 @@ export function parseOmd(source) {
 
       // ```js — execute only (hide source)
       if (info === 'js') {
+        // Skip empty code blocks
+        if (!token.content.trim()) {
+          continue
+        }
         const cellId = `cell-${cells.length}`
         cells.push({ id: cellId, source: token.content, type: 'block' })
 
@@ -138,6 +187,10 @@ export function parseOmd(source) {
 
       // ```js echo — execute AND display source
       if (info === 'js echo') {
+        // Skip empty code blocks
+        if (!token.content.trim()) {
+          continue
+        }
         const cellId = `cell-${cells.length}`
         cells.push({ id: cellId, source: token.content, type: 'block' })
 
