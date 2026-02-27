@@ -246,12 +246,13 @@ export default function(eleventyConfig) {
 
                 // 4. Write bundle to a JS file alongside the output
                 const scriptFilename = `${data.page.fileSlug}.omd.js`
-                const outputDir = path.join('_site', data.permalink)
+                const outputDir = path.dirname(data.page.outputPath)
                 await fs.mkdir(outputDir, { recursive: true })
                 await fs.writeFile(path.join(outputDir, scriptFilename), bundled)
 
                 // 5. Return HTML with script tag referencing the bundle
-                const scriptUrl = `/${data.permalink}${scriptFilename}`
+                const base = data.permalink.endsWith('/') ? data.permalink : data.permalink + '/'
+                const scriptUrl = `/${base}${scriptFilename}`
                 return html + `\n<script type="module" src="${scriptUrl}"></script>`
             }
         }
