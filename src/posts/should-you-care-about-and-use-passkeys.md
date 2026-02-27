@@ -35,7 +35,7 @@ Instead of sending a password to a website, the website and your **credential ma
 
 [public key cryptography]: https://en.wikipedia.org/wiki/Public-key_cryptography
 
-[^1]: I'm glossing over a lot of details here, but public key cryptography is *incredibly cool*. When I first learned that it was possible to create a pair of encryption keys where one decrypts whatever the other encrypts and vice versa – without needing both keys – it seemed like magic. Eventually I took a number theory course and I learned the math behind it and it *still seems like magic*.
+[^1]: I'm glossing over a lot of details here, but public key cryptography is *incredibly cool*. When I first learned that it was possible to create a pair of encryption keys where one decrypts whatever the other encrypts and vice versa – without needing the original key to perform the decryption – it seemed like magic. Eventually I took a number theory course and learned the math behind it and it *still seems like magic*.
 
 1. They're stored in your credential manager.
 2. They're unique for each site.
