@@ -17,9 +17,7 @@ images:
 
 You're relatively tech- and security-savvy. You might not always be at the cutting edge or use the most paranoid security measures, but you use a password manager, you know about two-factor authentication and use it on at least some of your accounts. You know not to reuse passwords. Lately, though, you're seeing a lot of sites prompt you to create a "passkey" without a lot of explanation. Maybe you have a vague idea that someone thinks this is the future of logging in or something. Should you push the button? Is it going to be some new annoying security tool to manage? Where does the passkey live anyway? Why is everyone prompting you to do this when you're just trying to check your email? Are you going to risk getting locked out if you say yes, but something goes wrong?
 
-I want to try to explain passkeys to the sort of person I just described and why I think you should use them. There are a lot of passkey explainers out there (the official one is at [passkeys.dev][]), but this one is mine and I want to start in a place that I don't see a lot of explainers start: talking about what we already know about password managers and security best practices. We know that the best password hygiene is:
-
-[passkeys.dev]: https://passkeys.dev
+I want to try to explain passkeys to the sort of person I just described and why I think you should use them. There are a lot of passkey explainers out there, but this one is mine and I want to start in a place that I don't see a lot of explainers start: talking about what we already know about password managers and security best practices. We know that the best password hygiene is:
 
 1. Use a password manager.
 2. Let the password manager generate a unique, random password for each site.
@@ -96,7 +94,7 @@ Passkeys are still relatively new, so they aren't supported everywhere or even m
 
 I think the security folks who have been working on this know how hard it is to get people to adopt new security practices and they worked hard to make it seamless and foolproof before the big push. I can't promise it'll all work perfectly but, for myself (acknowledging that I'm on the more tech- and security-savvy end of the spectrum), I've been using passkeys for over two years on some services and have yet to run into any major problems with them.
 
-For further reading, I recommend Wired's explainer _[How Passkeys Work – and How To Use Them](https://www.wired.com/story/what-is-a-passkey-and-how-to-use-them/)_.
+For further reading, I recommend Wired's explainer _[How Passkeys Work – and How To Use Them](https://www.wired.com/story/what-is-a-passkey-and-how-to-use-them/)_. The organization I work for (Freedom of the Press Foundation) also has an [excellent guide](https://freedom.press/digisec/blog/passkeys-beginners/).
 
 If you use passkeys and run into issues, I'd be interested in hearing what they are to inform updates to this post. You can comment on Facebook or Mastodon or [via email][].
 
