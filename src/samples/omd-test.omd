@@ -1,0 +1,76 @@
+---
+title: "OMD Test Post"
+date: 2026-02-27
+categories: [Software]
+tags: [test, observable]
+eleventyExcludeFromCollections: true
+layout: page.webc
+permalink: samples/omd-test/
+---
+
+This is a test of the Observable Markdown (`.omd`) format. It combines regular markdown prose with executable JavaScript code blocks and inline expression interpolation.
+
+### Interactive Input
+
+```js
+viewof radius = Inputs.range([0, 100], {
+  step: 1,
+  value: 50,
+  label: "Radius"
+})
+```
+
+The current radius is **${radius}**.
+
+### Reactive Visualization
+
+```js
+htl.html`
+  <svg width="220" height="220" viewBox="-10 -10 220 220">
+    <circle cx="100" cy="100" r="${radius}" fill="transparent" stroke-width="2" stroke="currentColor" />
+  </svg>
+`
+```
+
+### Data Visualization with Plot
+
+```js
+data = [
+  {category: "A", value: 28},
+  {category: "B", value: 55},
+  {category: "C", value: 43},
+  {category: "D", value: 91},
+  {category: "E", value: 81},
+  {category: "F", value: 53}
+]
+```
+
+```js
+Plot.plot({
+  marks: [
+    Plot.barY(data, {x: "category", y: "value", fill: "steelblue"})
+  ],
+  width: 400,
+  height: 300
+})
+```
+
+### Code Display (not executed)
+
+Here's an example of syntax-highlighted code that is *not* executed:
+
+```javascript
+// This is just a code sample
+const greeting = "hello world"
+console.log(greeting)
+```
+
+### Echo Mode
+
+This block is both displayed as source code and executed:
+
+```js echo
+message = "Hello from OMD!"
+```
+
+The message is: ${message}.
