@@ -15,6 +15,9 @@ import eleventySass from "eleventy-sass"
 import yaml from "js-yaml"
 
 import { compileObservable } from "./config/utils/ojs/compile.js"
+import { parseOmd } from "./config/utils/omd/parse.js"
+import { transpileCells } from "./config/utils/omd/transpile.js"
+import { bundleModule } from "./config/utils/omd/bundle.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
 
@@ -29,7 +32,7 @@ import {
     getSEOImage,
 } from "./config/filters.js"
 
-const blogPostFormats = ['md', 'ojs', 'html']
+const blogPostFormats = ['md', 'ojs', 'omd', 'html']
 // Any file in the posts directory with a blog post format extension
 const blogPostGlobs = blogPostFormats.map((format) => `./src/posts/*.${format}`)
 
@@ -212,6 +215,45 @@ export default function(eleventyConfig) {
                 inspectorPath: '/' + inspectorOutputPath,
                 globalPath: '/' + globalOutputPath,
             })
+        }
+    })
+
+    /* OMD templates (Observable Markdown)
+     * Markdown with executable JS code blocks and ${} interpolation
+     *------------------------------------*/
+
+    eleventyConfig.addPassthroughCopy({
+        'node_modules/@observablehq/runtime/src/': '_omd/runtime/',
+        'config/utils/ojs/client/inspector.js': '_omd/inspector.js',
+    })
+
+    eleventyConfig.addTemplateFormats('omd')
+    eleventyConfig.addExtension('omd', {
+        compileOptions: { permalink: () => (data) => data.permalink },
+        compile: async (inputContent) => {
+            return async (data) => {
+                // 1. Parse markdown and extract cells
+                const { html, cells } = parseOmd(inputContent)
+
+                // If there are no cells, just return the HTML
+                if (cells.length === 0) return html
+
+                // 2. Transpile cells to Observable runtime module
+                const { moduleSource } = transpileCells(cells)
+
+                // 3. Bundle with ESBuild (resolves npm imports)
+                const bundled = await bundleModule(moduleSource)
+
+                // 4. Write bundle to a JS file alongside the output
+                const scriptFilename = `${data.page.fileSlug}.omd.js`
+                const outputDir = path.join('_site', data.permalink)
+                await fs.mkdir(outputDir, { recursive: true })
+                await fs.writeFile(path.join(outputDir, scriptFilename), bundled)
+
+                // 5. Return HTML with script tag referencing the bundle
+                const scriptUrl = `/${data.permalink}${scriptFilename}`
+                return html + `\n<script type="module" src="${scriptUrl}"></script>`
+            }
         }
     })
 
