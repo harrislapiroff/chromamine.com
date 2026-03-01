@@ -18,12 +18,16 @@ xposts:
 - Two days ago, LastPass published a blog post announcing the second part of the breach. 
 - Saved login metadata (notably URLs) are more or less unencrypted, so attackers have access to lists of what sites all LastPass users use. 
 - Passwords are encrypted using user master passwords, so the attackers can’t decrypt those unless a user’s master password is guessable or reused from somewhere else where it may have been breached.
+
 All software has security holes and LastPass is a huge target, so of course it’s under regular attack and some of those attacks will get through. Still, a couple particular things bug me:
+
 - Storing metadata more-or-less unencrypted is not great. *Which* websites you use can be sensitive data on its own.
 - The passwords are still encrypted by users’ master passwords. This is roughly what you want. Breaches like this are planned for and that’s the next level of defense as per the plan. But it’s possible to do better than this. 1Password encrypts vault data with master passwords *and* a randomly generated local secret key. Even if an attacker acquired vault data from 1P and could guess your master password, they still could not decrypt your vault. (The secret key adds a bit of friction to the 1P user experience, but I think it’s not particularly tricky and the trade off seems worth it in light of the LP breach.)
+
 But, okay, let’s set those two issues aside. Maintaining trust is about how you respond to security incidents. For me, there’s a couple red flags in LastPass’s response:
-- Timing: Why is the timing of the user vault access unspecified? If it was earlier this week, this is a prompt disclosure, so they did the best they could. If it was much earlier than that then this is a late disclosure, either because they didn’t know user data had been accessed or because they tried to hide it. Neither would be a great explanation. In that case, dropping a report right before a bunch of people go on vacation is particularly bad. Maybe more details will be published on this front that will vindicate their announcement timing here. I’ll update this post if so. 
-- Communication: The blog post itself seems poorly written to me. The worst details of the breach and mitigations users need to take are buried in the middle of a long narrative post. Maybe a LastPass user can share if they’ve sent out any emails that are clearer about how you should protect your data?
+
+- **Timing:** Why is the timing of the user vault access unspecified? If it was earlier this week, this is a prompt disclosure, so they did the best they could. If it was much earlier than that then this is a late disclosure, either because they didn’t know user data had been accessed or because they tried to hide it. Neither would be a great explanation. In that case, dropping a report right before a bunch of people go on vacation is particularly bad. Maybe more details will be published on this front that will vindicate their announcement timing here. I’ll update this post if so. 
+- **Communication:** The blog post itself seems poorly written to me. The worst details of the breach and mitigations users need to take are buried in the middle of a long narrative post. Maybe a LastPass user can share if they’ve sent out any emails that are clearer about how you should protect your data?
 
 I’m still a bit on the fence about how bad this is. If LastPass publishes more details about the attack timing, maybe I’ll come out sympathetic to them. But right now it doesn’t look great to me.
 
