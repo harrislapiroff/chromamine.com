@@ -35,7 +35,8 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
 
 ### Directory Structure
 - `src/` - Source files
-  - `posts/` - Blog posts (`.md`, `.ojs`, `.html`)
+  - `posts/` - Blog posts (`.md`, `.omd`, `.ojs`, `.html`)
+  - `samples/` - Test/sample pages (excluded from collections)
   - `_components/` - WebC components
   - `_layouts/` - Page layouts
   - `_data/` - Global data files
@@ -45,7 +46,7 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
 - `config/` - Eleventy configuration modules
 
 ### Content Types
-- **Blog posts** - Support multiple formats: Markdown (`.md`), Observable notebooks (`.ojs`), HTML
+- **Blog posts** - Support multiple formats: Markdown (`.md`), Observable Markdown (`.omd`), Observable notebooks (`.ojs`), HTML
 - **Dance events** - YAML-based event management with calendar generation
 - **Media** - Automatic image optimization and multiple format generation
 
@@ -60,7 +61,8 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
 ### Notable Features
 - **Source file transparency** - Original `.md`/`.ojs` files are copied to output as `.txt` for viewing
 - **Asset revisioning** - CSS/JS files get content-based hashes for cache busting
-- **Observable notebook support** - `.ojs` files compile to interactive data visualizations
+- **Observable Markdown** - `.omd` files combine markdown prose with executable JS cells and reactive `${expr}` interpolation
+- **Observable notebook support** - `.ojs` files compile to interactive data visualizations (legacy)
 - **Dance event calendar** - Generates ICS calendar files from YAML data
 - **Multi-format blog posts** - Supports Markdown, Observable, and HTML formats
 
