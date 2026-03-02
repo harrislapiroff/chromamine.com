@@ -88,8 +88,21 @@ Note, following WebC syntax, properties that are strings do not require a preced
         size = undefined,
         color = 'currentColor',
     }) => {
-        const url = generateMaterialIconURL(name, { opticalSize, weight, grade, fill, style })
-        const svg = await Fetch(url, { duration: '*', type: 'text' })
+        let url
+        try {
+            url = generateMaterialIconURL(name, { opticalSize, weight, grade, fill, style })
+        } catch (e) {
+            console.warn(`[material-icon] Invalid options for icon "${name}": ${e.message}`)
+            return `<!-- material-icon "${name}" failed: ${e.message} -->`
+        }
+
+        let svg
+        try {
+            svg = await Fetch(url, { duration: '*', type: 'text' })
+        } catch (e) {
+            console.warn(`[material-icon] Failed to fetch icon "${name}" from ${url}: ${e.message}`)
+            return `<!-- material-icon "${name}" failed to fetch: ${e.message} -->`
+        }
 
         // Add fill, width, and height attributes to the outer <svg> tag
         // Note: for some reason Eleventy Fetch sometimes returns SVG as a buffer instead of a string, so we convert it defensively
