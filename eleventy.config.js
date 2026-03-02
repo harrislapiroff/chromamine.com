@@ -15,9 +15,7 @@ import eleventySass from "eleventy-sass"
 import yaml from "js-yaml"
 
 import { compileObservable } from "./config/utils/ojs/compile.js"
-import { parseOmd } from "./config/utils/omd/parse.js"
-import { transpileCells } from "./config/utils/omd/transpile.js"
-import { bundleModule } from "./config/utils/omd/bundle.js"
+import omdPlugin from "./config/plugins/omd/index.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
 
@@ -98,7 +96,6 @@ export default function(eleventyConfig) {
     })
     eleventyConfig.addWatchTarget('./src/static/scripts/')
     eleventyConfig.addWatchTarget('./src/dance/static/scripts/')
-    eleventyConfig.addWatchTarget('./config/utils/omd/')
 
     /* Pass media directory through
      *-------------------------------------*/
@@ -222,42 +219,7 @@ export default function(eleventyConfig) {
     /* OMD templates (Observable Markdown)
      * Markdown with executable JS code blocks and ${} interpolation
      *------------------------------------*/
-
-    eleventyConfig.addPassthroughCopy({
-        'node_modules/@observablehq/runtime/src/': '_omd/runtime/',
-        'config/utils/ojs/client/inspector.js': '_omd/inspector.js',
-    })
-
-    eleventyConfig.addTemplateFormats('omd')
-    eleventyConfig.addExtension('omd', {
-        compileOptions: { permalink: () => (data) => data.permalink },
-        compile: async (inputContent) => {
-            return async (data) => {
-                // 1. Parse markdown and extract cells
-                const { html, cells } = parseOmd(inputContent)
-
-                // If there are no cells, just return the HTML
-                if (cells.length === 0) return html
-
-                // 2. Transpile cells to Observable runtime module
-                const { moduleSource } = transpileCells(cells)
-
-                // 3. Bundle with ESBuild (resolves npm imports)
-                const bundled = await bundleModule(moduleSource)
-
-                // 4. Write bundle to a JS file alongside the output
-                const scriptFilename = `${data.page.fileSlug}.omd.js`
-                const outputDir = path.dirname(data.page.outputPath)
-                await fs.mkdir(outputDir, { recursive: true })
-                await fs.writeFile(path.join(outputDir, scriptFilename), bundled)
-
-                // 5. Return HTML with script tag referencing the bundle
-                const base = data.permalink.endsWith('/') ? data.permalink : data.permalink + '/'
-                const scriptUrl = `/${base}${scriptFilename}`
-                return html + `\n<script type="module" src="${scriptUrl}"></script>`
-            }
-        }
-    })
+    eleventyConfig.addPlugin(omdPlugin, { markdownIt: md })
 
     // Add WebC
     eleventyConfig.addPlugin(pluginWebc, {

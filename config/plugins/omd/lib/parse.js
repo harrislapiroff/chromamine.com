@@ -1,5 +1,4 @@
 import Token from 'markdown-it/lib/token.mjs'
-import { md as baseMd } from '../../markdown.js'
 
 /**
  * Skip past a string literal (single-quoted, double-quoted, or template literal)
@@ -149,17 +148,21 @@ function extractInlineExpressionsFromProse(source, cells) {
  * - ```js echo blocks are rendered as highlighted code AND extracted
  * - ```javascript blocks are rendered as highlighted code only
  * - ${expr} in prose is extracted as inline cells
+ *
+ * @param {string} source - The OMD source content
+ * @param {object} markdownIt - A configured markdown-it instance
+ * @returns {{ html: string, cells: Array }} Parsed HTML and extracted cells
  */
-export function parseOmd(source) {
+export function parseOmd(source, markdownIt) {
   const cells = []
 
   // Step 1: Extract inline expressions from prose (not from code blocks)
   const processedSource = extractInlineExpressionsFromProse(source, cells)
 
-  // Step 2: Parse with the base markdown-it instance, then post-process
+  // Step 2: Parse with the markdown-it instance, then post-process
   // the token stream to intercept executable code blocks.
   const env = {}
-  const tokens = baseMd.parse(processedSource, env)
+  const tokens = markdownIt.parse(processedSource, env)
 
   // Walk tokens and replace ```js fences with cell placeholders
   const processedTokens = []
@@ -215,7 +218,7 @@ export function parseOmd(source) {
   }
 
   // Render the processed tokens
-  const html = baseMd.renderer.render(processedTokens, baseMd.options, env)
+  const html = markdownIt.renderer.render(processedTokens, markdownIt.options, env)
 
   return { html, cells }
 }
