@@ -2,7 +2,7 @@ import path from 'node:path'
 import fs from 'fs/promises'
 
 import { parseOmd } from './lib/parse.js'
-import { transpileCells } from './lib/transpile.js'
+import { transpileCells, extractFileAttachmentNames } from './lib/transpile.js'
 import { bundleModule } from './lib/bundle.js'
 
 const pluginRoot = path.resolve(import.meta.dirname)
@@ -56,27 +56,42 @@ export default function omdPlugin(eleventyConfig, options = {}) {
         // If there are no cells, just return the HTML
         if (cells.length === 0) return html
 
-        // 2. Transpile cells to Observable runtime module
+        const pageUrl = data.page.url.endsWith('/') ? data.page.url : data.page.url + '/'
+        const outputDir = path.dirname(data.page.outputPath)
+
+        // 2. Extract and copy file attachments
+        const fileAttachmentNames = extractFileAttachmentNames(cells)
+        const fileAttachmentMap = {}
+        if (fileAttachmentNames.size > 0) {
+          const sourceDir = path.dirname(data.page.inputPath)
+          for (const name of fileAttachmentNames) {
+            const sourcePath = path.resolve(sourceDir, name)
+            const destPath = path.join(outputDir, name)
+            await fs.mkdir(path.dirname(destPath), { recursive: true })
+            await fs.copyFile(sourcePath, destPath)
+            fileAttachmentMap[name] = `${pageUrl}${name}`
+          }
+        }
+
+        // 3. Transpile cells to Observable runtime module
         const { moduleSource } = transpileCells(cells, {
           runtimePath: '/' + runtimeOutputPath + 'index.js',
-          inspectorPath: '/' + inspectorOutputPath
+          inspectorPath: '/' + inspectorOutputPath,
+          fileAttachmentMap
         })
 
-        // 3. Bundle with ESBuild (resolves npm imports)
+        // 4. Bundle with ESBuild (resolves npm imports)
         const bundled = await bundleModule(moduleSource, {
           resolveDir: path.resolve(pluginRoot, '..', '..', '..'),
           external: [`/${outputPrefix}/*`]
         })
 
-        // 4. Write bundle to a JS file alongside the output
+        // 5. Write bundle to a JS file alongside the output
         const scriptFilename = `${data.page.fileSlug}.omd.js`
-        const outputDir = path.dirname(data.page.outputPath)
         await fs.mkdir(outputDir, { recursive: true })
         await fs.writeFile(path.join(outputDir, scriptFilename), bundled)
 
-        // 5. Return HTML with script tag referencing the bundle
-        // Use page.url (normalized with leading slash) for reliable URL construction
-        const pageUrl = data.page.url.endsWith('/') ? data.page.url : data.page.url + '/'
+        // 6. Return HTML with script tag referencing the bundle
         const scriptUrl = `${pageUrl}${scriptFilename}`
         return html + `\n<script type="module" src="${scriptUrl}"></script>`
       }
