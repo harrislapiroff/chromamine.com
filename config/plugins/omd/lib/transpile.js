@@ -53,9 +53,13 @@ function generateCellFunction(bodySource, refs, cell) {
  * Explicit `import { name } from "pkg"` statements are hoisted as
  * ES imports and bundled by ESBuild.
  *
- * Returns { moduleSource } where moduleSource is the full ES module code string.
+ * @param {Array} cells - Array of cell objects from parseOmd
+ * @param {object} options - Configuration options
+ * @param {string} options.runtimePath - URL path to Observable runtime
+ * @param {string} options.inspectorPath - URL path to Inspector module
+ * @returns {{ moduleSource: string }} The full ES module code string
  */
-export function transpileCells(cells) {
+export function transpileCells(cells, { runtimePath, inspectorPath }) {
   const defines = []
   const explicitImportLines = []
   const explicitImportDefines = []
@@ -187,8 +191,8 @@ export function transpileCells(cells) {
 ${explicitImportLines.join('\n')}
 import {Library as _Library} from '@observablehq/stdlib'
 
-const runtimePath = '/_omd/runtime/index.js'
-const inspectorPath = '/_omd/inspector.js'
+const runtimePath = '${runtimePath}'
+const inspectorPath = '${inspectorPath}'
 
 async function boot() {
   const [{Runtime}, {Inspector}] = await Promise.all([
