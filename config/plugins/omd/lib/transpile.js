@@ -246,9 +246,7 @@ async function boot() {
   const runtime = new Runtime(new _Library())
   const main = runtime.module()
 
-  ${fileAttachmentDefine}
-
-  ${explicitImportDefines.join('\n  ')}
+  ${[fileAttachmentDefine, ...explicitImportDefines].filter(Boolean).join('\n  ')}
 
   ${defines.join('\n\n  ')}
 }

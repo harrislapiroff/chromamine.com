@@ -41,8 +41,8 @@ export default function omdPlugin(eleventyConfig, options = {}) {
     [path.join(pluginRoot, 'client', 'inspector.js')]: inspectorOutputPath
   })
 
-  // Watch the plugin's lib directory for changes during development
-  eleventyConfig.addWatchTarget(path.join(pluginRoot, 'lib'))
+  // Watch the plugin for changes during development
+  eleventyConfig.addWatchTarget(pluginRoot)
 
   // Register the .omd template format and extension
   eleventyConfig.addTemplateFormats('omd')
