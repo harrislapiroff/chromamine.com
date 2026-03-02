@@ -112,6 +112,7 @@ export default function(eleventyConfig) {
     })
     eleventyConfig.addWatchTarget('./src/static/scripts/')
     eleventyConfig.addWatchTarget('./src/dance/static/scripts/')
+    eleventyConfig.addWatchTarget('./config/utils/omd/')
 
     /* Pass media directory through
      *-------------------------------------*/

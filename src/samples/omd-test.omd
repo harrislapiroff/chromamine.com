@@ -55,6 +55,30 @@ Plot.plot({
 })
 ```
 
+### Standard Library
+
+Standard library packages (`d3`, `Plot`, `Inputs`, `htl`, and others) are provided automatically by the Observable stdlib via lazy CDN loading. No import statements needed — just reference the package name in a cell:
+
+```js echo
+colorScale = d3.scaleSequential(d3.interpolateViridis).domain([0, 5])
+```
+
+```js
+htl.html`<div style="display: flex; gap: 2px;">${
+  d3.range(6).map(i => htl.html`<div style="width: 40px; height: 40px; background: ${colorScale(i)}; border-radius: 4px;"></div>`)
+}</div>`
+```
+
+### Explicit Imports
+
+You can also import specific functions from npm packages using standard `import` syntax. The package must be installed in `node_modules/`.
+
+```js
+import { format } from "d3-format"
+```
+
+Formatted pi: **${format(".4f")(Math.PI)}**.
+
 ### Code Display (not executed)
 
 Here's an example of syntax-highlighted code that is *not* executed:

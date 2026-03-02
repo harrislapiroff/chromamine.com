@@ -1,14 +1,5 @@
 import { parseCell } from '@observablehq/parser'
 
-// Map from Observable variable names to npm package specifiers.
-// When a cell references one of these, it becomes a static ES import.
-const NPM_PACKAGES = {
-  d3: 'd3',
-  Plot: '@observablehq/plot',
-  Inputs: '@observablehq/inputs',
-  htl: 'htl'
-}
-
 /**
  * Get the name string for a cell's id node.
  */
@@ -57,14 +48,18 @@ function generateCellFunction(bodySource, refs, cell) {
 /**
  * Transpile an array of cells into an Observable runtime module source string.
  *
- * Returns { moduleSource, npmImports } where:
- *   - moduleSource is the full ES module code string
- *   - npmImports is a Set of npm package specifiers to bundle
+ * Standard library names (d3, Plot, Inputs, htl, etc.) are provided
+ * automatically by the Observable stdlib via the Runtime's builtins.
+ * Explicit `import { name } from "pkg"` statements are hoisted as
+ * ES imports and bundled by ESBuild.
+ *
+ * Returns { moduleSource } where moduleSource is the full ES module code string.
  */
 export function transpileCells(cells) {
-  const npmImports = new Set()
   const defines = []
-  const importCells = []
+  const explicitImportLines = []
+  const explicitImportDefines = []
+  const explicitImportAliases = new Map() // package specifier -> safe alias
 
   for (const cell of cells) {
     if (cell.type === 'inline') {
@@ -79,12 +74,6 @@ export function transpileCells(cells) {
       }
 
       const refs = [...new Set(parsed.references.map(getRefName))]
-
-      // Check refs for npm packages
-      for (const ref of refs) {
-        if (NPM_PACKAGES[ref]) npmImports.add(ref)
-      }
-
       const depList = refs.map(r => `'${r}'`).join(', ')
       const bodySource = cell.source.trim()
       const fn = generateCellFunction(bodySource, refs, parsed)
@@ -108,9 +97,28 @@ export function transpileCells(cells) {
       continue
     }
 
-    // Handle import declarations
+    // Handle import declarations: hoist as ES imports and register
+    // each imported name as an Observable runtime variable
     if (parsed.body && parsed.body.type === 'ImportDeclaration') {
-      importCells.push({ cell, parsed })
+      const source = parsed.body.source.value
+      const specifiers = parsed.body.specifiers || []
+
+      // Generate a namespace import (deduplicated per package)
+      let safeAlias = explicitImportAliases.get(source)
+      if (!safeAlias) {
+        safeAlias = '_pkg_' + source.replace(/[^a-zA-Z0-9]/g, '_')
+        explicitImportAliases.set(source, safeAlias)
+        explicitImportLines.push(`import * as ${safeAlias} from '${source}'`)
+      }
+
+      // Register each imported name as an Observable variable
+      for (const spec of specifiers) {
+        const importedName = spec.imported.name
+        const localName = spec.local.name
+        explicitImportDefines.push(
+          `main.define('${escapeString(localName)}', [], () => ${safeAlias}.${importedName})`
+        )
+      }
       continue
     }
 
@@ -119,12 +127,6 @@ export function transpileCells(cells) {
 
     const cellName = getCellName(parsed.id)
     const refs = [...new Set(parsed.references.map(getRefName))]
-
-    // Check refs for npm packages
-    for (const ref of refs) {
-      if (NPM_PACKAGES[ref]) npmImports.add(ref)
-    }
-
     const depList = refs.map(r => `'${r}'`).join(', ')
 
     // Extract the body portion from the cell source.
@@ -180,26 +182,9 @@ export function transpileCells(cells) {
     }
   }
 
-  // Build the import lines for npm packages
-  const npmImportLines = Array.from(npmImports).map(name => {
-    const pkg = NPM_PACKAGES[name]
-    return `import * as _npm_${name} from '${pkg}'`
-  })
-
-  // Build the npm package registration lines
-  const npmRegisterLines = Array.from(npmImports).map(name => {
-    return `main.define('${name}', [], () => _npm_${name})`
-  })
-
-  // Warn about unsupported Observable notebook imports
-  for (const { cell, parsed } of importCells) {
-    const source = parsed.body.source.value
-    console.warn(`Warning: Observable notebook import "import ... from '${source}'" in cell ${cell.id} is not yet supported and will be ignored.`)
-  }
-
   // Build the full module source
   const moduleSource = `
-${npmImportLines.join('\n')}
+${explicitImportLines.join('\n')}
 import {Library as _Library} from '@observablehq/stdlib'
 
 const runtimePath = '/_omd/runtime/index.js'
@@ -217,16 +202,13 @@ async function boot() {
     return new Inspector(el)
   }
 
-  // Create stdlib and pass a global resolver so Generators, Mutable, etc. are available
-  const stdlib = new _Library()
-  function resolveGlobal(name) {
-    if (name in stdlib) return stdlib[name]
-    return globalThis[name]
-  }
-  const runtime = new Runtime({}, resolveGlobal)
+  // Pass the Observable stdlib as builtins so all standard library names
+  // (d3, Plot, Inputs, htl, Generators, Mutable, etc.) are automatically
+  // available via lazy CDN loading.
+  const runtime = new Runtime(new _Library())
   const main = runtime.module()
 
-  ${npmRegisterLines.join('\n  ')}
+  ${explicitImportDefines.join('\n  ')}
 
   ${defines.join('\n\n  ')}
 }
@@ -234,5 +216,5 @@ async function boot() {
 boot()
 `.trim()
 
-  return { moduleSource, npmImports }
+  return { moduleSource }
 }
