@@ -46,6 +46,30 @@ function generateCellFunction(bodySource, refs, cell) {
 }
 
 /**
+ * Extract all FileAttachment references from an array of cells.
+ * Uses @observablehq/parser to statically analyze each cell.
+ *
+ * @param {Array} cells - Array of cell objects from parseOmd
+ * @returns {Set<string>} Set of referenced file attachment names
+ */
+export function extractFileAttachmentNames(cells) {
+  const names = new Set()
+  for (const cell of cells) {
+    try {
+      const parsed = parseCell(cell.source)
+      if (parsed.fileAttachments) {
+        for (const [name] of parsed.fileAttachments) {
+          names.add(name)
+        }
+      }
+    } catch (e) {
+      // Skip cells that fail to parse
+    }
+  }
+  return names
+}
+
+/**
  * Transpile an array of cells into an Observable runtime module source string.
  *
  * Standard library names (d3, Plot, Inputs, htl, etc.) are provided
@@ -57,9 +81,10 @@ function generateCellFunction(bodySource, refs, cell) {
  * @param {object} options - Configuration options
  * @param {string} options.runtimePath - URL path to Observable runtime
  * @param {string} options.inspectorPath - URL path to Inspector module
+ * @param {object} [options.fileAttachmentMap={}] - Map of filename to output URL
  * @returns {{ moduleSource: string }} The full ES module code string
  */
-export function transpileCells(cells, { runtimePath, inspectorPath }) {
+export function transpileCells(cells, { runtimePath, inspectorPath, fileAttachmentMap = {} }) {
   const defines = []
   const explicitImportLines = []
   const explicitImportDefines = []
@@ -186,10 +211,19 @@ export function transpileCells(cells, { runtimePath, inspectorPath }) {
     }
   }
 
+  // Build FileAttachment support if any cells reference file attachments
+  const hasFileAttachments = Object.keys(fileAttachmentMap).length > 0
+  const stdlibImports = hasFileAttachments
+    ? '{Library as _Library, FileAttachments as _FileAttachments}'
+    : '{Library as _Library}'
+  const fileAttachmentDefine = hasFileAttachments
+    ? `main.define('FileAttachment', [], () => _FileAttachments(name => (${JSON.stringify(fileAttachmentMap)})[name] || null))`
+    : ''
+
   // Build the full module source
   const moduleSource = `
 ${explicitImportLines.join('\n')}
-import {Library as _Library} from '@observablehq/stdlib'
+import ${stdlibImports} from '@observablehq/stdlib'
 
 const runtimePath = '${runtimePath}'
 const inspectorPath = '${inspectorPath}'
@@ -211,6 +245,8 @@ async function boot() {
   // available via lazy CDN loading.
   const runtime = new Runtime(new _Library())
   const main = runtime.module()
+
+  ${fileAttachmentDefine}
 
   ${explicitImportDefines.join('\n  ')}
 
