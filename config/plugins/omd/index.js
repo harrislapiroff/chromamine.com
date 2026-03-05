@@ -83,7 +83,8 @@ export default function omdPlugin(eleventyConfig, options = {}) {
         // 4. Bundle with ESBuild (resolves npm imports)
         const bundled = await bundleModule(moduleSource, {
           resolveDir: path.resolve(pluginRoot, '..', '..', '..'),
-          external: [`/${outputPrefix}/*`]
+          external: [`/${outputPrefix}/*`],
+          cacheDir: path.resolve(pluginRoot, '..', '..', '..', '.cache', 'omd-npm')
         })
 
         // 5. Write bundle to a JS file alongside the output

@@ -32,10 +32,20 @@ htl.html`
 `
 ```
 
+### `const` / `let` / `var` Cell Syntax
+
+Observable Framework-style declaration keywords work the same as bare assignment:
+
+```js echo
+const greeting = "Hello from OMD!"
+```
+
+The greeting is: **${greeting}**.
+
 ### Data Visualization with Plot
 
 ```js
-data = [
+const data = [
   {category: "A", value: 28},
   {category: "B", value: 55},
   {category: "C", value: 43},
@@ -71,13 +81,19 @@ htl.html`<div style="display: flex; gap: 2px;">${
 
 ### Explicit Imports
 
-You can also import specific functions from npm packages using standard `import` syntax. The package must be installed in `node_modules/`.
+You can import specific functions from npm packages using standard `import` syntax. Packages installed in `node_modules/` can be imported with a bare specifier; the `npm:` prefix fetches from esm.sh at build time (no local install needed).
 
 ```js
 import { format } from "d3-format"
 ```
 
 Formatted pi: **${format(".4f")(Math.PI)}**.
+
+```js
+import { schemeTableau10 } from "npm:d3-scale-chromatic"
+```
+
+The first Tableau-10 color is **${schemeTableau10[0]}**.
 
 ### Code Display (not executed)
 
@@ -94,7 +110,7 @@ console.log(greeting)
 This block is both displayed as source code and executed:
 
 ```js echo
-message = "Hello from OMD!"
+colorScale = d3.scaleSequential(d3.interpolateViridis).domain([0, 5])
 ```
 
-The message is: ${message}.
+That cell defines `colorScale` and shows its source inline. Click cells with outputs to inspect values.

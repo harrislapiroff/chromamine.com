@@ -46,6 +46,15 @@ function generateCellFunction(bodySource, refs, cell) {
 }
 
 /**
+ * Strip a leading const/let/var declaration keyword from a cell source string.
+ * Observable Framework allows these keywords as syntactic sugar; the underlying
+ * parser only accepts bare assignment syntax (x = 42).
+ */
+function stripDeclaration(source) {
+  return source.replace(/^(const|let|var)\s+/, '')
+}
+
+/**
  * Extract all FileAttachment references from an array of cells.
  * Uses @observablehq/parser to statically analyze each cell.
  *
@@ -56,7 +65,7 @@ export function extractFileAttachmentNames(cells) {
   const names = new Set()
   for (const cell of cells) {
     try {
-      const parsed = parseCell(cell.source)
+      const parsed = parseCell(stripDeclaration(cell.source))
       if (parsed.fileAttachments) {
         for (const [name] of parsed.fileAttachments) {
           names.add(name)
@@ -116,10 +125,12 @@ export function transpileCells(cells, { runtimePath, inspectorPath, fileAttachme
       continue
     }
 
-    // Block cells: parse with @observablehq/parser
+    // Block cells: parse with @observablehq/parser.
+    // Strip leading const/let/var so Observable Framework-style declarations work.
+    const cellSource = stripDeclaration(cell.source)
     let parsed
     try {
-      parsed = parseCell(cell.source)
+      parsed = parseCell(cellSource)
     } catch (e) {
       console.error(`Error parsing cell ${cell.id}:`, e.message)
       defines.push(`// Error parsing cell ${cell.id}: ${escapeString(e.message)}`)
@@ -159,15 +170,16 @@ export function transpileCells(cells, { runtimePath, inspectorPath, fileAttachme
     const depList = refs.map(r => `'${r}'`).join(', ')
 
     // Extract the body portion from the cell source.
+    // Use cellSource (declaration-stripped) since AST positions are relative to it.
     // For named cells, skip past "name = " to get just the expression/block.
     let bodySource
     if (parsed.id && parsed.body.type !== 'BlockStatement') {
-      const eqIndex = cell.source.indexOf('=', parsed.id.end)
-      bodySource = cell.source.substring(eqIndex + 1).trim()
+      const eqIndex = cellSource.indexOf('=', parsed.id.end)
+      bodySource = cellSource.substring(eqIndex + 1).trim()
     } else if (parsed.id && parsed.body.type === 'BlockStatement') {
-      bodySource = cell.source.substring(parsed.body.start)
+      bodySource = cellSource.substring(parsed.body.start)
     } else {
-      bodySource = cell.source.trim()
+      bodySource = cellSource.trim()
     }
 
     const fn = generateCellFunction(bodySource, refs, parsed)
