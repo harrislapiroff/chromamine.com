@@ -109,6 +109,27 @@ const doubled = Math.PI * 2
 
 Pi precision: **${piPrecision}**, doubled: **${doubled}**.
 
+### Loading Local Data
+
+Data files stored alongside the `.omd` source can be loaded with `FileAttachment`:
+
+```js
+penguins = FileAttachment("penguins.csv").csv({typed: true})
+```
+
+```js
+Plot.plot({
+  marks: [
+    Plot.dot(penguins, {x: "bill_length_mm", y: "bill_depth_mm", fill: "species", tip: true})
+  ],
+  color: {legend: true},
+  width: 500,
+  height: 300
+})
+```
+
+There are **${penguins.length}** penguins in the dataset.
+
 ### Code Display (not executed)
 
 Here's an example of syntax-highlighted code that is *not* executed:
