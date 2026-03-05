@@ -15,6 +15,7 @@ import eleventySass from "eleventy-sass"
 import yaml from "js-yaml"
 
 import { compileObservable } from "./config/utils/ojs/compile.js"
+import omdPlugin from "./config/plugins/omd/index.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
 
@@ -29,7 +30,7 @@ import {
     getSEOImage,
 } from "./config/filters.js"
 
-const blogPostFormats = ['md', 'ojs', 'html']
+const blogPostFormats = ['md', 'ojs', 'omd', 'html']
 // Any file in the posts directory with a blog post format extension
 const blogPostGlobs = blogPostFormats.map((format) => `./src/posts/*.${format}`)
 
@@ -214,6 +215,11 @@ export default function(eleventyConfig) {
             })
         }
     })
+
+    /* OMD templates (Observable Markdown)
+     * Markdown with executable JS code blocks and ${} interpolation
+     *------------------------------------*/
+    eleventyConfig.addPlugin(omdPlugin, { markdownIt: md })
 
     // Add WebC
     eleventyConfig.addPlugin(pluginWebc, {

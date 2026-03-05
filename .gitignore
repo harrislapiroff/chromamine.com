@@ -4,3 +4,4 @@
 /vendor/
 /.cache/
 .env
+.claude/settings.local.json

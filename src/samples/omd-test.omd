@@ -1,0 +1,151 @@
+---
+title: "OMD Test Post"
+date: 2026-02-27
+categories: [Software]
+tags: [test, observable]
+eleventyExcludeFromCollections: true
+layout: page.webc
+permalink: samples/omd-test/
+---
+
+This is a test of the Observable Markdown (`.omd`) format. It combines regular markdown prose with executable JavaScript code blocks and inline expression interpolation.
+
+### Interactive Input
+
+```js
+viewof radius = Inputs.range([0, 100], {
+  step: 1,
+  value: 50,
+  label: "Radius"
+})
+```
+
+The current radius is **${radius}**.
+
+### Reactive Visualization
+
+```js
+htl.html`
+  <svg width="220" height="220" viewBox="-10 -10 220 220">
+    <circle cx="100" cy="100" r="${radius}" fill="transparent" stroke-width="2" stroke="currentColor" />
+  </svg>
+`
+```
+
+### `const` / `let` / `var` Cell Syntax
+
+Observable Framework-style declaration keywords work the same as bare assignment:
+
+```js echo
+const greeting = "Hello from OMD!"
+```
+
+The greeting is: **${greeting}**.
+
+### Data Visualization with Plot
+
+```js
+const data = [
+  {category: "A", value: 28},
+  {category: "B", value: 55},
+  {category: "C", value: 43},
+  {category: "D", value: 91},
+  {category: "E", value: 81},
+  {category: "F", value: 53}
+]
+```
+
+```js
+Plot.plot({
+  marks: [
+    Plot.barY(data, {x: "category", y: "value", fill: "steelblue"})
+  ],
+  width: 400,
+  height: 300
+})
+```
+
+### Standard Library
+
+Standard library packages (`d3`, `Plot`, `Inputs`, `htl`, and others) are provided automatically by the Observable stdlib via lazy CDN loading. No import statements needed — just reference the package name in a cell:
+
+```js echo
+colorScale = d3.scaleSequential(d3.interpolateViridis).domain([0, 5])
+```
+
+```js
+htl.html`<div style="display: flex; gap: 2px;">${
+  d3.range(6).map(i => htl.html`<div style="width: 40px; height: 40px; background: ${colorScale(i)}; border-radius: 4px;"></div>`)
+}</div>`
+```
+
+### Explicit Imports
+
+You can import specific functions from npm packages using standard `import` syntax. Packages installed in `node_modules/` can be imported with a bare specifier; the `npm:` prefix fetches from esm.sh at build time (no local install needed).
+
+```js
+import { format } from "d3-format"
+```
+
+Formatted pi: **${format(".4f")(Math.PI)}**.
+
+Imports can use `as` to rename:
+
+```js
+import { schemeTableau10 as tableau } from "npm:d3-scale-chromatic"
+```
+
+The first Tableau-10 color is **${tableau[0]}**.
+
+### Multi-Statement Blocks
+
+A single code block can contain multiple statements, including imports and declarations:
+
+```js echo
+import { precisionFixed } from "d3-format"
+const piPrecision = precisionFixed(0.0001)
+const doubled = Math.PI * 2
+```
+
+Pi precision: **${piPrecision}**, doubled: **${doubled}**.
+
+### Loading Local Data
+
+Data files stored alongside the `.omd` source can be loaded with `FileAttachment`:
+
+```js
+penguins = FileAttachment("penguins.csv").csv({typed: true})
+```
+
+```js
+Plot.plot({
+  marks: [
+    Plot.dot(penguins, {x: "bill_length_mm", y: "bill_depth_mm", fill: "species", tip: true})
+  ],
+  color: {legend: true},
+  width: 500,
+  height: 300
+})
+```
+
+There are **${penguins.length}** penguins in the dataset.
+
+### Code Display (not executed)
+
+Here's an example of syntax-highlighted code that is *not* executed:
+
+```javascript
+// This is just a code sample
+const greeting = "hello world"
+console.log(greeting)
+```
+
+### Echo Mode
+
+This block is both displayed as source code and executed:
+
+```js echo
+areaOfCircle = Math.PI * radius ** 2
+```
+
+The area of the circle is **${areaOfCircle}** square pixels. It updates reactively when the radius slider changes.
