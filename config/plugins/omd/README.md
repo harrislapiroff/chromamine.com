@@ -143,6 +143,20 @@ tick = {
 }
 ```
 
+### Multi-statement blocks
+
+A single code block can contain multiple top-level statements — declarations, imports, and expressions:
+
+```js
+import { format } from "d3-format"
+const x = format(".2f")(3.14)
+const y = x + 1
+```
+
+All `const`/`let`/`var`/`function`/`class` declarations become named cells that other cells can reference. Import statements are hoisted and bundled at build time.
+
+Multi-statement blocks are parsed with a different code path (Observable Framework's acorn-based parser) than single-statement cells. Observable-specific syntax (`viewof`, `mutable`, bare `name = expr` assignment, generators) must still be written as single-statement cells.
+
 ## Standard Library
 
 The following names are available in every cell without any import statement, provided by the [Observable stdlib](https://github.com/observablehq/stdlib) via lazy CDN loading:
