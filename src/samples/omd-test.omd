@@ -89,11 +89,25 @@ import { format } from "d3-format"
 
 Formatted pi: **${format(".4f")(Math.PI)}**.
 
+Imports can use `as` to rename:
+
 ```js
-import { schemeTableau10 } from "npm:d3-scale-chromatic"
+import { schemeTableau10 as tableau } from "npm:d3-scale-chromatic"
 ```
 
-The first Tableau-10 color is **${schemeTableau10[0]}**.
+The first Tableau-10 color is **${tableau[0]}**.
+
+### Multi-Statement Blocks
+
+A single code block can contain multiple statements, including imports and declarations:
+
+```js echo
+import { precisionFixed } from "d3-format"
+const piPrecision = precisionFixed(0.0001)
+const doubled = Math.PI * 2
+```
+
+Pi precision: **${piPrecision}**, doubled: **${doubled}**.
 
 ### Code Display (not executed)
 
@@ -110,7 +124,7 @@ console.log(greeting)
 This block is both displayed as source code and executed:
 
 ```js echo
-colorScale = d3.scaleSequential(d3.interpolateViridis).domain([0, 5])
+areaOfCircle = Math.PI * radius ** 2
 ```
 
-That cell defines `colorScale` and shows its source inline. Click cells with outputs to inspect values.
+The area of the circle is **${areaOfCircle}** square pixels. It updates reactively when the radius slider changes.

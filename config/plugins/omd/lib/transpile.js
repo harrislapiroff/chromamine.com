@@ -1,4 +1,5 @@
 import { parseCell } from '@observablehq/parser'
+import { parseJavaScript } from '@observablehq/framework/dist/javascript/parse.js'
 
 /**
  * Get the name string for a cell's id node.
@@ -55,6 +56,115 @@ function stripDeclaration(source) {
 }
 
 /**
+ * Transpile a multi-statement cell parsed by parseJavaScript from
+ * Observable Framework. Handles blocks with multiple declarations,
+ * imports mixed with code, and expression-only side-effect cells.
+ *
+ * @param {object} node - Result from parseJavaScript()
+ * @param {object} cell - Cell object { id, source, type }
+ * @param {string[]} explicitImportLines - Array to push hoisted import lines
+ * @param {string[]} explicitImportDefines - Array to push import define()s
+ * @param {Map} explicitImportAliases - Map of package specifier -> safe alias
+ * @returns {string[]} Array of define() statements for this cell
+ */
+function transpileMultiStatementCell(node, cell, explicitImportLines, explicitImportDefines, explicitImportAliases) {
+  const defines = []
+  const source = cell.source
+
+  // Separate import declarations from other statements
+  const importNodes = node.body.body.filter(n => n.type === 'ImportDeclaration')
+  const nonImportNodes = node.body.body.filter(n => n.type !== 'ImportDeclaration')
+
+  // Hoist imports (reuses same logic as single-import cells)
+  const importDeclaredNames = new Set()
+  for (const importNode of importNodes) {
+    const pkgSource = importNode.source.value
+    const specifiers = importNode.specifiers || []
+
+    let safeAlias = explicitImportAliases.get(pkgSource)
+    if (!safeAlias) {
+      safeAlias = '_pkg_' + pkgSource.replace(/[^a-zA-Z0-9]/g, '_')
+      explicitImportAliases.set(pkgSource, safeAlias)
+      explicitImportLines.push(`import * as ${safeAlias} from '${pkgSource}'`)
+    }
+
+    for (const spec of specifiers) {
+      const importedName = spec.imported.name
+      const localName = spec.local.name
+      importDeclaredNames.add(localName)
+      explicitImportDefines.push(
+        `main.define('${escapeString(localName)}', [], () => ${safeAlias}.${importedName})`
+      )
+    }
+  }
+
+  // If only imports and no other statements, we're done
+  if (nonImportNodes.length === 0) return defines
+
+  // Build body source with import statements stripped
+  let bodySource = source
+  const importRanges = importNodes
+    .map(n => ({ start: n.start, end: n.end }))
+    .sort((a, b) => b.start - a.start) // reverse order so positions stay valid
+  for (const range of importRanges) {
+    bodySource = bodySource.slice(0, range.start) + bodySource.slice(range.end)
+  }
+  bodySource = bodySource.trim()
+
+  // Declared names (excluding import-declared names)
+  const declaredNames = node.declarations
+    ? node.declarations
+      .map(d => d.name)
+      .filter(name => !importDeclaredNames.has(name))
+    : []
+
+  // External references (excluding import-declared names)
+  const refs = [...new Set(
+    node.references
+      .map(r => r.name)
+      .filter(name => !importDeclaredNames.has(name))
+  )]
+  // Import-declared names become Observable dependencies too
+  for (const name of importDeclaredNames) {
+    refs.push(name)
+  }
+
+  const prefix = node.async ? 'async ' : ''
+  const depList = refs.map(r => `'${r}'`).join(', ')
+  const params = refs.join(', ')
+
+  if (declaredNames.length === 0) {
+    // No declarations — anonymous side-effect cell
+    const fn = `${prefix}function(${params}) {\n${bodySource}\n}`
+    defines.push(
+      `main.variable(observer('${cell.id}')).define([${depList}], ${fn})`
+    )
+  } else if (declaredNames.length === 1) {
+    // Single declaration — simple define
+    const name = declaredNames[0]
+    const fn = `${prefix}function(${params}) {\n${bodySource}\nreturn ${name}\n}`
+    defines.push(
+      `main.variable(observer('${cell.id}', '${escapeString(name)}')).define('${escapeString(name)}', [${depList}], ${fn})`
+    )
+  } else {
+    // Multiple declarations — compound cell + splitter cells
+    const compoundName = `${cell.id}:outputs`
+    const returnObj = `{${declaredNames.join(', ')}}`
+    const fn = `${prefix}function(${params}) {\n${bodySource}\nreturn ${returnObj}\n}`
+    defines.push(
+      `main.variable(observer('${cell.id}')).define('${escapeString(compoundName)}', [${depList}], ${fn})`
+    )
+    for (const name of declaredNames) {
+      defines.push(
+        `main.define('${escapeString(name)}', ['${escapeString(compoundName)}'], _ => _.${name})`
+      )
+    }
+  }
+
+  return defines
+}
+
+/**
  * Extract all FileAttachment references from an array of cells.
  * Uses @observablehq/parser to statically analyze each cell.
  *
@@ -64,6 +174,7 @@ function stripDeclaration(source) {
 export function extractFileAttachmentNames(cells) {
   const names = new Set()
   for (const cell of cells) {
+    // Try parseCell first (single Observable cells)
     try {
       const parsed = parseCell(stripDeclaration(cell.source))
       if (parsed.fileAttachments) {
@@ -71,8 +182,21 @@ export function extractFileAttachmentNames(cells) {
           names.add(name)
         }
       }
+      continue
     } catch (e) {
-      // Skip cells that fail to parse
+      // Fall through to parseJavaScript
+    }
+
+    // Try parseJavaScript (multi-statement blocks)
+    try {
+      const node = parseJavaScript(cell.source, { path: 'cell.js' })
+      if (node.files) {
+        for (const file of node.files) {
+          names.add(file.name.replace(/^\.\//, ''))
+        }
+      }
+    } catch (e) {
+      // Skip cells that fail both parsers
     }
   }
   return names
@@ -125,15 +249,31 @@ export function transpileCells(cells, { runtimePath, inspectorPath, fileAttachme
       continue
     }
 
-    // Block cells: parse with @observablehq/parser.
-    // Strip leading const/let/var so Observable Framework-style declarations work.
+    // Block cells: try Observable parser first, then Framework parser
+    // for multi-statement blocks.
     const cellSource = stripDeclaration(cell.source)
     let parsed
+    let isMultiStatement = false
     try {
       parsed = parseCell(cellSource)
-    } catch (e) {
-      console.error(`Error parsing cell ${cell.id}:`, e.message)
-      defines.push(`// Error parsing cell ${cell.id}: ${escapeString(e.message)}`)
+    } catch (parseCellError) {
+      // parseCell failed — try parseJavaScript for multi-statement blocks
+      try {
+        parsed = parseJavaScript(cell.source, {})
+        isMultiStatement = true
+      } catch (parseJsError) {
+        console.error(`Error parsing cell ${cell.id}:`, parseCellError.message)
+        defines.push(`// Error parsing cell ${cell.id}: ${escapeString(parseCellError.message)}`)
+        continue
+      }
+    }
+
+    if (isMultiStatement) {
+      const cellDefines = transpileMultiStatementCell(
+        parsed, cell,
+        explicitImportLines, explicitImportDefines, explicitImportAliases
+      )
+      defines.push(...cellDefines)
       continue
     }
 
