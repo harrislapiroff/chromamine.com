@@ -65,7 +65,7 @@ The Observable Runtime uses a reactive dataflow model. Each cell is a node in a 
 
 ### Named cells
 
-Assign a value to a name. Other cells and inline expressions can reference it.
+Assign a value to a name. Other cells and inline expressions can reference it. Declaration keywords (`const`, `let`, `var`) are accepted and stripped at parse time, so cells can look like regular JavaScript declarations:
 
 ```js
 data = [
@@ -73,6 +73,15 @@ data = [
   {category: "B", value: 55}
 ]
 ```
+
+```js
+const data = [
+  {category: "A", value: 28},
+  {category: "B", value: 55}
+]
+```
+
+Both forms define a cell named `data` — the `const` is syntax sugar.
 
 ### Anonymous cells
 
@@ -159,10 +168,18 @@ These are loaded from CDN on first use, so only packages actually referenced in 
 
 ## Explicit npm Imports
 
-Any package installed in `node_modules/` can be imported using standard `import` syntax. These are resolved at build time by ESBuild and bundled into the page's JavaScript.
+Packages can be imported using standard `import` syntax. These are resolved at build time by ESBuild and bundled into the page's JavaScript.
+
+**Bare specifiers** resolve from local `node_modules/` — the package must be installed:
 
 ```js
 import { format } from "d3-format"
+```
+
+**`npm:` specifiers** are fetched from [esm.sh](https://esm.sh) at build time and cached locally — no installation needed:
+
+```js
+import { schemeTableau10 } from "npm:d3-scale-chromatic"
 ```
 
 Only named imports are supported (`import { name } from "pkg"`). Default imports and namespace imports (`import * as foo`) are not supported by the Observable parser.
@@ -230,7 +247,7 @@ This section documents behavioral differences for people who work in both enviro
 
 **npm imports**
 
-In Observable Framework, `import` statements resolve packages from jsDelivr at build time using the `npm:` protocol or bare specifiers — no local installation required. In this plugin, bare specifiers are resolved from the local `node_modules/` directory via ESBuild, so packages must be installed first. The `npm:` protocol is not recognized here.
+In Observable Framework, `import` statements resolve packages from jsDelivr at build time using bare specifiers — no local installation required. In this plugin, bare specifiers are resolved from the local `node_modules/` directory via ESBuild, so packages must be installed first. Both environments support the `npm:` prefix (e.g. `import { format } from "npm:d3-format"`), but the CDN differs: Observable Framework uses jsDelivr, this plugin uses esm.sh.
 
 **Local module imports**
 
@@ -276,9 +293,10 @@ config/plugins/omd/
 ├── client/
 │   └── inspector.js   # Browser-side Inspector class (copied to /_omd/)
 ├── lib/
-│   ├── parse.js       # .omd → { html, cells }
-│   ├── transpile.js   # cells → ES module source
-│   └── bundle.js      # ES module source → bundled JS (via ESBuild)
+│   ├── parse.js           # .omd → { html, cells }
+│   ├── transpile.js       # cells → ES module source
+│   ├── bundle.js          # ES module source → bundled JS (via ESBuild)
+│   └── npm-cdn-plugin.js  # ESBuild plugin for npm: specifier resolution
 └── test/
     ├── parse.test.js
     └── transpile.test.js
