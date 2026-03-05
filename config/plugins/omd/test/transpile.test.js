@@ -177,6 +177,54 @@ describe('transpileCells', () => {
     assert.ok(moduleSource.includes("'total'"))
   })
 
+  it('strips const before a named cell', () => {
+    const cells = [
+      { id: 'cell-0', source: 'const x = 42\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes(".define('x',"))
+    assert.ok(moduleSource.includes('42'))
+  })
+
+  it('strips let before a named cell', () => {
+    const cells = [
+      { id: 'cell-0', source: 'let data = [1, 2, 3]\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes(".define('data',"))
+  })
+
+  it('strips var before a named cell', () => {
+    const cells = [
+      { id: 'cell-0', source: 'var count = 0\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes(".define('count',"))
+  })
+
+  it('strips const before a viewof cell', () => {
+    const cells = [
+      { id: 'cell-0', source: 'const viewof radius = Inputs.range([0, 100])\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes("'viewof radius'"))
+    assert.ok(moduleSource.includes("'radius'"))
+  })
+
+  it('strips const before a block-body cell', () => {
+    const cells = [
+      { id: 'cell-0', source: 'const total = {\n  let sum = 0\n  for (const n of [1,2,3]) sum += n\n  return sum\n}\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes(".define('total',"))
+    assert.ok(moduleSource.includes('return sum'))
+  })
+
   it('handles async cells', () => {
     const cells = [
       { id: 'cell-0', source: 'data = await fetch("/api").then(r => r.json())\n', type: 'block' }
