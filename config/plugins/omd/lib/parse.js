@@ -1,4 +1,5 @@
 import Token from 'markdown-it/lib/token.mjs'
+import { parseInfo } from '@observablehq/framework/dist/info.js'
 
 /**
  * Skip past a string literal (single-quoted, double-quoted, or template literal)
@@ -170,10 +171,9 @@ export function parseOmd(source, markdownIt) {
     const token = tokens[i]
 
     if (token.type === 'fence') {
-      const info = token.info.trim()
+      const { tag, attributes } = parseInfo(token.info)
 
-      // ```js — execute only (hide source)
-      if (info === 'js') {
+      if (tag === 'js') {
         // Skip empty code blocks
         if (!token.content.trim()) {
           continue
@@ -181,30 +181,15 @@ export function parseOmd(source, markdownIt) {
         const cellId = `cell-${cells.length}`
         cells.push({ id: cellId, source: token.content, type: 'block' })
 
-        // Replace with an HTML block containing the placeholder div
-        const placeholder = new Token('html_block', '', 0)
-        placeholder.content = `<div data-cell="${cellId}"></div>\n`
-        processedTokens.push(placeholder)
-        continue
-      }
-
-      // ```js echo — execute AND display source
-      if (info === 'js echo') {
-        // Skip empty code blocks
-        if (!token.content.trim()) {
-          continue
+        // ```js echo — execute AND display source
+        if ('echo' in attributes) {
+          const codeFence = new Token('fence', 'code', 0)
+          codeFence.info = 'js'
+          codeFence.content = token.content
+          codeFence.markup = token.markup
+          codeFence.map = token.map
+          processedTokens.push(codeFence)
         }
-        const cellId = `cell-${cells.length}`
-        cells.push({ id: cellId, source: token.content, type: 'block' })
-
-        // Render the code block as highlighted source using a fence with 'js' info
-        // (shiki will highlight it) and then append the placeholder
-        const codeFence = new Token('fence', 'code', 0)
-        codeFence.info = 'js'
-        codeFence.content = token.content
-        codeFence.markup = token.markup
-        codeFence.map = token.map
-        processedTokens.push(codeFence)
 
         const placeholder = new Token('html_block', '', 0)
         placeholder.content = `<div data-cell="${cellId}"></div>\n`
