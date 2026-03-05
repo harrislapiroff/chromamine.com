@@ -265,4 +265,73 @@ describe('transpileCells', () => {
     // The inline cell references 'x', so it should appear in the dep list
     assert.ok(moduleSource.includes("['x']"))
   })
+
+  // Multi-statement block tests (parseJavaScript fallback)
+
+  it('handles multi-statement blocks with multiple declarations', () => {
+    const cells = [
+      { id: 'cell-0', source: 'const x = 42\nconst y = x + 1\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes("'cell-0:outputs'"))
+    assert.ok(moduleSource.includes("define('x',"))
+    assert.ok(moduleSource.includes("define('y',"))
+    assert.ok(moduleSource.includes('return {x, y}'))
+  })
+
+  it('handles multi-statement blocks with imports and declarations', () => {
+    const cells = [
+      { id: 'cell-0', source: 'import { format } from "d3-format"\nconst x = format(".2f")(3.14)\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    // Import should be hoisted
+    assert.ok(moduleSource.includes("import * as _pkg_d3_format from 'd3-format'"))
+    assert.ok(moduleSource.includes("main.define('format'"))
+    // Single declaration optimization: simple define, not compound
+    assert.ok(moduleSource.includes("define('x',"))
+    assert.ok(!moduleSource.includes('cell-0:outputs'))
+  })
+
+  it('resolves external references in multi-statement blocks', () => {
+    const cells = [
+      { id: 'cell-0', source: 'const x = someCell + 1\nconst y = x * 2\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes("'someCell'"))
+    assert.ok(moduleSource.includes("'cell-0:outputs'"))
+  })
+
+  it('handles multi-statement blocks with no declarations', () => {
+    const cells = [
+      { id: 'cell-0', source: 'console.log("hello")\nconsole.log("world")\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes("observer('cell-0')"))
+    assert.ok(!moduleSource.includes(':outputs'))
+  })
+
+  it('handles async multi-statement blocks', () => {
+    const cells = [
+      { id: 'cell-0', source: 'const resp = await fetch("/api")\nconst data = await resp.json()\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes('async function'))
+  })
+
+  it('handles multi-statement blocks with only imports', () => {
+    const cells = [
+      { id: 'cell-0', source: 'import { format } from "d3-format"\nimport { csv } from "d3-dsv"\n', type: 'block' }
+    ]
+    const { moduleSource } = transpileCells(cells, defaultPaths)
+
+    assert.ok(moduleSource.includes("import * as _pkg_d3_format from 'd3-format'"))
+    assert.ok(moduleSource.includes("import * as _pkg_d3_dsv from 'd3-dsv'"))
+    assert.ok(moduleSource.includes("main.define('format'"))
+    assert.ok(moduleSource.includes("main.define('csv'"))
+  })
 })
