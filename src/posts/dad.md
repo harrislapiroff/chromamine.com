@@ -4,6 +4,8 @@ date: 2026-04-26
 categories: ['Life']
 tags: [writing, family]
 seoImage: /media/dad/IMG_2398.JPG
+seoDescription: |
+  When I was an elementary schooler my father would read me such bedtime stories as Kafka’s “The Metamorphosis,” Vonnegut’s “Harrison Bergeron,” and Connell’s “The Most Dangerous Game” – stories well above my recommended reading level, in vocabulary *and* in their *general vibes*. He passed on to me an early love of literature and also a fascination with the darker elements of human nature.
 images:
   babyme:
     src: IMG_2398.jpeg
@@ -25,6 +27,8 @@ images:
 ---
 
 {% image images.babyme %}
+
+_Jerry Lapiroff · February 11, 1947 – March 22, 2026_
 
 When I was an elementary schooler my father would read me such bedtime stories as Kafka’s “The Metamorphosis,” Vonnegut’s “Harrison Bergeron,” and Connell’s “The Most Dangerous Game” – stories well above my recommended reading level, in vocabulary *and* in their *general vibes*. He passed on to me an early love of literature and also a fascination with the darker elements of human nature.
 
