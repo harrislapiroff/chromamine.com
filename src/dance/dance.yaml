@@ -29,3 +29,63 @@ testimonials:
 
 dances:
   upcoming:
+    - name: FolkMADness
+      date: 2026-05-22
+      date_end: 2026-05-25T12:00
+      city: Socorro NM
+      street: New Mexico Tech, 801 Leroy Place
+      url: https://folkmads.org/events/camps/folkmadness/
+      description: May 22–25. Calling ECD sessions.
+    - name: BIDA Double Dance
+      date: 2026-06-07T16:00
+      date_end: 2026-06-07T22:30
+      city: Cambridge MA
+      street: 1950 Massachusetts Avenue
+      url: https://www.bidadance.org/
+      band: The Turn Signals
+      description: |
+        4:00–6:30PM English Country Dance  
+        6:30–7:30PM Potluck  
+        7:00–7:30PM Contra workshop  
+        7:30–10:30PM Contra Dance
+
+        Co-sponsored by CDS-Boston Centre.
+    - name: BFMS Wednesday Contra Dance
+      date: 2026-06-10T20:00
+      date_end: 2026-06-10T22:30
+      city: Baltimore MD
+      street: Lovely Lane United Methodist Church, 2200 St. Paul Street
+      url: https://www.bfms.org/squarecontra.php
+      band: All The Rage
+      description: Workshop at 7:30PM, Dancing from 8–10:30PM
+    - name: Thursday Contra
+      date: 2026-06-11T20:00
+      date_end: 2026-06-11T22:30
+      city: Philadelphia PA
+      street: 6815 Emlen Street
+      url: https://thursdaycontra.com/
+      band: All The Rage
+      description: Workshop at 7:30PM, Dancing from 8–10:30PM
+    - name: Friday Night Contra Dance at Glen Echo
+      date: 2026-06-12T19:30
+      date_end: 2026-06-12T23:00
+      city: Glen Echo MD
+      street: Spanish Ballroom, Glen Echo Park
+      url: https://www.fridaynightdance.com/
+      band: All The Rage
+      description: Workshop at 7:30PM, Dancing from 8–11PM
+    - name: BFMS Saturday Dance
+      date: 2026-06-13T20:00
+      date_end: 2026-06-13T22:30
+      city: Baltimore MD
+      street: Church of the Nativity and Holy Comforter, 6112 York Rd
+      url: https://www.bfms.org/saturdayDance.php
+      band: All The Rage
+      description: Workshop at 6:30PM, Dancing from 7–9:30PM
+    - name: Rehoboth Contra Dance
+      date: 2026-06-26T20:00
+      date_end: 2026-06-26T23:00
+      city: Rehoboth MA
+      street: Goff Hall, 124 Bay State Road
+      url: https://rehobothcontradance.com/
+      description: Dancing from 8–11PM
