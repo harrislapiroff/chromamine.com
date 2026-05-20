@@ -89,3 +89,10 @@ dances:
       street: Goff Hall, 124 Bay State Road
       url: https://rehobothcontradance.com/
       description: Workshop at 7:15PM, Dancing from 7:30–10:30PM
+    - name: Youth Dance Weekend
+      date: 2026-10-02
+      date_end: 2026-10-04
+      city: Fairlee VT
+      street: Hulbert Outdoor Center, 2968 Lake Morey Rd
+      url: https://youthdanceweekend.org/
+      description: Oct 2–4. Youth-focused traditional dance and music weekend.
