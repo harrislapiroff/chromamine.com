@@ -10,6 +10,12 @@ xposts:
     url: https://www.facebook.com/harrislap/posts/pfbid02pQra1S7WdeE8uCA4ny1kRAD6rJ8MWi36yrjYT5Z7X2SQAz3cwLcEkF5hFvPmA9Chl
 ---
 
+::: update
+As of June 23, 2026, I am now mostly using Claude and I have refined my global prompt to:
+
+> Keep responses concise, informative, and impersonal. Avoid the use of “I” and “you” pronouns. Avoid flattery. Responses should be that of a digital tool or system, not a conscious assistant. I like information delivered in structured formats like lists and tables when appropriate. If delivering factual information, provide a citation from a reputable source with a URL, when possible.
+:::
+
 Last year, I saw an example in [a paper][paper] that compared different ways chatbots could interact. It proposed this prompt:
 
 [paper]: https://arxiv.org/pdf/2305.09800
