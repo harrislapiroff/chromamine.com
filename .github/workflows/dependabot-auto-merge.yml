@@ -1,0 +1,31 @@
+name: Dependabot auto-merge
+
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    name: Auto-merge Dependabot PRs
+    runs-on: ubuntu-latest
+    # Only act on Dependabot's own pull requests.
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    steps:
+      # Approve the PR so auto-merge can also satisfy a "require approval"
+      # branch protection rule (Dependabot cannot approve its own PRs).
+      - name: Approve the pull request
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Enable GitHub's native auto-merge. The PR merges automatically once all
+      # branch-protection required status checks (e.g. the CI workflow) pass.
+      # Requires "Allow auto-merge" to be enabled in the repository settings.
+      - name: Enable auto-merge
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
