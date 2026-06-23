@@ -14,7 +14,29 @@ npm run serve
 
 # Build the site to _site/
 npm run build
+
+# Run the unit tests
+npm test
 ```
+
+Pull requests automatically run the tests and a production build via the
+[CI workflow](.github/workflows/ci.yml).
+
+## Tests
+
+Unit tests cover the project's custom code (template filters, shortcode
+helpers, and the dance extraction logic). They use Node's built-in test
+runner, so no extra dependencies are required:
+
+```bash
+# Run the whole suite
+npm test
+
+# Run a single test file
+node --test test/filters.test.js
+```
+
+Test files live in `test/` and are named `*.test.js`.
 
 ## Scripts
 

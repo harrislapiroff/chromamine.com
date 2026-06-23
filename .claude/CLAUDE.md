@@ -11,6 +11,9 @@ npm run serve
 # Production build
 npm run build
 
+# Run the unit tests (Node's built-in test runner)
+npm test
+
 # Create new blog post with frontmatter and media directory
 npm run blog new "<title>" [slug] [--editor <editor>]
 
