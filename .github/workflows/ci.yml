@@ -33,3 +33,30 @@ jobs:
 
       - name: Build site
         run: npm run build
+
+  # Automatically merge Dependabot PRs once the tests and build above pass.
+  # This job depends on `test`, so it only runs after CI has succeeded, which
+  # is what gates the merge — no branch-protection configuration required.
+  dependabot-auto-merge:
+    name: Auto-merge Dependabot PRs
+    needs: test
+    runs-on: ubuntu-latest
+    # Only for Dependabot's own pull requests.
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      # Approve the PR so the merge also satisfies any "require approval"
+      # branch protection (Dependabot cannot approve its own PRs).
+      - name: Approve the pull request
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge the pull request
+        run: gh pr merge --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
