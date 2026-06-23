@@ -107,7 +107,10 @@ md.renderer.rules.heading_close = (tokens, idx, options, env, self) => {
 
 // Responsive Images
 // see: https://tomichen.com/blog/posts/20220416-responsive-images-in-markdown-with-eleventy-image/
-const IMAGE_WIDTHS = [640, 1280, 1920]
+// Images render at most 768 CSS px wide (see the sizes attribute below), so
+// 768 and 1536 cover 1x and 2x retina exactly; intermediate or larger variants
+// are imperceptible overkill for this fixed column width.
+const IMAGE_WIDTHS = [768, 1536]
 md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const token = tokens[idx]
     const naiveSrc = token.attrGet('src')
@@ -118,9 +121,13 @@ md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const htmlAttributes = { alt, loading: 'lazy', decoding: 'async' }
     const imgOpts = {
         widths: IMAGE_WIDTHS,
-        formats: ['webp', 'jpeg', 'png', 'svg'],
+        formats: ['webp', 'jpeg', 'svg'],
         urlPath: '/media/img/',
         outputDir: './_site/media/img/',
+        // Lower webp encoding effort: effort only controls the compression
+        // search, not visual quality at a fixed quality value, so this speeds
+        // up the build at the cost of marginally larger files.
+        sharpWebpOptions: { effort: 2 },
     }
     Image(src, imgOpts)
     const metadata = Image.statsSync(src, imgOpts)
