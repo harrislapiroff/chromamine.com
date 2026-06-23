@@ -17,6 +17,7 @@ import yaml from "js-yaml"
 import { compileObservable } from "./config/utils/ojs/compile.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
+import { copyGeneratedImagesToOutput } from './config/utils/images.js'
 
 import {
     numFormat,
@@ -69,6 +70,19 @@ export default function(eleventyConfig) {
             }
         ))
         console.log("[11ty] Finished copying source files to output directory")
+    })
+
+    /* Copy cached responsive images into the output directory
+     *
+     * eleventy-img writes to a persistent cache (.cache/) so unchanged source
+     * images aren't reprocessed on subsequent builds; the build output is wiped
+     * each build, so the generated images need to be copied back in here.
+     * See: https://www.zachleat.com/web/faster-builds-with-eleventy-img/
+     *-------------------------------------*/
+    eleventyConfig.on('eleventy.after', async () => {
+        console.log("[11ty] Copying generated images from cache to output directory...")
+        const count = await copyGeneratedImagesToOutput()
+        console.log(`[11ty] Finished copying ${count} generated images to output directory`)
     })
 
     /* Run ESBuild after building site

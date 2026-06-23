@@ -1,15 +1,7 @@
 import Image from "@11ty/eleventy-img"
 import { md } from '../markdown.js'
 import { errorBoundary } from './utils.js'
-
-const IMAGE_WIDTHS = [640, 1280, 1920]
-const IMAGE_FORMATS = ['webp', 'jpeg', 'svg']
-const IMAGE_OPTIONS = {
-    widths: IMAGE_WIDTHS,
-    formats: IMAGE_FORMATS,
-    urlPath: '/media/img/',
-    outputDir: './_site/media/img/',
-}
+import { IMAGE_OPTIONS, generateImage } from '../utils/images.js'
 
 const image = async function (imgObj) {
     const fileSlug = this.page.fileSlug
@@ -17,7 +9,7 @@ const image = async function (imgObj) {
     // in a subdirectory with the same name as the page slug
     const src = `./src/media/${fileSlug}/${imgObj.src}`
 
-    const metadata = await Image(src, IMAGE_OPTIONS)
+    const metadata = await generateImage(src, IMAGE_OPTIONS)
 
     const pictureTag = Image.generateHTML(metadata, {
         sizes: '(max-width: 768px) 100vw, 768px',

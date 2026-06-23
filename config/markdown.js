@@ -15,6 +15,8 @@ import {
 } from "@shikijs/transformers"
 import Image from "@11ty/eleventy-img"
 
+import { IMAGE_OPTIONS, generateImage } from "./utils/images.js"
+
 export const mdOptions = {
     typographer: true,
     html: true,
@@ -107,7 +109,6 @@ md.renderer.rules.heading_close = (tokens, idx, options, env, self) => {
 
 // Responsive Images
 // see: https://tomichen.com/blog/posts/20220416-responsive-images-in-markdown-with-eleventy-image/
-const IMAGE_WIDTHS = [640, 1280, 1920]
 md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const token = tokens[idx]
     const naiveSrc = token.attrGet('src')
@@ -116,14 +117,11 @@ md.renderer.rules.image = (tokens, idx, options, env, self) => {
     const src = naiveSrc[0] === '/' ? './src' + naiveSrc : path.join(path.dirname(env.page.inputPath), naiveSrc)
     const alt = token.content
     const htmlAttributes = { alt, loading: 'lazy', decoding: 'async' }
-    const imgOpts = {
-        widths: IMAGE_WIDTHS,
-        formats: ['webp', 'jpeg', 'png', 'svg'],
-        urlPath: '/media/img/',
-        outputDir: './_site/media/img/',
-    }
-    Image(src, imgOpts)
-    const metadata = Image.statsSync(src, imgOpts)
+    // Kick off generation (writes to the persistent cache) and synchronously
+    // derive the metadata for the markup. generateImage tracks the promise so
+    // the build can wait for it before copying images into the output.
+    generateImage(src, IMAGE_OPTIONS)
+    const metadata = Image.statsSync(src, IMAGE_OPTIONS)
     const generated = Image.generateHTML(
         metadata,
         {
