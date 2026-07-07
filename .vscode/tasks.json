@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Serve blog (live)",
+            "detail": "Run the Eleventy dev server with live reload",
+            "type": "npm",
+            "script": "serve",
+            "isBackground": true,
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "eleventy",
+                "pattern": {
+                    "regexp": "^\\[11ty\\].*(error|Error):?\\s+(.*)$",
+                    "severity": 1,
+                    "message": 2
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^\\[11ty\\] Watching",
+                    "endsPattern": "^\\[11ty\\].*(Wrote|Server at|copied)"
+                }
+            },
+            "runOptions": {
+                "instanceLimit": 1
+            }
+        }
+    ]
+}
