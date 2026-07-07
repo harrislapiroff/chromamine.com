@@ -3,11 +3,11 @@ title: Paying for Software
 date: 2026-07-07
 categories: [Software]
 tags: [anti-corporate internet, email, Google, Fastmail, web]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/116879162158679178
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02A5XwhBK3UNuZ4bf5Mvy8JeZ6s2XnWEtVcpdubeRSV3ki8CL1Sg8z5AJAM81Qtfg9l
 ---
 
 It's [been said](https://quoteinvestigator.com/2017/07/16/product/), "if you're not paying for it, you're not the customer, you're the product." This is overly simple[^1] but the core of truth is that if a company has a functional business model that's not based on extracting and abusing user data, it's less likely to do so. Incentives aren't the only thing that matters, but they help!
