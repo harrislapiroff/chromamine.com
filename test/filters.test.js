@@ -9,7 +9,7 @@ import {
   markdown,
   pluralize,
   getSEOExcerpt,
-  getSEOImage,
+  getSEOImage
 } from '../config/filters.js'
 
 test('numFormat formats numbers with a d3 format specifier', () => {
