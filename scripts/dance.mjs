@@ -2,12 +2,12 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { program } from 'commander'
 import fs from 'fs'
-import matter from 'gray-matter'
+
+import { DANCE_EVENTS_DIR, readContentDir } from './lib/content.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const DANCE_EVENTS_DIR = path.join(__dirname, '..', 'src', 'dance', 'events')
 const SCRIPTS_DATA_DIR = path.join(__dirname, 'data')
 
 // Build the sorted, de-duplicated list of dances from a collection of event
@@ -61,17 +61,30 @@ program
 program.command('extract-dances')
   .description('Extract all unique dances from event files to create a reference')
   .action(() => {
-    const files = fs.readdirSync(DANCE_EVENTS_DIR)
-
-    const programs = files
-      .filter((file) => file.endsWith('.md'))
-      .map((file) => {
-        const content = fs.readFileSync(path.join(DANCE_EVENTS_DIR, file), 'utf-8')
-        const { data } = matter(content)
-        return data.program
+    let failed = 0
+    let events
+    try {
+      events = readContentDir(DANCE_EVENTS_DIR, {
+        extensions: ['md'],
+        onError: (message) => {
+          failed++
+          console.warn(`Skipping ${message}`)
+        }
       })
+    } catch (err) {
+      console.error(`Error: ${err.message}`)
+      process.exit(1)
+    }
 
+    const programs = events.map(({ data }) => data.program)
     const dances = extractDances(programs)
+
+    // Refuse to replace a populated reference with an empty one -- that is a
+    // symptom of a bad read, not of every event losing its program.
+    if (dances.length === 0 && events.length > 0) {
+      console.error('Error: extracted 0 dances from ' + events.length + ' events; refusing to overwrite the reference.')
+      process.exit(1)
+    }
 
     // Ensure the data directory exists
     if (!fs.existsSync(SCRIPTS_DATA_DIR)) {
@@ -82,7 +95,8 @@ program.command('extract-dances')
     const outputPath = path.join(SCRIPTS_DATA_DIR, 'dances.json')
     fs.writeFileSync(outputPath, JSON.stringify(dances, null, 2))
 
-    console.log(`Extracted ${dances.length} unique dances to ${outputPath}`)
+    console.log(`Extracted ${dances.length} unique dances from ${events.length} events to ${outputPath}`)
+    if (failed) console.warn(`${failed} event file(s) could not be parsed and were skipped.`)
   })
 
 // Only run the CLI when executed directly, so importing this module (e.g. from
