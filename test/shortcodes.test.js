@@ -17,7 +17,7 @@ test('errorBoundary awaits async wrapped functions', async () => {
 test('errorBoundary preserves `this` binding', async () => {
   const obj = {
     factor: 10,
-    multiply: errorBoundary(function (x) { return x * this.factor }),
+    multiply: errorBoundary(function (x) { return x * this.factor })
   }
   assert.equal(await obj.multiply(4), 40)
 })

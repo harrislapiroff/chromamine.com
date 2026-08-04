@@ -31,5 +31,11 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Lint
+        run: npm run lint
+
+      - name: Validate content
+        run: npm run validate
+
       - name: Build site
         run: npm run build

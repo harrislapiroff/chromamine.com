@@ -47,7 +47,7 @@ If you're on iOS (or macOS), you can use this simple shortcut I created to do so
 
 <a id="download-shortcut"></a>
 
-{% button "Download “Clean Copy Link” &darr;" "/media/share-links-thoughtfully-with-my-ios-shortcut/Clean Copy Link.shortcut" %}
+{% button "Download “Clean Copy Link” &darr;" "/media/share-links-thoughtfully-with-an-ios-shortcut/Clean Copy Link.shortcut" %}
 
 or, if you prefer to install from Apple's servers:
 

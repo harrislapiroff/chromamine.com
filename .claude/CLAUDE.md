@@ -14,11 +14,20 @@ npm run build
 # Run the unit tests (Node's built-in test runner)
 npm test
 
-# Create new blog post with frontmatter and media directory
-npm run blog new "<title>" [slug] [--editor <editor>]
+# Lint the CLI scripts and tests
+npm run lint
 
-# List blog posts
-npm run blog list [--limit <n>] [--sort <type>]
+# Check content for broken media references and frontmatter problems
+npm run validate [--errors-only] [--strict]
+
+# Create new blog post with frontmatter and media directory
+npm run blog new "<title>" [slug] [--editor <editor>] [--no-open]
+
+# List blog posts (--sort: -date, date, title, -title)
+npm run blog list [--limit <n>] [--sort <type>] [--drafts]
+
+# Publish a draft and fill in its cross-post URLs
+npm run blog publish <slug> [--mastodon <url>] [--facebook <url>]
 
 # Extract all unique dances from events to create a reference file
 npm run dance extract-dances
@@ -82,7 +91,10 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
 - **No trailing commas**: Avoid trailing commas in objects and arrays
 
 ### ESLint Configuration
-An `.eslintrc.js` file is configured to enforce these style rules:
+`eslint.config.js` (flat config) enforces these style rules via `npm run lint`.
+It currently covers `scripts/` and `test/` only; `config/` and
+`eleventy.config.js` are 4-space indented and need a mechanical reformat before
+they can be linted.
 - `semi: ['error', 'never']` - No semicolons
 - `quotes: ['error', 'single']` - Single quotes
 - `indent: ['error', 2]` - 2-space indentation

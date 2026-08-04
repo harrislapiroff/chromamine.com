@@ -8,18 +8,18 @@ test('extractDances collects dances across sets and events', () => {
     [
       [
         { title: 'Dance A', author: 'Author One' },
-        { title: 'Dance B', author: 'Author Two' },
+        { title: 'Dance B', author: 'Author Two' }
       ],
       [
-        { title: 'Dance C', author: 'Author Three' },
-      ],
-    ],
+        { title: 'Dance C', author: 'Author Three' }
+      ]
+    ]
   ]
   const dances = extractDances(programs)
   assert.deepEqual(dances, [
     { title: 'Dance A', author: 'Author One', count: 1 },
     { title: 'Dance B', author: 'Author Two', count: 1 },
-    { title: 'Dance C', author: 'Author Three', count: 1 },
+    { title: 'Dance C', author: 'Author Three', count: 1 }
   ])
 })
 
@@ -28,8 +28,8 @@ test('extractDances sorts results by title', () => {
     [[
       { title: 'Zebra', author: 'Z' },
       { title: 'Apple', author: 'A' },
-      { title: 'Mango', author: 'M' },
-    ]],
+      { title: 'Mango', author: 'M' }
+    ]]
   ]
   const titles = extractDances(programs).map((d) => d.title)
   assert.deepEqual(titles, ['Apple', 'Mango', 'Zebra'])
@@ -39,23 +39,23 @@ test('extractDances counts repeated dances by the same author', () => {
   const programs = [
     [[{ title: 'Popular Dance', author: 'Same Author' }]],
     [[{ title: 'Popular Dance', author: 'Same Author' }]],
-    [[{ title: 'Popular Dance', author: 'Same Author' }]],
+    [[{ title: 'Popular Dance', author: 'Same Author' }]]
   ]
   const dances = extractDances(programs)
   assert.deepEqual(dances, [
-    { title: 'Popular Dance', author: 'Same Author', count: 3 },
+    { title: 'Popular Dance', author: 'Same Author', count: 3 }
   ])
 })
 
 test('extractDances does not count a dance attributed to a different author', () => {
   const programs = [
     [[{ title: 'Ambiguous', author: 'First Author' }]],
-    [[{ title: 'Ambiguous', author: 'Different Author' }]],
+    [[{ title: 'Ambiguous', author: 'Different Author' }]]
   ]
   const dances = extractDances(programs)
   // The second entry's author differs, so it is neither counted nor overwrites
   assert.deepEqual(dances, [
-    { title: 'Ambiguous', author: 'First Author', count: 1 },
+    { title: 'Ambiguous', author: 'First Author', count: 1 }
   ])
 })
 
@@ -65,15 +65,15 @@ test('extractDances splits medleys into their component dances', () => {
       {
         title: 'Medley: First Tune, Second Tune, Third Tune',
         author: 'Author A, Author B, Author C',
-        medley: true,
-      },
-    ]],
+        medley: true
+      }
+    ]]
   ]
   const dances = extractDances(programs)
   assert.deepEqual(dances, [
     { title: 'First Tune', author: 'Author A', count: 1 },
     { title: 'Second Tune', author: 'Author B', count: 1 },
-    { title: 'Third Tune', author: 'Author C', count: 1 },
+    { title: 'Third Tune', author: 'Author C', count: 1 }
   ])
 })
 
@@ -83,20 +83,20 @@ test('extractDances reuses the first author when a medley lists fewer authors', 
       {
         title: 'Medley: One, Two',
         author: 'Solo Author',
-        medley: true,
-      },
-    ]],
+        medley: true
+      }
+    ]]
   ]
   const dances = extractDances(programs)
   assert.deepEqual(dances, [
     { title: 'One', author: 'Solo Author', count: 1 },
-    { title: 'Two', author: 'Solo Author', count: 1 },
+    { title: 'Two', author: 'Solo Author', count: 1 }
   ])
 })
 
 test('extractDances handles a "Medley:" prefix case-insensitively', () => {
   const programs = [
-    [[{ title: 'medley: Lower, Case', author: 'X, Y', medley: true }]],
+    [[{ title: 'medley: Lower, Case', author: 'X, Y', medley: true }]]
   ]
   const titles = extractDances(programs).map((d) => d.title)
   assert.deepEqual(titles, ['Case', 'Lower'])
@@ -107,12 +107,12 @@ test('extractDances skips dances missing a title or author', () => {
     [[
       { title: 'Has Both', author: 'Author' },
       { title: 'No Author' },
-      { author: 'No Title' },
-    ]],
+      { author: 'No Title' }
+    ]]
   ]
   const dances = extractDances(programs)
   assert.deepEqual(dances, [
-    { title: 'Has Both', author: 'Author', count: 1 },
+    { title: 'Has Both', author: 'Author', count: 1 }
   ])
 })
 
@@ -120,11 +120,11 @@ test('extractDances ignores events without a program', () => {
   const programs = [
     undefined,
     null,
-    [[{ title: 'Only Dance', author: 'Author' }]],
+    [[{ title: 'Only Dance', author: 'Author' }]]
   ]
   const dances = extractDances(programs)
   assert.deepEqual(dances, [
-    { title: 'Only Dance', author: 'Author', count: 1 },
+    { title: 'Only Dance', author: 'Author', count: 1 }
   ])
 })
 
