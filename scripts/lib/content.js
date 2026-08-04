@@ -14,7 +14,7 @@ export const MEDIA_DIR = path.join(ROOT_DIR, 'src', 'media')
 export const DANCE_EVENTS_DIR = path.join(ROOT_DIR, 'src', 'dance', 'events')
 
 // Matches the formats Eleventy collects posts from (see eleventy.config.js).
-export const BLOG_POST_FORMATS = ['md', 'ojs', 'html']
+export const BLOG_POST_FORMATS = ['md', 'ojs', 'omd', 'html']
 
 // Slugify a value for use as a filename or directory name.
 //
