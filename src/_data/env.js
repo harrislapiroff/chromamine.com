@@ -14,7 +14,10 @@
 const PRODUCTION_BRANCH = 'main'
 
 export default function () {
-  if (!Number(process.env.PROD)) return { preview: true, name: 'development' }
+  // Any value but unset/empty/"0" means a built site — `PROD=true` must not
+  // read as development, or the fail-safe below runs the wrong way.
+  const built = process.env.PROD && process.env.PROD !== '0'
+  if (!built) return { preview: true, name: 'development' }
 
   const branch = process.env.CF_PAGES_BRANCH ?? process.env.BRANCH
   const preview = process.env.CONTEXT

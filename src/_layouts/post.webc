@@ -19,6 +19,7 @@
         <meta property="og:url" :content="toAbsoluteUrl($data.page.url, $data.config.url)">
         <meta
             property="og:description"
+            webc:if="getSEOExcerpt($data.content, $data.seoDescription || $data.excerpt)"
             :content="getSEOExcerpt($data.content, $data.seoDescription || $data.excerpt)"
         >
         <meta

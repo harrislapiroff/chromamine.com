@@ -12,31 +12,55 @@ const ADVANCE = 0.6
 
 export const charsPerLine = (width, fontSize) => Math.max(1, Math.floor(width / (fontSize * ADVANCE)))
 
-/* Greedy word wrap, matching how the browser breaks a paragraph. Words longer
- * than the measure are hard-broken rather than allowed to overhang.
+/* Greedy word wrap, reported as slices of the original text.
+ *
+ * Each line records where it ends in `text`, so a caller wanting the part that
+ * fits can cut it from the original. Rebuilding it by joining the wrapped lines
+ * instead would put a space inside any word long enough to have been
+ * hard-broken across a line ending — a URL, most often.
  */
-export function wrap (text, columns) {
+function wrapLines (text, columns) {
   const lines = []
   let line = ''
+  let end = 0
 
-  for (const word of text.split(/\s+/).filter(Boolean)) {
-    if (!line) {
-      line = word
-    } else if (line.length + 1 + word.length <= columns) {
-      line += ' ' + word
-    } else {
-      lines.push(line)
-      line = word
-    }
-
-    while (line.length > columns) {
-      lines.push(line.slice(0, columns))
-      line = line.slice(columns)
-    }
+  const push = () => {
+    lines.push({ text: line, end })
+    line = ''
   }
 
-  if (line) lines.push(line)
+  for (const { 0: match, index } of text.matchAll(/\S+/g)) {
+    let word = match
+    let at = index
+
+    if (line && line.length + 1 + word.length > columns) push()
+
+    // A word with no room to fit on a line of its own is broken across lines.
+    while (!line && word.length > columns) {
+      line = word.slice(0, columns)
+      end = at + columns
+      push()
+      word = word.slice(columns)
+      at += columns
+    }
+
+    line = line ? `${line} ${word}` : word
+    end = at + word.length
+  }
+
+  if (line) push()
   return lines
+}
+
+/* The lines `text` wraps to at `columns` characters. */
+export const wrap = (text, columns) => wrapLines(text, columns).map((line) => line.text)
+
+/* The prefix of `text` that fills at most `maxLines` lines, cut from the
+ * original so that hard-broken words keep their spelling.
+ */
+export function takeLines (text, columns, maxLines) {
+  const lines = wrapLines(text, columns)
+  return lines.length <= maxLines ? text : text.slice(0, lines[maxLines - 1].end)
 }
 
 /* How many lines of `fontSize` text fit in `height`. */
@@ -57,13 +81,16 @@ export function fitFontSize (text, { width, height, lineHeight, sizes }) {
 /* Trim `text` to `maxLines`, ending on a word boundary with an ellipsis. */
 export function clampToLines (text, { width, fontSize, maxLines }) {
   const columns = charsPerLine(width, fontSize)
-  const lines = wrap(text, columns)
-  if (lines.length <= maxLines) return text
+  const kept = takeLines(text, columns, maxLines)
+  if (kept === text) return text
 
-  const kept = lines.slice(0, maxLines).join(' ')
   // Leave room for the ellipsis, then drop back to the last whole word.
-  const trimmed = kept.slice(0, kept.length - 1).replace(/[\s,;:.!?—–-]*\S*$/, '')
-  return (trimmed || kept) + '…'
+  const room = kept.slice(0, -1)
+  const atWord = room.replace(/[\s,;:.!?—–-]*\S*$/, '')
+
+  // Dropping back is right for prose, but one very long word — a URL, usually —
+  // would take whole lines of text with it. Cut into the word instead.
+  return (atWord.length >= room.length - columns ? atWord || room : room) + '…'
 }
 
 /* The end of the last complete sentence of `text` that fits in `maxLines`, or

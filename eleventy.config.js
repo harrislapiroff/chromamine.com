@@ -94,16 +94,11 @@ export default function(eleventyConfig) {
      * stays the one place that decides whether a post needs a generated link
      * preview at all. See config/utils/social/index.js.
      *-------------------------------------*/
-    eleventyConfig.on('eleventy.after', async ({ results, runMode }) => {
+    eleventyConfig.on('eleventy.after', async ({ results }) => {
         const blogPosts = results.filter(r => multimatch([r.inputPath], blogPostGlobs).length > 0)
         console.log("[11ty] Generating social images...")
-        // A watch or serve rebuild only reports the pages that changed, so the
-        // cache can only be pruned against a build that covers every post.
-        const { published, pruned } = await generateSocialImages(blogPosts, { prune: runMode === 'build' })
-        console.log(
-            `[11ty] Finished generating ${published} social images` +
-            (pruned ? ` and pruning ${pruned} stale ones` : '')
-        )
+        const count = await generateSocialImages(blogPosts)
+        console.log(`[11ty] Finished generating ${count} social images`)
     })
 
     /* Run ESBuild after building site

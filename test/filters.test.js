@@ -81,8 +81,16 @@ test('getSEOExcerpt prefers an explicit override', () => {
   assert.equal(getSEOExcerpt(content, 'Custom excerpt'), 'Custom excerpt')
 })
 
-test('getSEOExcerpt returns undefined when there is no paragraph', () => {
-  assert.equal(getSEOExcerpt('<body><div>No paragraphs here</div></body>'), undefined)
+test('getSEOExcerpt skips a paragraph that only carries an image', () => {
+  // A post opening with a photo and its caption would otherwise be described
+  // by the empty string.
+  const content = '<body><p><picture><img src="/pond.jpg" alt=""></picture></p>' +
+    '<p>The real opening sentence.</p></body>'
+  assert.equal(getSEOExcerpt(content), 'The real opening sentence.')
+})
+
+test('getSEOExcerpt returns an empty string when there is no prose', () => {
+  assert.equal(getSEOExcerpt('<body><div>No paragraphs here</div></body>'), '')
 })
 
 test('getSEOImage extracts the first image src', () => {

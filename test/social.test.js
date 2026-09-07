@@ -11,6 +11,7 @@ import {
   fitFontSize,
   fitProse,
   linesInHeight,
+  takeLines,
   truncateToSentence,
   wrap
 } from '../config/utils/social/text.js'
@@ -177,9 +178,31 @@ test('fitProse returns nothing when there is no prose', () => {
 /* URLs -------------------------------------------------------------------- */
 
 test('socialImageUrl names both cards from the post slug', () => {
-  assert.equal(socialImageUrl('dragonflies'), '/media/social/dragonflies.png')
-  assert.equal(socialImageUrl('dragonflies', 'opengraph'), '/media/social/dragonflies.png')
-  assert.equal(socialImageUrl('dragonflies', 'story'), '/media/social/dragonflies-story.png')
+  assert.equal(socialImageUrl('dragonflies'), '/media/social/og/dragonflies.png')
+  assert.equal(socialImageUrl('dragonflies', 'opengraph'), '/media/social/og/dragonflies.png')
+  assert.equal(socialImageUrl('dragonflies', 'story'), '/media/social/story/dragonflies.png')
+})
+
+test('socialImageUrl keeps a -story slug clear of the story frames', () => {
+  // Told apart by a suffix, these two would be the same file.
+  assert.notEqual(socialImageUrl('my-trip-story'), socialImageUrl('my-trip', 'story'))
+})
+
+test('takeLines cuts from the original, keeping hard-broken words intact', () => {
+  const title = 'Supercalifragilisticexpialidocious and friends'
+
+  assert.equal(takeLines(title, 20, 3), title)
+  // Rejoining the wrapped lines would put a space inside the long word.
+  assert.equal(takeLines(title, 20, 2), 'Supercalifragilisticexpialidocious and')
+})
+
+test('clampToLines cuts into a word too long to drop back from', () => {
+  const url = 'https://chromamine.com/2025/07/share-links-thoughtfully-with-my-ios-shortcut/'
+  const clamped = clampToLines(url, { width: 400, fontSize: 33.3, maxLines: 2 })
+
+  assert.ok(clamped.endsWith('…'))
+  assert.ok(url.startsWith(clamped.slice(0, -1)), clamped)
+  assert.ok(!clamped.includes(' '), `no space may be introduced: ${clamped}`)
 })
 
 test('rendererFingerprint hashes the renderer to a stable short digest', async () => {

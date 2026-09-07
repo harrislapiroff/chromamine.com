@@ -15,7 +15,7 @@ import sharp from 'sharp'
 
 import { backdrop } from './backdrop.js'
 import { loadFonts } from './fonts.js'
-import { charsPerLine, fitFontSize, fitProse, linesInHeight, wrap } from './text.js'
+import { charsPerLine, fitFontSize, fitProse, linesInHeight, takeLines, wrap } from './text.js'
 import {
   BASE_LINE_HEIGHT,
   BASE_FONT_SIZE,
@@ -68,10 +68,10 @@ const oneLine = (value, fontSize, { italic = false, color = colors.muted } = {})
  */
 function fitTitle (title, { width, height, sizes }) {
   const fontSize = fitFontSize(title, { width, height, lineHeight: LINE_HEIGHT, sizes })
-  const lines = wrap(title, charsPerLine(width, fontSize))
-    .slice(0, linesInHeight(height, fontSize, LINE_HEIGHT))
+  const columns = charsPerLine(width, fontSize)
+  const text = takeLines(title, columns, linesInHeight(height, fontSize, LINE_HEIGHT))
 
-  return { fontSize, text: lines.join(' '), height: lines.length * lineBox(fontSize) }
+  return { fontSize, text, height: wrap(text, columns).length * lineBox(fontSize) }
 }
 
 /* The post title, with the pilcrow hanging in the margin the way

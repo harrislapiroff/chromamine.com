@@ -37,9 +37,24 @@ export const markdown = function (value) {
 
 export const pluralize = (value, singular = '', plural = 's') => value === 1 ? singular : plural
 
+/* A one-paragraph description of a post, for `og:description`.
+ *
+ * Paragraphs that only carry an image are skipped: a post opening with a photo
+ * and its caption would otherwise be described by the empty string. The social
+ * card renderer applies the same rule — see
+ * config/utils/social/extract.js:readParagraphs.
+ */
 export const getSEOExcerpt = function (content, override) {
-    return override ||
-        new JSDOM(content).window.document.querySelector("body > p")?.textContent
+    if (override) return override
+
+    const paragraphs = new JSDOM(content).window.document.querySelectorAll("body > p")
+    for (const paragraph of paragraphs) {
+        if (paragraph.querySelector("img, picture, svg")) continue
+        const text = paragraph.textContent.trim()
+        if (text) return text
+    }
+
+    return ''
 }
 
 /* Resolve a site-relative path against the site's origin.
