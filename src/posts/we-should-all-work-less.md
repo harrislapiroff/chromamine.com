@@ -3,11 +3,11 @@ title: We Should All Work Less
 date: 2026-09-07
 categories: [Miscellany]
 tags: [politics, machine learning]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/117230690190779469
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0dvTeNXvsYhftGwSkcXUrLLpAXFwfzZhpecK9awybhZfNcxHEE3bLBsQeWR5m8SSbl
 ---
 
 Roughly a century ago, labor organizing gradually, but successfully, [reduced the 6-day work week to a 5-day work week](https://theconversation.com/history-of-the-two-day-weekend-offers-lessons-for-todays-calls-for-a-four-day-week-127382).
