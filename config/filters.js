@@ -37,6 +37,22 @@ export const markdown = function (value) {
 
 export const pluralize = (value, singular = '', plural = 's') => value === 1 ? singular : plural
 
+/* Parse rendered page content, remembering the last document parsed.
+ *
+ * The post layout asks for a post's excerpt and its lead image from the same
+ * string, one after the other, and each JSDOM construction is a full document
+ * parse. Holding on to the most recent one turns three parses per post into
+ * one. Parsing is pure, so a miss only costs the work it saves.
+ */
+let lastParsed = { content: null, document: null }
+
+const parseContent = function (content) {
+    if (content !== lastParsed.content) {
+        lastParsed = { content, document: new JSDOM(content).window.document }
+    }
+    return lastParsed.document
+}
+
 /* A one-paragraph description of a post, for `og:description`.
  *
  * Paragraphs that only carry an image are skipped: a post opening with a photo
@@ -47,7 +63,7 @@ export const pluralize = (value, singular = '', plural = 's') => value === 1 ? s
 export const getSEOExcerpt = function (content, override) {
     if (override) return override
 
-    const paragraphs = new JSDOM(content).window.document.querySelectorAll("body > p")
+    const paragraphs = parseContent(content).querySelectorAll("body > p")
     for (const paragraph of paragraphs) {
         if (paragraph.querySelector("img, picture, svg")) continue
         const text = paragraph.textContent.trim()
@@ -69,6 +85,5 @@ export const toAbsoluteUrl = function (url, base) {
 
 export const getSEOImage = function (content, override) {
     // TODO: get this to find higher resolution images from srcsets
-    return override ||
-        new JSDOM(content).window.document.querySelector("img")?.src
+    return override || parseContent(content).querySelector("img")?.src
 }

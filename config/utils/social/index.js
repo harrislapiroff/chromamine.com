@@ -44,7 +44,11 @@ const CONCURRENCY = 4
  * the story frame of a post slugged `foo`.
  */
 export function socialImageUrl (slug, kind = 'opengraph') {
-  return `${SOCIAL_URL_PATH}${KINDS[kind].directory}/${slug}.png`
+  // Slugs come from filenames, and a filename may hold characters that mean
+  // something in a URL — `assertSafeSlug` allows `?`, and this repo has carried
+  // a post slugged that way. Unencoded, everything after it reads as a query
+  // string and the image 404s.
+  return `${SOCIAL_URL_PATH}${KINDS[kind].directory}/${encodeURIComponent(slug)}.png`
 }
 
 /* A post's slug, taken from its source filename.
@@ -80,6 +84,10 @@ const KINDS = {
  */
 const KEY_LENGTH = 16
 
+// Marks a render still being written. Carries the pid so two builds against the
+// same cache cannot claim each other's temporary file.
+const PARTIAL_SUFFIX = `.${process.pid}.partial`
+
 const cacheKey = (inputs, renderer) =>
   crypto.createHash('sha256')
     .update(JSON.stringify({ ...inputs, renderer }))
@@ -101,7 +109,7 @@ async function writeCard (kind, post, slug) {
     // Write somewhere else first: a build interrupted mid-write would otherwise
     // leave a truncated PNG that every later build treats as a cache hit, since
     // existence is the only test made above.
-    const partial = `${cached}.${process.pid}.partial`
+    const partial = `${cached}${PARTIAL_SUFFIX}`
     await fs.writeFile(partial, await render(inputs(post)))
     await fs.rename(partial, cached)
   }
@@ -143,14 +151,20 @@ async function mapWithConcurrency (items, limit, fn) {
  *
  * Renders of `slug` are its name, a dash, and a fixed-length key — matching on
  * length as well as prefix is what stops a post named `foo` from claiming the
- * cached images of one named `foo-bar`.
+ * cached images of one named `foo-bar`. Leftovers from an interrupted write go
+ * too; nothing else would ever collect them.
  */
 async function pruneSuperseded (directory, slug, keep) {
   const width = slug.length + 1 + KEY_LENGTH + '.png'.length
-  const stale = (await fs.readdir(directory))
-    .filter((file) => file !== keep && file.startsWith(`${slug}-`) && file.length === width)
+  const stale = (await fs.readdir(directory)).filter((file) =>
+    file !== keep &&
+    file.startsWith(`${slug}-`) &&
+    (file.length === width || file.endsWith('.partial'))
+  )
 
-  await Promise.all(stale.map((file) => fs.rm(path.join(directory, file))))
+  // `force` because a second build against the same cache may have removed the
+  // same file between the listing above and this call.
+  await Promise.all(stale.map((file) => fs.rm(path.join(directory, file), { force: true })))
 }
 
 /* Generate the social images for the blog posts written in this build.

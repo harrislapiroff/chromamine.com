@@ -15,7 +15,7 @@ import sharp from 'sharp'
 
 import { backdrop } from './backdrop.js'
 import { loadFonts } from './fonts.js'
-import { charsPerLine, fitFontSize, fitProse, linesInHeight, takeLines, wrap } from './text.js'
+import { charsPerLine, clampToLines, fitFontSize, fitProse, linesInHeight, takeLines, wrap } from './text.js'
 import {
   BASE_LINE_HEIGHT,
   BASE_FONT_SIZE,
@@ -58,6 +58,15 @@ const oneLine = (value, fontSize, { italic = false, color = colors.muted } = {})
   { fontSize, lineHeight: LINE_HEIGHT, color, ...(italic ? { fontStyle: 'italic' } : {}) },
   [text({}, value)]
 )
+
+/* The category line, held to the single line the layout budgets for it.
+ *
+ * The date and the site header are fixed-length, but a post can carry any
+ * number of categories, and a second line here would push the footer off the
+ * bottom of the card without Satori reporting anything.
+ */
+const categoryLine = (categories, fontSize, width) =>
+  oneLine(clampToLines(categories.join(', '), { width, fontSize, maxLines: 1 }), fontSize, { italic: true })
 
 /* Choose the size a title should be set at, and work out how it breaks.
  *

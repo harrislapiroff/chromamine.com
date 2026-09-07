@@ -175,6 +175,49 @@ test('fitProse returns nothing when there is no prose', () => {
   assert.deepEqual(fitProse([], { ...PROSE, maxLines: 6 }), [])
 })
 
+/* The card layouts budget a fixed number of lines for the excerpt and Satori
+ * cannot report an overflow, so this is the property the whole pipeline exists
+ * to guarantee: whatever comes back fits, and comes from the post.
+ */
+test('fitProse output always fits its budget and comes from the source', () => {
+  const fragments = [
+    'All week I have seen insects landing.',
+    'It was quiet.',
+    'Roughly a century ago, labor organizing gradually, but successfully, reduced the work week.',
+    'See https://chromamine.com/2025/07/share-links-thoughtfully?fbclid=IwY2xjawLbtGF for more.',
+    'Mr. Smith went to Washington, D.C. and stayed.',
+    'Supercalifragilisticexpialidociousandthensomemore.'
+  ]
+
+  for (const width of [300, 640, 864]) {
+    for (const fontSize of [24, 36, 52]) {
+      for (const maxLines of [1, 2, 5, 12]) {
+        for (let i = 0; i < fragments.length; i++) {
+          const paragraphs = [fragments[i], fragments[(i + 1) % fragments.length]]
+          const shown = fitProse(paragraphs, { width, fontSize, maxLines })
+          if (!shown.length) continue
+
+          const columns = charsPerLine(width, fontSize)
+          const used = shown.reduce((n, p) => n + wrap(p, columns).length, 0) + shown.length - 1
+          assert.ok(used <= maxLines, `${used} lines used of ${maxLines}: ${JSON.stringify(shown)}`)
+
+          shown.forEach((paragraph, index) => {
+            const body = paragraph.endsWith('…') ? paragraph.slice(0, -1) : paragraph
+            assert.ok(paragraphs[index].startsWith(body), `not from the post: ${paragraph}`)
+          })
+        }
+      }
+    }
+  }
+})
+
+test('a long category list is held to the one line the layout budgets', () => {
+  const many = ['Dance', 'Software', 'Life', 'Miscellany', 'Politics', 'Photography']
+  const clamped = clampToLines(many.join(', '), { width: 936, fontSize: 28, maxLines: 1 })
+
+  assert.equal(wrap(clamped, charsPerLine(936, 28)).length, 1)
+})
+
 /* URLs -------------------------------------------------------------------- */
 
 test('socialImageUrl names both cards from the post slug', () => {
