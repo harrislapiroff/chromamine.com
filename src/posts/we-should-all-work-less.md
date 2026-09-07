@@ -1,5 +1,5 @@
 ---
-title: We Should ALl Work Less
+title: We Should All Work Less
 date: 2026-09-07
 categories: [Miscellany]
 tags: [politics, machine learning]
