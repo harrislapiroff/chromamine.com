@@ -1,3 +1,7 @@
+# The canonical origin, used to make the absolute URLs that Open Graph
+# consumers require (they will not resolve a site-relative image path).
+url: https://chromamine.com
+
 featured:
   - "Shooting with a Nikon D70 in the smartphone age"
   - "Standing Up for Gaza"

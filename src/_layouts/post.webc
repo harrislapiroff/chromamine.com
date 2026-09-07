@@ -6,6 +6,29 @@
         <meta name="fediverse:creator" content="@harris@social.coop">
         <meta name="generator" :content="$data.eleventy.generator">
         <title @text="$data.title"></title>
+
+        <!--- Social previews.
+        `og:image` is the post's own lead image when it has one, and a card
+        generated from its title otherwise. The generated card is written after
+        the build by config/utils/social/index.js, which decides what to render
+        by reading the URL this tag ends up with — so this is the only place
+        that judgement is made. --->
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="Harris Lapiroff">
+        <meta property="og:title" :content="$data.title">
+        <meta property="og:url" :content="toAbsoluteUrl($data.page.url, $data.config.url)">
+        <meta
+            property="og:description"
+            :content="getSEOExcerpt($data.content, $data.seoDescription || $data.excerpt)"
+        >
+        <meta
+            property="og:image"
+            :content="toAbsoluteUrl(
+                getSEOImage($data.content, $data.seoImage) || socialImageUrl($data.page.fileSlug),
+                $data.config.url
+            )"
+        >
+        <meta name="twitter:card" content="summary_large_image">
 		<link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
         <link rel="stylesheet" :href="rev('/static/styles/styles.css')" webc:keep />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
