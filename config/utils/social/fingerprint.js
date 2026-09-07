@@ -8,7 +8,9 @@
  *
  * Every .js file in this directory is included except index.js, which schedules
  * and caches renders but draws nothing; that way a new module added to the
- * renderer is covered without anyone remembering to list it here.
+ * renderer is covered without anyone remembering to list it here. This file
+ * hashes itself along with the rest, so narrowing what counts as a renderer
+ * module is itself a cache-invalidating change.
  */
 
 import crypto from 'node:crypto'
@@ -21,8 +23,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url))
 // Not a .js file, but the backdrop is drawn from it.
 const ARTWORK = ['./src/static/styles/images/peonies.svg']
 
-const isRendererModule = (file) =>
-  file.endsWith('.js') && !['index.js', 'fingerprint.js'].includes(file)
+const isRendererModule = (file) => file.endsWith('.js') && file !== 'index.js'
 
 let cached = null
 
