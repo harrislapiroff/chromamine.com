@@ -77,9 +77,10 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
 - **Multi-format blog posts** - Supports Markdown, Observable, and HTML formats
 - **Social preview images** - Every post gets an Instagram-story image, and
   posts without images of their own get a generated Open Graph card. Drawn with
-  Satori from the rendered HTML in `config/utils/social/`; see the README. Bump
-  `RENDERER_VERSION` in `config/utils/social/index.js` when changing a design,
-  or the cache under `.cache/social-images/` will be reused.
+  Satori from the rendered HTML in `config/utils/social/`; see the README.
+  Renders are cached under `.cache/social-images/`, keyed by both the post
+  content and a hash of the renderer's own source, so design edits invalidate
+  the cache on their own.
 
 ### Data Flow
 - Posts collection automatically includes all supported formats from `src/posts/`

@@ -52,10 +52,10 @@ const siteHeader = (fontSize) => el(
   ]
 )
 
-// A single muted line: the date under a post title, or the site name in the
-// footer. The category line above a title is the same, in italics.
-const oneLine = (value, fontSize, { italic = false } = {}) => el(
-  { fontSize, lineHeight: LINE_HEIGHT, color: colors.muted, ...(italic ? { fontStyle: 'italic' } : {}) },
+// A single line of supporting text: the category line above a title (in
+// italics, as on the site), the date below it, or the site name in the footer.
+const oneLine = (value, fontSize, { italic = false, color = colors.muted } = {}) => el(
+  { fontSize, lineHeight: LINE_HEIGHT, color, ...(italic ? { fontStyle: 'italic' } : {}) },
   [text({}, value)]
 )
 
@@ -76,14 +76,17 @@ function fitTitle (title, { width, height, sizes }) {
 
 /* The post title, with the pilcrow hanging in the margin the way
  * page-title.webc floats it 2ch to the left of the text column.
+ *
+ * The cards set the title at different weights, so `weight` is passed in; the
+ * page padding has to leave room for `hang` either way.
  */
-const postTitle = ({ fontSize, text: title }) => {
+const postTitle = ({ fontSize, text: title }, weight) => {
   const hang = fontSize * 0.6 * 2
 
   return el(
-    { fontSize, lineHeight: LINE_HEIGHT, fontWeight: weightBold, color: colors.striking },
+    { fontSize, lineHeight: LINE_HEIGHT, fontWeight: weight, color: colors.striking },
     [
-      text({ width: hang, marginLeft: -hang, flexShrink: 0, color: colors.link }, '¶'),
+      text({ width: hang, marginLeft: -hang, flexShrink: 0 }, '¶'),
       text({}, title)
     ]
   )
@@ -119,9 +122,13 @@ async function rasterize (tree, { width, height }) {
  * lead with that instead.
  */
 export function renderOpenGraphCard ({ title, categories = [], date }) {
-  const padding = { x: 96, y: 96 }
+  // The left padding has to clear the title's hanging pilcrow, which reaches
+  // 2ch further left than the text column at the largest size in the ladder.
+  const padding = { x: 132, y: 96 }
   const gap = 12
-  const type = { header: 32, meta: 28 }
+  // Everything except the title is set at one size; the title is the only thing
+  // on the card that needs to carry at thumbnail scale.
+  const body = 28
   const measure = OPEN_GRAPH_SIZE.width - padding.x * 2
 
   // The site header, the footer, and the category and date lines each take one
@@ -129,21 +136,22 @@ export function renderOpenGraphCard ({ title, categories = [], date }) {
   const metaLines = (categories.length ? 1 : 0) + (date ? 1 : 0)
   const title_ = fitTitle(title, {
     width: measure,
-    height: OPEN_GRAPH_SIZE.height - padding.y * 2 -
-      lineBox(type.header) - lineBox(type.meta) -
-      metaLines * (lineBox(type.meta) + gap),
-    sizes: [72, 64, 56, 48, 40]
+    height: OPEN_GRAPH_SIZE.height - padding.y * 2 - lineBox(body) * 2 -
+      metaLines * (lineBox(body) + gap),
+    sizes: [64, 56, 48, 40, 32]
   })
 
   return rasterize(
     page(padding, [
-      siteHeader(type.header),
+      siteHeader(body),
       el({ flexDirection: 'column', flexGrow: 1, justifyContent: 'center', gap }, [
-        ...(categories.length ? [oneLine(categories.join(', '), type.meta, { italic: true })] : []),
-        postTitle(title_),
-        ...(date ? [oneLine(date, type.meta)] : [])
+        ...(categories.length ? [oneLine(categories.join(', '), body, { italic: true })] : []),
+        // Set light rather than bold: at this size the scale alone carries it,
+        // and the weight the site uses for a title reads as shouting.
+        postTitle(title_, weightNormal),
+        ...(date ? [oneLine(date, body)] : [])
       ]),
-      oneLine('chromamine.com', type.meta)
+      oneLine('chromamine.com', body, { color: colors.link })
     ]),
     OPEN_GRAPH_SIZE
   )
@@ -152,17 +160,19 @@ export function renderOpenGraphCard ({ title, categories = [], date }) {
 /* A 1080×1920 story frame, generated for every post: the same header and title,
  * plus enough of the opening prose to be worth reading on its own.
  *
- * The title may take up to half the frame and the excerpt takes what is left,
- * so a long headline shortens the quotation rather than pushing it off the
- * bottom of the image.
+ * Everything is set at one size — a story is read up close, so the frame reads
+ * as a page of the site rather than as a poster. The title still takes at most
+ * half the frame, so a long headline shortens the quotation rather than pushing
+ * it off the bottom of the image.
  */
 export function renderStoryCard ({ title, categories = [], date, excerpt }) {
   // Instagram lays its own chrome — the account header, the reply bar — over
-  // the top and bottom of a story, so the card keeps well clear of both.
-  const padding = { x: 104, y: 200 }
+  // the top and bottom of a story, so the card keeps well clear of both. The
+  // left padding also has to clear the title's hanging pilcrow.
+  const padding = { x: 140, y: 200 }
   const gap = 16
   const excerptGap = 40
-  const type = { header: 40, meta: 32, body: 36 }
+  const body = 36
   const measure = STORY_SIZE.width - padding.x * 2
   const available = STORY_SIZE.height - padding.y * 2
 
@@ -171,37 +181,35 @@ export function renderStoryCard ({ title, categories = [], date, excerpt }) {
   const MAX_EXCERPT_LINES = 12
 
   const metaLines = (categories.length ? 1 : 0) + (date ? 1 : 0)
-  const title_ = fitTitle(title, {
-    width: measure,
-    height: available / 2,
-    sizes: [80, 72, 64, 56, 48]
-  })
+  const title_ = fitTitle(title, { width: measure, height: available / 2, sizes: [body] })
 
   const excerptLines = Math.min(
     MAX_EXCERPT_LINES,
     linesInHeight(
-      available - lineBox(type.header) - lineBox(type.meta) -
-        metaLines * (lineBox(type.meta) + gap) - title_.height - gap - excerptGap,
-      type.body,
+      available - lineBox(body) * 2 - metaLines * (lineBox(body) + gap) -
+        title_.height - gap - excerptGap,
+      body,
       LINE_HEIGHT
     )
   )
 
   return rasterize(
     page(padding, [
-      siteHeader(type.header),
+      siteHeader(body),
       el({ flexDirection: 'column', flexGrow: 1, justifyContent: 'center', gap }, [
-        ...(categories.length ? [oneLine(categories.join(', '), type.meta, { italic: true })] : []),
-        postTitle(title_),
-        ...(date ? [oneLine(date, type.meta)] : []),
+        ...(categories.length ? [oneLine(categories.join(', '), body, { italic: true })] : []),
+        // Bold, as page-title.webc sets it: at a single size the weight is what
+        // separates the title from the prose under it.
+        postTitle(title_, weightBold),
+        ...(date ? [oneLine(date, body)] : []),
         ...(excerpt
           ? [el(
-              { marginTop: excerptGap, fontSize: type.body, lineHeight: LINE_HEIGHT, color: colors.base },
-              [text({}, clampToLines(excerpt, { width: measure, fontSize: type.body, maxLines: excerptLines }))]
+              { marginTop: excerptGap, fontSize: body, lineHeight: LINE_HEIGHT, color: colors.base },
+              [text({}, clampToLines(excerpt, { width: measure, fontSize: body, maxLines: excerptLines }))]
             )]
           : [])
       ]),
-      oneLine('chromamine.com', type.meta)
+      oneLine('chromamine.com', body, { color: colors.link })
     ]),
     STORY_SIZE
   )
