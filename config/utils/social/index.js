@@ -19,9 +19,8 @@ import crypto from 'node:crypto'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
-import { JSDOM } from 'jsdom'
-
 import { renderOpenGraphCard, renderStoryCard } from './cards.js'
+import { readPost } from './extract.js'
 
 // Where rendered cards are kept between builds, and where they have to end up
 // in the published site.
@@ -50,48 +49,6 @@ export function socialImageUrl (slug, kind = 'opengraph') {
 // A post's slug is the last segment of its URL, which posts.11tydata.js builds
 // from the source filename.
 const slugFromUrl = (url) => url.replace(/\/+$/, '').split('/').pop()
-
-const textOf = (node) => node?.textContent.trim() || ''
-
-/* Pull everything the cards need out of a rendered post page. */
-function readPost (html) {
-  const { document } = new JSDOM(html).window
-  const article = document.querySelector('article.blog-post')
-  if (!article) return null
-
-  const content = article.querySelector('.content')
-
-  return {
-    title: textOf(document.querySelector('title')),
-    categories: textOf(article.querySelector('.categories')).split(/,\s*/).filter(Boolean),
-    date: textOf(article.querySelector('header time')),
-    excerpt: readExcerpt(content, document),
-    // Whatever post.webc decided to advertise as the preview image.
-    openGraphImage: document.querySelector('meta[property="og:image"]')?.content
-  }
-}
-
-/* The opening prose of a post: its first paragraph, plus the second when the
- * first is too short to stand on its own.
- *
- * Paragraphs that carry an image are skipped — a post that opens with a photo
- * and its caption should still be described by its first real sentence.
- */
-function readExcerpt (content, document) {
-  const paragraphs = [...(content?.querySelectorAll(':scope > rich-text > p, :scope > p') ?? [])]
-    .filter((p) => !p.querySelector('img, picture, svg'))
-    .map((p) => p.textContent.replace(/\s+/g, ' ').trim())
-    .filter(Boolean)
-
-  // Notebook posts render their body on the client, so there is no prose in the
-  // markup to read; fall back to the description the page already advertises.
-  if (!paragraphs.length) {
-    return document.querySelector('meta[property="og:description"]')?.content || ''
-  }
-
-  const [first, second] = paragraphs
-  return second && first.length < 240 ? `${first} ${second}` : first
-}
 
 /* The two kinds of card, and the parts of a post each one draws.
  *

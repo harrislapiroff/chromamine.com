@@ -34,7 +34,11 @@ const DANCE_KEYS = new Set(['title', 'author', 'type', 'notes', 'caller', 'medle
 
 // Keys that no template reads. Worth surfacing so authors stop hand-writing
 // metadata that never reaches the HTML.
-const UNCONSUMED_POST_KEYS = new Set(['excerpt', 'seoImage', 'seoDescription'])
+//
+// `excerpt`, `seoImage` and `seoDescription` used to be listed here; post.webc
+// now reads all three to fill in the Open Graph tags, and `seoImage` also
+// decides whether the post needs a generated preview card.
+const UNCONSUMED_POST_KEYS = new Set()
 
 class Report {
   constructor() {

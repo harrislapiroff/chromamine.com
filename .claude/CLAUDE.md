@@ -75,6 +75,11 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
 - **Observable notebook support** - `.ojs` files compile to interactive data visualizations
 - **Dance event calendar** - Generates ICS calendar files from YAML data
 - **Multi-format blog posts** - Supports Markdown, Observable, and HTML formats
+- **Social preview images** - Every post gets an Instagram-story image, and
+  posts without images of their own get a generated Open Graph card. Drawn with
+  Satori from the rendered HTML in `config/utils/social/`; see the README. Bump
+  `RENDERER_VERSION` in `config/utils/social/index.js` when changing a design,
+  or the cache under `.cache/social-images/` will be reused.
 
 ### Data Flow
 - Posts collection automatically includes all supported formats from `src/posts/`

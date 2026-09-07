@@ -122,3 +122,43 @@ FLICKR_API_SECRET=...
 FLICKR_OAUTH_TOKEN=...
 FLICKR_OAUTH_SECRET=...
 ```
+
+## Social Images
+
+Every build draws two images per blog post, into `_site/media/social/`:
+
+* `<slug>.png` — a 1200×630 Open Graph card, linked from the post's `og:image`.
+  It is only generated for posts that have no image of their own; a post that
+  leads with a photo advertises the photo instead.
+* `<slug>-story.png` — a 1080×1920 frame sized for an Instagram story, carrying
+  the title and the opening of the post. Generated for every post, and not
+  linked from anywhere — download it from the built site when you want it.
+
+Both are drawn with [Satori][] and rasterized with [sharp][], and restate the
+top of a post the way the site renders it in dark mode. The code lives in
+`config/utils/social/`:
+
+| | |
+| --- | --- |
+| `colors.js` | Resolves CSS `lch()` to sRGB, gamut-mapping per CSS Color 4 |
+| `theme.js` | The dark-mode palette and type scale, mirroring `_variables.sass` |
+| `fonts.js` | Loads IBM Plex Mono for Satori |
+| `backdrop.js` | Rebuilds the faded peonies background |
+| `text.js` | Line fitting, exploiting the fact that the site is monospaced |
+| `cards.js` | The two layouts |
+| `extract.js` | Reads a post back out of its own rendered HTML |
+| `index.js` | The build hook, and the on-disk cache |
+
+Whether a post needs a generated card is decided in `src/_layouts/post.webc`,
+which has to work it out anyway to fill in `og:image`; the build hook reads the
+URL that tag ended up with rather than deciding again. The post's `seoImage`,
+`seoDescription` and `excerpt` frontmatter all feed into that.
+
+Renders are cached under `.cache/social-images/`, keyed by a hash of only the
+fields a given card draws — so editing a post's opening paragraph rebuilds its
+story image but not its link preview. **After changing a card's design, bump
+`RENDERER_VERSION` in `config/utils/social/index.js`**, or the existing cache
+will be reused for images that would now render differently.
+
+[Satori]: https://github.com/vercel/satori
+[sharp]: https://sharp.pixelplumbing.com/
