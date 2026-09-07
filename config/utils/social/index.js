@@ -21,6 +21,7 @@ import path from 'node:path'
 
 import { renderOpenGraphCard, renderStoryCard } from './cards.js'
 import { readPost } from './extract.js'
+import { rendererFingerprint } from './fingerprint.js'
 
 // Where rendered cards are kept between builds, and where they have to end up
 // in the published site.
@@ -28,10 +29,6 @@ const CACHE_DIR = './.cache/social-images/'
 const PUBLISH_DIR = './_site/media/social/'
 
 export const SOCIAL_URL_PATH = '/media/social/'
-
-// Bump when a card's design changes, so existing caches are not reused for
-// images that would now render differently.
-const RENDERER_VERSION = 1
 
 // How many cards to draw at once. See mapWithConcurrency below.
 const CONCURRENCY = 4
@@ -67,9 +64,12 @@ const CARDS = {
   }
 }
 
-const cacheKey = (inputs) =>
+/* What a cached render is keyed on: the post content the card draws, and the
+ * renderer that drew it — so a change to either produces a different file.
+ */
+const cacheKey = (inputs, renderer) =>
   crypto.createHash('sha256')
-    .update(JSON.stringify({ ...inputs, version: RENDERER_VERSION }))
+    .update(JSON.stringify({ ...inputs, renderer }))
     .digest('hex')
     .slice(0, 16)
 
@@ -80,7 +80,8 @@ async function writeCard (kind, post, slug) {
   const { render, inputs } = CARDS[kind]
   const card = inputs(post)
   const filename = path.basename(socialImageUrl(slug, kind))
-  const cached = path.join(CACHE_DIR, `${path.parse(filename).name}-${cacheKey(card)}.png`)
+  const key = cacheKey(card, await rendererFingerprint())
+  const cached = path.join(CACHE_DIR, `${path.parse(filename).name}-${key}.png`)
 
   try {
     await fs.access(cached)

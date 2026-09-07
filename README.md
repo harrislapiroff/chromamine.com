@@ -147,6 +147,7 @@ top of a post the way the site renders it in dark mode. The code lives in
 | `text.js` | Line fitting, exploiting the fact that the site is monospaced |
 | `cards.js` | The two layouts |
 | `extract.js` | Reads a post back out of its own rendered HTML |
+| `fingerprint.js` | Hashes the renderer, so design changes bust the cache |
 | `index.js` | The build hook, and the on-disk cache |
 
 Whether a post needs a generated card is decided in `src/_layouts/post.webc`,
@@ -154,11 +155,13 @@ which has to work it out anyway to fill in `og:image`; the build hook reads the
 URL that tag ended up with rather than deciding again. The post's `seoImage`,
 `seoDescription` and `excerpt` frontmatter all feed into that.
 
-Renders are cached under `.cache/social-images/`, keyed by a hash of only the
-fields a given card draws — so editing a post's opening paragraph rebuilds its
-story image but not its link preview. **After changing a card's design, bump
-`RENDERER_VERSION` in `config/utils/social/index.js`**, or the existing cache
-will be reused for images that would now render differently.
+Renders are cached under `.cache/social-images/`, keyed by a hash of two things:
+the fields a given card draws, and the renderer that drew them. So editing a
+post's opening paragraph rebuilds its story image but not its link preview, and
+editing a layout, a color or the peonies artwork rebuilds everything — no
+version constant to remember to bump. The renderer hash covers every `.js` file
+in `config/utils/social/` except `index.js`, which schedules renders but draws
+nothing, so a new module needs no bookkeeping.
 
 [Satori]: https://github.com/vercel/satori
 [sharp]: https://sharp.pixelplumbing.com/

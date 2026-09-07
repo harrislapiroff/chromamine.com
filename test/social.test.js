@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 
 import { lch } from '../config/utils/social/colors.js'
 import { readPost } from '../config/utils/social/extract.js'
+import { rendererFingerprint } from '../config/utils/social/fingerprint.js'
 import { socialImageUrl } from '../config/utils/social/index.js'
 import {
   charsPerLine,
@@ -106,6 +107,13 @@ test('socialImageUrl names both cards from the post slug', () => {
   assert.equal(socialImageUrl('dragonflies'), '/media/social/dragonflies.png')
   assert.equal(socialImageUrl('dragonflies', 'opengraph'), '/media/social/dragonflies.png')
   assert.equal(socialImageUrl('dragonflies', 'story'), '/media/social/dragonflies-story.png')
+})
+
+test('rendererFingerprint hashes the renderer to a stable short digest', async () => {
+  const fingerprint = await rendererFingerprint()
+
+  assert.match(fingerprint, /^[0-9a-f]{12}$/)
+  assert.equal(await rendererFingerprint(), fingerprint)
 })
 
 /* Reading a rendered post ------------------------------------------------- */

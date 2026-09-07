@@ -1,10 +1,16 @@
 /* The peonies backdrop the cards sit on.
  *
  * _global.sass paints the top of every page with peonies.svg used as an *alpha
- * mask* over a `--color-base` → transparent gradient, at 0.1 opacity. This
- * rebuilds that effect with sharp: the SVG is rasterized to a greyscale mask,
- * multiplied by a vertical fade, scaled down to the same opacity, and used as
- * the alpha channel of a flat `--color-base` layer over the page background.
+ * mask* over a `--color-base` → transparent gradient, at 0.1 opacity — so the
+ * flowers come out lighter than the page, not darker. This rebuilds that with
+ * sharp: the artwork's alpha channel becomes a mask, is multiplied by a
+ * vertical fade, scaled to the same opacity, and used as the alpha channel of a
+ * flat `--color-base` layer over the page background.
+ *
+ * It has to be the alpha channel specifically, as `mask-mode: alpha` says.
+ * The drawing is white strokes on transparency, so its *luminance* is near-white
+ * almost everywhere and a luminance mask washes the whole area out evenly
+ * instead of picking out the flowers.
  *
  * The source SVG is 4MB of clip paths and takes ~0.5s to rasterize, so results
  * are memoized per card size — a build renders each size once no matter how
@@ -37,12 +43,17 @@ async function render (width, height) {
   // card's aspect ratio instead would either squash the drawing or crop so far
   // in that only leaf edges survive.
   const size = Math.max(width, height)
-  const square = await sharp(PEONIES_SVG).resize(size, size).png().toBuffer()
-
-  // `greyscale()` only desaturates; `b-w` is what actually collapses the image
-  // to the one channel per pixel that joinChannel expects below.
-  const alpha = await sharp(square)
+  const artwork = await sharp(PEONIES_SVG)
+    .resize(size, size)
+    .ensureAlpha()
     .extract({ left: Math.round((size - width) / 2), top: 0, width, height })
+    .extractChannel('alpha')
+    .png()
+    .toBuffer()
+
+  // `b-w` is what collapses the faded mask back to the one channel per pixel
+  // that joinChannel expects below; compositing promotes it to three.
+  const mask = await sharp(artwork)
     .composite([{ input: fadeSvg(width, height), blend: 'multiply' }])
     .linear(backdropOpacity, 0)
     .toColourspace('b-w')
@@ -52,7 +63,7 @@ async function render (width, height) {
   const flowers = await sharp({
     create: { width, height, channels: 3, background: colors.base }
   })
-    .joinChannel(alpha, { raw: { width, height, channels: 1 } })
+    .joinChannel(mask, { raw: { width, height, channels: 1 } })
     .png()
     .toBuffer()
 
