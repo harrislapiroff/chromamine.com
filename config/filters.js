@@ -42,6 +42,16 @@ export const getSEOExcerpt = function (content, override) {
         new JSDOM(content).window.document.querySelector("body > p")?.textContent
 }
 
+/* Resolve a site-relative path against the site's origin.
+ *
+ * eleventy-plugin-rss ships an `absoluteUrl` filter, but it isn't reachable
+ * from WebC templates, and Open Graph consumers won't resolve a relative image
+ * path — so the layouts need their own way to spell an absolute URL.
+ */
+export const toAbsoluteUrl = function (url, base) {
+    return new URL(url, base).href
+}
+
 export const getSEOImage = function (content, override) {
     // TODO: get this to find higher resolution images from srcsets
     return override ||

@@ -18,6 +18,7 @@ import { compileObservable } from "./config/utils/ojs/compile.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
 import { IMAGE_OPTIONS, copyGeneratedImagesToOutput, optimizeImagesInHtml } from './config/utils/images.js'
+import { generateSocialImages, socialImageUrl } from './config/utils/social/index.js'
 
 import {
     numFormat,
@@ -28,6 +29,7 @@ import {
     pluralize,
     getSEOExcerpt,
     getSEOImage,
+    toAbsoluteUrl,
 } from "./config/filters.js"
 
 const blogPostFormats = ['md', 'ojs', 'html']
@@ -83,6 +85,25 @@ export default function(eleventyConfig) {
         console.log("[11ty] Copying generated images from cache to output directory...")
         const count = await copyGeneratedImagesToOutput()
         console.log(`[11ty] Finished copying ${count} generated images to output directory`)
+    })
+
+    /* Generate the social preview images for blog posts
+     *
+     * These run over the rendered pages rather than the source files, so the
+     * cards can be built from what a reader actually sees — and so post.webc
+     * stays the one place that decides whether a post needs a generated link
+     * preview at all. See config/utils/social/index.js.
+     *-------------------------------------*/
+    eleventyConfig.on('eleventy.after', async ({ results, runMode }) => {
+        const blogPosts = results.filter(r => multimatch([r.inputPath], blogPostGlobs).length > 0)
+        console.log("[11ty] Generating social images...")
+        // A watch or serve rebuild only reports the pages that changed, so the
+        // cache can only be pruned against a build that covers every post.
+        const { published, pruned } = await generateSocialImages(blogPosts, { prune: runMode === 'build' })
+        console.log(
+            `[11ty] Finished generating ${published} social images` +
+            (pruned ? ` and pruning ${pruned} stale ones` : '')
+        )
     })
 
     /* Run ESBuild after building site
@@ -187,6 +208,8 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("getSEOExcerpt", getSEOExcerpt)
     eleventyConfig.addFilter("getSEOImage", getSEOImage)
     eleventyConfig.addAsyncFilter("optimizeImages", optimizeImagesInHtml)
+    eleventyConfig.addFilter("socialImageUrl", socialImageUrl)
+    eleventyConfig.addFilter("toAbsoluteUrl", toAbsoluteUrl)
 
     /* Responsive images
      *
