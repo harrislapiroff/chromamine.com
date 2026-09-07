@@ -23,4 +23,4 @@ Happy labor day!
 
 ***
 
-You can find companies using a four day work week, more research on the four day week, and other resources at [4dayweek.com](https://www.4dayweek.com/).
+You can find companies using a four day work week, more research on the four day week, and other resources at [4dayweek.io](https://www.4dayweek.io/).
