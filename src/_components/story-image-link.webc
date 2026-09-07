@@ -1,0 +1,28 @@
+<!---
+An authoring aid, not part of the site: a link straight to the post's generated
+story image, so it can be opened and saved without working out its URL.
+
+Whether to render it at all is the caller's decision — post.webc only includes
+it outside the live site. See src/_data/env.js.
+--->
+<aside webc:root="override">
+    <a :href="socialImageUrl(slug, 'story')" target="_blank">Story image ↗</a>
+</aside>
+
+<style webc:scoped="story-image-link">
+    :host {
+        margin-top: var(--line-height-base);
+        font-size: .8em;
+        color: var(--color-text-muted);
+    }
+
+    :host::before {
+        content: "Preview build";
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        border: 1px dashed var(--color-text-muted);
+        border-radius: 2px;
+        padding: .1em .3em;
+        margin-right: 1ch;
+    }
+</style>

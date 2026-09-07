@@ -60,7 +60,7 @@ const CARDS = {
   },
   story: {
     render: renderStoryCard,
-    inputs: ({ title, categories, date, excerpt }) => ({ title, categories, date, excerpt })
+    inputs: ({ title, categories, date, paragraphs }) => ({ title, categories, date, paragraphs })
   }
 }
 

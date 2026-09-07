@@ -15,7 +15,7 @@ import sharp from 'sharp'
 
 import { backdrop } from './backdrop.js'
 import { loadFonts } from './fonts.js'
-import { charsPerLine, clampToLines, fitFontSize, linesInHeight, wrap } from './text.js'
+import { charsPerLine, fitFontSize, fitProse, linesInHeight, wrap } from './text.js'
 import {
   BASE_LINE_HEIGHT,
   BASE_FONT_SIZE,
@@ -165,7 +165,7 @@ export function renderOpenGraphCard ({ title, categories = [], date }) {
  * half the frame, so a long headline shortens the quotation rather than pushing
  * it off the bottom of the image.
  */
-export function renderStoryCard ({ title, categories = [], date, excerpt }) {
+export function renderStoryCard ({ title, categories = [], date, paragraphs = [] }) {
   // Instagram lays its own chrome — the account header, the reply bar — over
   // the top and bottom of a story, so the card keeps well clear of both. The
   // left padding also has to clear the title's hanging pilcrow.
@@ -183,15 +183,19 @@ export function renderStoryCard ({ title, categories = [], date, excerpt }) {
   const metaLines = (categories.length ? 1 : 0) + (date ? 1 : 0)
   const title_ = fitTitle(title, { width: measure, height: available / 2, sizes: [body] })
 
-  const excerptLines = Math.min(
-    MAX_EXCERPT_LINES,
-    linesInHeight(
-      available - lineBox(body) * 2 - metaLines * (lineBox(body) + gap) -
-        title_.height - gap - excerptGap,
-      body,
-      LINE_HEIGHT
+  const prose = fitProse(paragraphs, {
+    width: measure,
+    fontSize: body,
+    maxLines: Math.min(
+      MAX_EXCERPT_LINES,
+      linesInHeight(
+        available - lineBox(body) * 2 - metaLines * (lineBox(body) + gap) -
+          title_.height - gap - excerptGap,
+        body,
+        LINE_HEIGHT
+      )
     )
-  )
+  })
 
   return rasterize(
     page(padding, [
@@ -202,10 +206,19 @@ export function renderStoryCard ({ title, categories = [], date, excerpt }) {
         // separates the title from the prose under it.
         postTitle(title_, weightBold),
         ...(date ? [oneLine(date, body)] : []),
-        ...(excerpt
+        ...(prose.length
           ? [el(
-              { marginTop: excerptGap, fontSize: body, lineHeight: LINE_HEIGHT, color: colors.base },
-              [text({}, clampToLines(excerpt, { width: measure, fontSize: body, maxLines: excerptLines }))]
+              {
+                flexDirection: 'column',
+                marginTop: excerptGap,
+                // A blank line between paragraphs, as the stylesheet's margin
+                // gives them, and as fitProse budgeted for.
+                gap: lineBox(body),
+                fontSize: body,
+                lineHeight: LINE_HEIGHT,
+                color: colors.base
+              },
+              prose.map((paragraph) => el({}, [text({}, paragraph)]))
             )]
           : [])
       ]),
