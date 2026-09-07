@@ -44,6 +44,11 @@
                     :@headerlink="false"
                     :@post="$data"
                 ></blog-post>
+                <!--- An authoring aid; never on the live site. --->
+                <story-image-link
+                    webc:if="$data.env.preview"
+                    :@slug="$data.page.fileSlug"
+                ></story-image-link>
             </main>
         </site-layout>
     </body>

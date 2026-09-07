@@ -131,8 +131,17 @@ Every build draws two images per blog post, into `_site/media/social/`:
   It is only generated for posts that have no image of their own; a post that
   leads with a photo advertises the photo instead.
 * `<slug>-story.png` — a 1080×1920 frame sized for an Instagram story, carrying
-  the title and the opening of the post. Generated for every post, and not
-  linked from anywhere — download it from the built site when you want it.
+  the title and the opening of the post. Generated for every post.
+
+The story image isn't linked from the live site, but every post page carries a
+link to it on `npm run serve` and on preview deploys, so you can open and save
+it without working out the URL. `src/_data/env.js` decides which builds count as
+previews; when a production build gives no signal either way it is treated as
+production, so the link can't leak onto the live site.
+
+The opening prose is cut at a paragraph boundary where it can be, and at the end
+of a sentence otherwise — a card only ever ends mid-sentence, with an ellipsis,
+when a single sentence is longer than the space available.
 
 Both are drawn with [Satori][] and rasterized with [sharp][], and restate the
 top of a post the way the site renders it in dark mode. The code lives in
@@ -144,7 +153,7 @@ top of a post the way the site renders it in dark mode. The code lives in
 | `theme.js` | The dark-mode palette and type scale, mirroring `_variables.sass` |
 | `fonts.js` | Loads IBM Plex Mono for Satori |
 | `backdrop.js` | Rebuilds the faded peonies background |
-| `text.js` | Line fitting, exploiting the fact that the site is monospaced |
+| `text.js` | Line fitting and truncation, exploiting the fact that the site is monospaced |
 | `cards.js` | The two layouts |
 | `extract.js` | Reads a post back out of its own rendered HTML |
 | `fingerprint.js` | Hashes the renderer, so design changes bust the cache |

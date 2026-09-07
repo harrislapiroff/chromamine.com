@@ -65,3 +65,60 @@ export function clampToLines (text, { width, fontSize, maxLines }) {
   const trimmed = kept.slice(0, kept.length - 1).replace(/[\s,;:.!?—–-]*\S*$/, '')
   return (trimmed || kept) + '…'
 }
+
+/* The end of the last complete sentence of `text` that fits in `maxLines`, or
+ * null if not even the first sentence does.
+ *
+ * A sentence ends at `.`, `!` or `?` — together with any closing quote or
+ * bracket that belongs with it — when what follows starts a new sentence.
+ * Requiring a capital next is what keeps "e.g." and "vs." from reading as
+ * sentence ends; an initial or a title ("Mr. Smith") can still fool it, which
+ * costs a slightly early cut and nothing worse.
+ */
+export function truncateToSentence (text, { width, fontSize, maxLines }) {
+  const columns = charsPerLine(width, fontSize)
+  const ends = [...text.matchAll(/[.!?]["')\]’”]*(?=\s+[A-Z“"(]|\s*$)/g)]
+    .map((match) => match.index + match[0].length)
+
+  // Longest first: keep as much of the paragraph as will fit.
+  for (let i = ends.length - 1; i >= 0; i--) {
+    const candidate = text.slice(0, ends[i])
+    if (wrap(candidate, columns).length <= maxLines) return candidate
+  }
+
+  return null
+}
+
+/* Choose how much of a post's opening to show, in whole paragraphs where
+ * possible.
+ *
+ * Preference order: as many complete paragraphs as fit (up to
+ * `maxParagraphs`), then as much of the first paragraph as ends on a complete
+ * sentence. Cutting mid-sentence is the last resort, and only happens when a
+ * single sentence is longer than the space available.
+ *
+ * Returns the paragraphs to set, so the card can space them as the site does.
+ */
+export function fitProse (paragraphs, { width, fontSize, maxLines, maxParagraphs = 2 }) {
+  const columns = charsPerLine(width, fontSize)
+  const usable = paragraphs.filter(Boolean).slice(0, maxParagraphs)
+  if (!usable.length) return []
+
+  // Paragraphs are separated by a blank line, as the stylesheet's margin does.
+  const totalLines = (chosen) =>
+    chosen.reduce((lines, paragraph) => lines + wrap(paragraph, columns).length, 0) +
+    chosen.length - 1
+
+  for (let count = usable.length; count > 1; count--) {
+    const chosen = usable.slice(0, count)
+    if (totalLines(chosen) <= maxLines) return chosen
+  }
+
+  const [first] = usable
+  if (wrap(first, columns).length <= maxLines) return [first]
+
+  return [
+    truncateToSentence(first, { width, fontSize, maxLines }) ??
+      clampToLines(first, { width, fontSize, maxLines })
+  ]
+}

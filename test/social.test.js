@@ -9,7 +9,9 @@ import {
   charsPerLine,
   clampToLines,
   fitFontSize,
+  fitProse,
   linesInHeight,
+  truncateToSentence,
   wrap
 } from '../config/utils/social/text.js'
 
@@ -101,6 +103,77 @@ test('clampToLines trims to a whole word and marks the cut', () => {
   assert.match(clamped, /\w…$/)
 })
 
+/* Fitting prose ----------------------------------------------------------- */
+
+// 40 characters to the line, at these dimensions.
+const PROSE = { width: 864, fontSize: 36 }
+
+test('truncateToSentence keeps the most whole sentences that fit', () => {
+  const text = 'One two three. Four five six seven eight nine. Ten.'
+
+  assert.equal(truncateToSentence(text, { ...PROSE, maxLines: 1 }), 'One two three.')
+  // Two lines is the whole thing, so nothing is given up.
+  assert.equal(truncateToSentence(text, { ...PROSE, maxLines: 2 }), text)
+})
+
+test('truncateToSentence does not mistake an abbreviation for a sentence end', () => {
+  // A cut after "e.g." would leave a fragment; the sentence proper ends later.
+  const text = 'Some tools, e.g. a mask, help here. A second sentence follows on.'
+  assert.equal(truncateToSentence(text, { ...PROSE, maxLines: 1 }), 'Some tools, e.g. a mask, help here.')
+})
+
+test('truncateToSentence keeps closing punctuation with the sentence', () => {
+  const text = 'He said "go away." Then a much longer second sentence carried on and on.'
+  assert.equal(truncateToSentence(text, { ...PROSE, maxLines: 1 }), 'He said "go away."')
+})
+
+test('truncateToSentence gives up when not even one sentence fits', () => {
+  const text = 'A single sentence far longer than the space it has been given here.'
+  assert.equal(truncateToSentence(text, { ...PROSE, maxLines: 1 }), null)
+})
+
+test('fitProse takes both paragraphs when they fit', () => {
+  const paragraphs = ['A short opener.', 'And a short second.']
+  assert.deepEqual(fitProse(paragraphs, { ...PROSE, maxLines: 6 }), paragraphs)
+})
+
+test('fitProse drops to one paragraph when both will not fit', () => {
+  const paragraphs = ['A short opener.', 'And a short second.']
+  assert.deepEqual(fitProse(paragraphs, { ...PROSE, maxLines: 1 }), ['A short opener.'])
+})
+
+test('fitProse budgets a blank line between paragraphs', () => {
+  // Two one-line paragraphs need three lines: one each, plus the gap.
+  const paragraphs = ['One line here.', 'One line there.']
+  assert.deepEqual(fitProse(paragraphs, { ...PROSE, maxLines: 2 }), ['One line here.'])
+  assert.deepEqual(fitProse(paragraphs, { ...PROSE, maxLines: 3 }), paragraphs)
+})
+
+test('fitProse never takes more than two paragraphs', () => {
+  const paragraphs = ['One.', 'Two.', 'Three.']
+  assert.deepEqual(fitProse(paragraphs, { ...PROSE, maxLines: 20 }), ['One.', 'Two.'])
+})
+
+test('fitProse cuts a long paragraph at a sentence end, with no ellipsis', () => {
+  const text = 'One two three. Four five six seven eight. Nine ten eleven twelve thirteen fourteen.'
+  const [fitted] = fitProse([text], { ...PROSE, maxLines: 2 })
+
+  assert.equal(fitted, 'One two three. Four five six seven eight.')
+  assert.ok(!fitted.endsWith('…'), 'a sentence-boundary cut needs no ellipsis')
+})
+
+test('fitProse falls back to an ellipsis only when no sentence fits', () => {
+  const text = 'A single unbroken sentence that is far longer than the two lines it has been given to live in'
+  const [fitted] = fitProse([text], { ...PROSE, maxLines: 2 })
+
+  assert.ok(fitted.endsWith('…'), fitted)
+  assert.ok(text.startsWith(fitted.slice(0, -1)), 'expected a prefix of the original')
+})
+
+test('fitProse returns nothing when there is no prose', () => {
+  assert.deepEqual(fitProse([], { ...PROSE, maxLines: 6 }), [])
+})
+
 /* URLs -------------------------------------------------------------------- */
 
 test('socialImageUrl names both cards from the post slug', () => {
@@ -156,30 +229,23 @@ test('readPost surfaces the preview image the page advertises', () => {
   assert.equal(post.openGraphImage, 'https://chromamine.com/media/social/dragonflies.png')
 })
 
-test('readPost takes only the first paragraph when it stands on its own', () => {
-  const first = 'A'.repeat(300)
-  const post = readPost(page({ body: `<p>${first}</p><p>Second paragraph.</p>` }))
-
-  assert.equal(post.excerpt, first)
-})
-
-test('readPost adds the second paragraph when the first is short', () => {
-  const post = readPost(page({ body: '<p>Short opener.</p><p>And the rest.</p>' }))
-  assert.equal(post.excerpt, 'Short opener. And the rest.')
+test('readPost returns the post prose paragraph by paragraph', () => {
+  const post = readPost(page({ body: '<p>First paragraph.</p><p>Second paragraph.</p>' }))
+  assert.deepEqual(post.paragraphs, ['First paragraph.', 'Second paragraph.'])
 })
 
 test('readPost skips a leading image and its caption', () => {
   const post = readPost(page({
     body: '<p><picture><img src="/pond.jpg" alt=""></picture><em>A caption.</em></p>' +
-      '<p>' + 'The real opening sentence. '.repeat(12) + '</p>'
+      '<p>The real opening sentence.</p>'
   }))
 
-  assert.ok(post.excerpt.startsWith('The real opening sentence.'), post.excerpt)
+  assert.deepEqual(post.paragraphs, ['The real opening sentence.'])
 })
 
-test('readPost normalizes whitespace in the excerpt', () => {
-  const post = readPost(page({ body: '<p>One\n  two\tthree</p><p>Four.</p>' }))
-  assert.equal(post.excerpt, 'One two three Four.')
+test('readPost normalizes whitespace in the prose', () => {
+  const post = readPost(page({ body: '<p>One\n  two\tthree</p>' }))
+  assert.deepEqual(post.paragraphs, ['One two three'])
 })
 
 test('readPost falls back to the page description when the body has no prose', () => {
@@ -189,10 +255,10 @@ test('readPost falls back to the page description when the body has no prose', (
     body: '<div id="notebook"></div><script>define()</script>'
   }))
 
-  assert.equal(post.excerpt, 'From the post frontmatter.')
+  assert.deepEqual(post.paragraphs, ['From the post frontmatter.'])
 })
 
-test('readPost yields an empty excerpt when there is nothing to read', () => {
+test('readPost yields no paragraphs when there is nothing to read', () => {
   const post = readPost(page({ body: '<div id="notebook"></div>' }))
-  assert.equal(post.excerpt, '')
+  assert.deepEqual(post.paragraphs, [])
 })
