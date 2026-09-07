@@ -24,7 +24,7 @@ import { readPost } from './extract.js'
 import { rendererFingerprint } from './fingerprint.js'
 
 // Where rendered cards are kept between builds, and where they have to end up
-// in the published site.
+// in the published site. Both hold one subdirectory per kind of card.
 const CACHE_DIR = './.cache/social-images/'
 const PUBLISH_DIR = './_site/media/social/'
 
@@ -38,27 +38,38 @@ const CONCURRENCY = 4
  * Both the templates (to fill in `og:image`) and this hook (to decide what to
  * render) derive the URL from the post's slug, so neither has to be told about
  * files the other made.
+ *
+ * The two kinds live in separate directories rather than being told apart by a
+ * suffix: a post slugged `foo-story` would otherwise claim the same filename as
+ * the story frame of a post slugged `foo`.
  */
 export function socialImageUrl (slug, kind = 'opengraph') {
-  return `${SOCIAL_URL_PATH}${slug}${kind === 'story' ? '-story' : ''}.png`
+  return `${SOCIAL_URL_PATH}${KINDS[kind].directory}/${slug}.png`
 }
 
-// A post's slug is the last segment of its URL, which posts.11tydata.js builds
-// from the source filename.
-const slugFromUrl = (url) => url.replace(/\/+$/, '').split('/').pop()
+/* A post's slug, taken from its source filename.
+ *
+ * This has to be Eleventy's `page.fileSlug`, because that is what post.webc
+ * passes to socialImageUrl when it fills in `og:image`, and this hook decides
+ * what to render by matching against the URL that produced. Deriving it from
+ * the output URL instead would agree only until a post set its own permalink.
+ */
+const slugOf = (inputPath) => path.parse(inputPath).name
 
-/* The two kinds of card, and the parts of a post each one draws.
+/* The two kinds of card: where each one lives, and the parts of a post it draws.
  *
  * Naming the inputs explicitly is what makes the cache honest: an image is
  * only rebuilt when something it actually shows has changed, so editing a
  * post's opening paragraph does not invalidate its link preview.
  */
-const CARDS = {
+const KINDS = {
   opengraph: {
+    directory: 'og',
     render: renderOpenGraphCard,
     inputs: ({ title, categories, date }) => ({ title, categories, date })
   },
   story: {
+    directory: 'story',
     render: renderStoryCard,
     inputs: ({ title, categories, date, paragraphs }) => ({ title, categories, date, paragraphs })
   }
@@ -67,30 +78,38 @@ const CARDS = {
 /* What a cached render is keyed on: the post content the card draws, and the
  * renderer that drew it — so a change to either produces a different file.
  */
+const KEY_LENGTH = 16
+
 const cacheKey = (inputs, renderer) =>
   crypto.createHash('sha256')
     .update(JSON.stringify({ ...inputs, renderer }))
     .digest('hex')
-    .slice(0, 16)
+    .slice(0, KEY_LENGTH)
 
 /* Render one of a post's cards, reusing the cached PNG when nothing it draws
  * has changed, and copy it into the build output under its public filename.
  */
 async function writeCard (kind, post, slug) {
-  const { render, inputs } = CARDS[kind]
-  const card = inputs(post)
-  const filename = path.basename(socialImageUrl(slug, kind))
-  const key = cacheKey(card, await rendererFingerprint())
-  const cached = path.join(CACHE_DIR, `${path.parse(filename).name}-${key}.png`)
+  const { directory, render, inputs } = KINDS[kind]
+  const cacheDir = path.join(CACHE_DIR, directory)
+  const key = cacheKey(inputs(post), await rendererFingerprint())
+  const cached = path.join(cacheDir, `${slug}-${key}.png`)
 
   try {
     await fs.access(cached)
   } catch {
-    await fs.writeFile(cached, await render(card))
+    // Write somewhere else first: a build interrupted mid-write would otherwise
+    // leave a truncated PNG that every later build treats as a cache hit, since
+    // existence is the only test made above.
+    const partial = `${cached}.${process.pid}.partial`
+    await fs.writeFile(partial, await render(inputs(post)))
+    await fs.rename(partial, cached)
   }
 
-  await fs.copyFile(cached, path.join(PUBLISH_DIR, filename))
-  return path.basename(cached)
+  await fs.mkdir(path.join(PUBLISH_DIR, directory), { recursive: true })
+  await fs.copyFile(cached, path.join(PUBLISH_DIR, directory, `${slug}.png`))
+
+  await pruneSuperseded(cacheDir, slug, path.basename(cached))
 }
 
 /* Render at most a few cards at once.
@@ -114,50 +133,50 @@ async function mapWithConcurrency (items, limit, fn) {
   return results
 }
 
-/* Drop cached renders of cards that no longer exist, or that have been
- * superseded — otherwise every edit to a post's opening paragraph leaves
- * another copy of its story image behind forever.
+/* Drop earlier renders of one card, so editing a post does not leave a copy of
+ * its every previous state behind forever.
+ *
+ * Pruning is per card rather than a sweep of the directory against everything
+ * this build produced: a watch, serve or `--incremental` rebuild reports only
+ * the pages that changed, and a sweep would take every other post's cache with
+ * it.
+ *
+ * Renders of `slug` are its name, a dash, and a fixed-length key — matching on
+ * length as well as prefix is what stops a post named `foo` from claiming the
+ * cached images of one named `foo-bar`.
  */
-async function pruneCache (kept) {
-  const stale = (await fs.readdir(CACHE_DIR)).filter((file) => !kept.has(file))
-  await Promise.all(stale.map((file) => fs.rm(path.join(CACHE_DIR, file))))
-  return stale.length
+async function pruneSuperseded (directory, slug, keep) {
+  const width = slug.length + 1 + KEY_LENGTH + '.png'.length
+  const stale = (await fs.readdir(directory))
+    .filter((file) => file !== keep && file.startsWith(`${slug}-`) && file.length === width)
+
+  await Promise.all(stale.map((file) => fs.rm(path.join(directory, file))))
 }
 
 /* Generate the social images for the blog posts written in this build.
  *
  * `results` is the `eleventy.after` results list, already filtered to posts.
- * `prune` must only be set when that list covers every post — an incremental
- * rebuild sees just the page that changed, and pruning against it would throw
- * away every other post's cached images.
+ * Returns how many images were published.
  */
-export async function generateSocialImages (results, { prune = false } = {}) {
-  await fs.mkdir(CACHE_DIR, { recursive: true })
-  await fs.mkdir(PUBLISH_DIR, { recursive: true })
+export async function generateSocialImages (results) {
+  await Promise.all(Object.values(KINDS).map(
+    ({ directory }) => fs.mkdir(path.join(CACHE_DIR, directory), { recursive: true })
+  ))
 
-  const kept = new Set()
-
-  const written = await mapWithConcurrency(results, CONCURRENCY, async ({ url, content }) => {
+  const written = await mapWithConcurrency(results, CONCURRENCY, async ({ inputPath, content }) => {
     const post = readPost(content)
     if (!post) return 0
 
-    const slug = slugFromUrl(url)
-    const files = []
+    const slug = slugOf(inputPath)
 
     // Every post gets a story image; only posts with no image of their own get
     // a generated link preview.
-    files.push(await writeCard('story', post, slug))
+    await writeCard('story', post, slug)
+    if (!post.openGraphImage?.endsWith(socialImageUrl(slug, 'opengraph'))) return 1
 
-    if (post.openGraphImage?.endsWith(socialImageUrl(slug, 'opengraph'))) {
-      files.push(await writeCard('opengraph', post, slug))
-    }
-
-    files.forEach((file) => kept.add(file))
-    return files.length
+    await writeCard('opengraph', post, slug)
+    return 2
   })
 
-  return {
-    published: written.reduce((total, count) => total + count, 0),
-    pruned: prune ? await pruneCache(kept) : 0
-  }
+  return written.reduce((total, count) => total + count, 0)
 }

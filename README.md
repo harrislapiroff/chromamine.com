@@ -127,11 +127,15 @@ FLICKR_OAUTH_SECRET=...
 
 Every build draws two images per blog post, into `_site/media/social/`:
 
-* `<slug>.png` — a 1200×630 Open Graph card, linked from the post's `og:image`.
-  It is only generated for posts that have no image of their own; a post that
-  leads with a photo advertises the photo instead.
-* `<slug>-story.png` — a 1080×1920 frame sized for an Instagram story, carrying
+* `og/<slug>.png` — a 1200×630 Open Graph card, linked from the post's
+  `og:image`. It is only generated for posts that have no image of their own; a
+  post that leads with a photo advertises the photo instead.
+* `story/<slug>.png` — a 1080×1920 frame sized for an Instagram story, carrying
   the title and the opening of the post. Generated for every post.
+
+The two kinds sit in separate directories rather than being told apart by a
+filename suffix, so a post slugged `foo-story` can't collide with the story
+frame of a post slugged `foo`.
 
 The story image isn't linked from the live site, but every post page carries a
 link to it on `npm run serve` and on preview deploys, so you can open and save
@@ -171,6 +175,11 @@ editing a layout, a color or the peonies artwork rebuilds everything — no
 version constant to remember to bump. The renderer hash covers every `.js` file
 in `config/utils/social/` except `index.js`, which schedules renders but draws
 nothing, so a new module needs no bookkeeping.
+
+Superseded renders are pruned per card as each one is written, rather than by
+sweeping the cache against everything a build produced — a watch, serve or
+`--incremental` rebuild only reports the pages that changed, and a sweep would
+take every other post's images with it.
 
 [Satori]: https://github.com/vercel/satori
 [sharp]: https://sharp.pixelplumbing.com/
