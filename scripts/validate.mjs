@@ -12,6 +12,7 @@ import {
   readContentDir,
   toDateParts
 } from './lib/content.js'
+import { ExiftoolMissingError, findLocation, isMediaPath } from './lib/location.js'
 
 const __filename = fileURLToPath(import.meta.url)
 
@@ -302,6 +303,46 @@ function checkDanceEvents(report) {
 
 // Assert the two slugify implementations agree on every tag in use.
 //
+// Photos must not carry GPS metadata.
+//
+// The pre-commit hook in .githooks/ is what actually keeps this true; this
+// check is the backstop that notices when the hook was bypassed with
+// --no-verify, or was never installed because `npm install` has not been run
+// since the repo was cloned.
+//
+// Walks src/ rather than asking git, so a photo that is merely sitting in the
+// working tree unstaged still gets reported.
+function checkImageLocation(report) {
+  const files = []
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name)
+      if (entry.isDirectory()) walk(full)
+      else if (isMediaPath(full)) files.push(full)
+    }
+  }
+  walk(SRC_DIR)
+  if (!files.length) return
+
+  let hits
+  try {
+    hits = findLocation(files)
+  } catch (error) {
+    if (error instanceof ExiftoolMissingError) {
+      report.warn('media', 'exiftool is not installed, so photos were not checked for location data')
+      return
+    }
+    throw error
+  }
+
+  for (const { file, tags } of hits) {
+    report.error(
+      path.relative(ROOT_DIR, file),
+      `carries location metadata (${tags.join(', ')}); run \`npm run strip-location\``
+    )
+  }
+}
+
 // config/filters.js builds the tag permalink; the inline slugify in
 // src/_components/blog-post-tags.webc builds the links pointing at it. They use
 // different algorithms, so a tag with punctuation or a double space would make
@@ -337,6 +378,7 @@ program
     const { posts, usedMediaDirs } = checkPosts(report)
     checkMediaDirs(report, posts, usedMediaDirs)
     checkDanceEvents(report)
+    checkImageLocation(report)
     await checkTagSlugs(report, posts)
 
     report.print({ errorsOnly })

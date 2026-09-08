@@ -20,6 +20,10 @@ npm run lint
 # Check content for broken media references and frontmatter problems
 npm run validate [--errors-only] [--strict]
 
+# Remove GPS metadata from photos (see "Location metadata" below)
+npm run strip-location [files...]
+npm run strip-location -- --check
+
 # Create new blog post with frontmatter and media directory
 npm run blog new "<title>" [slug] [--editor <editor>] [--no-open]
 
@@ -81,6 +85,43 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
   Renders are cached under `.cache/social-images/`, keyed by both the post
   content and a hash of the renderer's own source, so design edits invalidate
   the cache on their own.
+
+### Location Metadata
+
+Photos in this repo must never carry GPS data. Three things enforce that, in
+the order they fire:
+
+1. **`.githooks/pre-commit`** is the guarantee. It runs
+   `scripts/strip-location.mjs --staged`, which rewrites the *staged blobs* --
+   not the files on disk -- so the commit is clean even when the working copy
+   has drifted from what was staged. It re-syncs the working copy too whenever
+   that is safe to do.
+2. **`npm run validate`** re-checks every photo under `src/`. This is the
+   backstop for a commit made with `--no-verify`, or a clone where
+   `npm install` never ran. Location data is reported as an error.
+3. **`npm run strip-location`** cleans the whole tree by hand, and
+   `--check` audits without modifying anything (non-zero exit if it finds
+   anything, so it is safe to wire into CI).
+
+The hook is enabled by `git config core.hooksPath .githooks`, which the
+`prepare` npm script sets on every `npm install`. Confirm it is live with
+`git config core.hooksPath`.
+
+Stripping removes the entire EXIF GPS group (`exiftool -gps:all=`), not a
+hand-listed set of tags. Camera, lens, exposure, orientation and colour profile
+survive, so photos render identically and the EXIF that reads as content on a
+photography post is preserved. Taking the whole group matters: an earlier pass
+at this repo deleted tags individually and left `GPSImgDirection` behind on two
+files.
+
+exiftool is a system dependency (`brew install exiftool`), not an npm one. The
+hook fails loudly if a photo is staged and exiftool is missing; `validate`
+downgrades to a warning. exiftool cannot delete metadata from QuickTime video,
+so a `.mov`/`.mp4` carrying GPS aborts the commit rather than being silently
+passed through.
+
+Repo history was rewritten on 2026-09-08 to remove GPS from all past commits,
+so no old commit holds coordinates either.
 
 ### Data Flow
 - Posts collection automatically includes all supported formats from `src/posts/`

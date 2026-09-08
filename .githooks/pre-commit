@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Strip location metadata from any photo staged for this commit.
+#
+# Enabled by `git config core.hooksPath .githooks`, which `npm install` sets up
+# via the "prepare" script. To check it is live: `git config core.hooksPath`.
+#
+# The hook rewrites the staged blobs, so the commit is clean even when the
+# working copy is not. It aborts the commit only when it finds location data it
+# cannot remove.
+
+exec node "$(git rev-parse --show-toplevel)/scripts/strip-location.mjs" --staged

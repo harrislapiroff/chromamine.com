@@ -6,11 +6,13 @@
   "type": "module",
   "scripts": {
     "test": "NODE_OPTIONS=\"--experimental-vm-modules\" node --test",
+    "prepare": "git config core.hooksPath .githooks || true",
     "serve": "PROD=0 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules --require dotenv/config\" eleventy --serve",
     "build": "PROD=1 NODE_OPTIONS=\"--experimental-require-module --experimental-vm-modules --require dotenv/config\" eleventy",
     "blog": "node scripts/blog.mjs",
     "dance": "node scripts/dance.mjs",
     "validate": "node scripts/validate.mjs",
+    "strip-location": "node scripts/strip-location.mjs",
     "lint": "eslint .",
     "flickr-oauth": "NODE_OPTIONS=\"--require dotenv/config\" node scripts/generate-flickr-oauth.js"
   },
