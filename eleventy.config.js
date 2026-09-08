@@ -18,7 +18,7 @@ import { compileObservable } from "./config/utils/ojs/compile.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
 import { IMAGE_OPTIONS, copyGeneratedImagesToOutput, optimizeImagesInHtml } from './config/utils/images.js'
-import { generateSocialImages, socialImageUrl } from './config/utils/social/index.js'
+import { generateSocialImages, previewImageUrl, socialImageUrl } from './config/utils/social/index.js'
 
 import {
     numFormat,
@@ -204,6 +204,7 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("getSEOImage", getSEOImage)
     eleventyConfig.addAsyncFilter("optimizeImages", optimizeImagesInHtml)
     eleventyConfig.addFilter("socialImageUrl", socialImageUrl)
+    eleventyConfig.addAsyncFilter("previewImageUrl", previewImageUrl)
     eleventyConfig.addFilter("toAbsoluteUrl", toAbsoluteUrl)
 
     /* Responsive images

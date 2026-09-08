@@ -83,6 +83,32 @@ export async function copyGeneratedImagesToOutput() {
   return generated.size
 }
 
+// The URL of the largest generated variant of `src`, or null if it cannot be
+// resolved. `inputPath` is the template the reference came from.
+//
+// Link previews need a URL that resolves to a reasonably sized file: the
+// scrapers cap what they will fetch (8MB at Facebook, less elsewhere), and the
+// originals in src/media run past that. The transform plugin only rewrites
+// <img> tags in the built HTML, so a <meta> tag has to resolve its own.
+export async function optimizedImageUrl(src, inputPath) {
+  if (!src || /^[a-z]+:/i.test(src)) return null
+
+  const file = src.startsWith('/')
+    ? path.join('./src', src)
+    : path.join(path.dirname(inputPath), src)
+
+  try {
+    const metadata = await Image(file, IMAGE_OPTIONS)
+    // jpeg is the format every scraper handles; svg sources pass through.
+    const variants = metadata.jpeg ?? metadata.webp ?? metadata.svg ?? []
+    return variants.at(-1)?.url ?? null
+  } catch {
+    // A reference that does not resolve is the content validator's problem,
+    // not a reason to fail the build.
+    return null
+  }
+}
+
 // Rewrite the <img> tags in a chunk of rendered HTML to point at generated
 // variants instead of the full-size original. `inputPath` is the template the
 // HTML came from, needed to resolve relative image paths.
