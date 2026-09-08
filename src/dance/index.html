@@ -22,7 +22,8 @@
                 <video class="heading-video__video" id="heading-video" autoplay loop muted aria-hidden playsinline tabindex="-1">
                     <source src="/dance/media/soulreversal-720.webm" type="video/webm">
                     <source src="/dance/media/soulreversal-720.mp4" type="video/mp4">
-                    <img src="/dance/media/still.jpg" alt="BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.">
+                    <!-- eleventy:ignore — this is the <video> fallback; it has to stay a bare <img>, not a <picture> -->
+                    <img eleventy:ignore src="/dance/media/still.jpg" alt="BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.">
                 </video>
                 <figcaption class="heading-video__caption">
                     BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.

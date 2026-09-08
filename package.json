@@ -20,7 +20,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-fetch": "^5.1.0",
-    "@11ty/eleventy-img": "^3.1.1",
+    "@11ty/eleventy-img": "^7.0.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@alex.garcia/unofficial-observablehq-compiler": "^0.6.0-alpha.9",
     "@eslint/js": "^9.39.5",

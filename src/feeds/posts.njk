@@ -31,7 +31,7 @@ metadata:
                 {%- if regExp.test(post.templateContent) -%}
                     This post contains javascript content and must be viewed &lt;a href="{{ absolutePostUrl }}"&gt;on site&lt;/a&gt;.
                 {%- else -%}
-                    {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+                    {{ post.templateContent | optimizeImages(post.inputPath) | htmlToAbsoluteUrls(absolutePostUrl) }}
                 {%- endif -%}
             </content>
         </entry>

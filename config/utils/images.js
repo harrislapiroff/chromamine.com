@@ -2,6 +2,7 @@ import path from 'node:path'
 import fs from 'node:fs/promises'
 
 import Image from '@11ty/eleventy-img'
+import { JSDOM } from 'jsdom'
 
 /* Shared @11ty/eleventy-img configuration and disk-cache plumbing.
  *
@@ -34,6 +35,17 @@ export const IMAGE_WIDTHS = [768, 1536]
 // webp + jpeg cover every browser; svg passes through untouched for svg sources.
 export const IMAGE_FORMATS = ['webp', 'jpeg', 'svg']
 
+// Every output file eleventy-img decided to produce during this build, so the
+// copy below moves exactly the variants the site references and leaves stale
+// ones behind in the cache.
+//
+// The image transform plugin generates images internally and hands back no
+// metadata, so there is no return value to collect. `filenameFormat` is the one
+// hook it calls for each output variant, so we name the files ourselves there
+// and record the names as we go. The format below is identical to the one
+// eleventy-img uses by default, so URLs are unchanged.
+const generated = new Set()
+
 export const IMAGE_OPTIONS = {
   widths: IMAGE_WIDTHS,
   formats: IMAGE_FORMATS,
@@ -42,35 +54,70 @@ export const IMAGE_OPTIONS = {
   // Lower webp encoding effort: effort only controls the compression search,
   // not visual quality at a fixed quality value, so this speeds up the build
   // at the cost of marginally larger files.
-  sharpWebpOptions: { effort: 2 }
-}
-
-// Track every in-flight generation so the build can wait for all images to be
-// written to the cache before copying them into the output directory. The
-// markdown image renderer in particular cannot await generation directly
-// (markdown-it render rules are synchronous), so it registers its work here.
-const pending = []
-
-export function generateImage(src, options = IMAGE_OPTIONS) {
-  const promise = Image(src, options)
-  pending.push(promise)
-  return promise
+  sharpWebpOptions: { effort: 2 },
+  // Applied to every <img> the transform plugin rewrites, unless the tag sets
+  // the attribute itself.
+  defaultAttributes: {
+    sizes: '(max-width: 768px) 100vw, 768px',
+    loading: 'lazy',
+    decoding: 'async'
+  },
+  filenameFormat: (id, src, width, format) => {
+    // Passthrough copies come through without a width and keep the bare hash.
+    const filename = width ? `${id}-${width}.${format}` : `${id}.${format}`
+    generated.add(filename)
+    return filename
+  }
 }
 
 // Copy the images generated during this build out of the persistent cache and
-// into the published output directory. Only files referenced this build are
-// copied, so stale variants left in the cache don't bloat the deploy.
+// into the published output directory. In --serve mode nothing is generated up
+// front (eleventy-img serves images on request instead), so this is a no-op.
 export async function copyGeneratedImagesToOutput() {
-  const results = await Promise.allSettled(pending)
+  if (generated.size === 0) return 0
   await fs.mkdir(IMAGE_PUBLISH_DIR, { recursive: true })
-  const copied = new Set()
-  await Promise.all(results.flatMap((result) => {
-    if (result.status !== 'fulfilled') return []
-    return Object.values(result.value).flat().flatMap((entry) => {
-      if (copied.has(entry.filename)) return []
-      copied.add(entry.filename)
-      return fs.copyFile(entry.outputPath, path.join(IMAGE_PUBLISH_DIR, entry.filename))
-    })
+  await Promise.all(Array.from(generated, (filename) => fs.copyFile(
+    path.join(IMAGE_CACHE_DIR, filename),
+    path.join(IMAGE_PUBLISH_DIR, filename)
+  )))
+  return generated.size
+}
+
+// Rewrite the <img> tags in a chunk of rendered HTML to point at generated
+// variants instead of the full-size original. `inputPath` is the template the
+// HTML came from, needed to resolve relative image paths.
+//
+// The transform plugin rewrites the built pages, but feeds embed a post's
+// `templateContent` — the HTML as it looked *before* transforms ran — so
+// without this subscribers would download multi-megabyte originals. Feed
+// readers don't do anything useful with srcset, so this swaps in the smallest
+// variant rather than building a whole <picture>.
+export async function optimizeImagesInHtml(html, inputPath) {
+  if (!html.includes('<img')) return html
+
+  const dom = new JSDOM(`<body>${html}</body>`)
+  const { document } = dom.window
+
+  await Promise.all(Array.from(document.querySelectorAll('img'), async (img) => {
+    const src = img.getAttribute('src')
+    if (!src || /^[a-z]+:/i.test(src)) return
+
+    // Resolve exactly the way the transform plugin does: absolute paths from
+    // src/, relative ones from the directory of the template that wrote them.
+    const file = src.startsWith('/')
+      ? path.join('./src', src)
+      : path.join(path.dirname(inputPath), src)
+
+    const metadata = await Image(file, IMAGE_OPTIONS)
+    // jpeg for the widest feed reader support; a source with transparency
+    // doesn't get one, so fall back to the formats that are generated.
+    const [smallest] = metadata.jpeg ?? metadata.webp ?? metadata.svg ?? []
+    if (!smallest) return
+
+    img.setAttribute('src', smallest.url)
+    img.setAttribute('width', smallest.width)
+    img.setAttribute('height', smallest.height)
   }))
-  return copied.size
+
+  return document.body.innerHTML
 }
