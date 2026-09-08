@@ -98,7 +98,9 @@ the order they fire:
    that is safe to do.
 2. **`npm run validate`** re-checks every photo under `src/`. This is the
    backstop for a commit made with `--no-verify`, or a clone where
-   `npm install` never ran. Location data is reported as an error.
+   `npm install` never ran. Location data is reported as an error. CI runs
+   this on every push and pull request, and installs exiftool first so the
+   check cannot pass by silently skipping.
 3. **`npm run strip-location`** cleans the whole tree by hand, and
    `--check` audits without modifying anything (non-zero exit if it finds
    anything, so it is safe to wire into CI).
@@ -121,7 +123,10 @@ so a `.mov`/`.mp4` carrying GPS aborts the commit rather than being silently
 passed through.
 
 Repo history was rewritten on 2026-09-08 to remove GPS from all past commits,
-so no old commit holds coordinates either.
+so no old commit holds coordinates either. That rewrite replaced 40 blobs and
+changed the hash of every commit that touched a photo or descends from one --
+871 of 873. It also dropped the GPG and SSH signatures on the 389 commits that
+had them, which no rewrite can preserve.
 
 ### Data Flow
 - Posts collection automatically includes all supported formats from `src/posts/`
