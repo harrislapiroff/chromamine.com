@@ -19,6 +19,8 @@ import crypto from 'node:crypto'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
+import { getSEOImage, toAbsoluteUrl } from '../../filters.js'
+import { optimizedImageUrl } from '../images.js'
 import { renderOpenGraphCard, renderStoryCard } from './cards.js'
 import { readPost } from './extract.js'
 import { rendererFingerprint } from './fingerprint.js'
@@ -49,6 +51,24 @@ export function socialImageUrl (slug, kind = 'opengraph') {
   // a post slugged that way. Unencoded, everything after it reads as a query
   // string and the image 404s.
   return `${SOCIAL_URL_PATH}${KINDS[kind].directory}/${encodeURIComponent(slug)}.png`
+}
+
+/* The absolute URL a post should advertise as its link preview.
+ *
+ * This is the one place the question is settled. A post with an image of its
+ * own leads with that, resolved to a generated variant — the originals in
+ * src/media run to 11MB, past what a scraper will fetch — and a post without
+ * one gets a generated card. `generateSocialImages` below decides what to
+ * render by reading the URL this produced, so the page and the images cannot
+ * disagree about which posts need a card.
+ */
+export async function previewImageUrl (content, page, baseUrl, override) {
+  const own = getSEOImage(content, override)
+  const url = own
+    ? (await optimizedImageUrl(own, page.inputPath)) ?? own
+    : socialImageUrl(slugOf(page.inputPath))
+
+  return toAbsoluteUrl(url, baseUrl)
 }
 
 /* A post's slug, taken from its source filename.

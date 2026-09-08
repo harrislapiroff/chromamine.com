@@ -24,10 +24,7 @@
         >
         <meta
             property="og:image"
-            :content="toAbsoluteUrl(
-                getSEOImage($data.content, $data.seoImage) || socialImageUrl($data.page.fileSlug),
-                $data.config.url
-            )"
+            :content="previewImageUrl($data.content, $data.page, $data.config.url, $data.seoImage)"
         >
         <meta name="twitter:card" content="summary_large_image">
 		<link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
