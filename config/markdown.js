@@ -1,4 +1,3 @@
-import path from "node:path"
 import markdownIt from "markdown-it"
 
 // Footnotes and Highlighting are configured via
@@ -13,9 +12,6 @@ import {
     transformerNotationHighlight,
     transformerNotationWordHighlight,
 } from "@shikijs/transformers"
-import Image from "@11ty/eleventy-img"
-
-import { IMAGE_OPTIONS, generateImage } from "./utils/images.js"
 
 export const mdOptions = {
     typographer: true,
@@ -107,27 +103,9 @@ md.renderer.rules.heading_close = (tokens, idx, options, env, self) => {
     return defaultHeadingCloseRenderer(tokens, idx, options, env, self)
 }
 
-// Responsive Images
-// see: https://tomichen.com/blog/posts/20220416-responsive-images-in-markdown-with-eleventy-image/
-md.renderer.rules.image = (tokens, idx, options, env, self) => {
-    const token = tokens[idx]
-    const naiveSrc = token.attrGet('src')
-    // if it's an absolute path, specify the file from the `/src` directory
-    // otherwise intelligently concatenate it with the parent dir of the page
-    const src = naiveSrc[0] === '/' ? './src' + naiveSrc : path.join(path.dirname(env.page.inputPath), naiveSrc)
-    const alt = token.content
-    const htmlAttributes = { alt, loading: 'lazy', decoding: 'async' }
-    // Kick off generation (writes to the persistent cache) and synchronously
-    // derive the metadata for the markup. generateImage tracks the promise so
-    // the build can wait for it before copying images into the output.
-    generateImage(src, IMAGE_OPTIONS)
-    const metadata = Image.statsSync(src, IMAGE_OPTIONS)
-    const generated = Image.generateHTML(
-        metadata,
-        {
-            sizes: '(max-width: 768px) 100vw, 768px',
-            ...htmlAttributes
-        }
-    )
-    return generated
-}
+// Responsive images
+//
+// The default renderer's plain <img src alt> output is enough: @11ty/eleventy-img's
+// transform plugin (registered in eleventy.config.js) rewrites every <img> in the
+// built HTML into a responsive <picture>, resolving the src the same way this used
+// to — absolute paths from `src/`, relative ones from the page's directory.

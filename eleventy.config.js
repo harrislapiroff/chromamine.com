@@ -4,7 +4,7 @@ import fs from "fs/promises"
 import pluginRss from "@11ty/eleventy-plugin-rss"
 import pluginWebc from "@11ty/eleventy-plugin-webc"
 import { RenderPlugin } from "@11ty/eleventy"
-import { eleventyImagePlugin } from "@11ty/eleventy-img"
+import { imageTransformPlugin } from "@11ty/eleventy-img"
 
 // Note: For the upgrade to 11ty 3.x we will want to replace this
 // with 11ty's built-in glob util seen here:
@@ -17,7 +17,7 @@ import yaml from "js-yaml"
 import { compileObservable } from "./config/utils/ojs/compile.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
-import { copyGeneratedImagesToOutput } from './config/utils/images.js'
+import { IMAGE_OPTIONS, copyGeneratedImagesToOutput, optimizeImagesInHtml } from './config/utils/images.js'
 
 import {
     numFormat,
@@ -186,6 +186,14 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("pluralize", pluralize)
     eleventyConfig.addFilter("getSEOExcerpt", getSEOExcerpt)
     eleventyConfig.addFilter("getSEOImage", getSEOImage)
+    eleventyConfig.addAsyncFilter("optimizeImages", optimizeImagesInHtml)
+
+    /* Responsive images
+     *
+     * Rewrites every <img> in the built HTML into a <picture> with generated
+     * webp/jpeg variants. Opt an individual tag out with `eleventy:ignore`.
+     *-------------------------------------*/
+    eleventyConfig.addPlugin(imageTransformPlugin, IMAGE_OPTIONS)
 
     /* Add renderTemplate shortcode
      *-------------------------------------*/
@@ -233,7 +241,6 @@ export default function(eleventyConfig) {
     eleventyConfig.addPlugin(pluginWebc, {
         components: [
             'src/_components/**/*.webc',
-            "npm:@11ty/eleventy-img/*.webc",
         ],
     })
 

@@ -14,10 +14,10 @@
             :href="photo.flickrUrl"
             target="_blank"
         >
-            <eleventy-image :src="photo.urls.large" :alt="photo.title" sizes="500,300" widths="500,300" loading="lazy"></eleventy-image>
+            <img :src="photo.urls.large" :alt="photo.title" eleventy:widths="300,500" sizes="auto" loading="lazy">
         </a>
         <a class="more-photos-link" webc:if="photoDay.photos.length > PREVIEW_PHOTOS" :href="photoDay.flickrUrl" target="_blank">
-            <eleventy-image :src="photoDay.photos[PREVIEW_PHOTOS - 1].urls.large" :alt="photoDay.photos[PREVIEW_PHOTOS - 1].title" sizes="500" loading="lazy"></eleventy-image>
+            <img :src="photoDay.photos[PREVIEW_PHOTOS - 1].urls.large" :alt="photoDay.photos[PREVIEW_PHOTOS - 1].title" eleventy:widths="300,500" sizes="auto" loading="lazy">
             <span class="more-link">
                 <span class="plus-text">+</span>
                 <i webc:nokeep @text="photoDay.photos.length - PREVIEW_PHOTOS"></i>
