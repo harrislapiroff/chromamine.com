@@ -117,8 +117,8 @@
 
     @media (prefers-color-scheme: dark) {
         pre.shiki.scroll {
-            --code-bg: var(--shiki-dark-bg);
-            --scroll-hint-bg: color-mix(in lch, var(--shiki-dark-bg) 60%, black 40%);
+            --code-bg: var(--shiki-dark-bg, var(--color-background-code));
+            --scroll-hint-bg: color-mix(in lch, var(--shiki-dark-bg, var(--color-background-code)) 60%, black 40%);
             --scroll-shadow: rgb(0 0 0 / 0.6);
         }
     }
@@ -266,7 +266,7 @@
     @media (prefers-color-scheme: dark) {
         figure.code-block > figcaption {
             /* --shiki-dark-bg is copied onto the figure by transformerTitle */
-            background-color: color-mix(in lch, var(--shiki-dark-bg) 60%, black 40%);
+            background-color: color-mix(in lch, var(--shiki-dark-bg, var(--color-background-code)) 60%, black 40%);
         }
     }
 

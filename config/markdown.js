@@ -19,20 +19,36 @@ export const mdOptions = {
     html: true,
 }
 
+// Read the options after the language on a fence line, e.g.
+// ```js title="eleventy.config.js" scroll=8. The quoted title comes out first,
+// so a title containing the word "scroll" doesn't switch scrolling on.
+const DEFAULT_SCROLL_LINES = 15
+export function parseFenceMeta(raw = '') {
+    const titleMatch = /(?:^|\s)title=(?:"([^"]*)"|'([^']*)')/.exec(raw)
+    const title = (titleMatch?.[1] ?? titleMatch?.[2] ?? '').trim() || undefined
+    const rest = titleMatch ? raw.replace(titleMatch[0], ' ') : raw
+    const scrollMatch = /(?:^|\s)scroll(?:=(\d+))?(?=\s|$)/.exec(rest)
+    // scroll=0 would hide the block entirely; treat it like a bare `scroll`
+    const scroll = scrollMatch ? (Number(scrollMatch[1]) || DEFAULT_SCROLL_LINES) : undefined
+    return { title, scroll }
+}
+
 // Cap a long code block's height and let it scroll: ```yaml scroll shows 15
 // lines, ```yaml scroll=8 shows 8. rich-text.webc turns --scroll-lines into a
-// max-height.
-const DEFAULT_SCROLL_LINES = 15
+// max-height. A block that already fits is left alone, so it never becomes a
+// scroll container (a horizontal scrollbar would otherwise eat into the
+// height and force a needless vertical scroll).
 export function transformerScroll() {
     return {
         name: 'scroll',
         pre(node) {
-            const match = /(?:^|\s)scroll(?:=(\d+))?(?=\s|$)/.exec(this.options.meta?.__raw ?? '')
-            if (!match) return
-            const lines = Number(match[1] ?? DEFAULT_SCROLL_LINES)
+            const { scroll } = parseFenceMeta(this.options.meta?.__raw)
+            if (!scroll) return
+            const lineCount = this.source.replace(/\n$/, '').split('\n').length
+            if (lineCount <= scroll) return
             this.addClassToHast(node, 'scroll')
             const style = node.properties.style ? `${node.properties.style};` : ''
-            node.properties.style = `${style}--scroll-lines:${lines}`
+            node.properties.style = `${style}--scroll-lines:${scroll}`
         }
     }
 }
@@ -40,16 +56,21 @@ export function transformerScroll() {
 // Label a code block with a filename: ```js title="eleventy.config.js" wraps
 // the <pre> in a <figure> captioned with a file icon and the title. The icon
 // comes from the same code as the <material-icon> component; markdown-it
-// renders synchronously, so it is fetched once here.
+// renders synchronously, so it is fetched once here. Without a network or a
+// cached copy, titles go without an icon rather than breaking every build and
+// test that loads this file.
 const fileIconSvg = await getMaterialIconSVG('description', { weight: 300, style: 'sharp' })
+    .catch((error) => {
+        console.warn(`[markdown] Code block titles will have no icon: ${error.message}`)
+        return ''
+    })
 const EMPTY_ICON_SLOT = /(<span class="code-block-icon" aria-hidden="true">)(<\/span>)/
 export function transformerTitle() {
     return {
         name: 'title',
         root(node) {
-            const match = /(?:^|\s)title=(?:"([^"]*)"|'([^']*)')/.exec(this.options.meta?.__raw ?? '')
-            if (!match) return
-            const title = match[1] ?? match[2]
+            const { title } = parseFenceMeta(this.options.meta?.__raw)
+            if (!title) return
             // Shiki sets the dark theme's background inline on the <pre>; copy
             // it up so the caption can be shaded relative to it.
             const pre = node.children.find((child) => child.tagName === 'pre')
@@ -64,12 +85,12 @@ export function transformerTitle() {
                         tagName: 'figcaption',
                         properties: {},
                         children: [
-                            {
+                            ...(fileIconSvg ? [{
                                 type: 'element',
                                 tagName: 'span',
                                 properties: { class: 'code-block-icon', ariaHidden: 'true' },
                                 children: []
-                            },
+                            }] : []),
                             { type: 'text', value: title }
                         ]
                     },
