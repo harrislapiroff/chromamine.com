@@ -158,3 +158,31 @@ export async function optimizeImagesInHtml(html, inputPath) {
 
   return document.body.innerHTML
 }
+
+// Raster formats eleventy-img turns into generated variants. Originals in these
+// formats are left out of the src/media passthrough copy (see
+// eleventy.config.js), since nothing embeds them directly.
+export const RASTER_IMAGE = /\.(jpe?g|png|gif|webp|avif|tiff?|heic)$/i
+
+// A link to an original, as opposed to an embed, still needs the original: a
+// post like "[screenshot](/media/post/map.png)" sends the reader to the file
+// itself. Find every href into /media/ in the rendered output and copy just
+// those originals over from src/.
+const LINKED_IMAGE = /href="(\/media\/[^"?#]+)"/g
+
+export async function copyLinkedOriginalsToOutput(results, outputDir) {
+  const linked = new Set()
+  for (const { content } of results) {
+    if (typeof content !== 'string') continue
+    for (const [, url] of content.matchAll(LINKED_IMAGE)) {
+      if (RASTER_IMAGE.test(url)) linked.add(decodeURI(url))
+    }
+  }
+  await Promise.all(Array.from(linked, async (url) => {
+    const destination = path.join(outputDir, url)
+    await fs.mkdir(path.dirname(destination), { recursive: true })
+    // A link to a file that doesn't exist is the content validator's problem.
+    await fs.copyFile(path.join('./src', url), destination).catch(() => {})
+  }))
+  return linked.size
+}
