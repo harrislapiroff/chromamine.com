@@ -27,18 +27,28 @@ test('code blocks without scroll are left alone', () => {
 
 test('title wraps the block in a figure captioned with the filename', () => {
   const html = md.render('```js title="eleventy.config.js"\na = 1\n```')
-  assert.match(html, /^<figure class="code-block"><figcaption>eleventy\.config\.js<\/figcaption><pre class="shiki/)
+  assert.match(html, /^<figure class="code-block"[^>]*><figcaption>.*eleventy\.config\.js<\/figcaption><pre class="shiki/)
   assert.match(html, /<\/pre><\/figure>\n$/)
 })
 
+test('the title caption leads with an inline file icon', () => {
+  const html = md.render('```js title="a.js"\na\n```')
+  assert.match(html, /<figcaption><span class="code-block-icon" aria-hidden="true"><svg [^>]*fill="currentColor"[^>]*>.*<\/svg><\/span>a\.js</)
+})
+
+test('the title figure carries the dark theme background for the caption', () => {
+  const html = md.render('```js title="a.js"\na\n```')
+  assert.match(html, /^<figure class="code-block" style="--shiki-dark-bg:#[0-9a-f]+">/)
+})
+
 test('title accepts single quotes and spaces, and escapes HTML', () => {
-  assert.match(md.render('```js title=\'my file.js\'\na\n```'), /<figcaption>my file\.js<\/figcaption>/)
+  assert.match(md.render('```js title=\'my file.js\'\na\n```'), /<\/span>my file\.js<\/figcaption>/)
   assert.doesNotMatch(md.render('```js title="<b>.js"\na\n```'), /<b>/)
 })
 
 test('title and scroll combine', () => {
   const html = md.render('```js title="a.js" scroll=5\na\n```')
-  assert.match(html, /<figcaption>a\.js<\/figcaption><pre class="[^"]*\bscroll\b[^>]*--scroll-lines:5/)
+  assert.match(html, /<\/span>a\.js<\/figcaption><pre class="[^"]*\bscroll\b[^>]*--scroll-lines:5/)
 })
 
 test('code blocks without a title are a bare pre', () => {

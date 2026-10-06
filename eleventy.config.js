@@ -19,6 +19,7 @@ import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
 import { IMAGE_OPTIONS, copyGeneratedImagesToOutput, optimizeImagesInHtml } from './config/utils/images.js'
 import { generateSocialImages, previewImageUrl, socialImageUrl } from './config/utils/social/index.js'
+import { generateMaterialIconURL, getMaterialIconSVG } from './config/utils/material-icon.js'
 
 import {
     numFormat,
@@ -206,6 +207,9 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("socialImageUrl", socialImageUrl)
     eleventyConfig.addAsyncFilter("previewImageUrl", previewImageUrl)
     eleventyConfig.addFilter("toAbsoluteUrl", toAbsoluteUrl)
+    // Used by the <material-icon> component
+    eleventyConfig.addFilter("generateMaterialIconURL", generateMaterialIconURL)
+    eleventyConfig.addAsyncFilter("getMaterialIconSVG", getMaterialIconSVG)
 
     /* Responsive images
      *

@@ -119,21 +119,54 @@
         }
     }
 
-    /* ```lang title="file.js" -- set by transformerTitle in config/markdown.js */
+    /* ```lang title="file.js" -- set by transformerTitle in config/markdown.js.
+     * The figure takes over the code block's bleed margins, and the caption
+     * shares its padding so the title lines up with the code. */
     figure.code-block {
-        margin: calc(var(--line-height-base) / 2) 0;
+        margin: calc(var(--line-height-base) / 2) -2ch;
     }
 
     figure.code-block > figcaption {
         margin: 0;
+        padding: calc(var(--line-height-base) / 2) 2ch;
         font-style: normal;
         font-weight: var(--font-weight-bold);
-        font-size: 0.875em;
+        /* A shade darker than the code block (95% / 5%) */
+        background-color: color-mix(in lch, var(--color-background) 90%, black 10%);
     }
 
     figure.code-block > pre.shiki {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
+        margin: 0 !important;
+    }
+
+    .code-block-icon {
+        display: inline-block;
+        width: 2ch;
+        vertical-align: top;
+    }
+
+    .code-block-icon svg {
+        display: block;
+        /* Leave a little of the 2ch as a gap before the title */
+        width: 1.6ch;
+        height: var(--line-height-base);
+    }
+
+    @media (max-width: 640px) {
+        figure.code-block {
+            margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2);
+        }
+
+        figure.code-block > figcaption {
+            padding: calc(var(--line-height-base) / 2) var(--page-padding);
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        figure.code-block > figcaption {
+            /* --shiki-dark-bg is copied onto the figure by transformerTitle */
+            background-color: color-mix(in lch, var(--shiki-dark-bg) 60%, black 40%);
+        }
     }
 
     pre.shiki > code,
