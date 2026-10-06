@@ -109,26 +109,88 @@
     /* ```lang scroll -- set by transformerScroll in config/markdown.js */
     pre.shiki.scroll {
         --code-bg: color-mix(in lch, var(--color-background) 95%, black 5%);
+        --scroll-hint-bg: color-mix(in lch, var(--color-background) 90%, black 10%);
         --scroll-shadow: rgb(0 0 0 / 0.15);
         max-height: calc(var(--scroll-lines) * var(--line-height-base));
         overflow-y: auto;
-        /* Scroll shadows: a shadow pinned to each edge (attachment: scroll),
-         * hidden by a cover in the block's own colour that rides along with
-         * the content (attachment: local). At the top of the scroll range the
-         * top cover sits over the top shadow; scroll down and it moves away.
-         * Likewise at the bottom. A block that doesn't overflow shows none. */
-        background:
-            linear-gradient(var(--code-bg) 50%, transparent) center top / 100% var(--line-height-base) no-repeat local,
-            linear-gradient(transparent, var(--code-bg) 50%) center bottom / 100% var(--line-height-base) no-repeat local,
-            linear-gradient(var(--scroll-shadow), transparent) center top / 100% calc(var(--line-height-base) / 2) no-repeat scroll,
-            linear-gradient(transparent, var(--scroll-shadow)) center bottom / 100% calc(var(--line-height-base) / 2) no-repeat scroll,
-            var(--code-bg) !important;
     }
 
     @media (prefers-color-scheme: dark) {
         pre.shiki.scroll {
             --code-bg: var(--shiki-dark-bg);
+            --scroll-hint-bg: color-mix(in lch, var(--shiki-dark-bg) 60%, black 40%);
             --scroll-shadow: rgb(0 0 0 / 0.6);
+        }
+    }
+
+    /* "Scroll ↑" / "Scroll ↓" labels pinned to the block's top and bottom
+     * edges (position: sticky), shown only while there is more code in that
+     * direction. Their opacity runs on the block's own scroll position; a
+     * block that doesn't overflow has no active scroll timeline, so the
+     * labels stay at their hidden default. */
+    @supports (animation-timeline: scroll()) {
+        pre.shiki.scroll::before,
+        pre.shiki.scroll::after {
+            --hint-height: 1.75em;
+            position: sticky;
+            display: block;
+            width: fit-content;
+            height: var(--hint-height);
+            margin-inline-start: auto;
+            padding: 0 1ch;
+            font-size: 0.75em;
+            line-height: var(--hint-height);
+            background-color: var(--scroll-hint-bg);
+            border-radius: 0.4rem;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0;
+            animation-timeline: scroll(nearest block);
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+        }
+
+        /* Take up no space: each label overlaps the code next to it */
+        pre.shiki.scroll::before {
+            content: "Scroll ↑" / "";
+            top: 0;
+            margin-bottom: calc(-1 * var(--hint-height));
+            animation-name: scroll-hint-in;
+            animation-range: 0 var(--line-height-base);
+        }
+
+        pre.shiki.scroll::after {
+            content: "Scroll ↓" / "";
+            bottom: 0;
+            margin-top: calc(-1 * var(--hint-height));
+            animation-name: scroll-hint-out;
+            animation-range: calc(100% - var(--line-height-base)) 100%;
+        }
+    }
+
+    @keyframes scroll-hint-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes scroll-hint-out {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+
+    /* Browsers without scroll-driven animations get scroll shadows instead:
+     * a shadow pinned to each edge (attachment: scroll), hidden by a cover in
+     * the block's own colour that rides along with the content (attachment:
+     * local). At the top of the scroll range the top cover sits over the top
+     * shadow; scroll down and it moves away. Likewise at the bottom. */
+    @supports not (animation-timeline: scroll()) {
+        pre.shiki.scroll {
+            background:
+                linear-gradient(var(--code-bg) 50%, transparent) center top / 100% var(--line-height-base) no-repeat local,
+                linear-gradient(transparent, var(--code-bg) 50%) center bottom / 100% var(--line-height-base) no-repeat local,
+                linear-gradient(var(--scroll-shadow), transparent) center top / 100% calc(var(--line-height-base) / 2) no-repeat scroll,
+                linear-gradient(transparent, var(--scroll-shadow)) center bottom / 100% calc(var(--line-height-base) / 2) no-repeat scroll,
+                var(--code-bg) !important;
         }
     }
 
