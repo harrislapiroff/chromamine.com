@@ -14,7 +14,7 @@ excerpt: "Journalkit is a piece of software for a specific kind of person: someo
 
 JournalKit is a piece of software for a specific need and a specific kind of person: someone who wants to design their own physical daily journal for writing in, but prefers to think in code, modules, and measurements while doing so.
 
-{% button "Use JournalKit →" "https://harrislapiroff.github.io/journalkit/" %} {% button "Download Harris’s Pages 105×170mm (.zip) ↓" "/media/introucing-journalkit/out.zip" %}
+{% button "Use JournalKit →" "https://harrislapiroff.github.io/journalkit/" %} {% button "Download Harris’s Pages 105×170mm (.zip) ↓" "/media/introducing-journalkit/out.zip" %}
 
 ![A printed daily page in the ring binder: Morning and Evening sections with five-face mood scales, dotted notes boxes, a three-item checklist and a Gratitude box](/media/introducing-journalkit/img-8746.jpg)
 
