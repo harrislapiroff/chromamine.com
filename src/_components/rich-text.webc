@@ -132,12 +132,23 @@
         pre.shiki.scroll::before,
         pre.shiki.scroll::after {
             --hint-height: 1.75em;
+            /* "Scroll ↓" is 8 characters plus 1ch of padding a side; the font
+             * is monospaced, so the width is exact */
+            --hint-width: 10ch;
+            /* How far past the right padding the label sits (set on mobile) */
+            --hint-shift: 0px;
             position: sticky;
+            /* Pin horizontally too, at the label's resting spot, so it stays
+             * put when long lines scroll sideways */
+            left: calc(100% - var(--hint-width) - var(--hint-shift));
             display: block;
-            width: fit-content;
+            box-sizing: border-box;
+            width: var(--hint-width);
             height: var(--hint-height);
             margin-inline-start: auto;
+            margin-inline-end: var(--hint-shift);
             padding: 0 1ch;
+            text-align: center;
             font-size: 0.75em;
             line-height: var(--hint-height);
             background-color: var(--scroll-hint-bg);
@@ -205,7 +216,7 @@
          * three-quarters of the block's; dividing by 0.75 converts. */
         pre.shiki.scroll::before,
         pre.shiki.scroll::after {
-            margin-inline-end: calc((2ch - var(--page-padding)) / 0.75);
+            --hint-shift: calc((2ch - var(--page-padding)) / 0.75);
         }
     }
 
