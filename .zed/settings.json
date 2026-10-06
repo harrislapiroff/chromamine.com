@@ -1,0 +1,15 @@
+// Project settings for Zed, migrated from .vscode/settings.json.
+// See https://zed.dev/docs/configuring-zed. Indentation and whitespace come
+// from .editorconfig, which Zed reads on its own.
+{
+  // WebC components are HTML with extra attributes.
+  "file_types": {
+    "HTML": ["webc"]
+  },
+
+  // Zed formats on save by default, and with no Prettier config in the repo
+  // that would rewrite the no-semicolon, single-quote style in scripts/ and
+  // the 4-space config/. VS Code never formatted on save here; keep it that
+  // way and let `npm run lint` be the style check.
+  "format_on_save": "off"
+}

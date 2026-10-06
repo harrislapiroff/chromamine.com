@@ -33,6 +33,12 @@ npm run blog list [--limit <n>] [--sort <type>] [--drafts]
 # Publish a draft and fill in its cross-post URLs
 npm run blog publish <slug> [--mastodon <url>] [--facebook <url>]
 
+# Copy images (default: from the clipboard) into a post's media directory,
+# converting HEIC/TIFF/raw to JPEG and stripping GPS, and embed them at a line.
+# Zed runs this as the "blog: insert image" task (.zed/tasks.json), bound to
+# ctrl-cmd-v in markdown files.
+npm run blog image <post> [files...] [--line <n>]
+
 # Extract all unique dances from events to create a reference file
 npm run dance extract-dances
 ```
