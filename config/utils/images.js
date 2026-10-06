@@ -126,10 +126,12 @@ export async function optimizedImageUrl(src, inputPath) {
 //
 // The transform plugin rewrites the built pages, but feeds embed a post's
 // `templateContent` — the HTML as it looked *before* transforms ran — so
-// without this subscribers would download multi-megabyte originals. Feed
-// readers don't do anything useful with srcset, so this swaps in the smallest
-// variant rather than building a whole <picture>.
+// without this subscribers would get links to originals that aren't
+// published. Feed readers don't do anything useful with srcset, so this swaps
+// in the smallest variant rather than building a whole <picture>. Links to
+// images get the same treatment as on the built pages.
 export async function optimizeImagesInHtml(html, inputPath) {
+  html = await optimizeLinkedImages(html)
   if (!html.includes('<img')) return html
 
   const dom = new JSDOM(`<body>${html}</body>`)
@@ -159,30 +161,22 @@ export async function optimizeImagesInHtml(html, inputPath) {
   return document.body.innerHTML
 }
 
-// Raster formats eleventy-img turns into generated variants. Originals in these
-// formats are left out of the src/media passthrough copy (see
-// eleventy.config.js), since nothing embeds them directly.
-export const RASTER_IMAGE = /\.(jpe?g|png|gif|webp|avif|tiff?|heic)$/i
+// A link to an image, rather than an embed (e.g. "[screenshot](/media/post/map.png)"),
+// points at a full-size copy that eleventy-img generates in the source's own
+// format, since the originals themselves aren't published. The transform
+// plugin only rewrites <img>, so links go through the JS API here. Links to
+// files the build generates itself (e.g. /media/social/) have no source in
+// src/ and are left alone.
+const LINKED_IMAGE = /href="(\/media\/[^"]+\.(?:jpe?g|png|gif|webp|avif|svg))"/gi
+const LINKED_IMAGE_OPTIONS = { ...IMAGE_OPTIONS, widths: ['auto'], formats: ['auto'] }
 
-// A link to an original, as opposed to an embed, still needs the original: a
-// post like "[screenshot](/media/post/map.png)" sends the reader to the file
-// itself. Find every href into /media/ in the rendered output and copy just
-// those originals over from src/.
-const LINKED_IMAGE = /href="(\/media\/[^"?#]+)"/g
-
-export async function copyLinkedOriginalsToOutput(results, outputDir) {
-  const linked = new Set()
-  for (const { content } of results) {
-    if (typeof content !== 'string') continue
-    for (const [, url] of content.matchAll(LINKED_IMAGE)) {
-      if (RASTER_IMAGE.test(url)) linked.add(decodeURI(url))
-    }
-  }
-  await Promise.all(Array.from(linked, async (url) => {
-    const destination = path.join(outputDir, url)
-    await fs.mkdir(path.dirname(destination), { recursive: true })
-    // A link to a file that doesn't exist is the content validator's problem.
-    await fs.copyFile(path.join('./src', url), destination).catch(() => {})
+export async function optimizeLinkedImages(html) {
+  const urls = new Map()
+  await Promise.all(Array.from(html.matchAll(LINKED_IMAGE), async ([, src]) => {
+    const file = path.join('./src', decodeURI(src))
+    if (!await fs.stat(file).catch(() => null)) return
+    const metadata = await Image(file, LINKED_IMAGE_OPTIONS)
+    urls.set(src, Object.values(metadata)[0][0].url)
   }))
-  return linked.size
+  return html.replace(LINKED_IMAGE, (match, src) => `href="${urls.get(src) ?? src}"`)
 }
