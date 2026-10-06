@@ -30,7 +30,7 @@ For a time I used [CGP Grey/Cortex’s "Theme Systems Journal"][seasons] and I'v
 
 [^1]: Including swiping their half-complete/full-complete checkbox design wholesale.
 
-But, I found myself falling off the wagon. That’s OK. A daily habit can still be useful even if you don’t do it literally *every* day. And, as [Ruthie][] regularly reminds me, if a particular tool or system improves your life, it does so when you use it, whether or not you stick with it forever. For those of us who need regular novelty in the systems of our daily life, that novelty can be well worth chasing.
+But, I found myself falling off the wagon. That’s OK. A daily habit can still be useful even if you don’t do it literally *every* day. And, as [Ruthie][] regularly reminds me, if a particular tool or system improves your life, it does so whether or not you stick with it forever. For those of us who need regular novelty in the systems of our daily life, that novelty can be well worth chasing.
 
 [Ruthie]: https://ruthiebyers.com/
 
@@ -38,10 +38,10 @@ Now that I knew what I wanted from a journaling habit, I could design one to fit
 
 I started laying it out in Illustrator and InDesign, but found the process tedious – making modules line up on a grid, then carefully redoing it when I decided to rearrange. I caught myself compromising on my ideal design to do things technically easier.
 
-So instead I specced out a system for writing out journal page templates *in code* and handed that spec to an [LLM coding agent][claude] to flesh out and build. With some iteration (which continues even now), I arrived at something that let me experiment with page designs freely and flexibly. The library itself is "[vibe-coded][]" but the ideas feel wholly mine. Then I used it to make my journal.
+So instead I specced out a system for writing out journal page templates *in code* and handed that spec to an [LLM coding agent][claude] to flesh out and build. With some iteration (which continues even now), I arrived at something that let me experiment with page designs freely and flexibly. The library itself is "[vibe coded][]" but the ideas feel wholly mine. Then I used it to make my journal.
 
 [claude]: https://claude.com/product/claude-code
-[vibe-coded]: https://en.wikipedia.org/wiki/Vibe_coding
+[vibe coded]: https://en.wikipedia.org/wiki/Vibe_coding
 
 I printed a week's worth of pages, iterated on the design based on how using them felt, tried it for a few more weeks, iterated some more and then added some weekly pages, working my way out from the more granular daily journaling to broader swaths of 
 
