@@ -314,14 +314,32 @@ test('readPost normalizes whitespace in the prose', () => {
   assert.deepEqual(post.paragraphs, ['One two three'])
 })
 
-test('readPost falls back to the page description when the body has no prose', () => {
+test('readPost prefers the description the post wrote for itself', () => {
+  const post = readPost(page({
+    head: '<meta name="description" content="From the post\n  frontmatter.\n">',
+    body: '<p>First paragraph.</p><p>Second paragraph.</p>'
+  }))
+
+  assert.deepEqual(post.paragraphs, ['From the post frontmatter.'])
+})
+
+test('readPost uses the description when the body has no prose', () => {
   // Observable notebook posts build their body on the client.
   const post = readPost(page({
-    head: '<meta property="og:description" content="From the post frontmatter.">',
+    head: '<meta name="description" content="From the post frontmatter.">',
     body: '<div id="notebook"></div><script>define()</script>'
   }))
 
   assert.deepEqual(post.paragraphs, ['From the post frontmatter.'])
+})
+
+test('readPost ignores og:description, which may only be the opening paragraph', () => {
+  const post = readPost(page({
+    head: '<meta property="og:description" content="Generated.">',
+    body: '<p>First paragraph.</p>'
+  }))
+
+  assert.deepEqual(post.paragraphs, ['First paragraph.'])
 })
 
 test('readPost yields no paragraphs when there is nothing to read', () => {
