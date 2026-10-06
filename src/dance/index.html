@@ -6,7 +6,7 @@
     <head>
         <title>Harris Lapiroff, Dance Caller and Organizer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta property="og:image" content="/dance/media/still.jpg">
+		<meta property="og:image" content="{{ '/dance/media/still.jpg' | imageUrl }}">
 		<meta property="og:title" content="Harris Lapiroff, Traditional Dance Caller and Organizer">
         <meta property="og:type" content="website">
         <meta property="og:description" content="I'm Harris Lapiroff, a traditional dance caller and organizer. Available to book for dances and private events.">
@@ -22,8 +22,8 @@
                 <video class="heading-video__video" id="heading-video" autoplay loop muted aria-hidden playsinline tabindex="-1">
                     <source src="/dance/media/soulreversal-720.webm" type="video/webm">
                     <source src="/dance/media/soulreversal-720.mp4" type="video/mp4">
-                    <!-- eleventy:ignore — this is the <video> fallback; it has to stay a bare <img>, not a <picture> -->
-                    <img eleventy:ignore src="/dance/media/still.jpg" alt="BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.">
+                    <!-- The <video> fallback has to stay a bare <img>, not a <picture>; one format at one width gets one -->
+                    <img eleventy:formats="jpeg" eleventy:widths="1536" src="/dance/media/still.jpg" alt="BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.">
                 </video>
                 <figcaption class="heading-video__caption">
                     BIDA in Cambridge with Countercurrent. Video by Emma Azelborn.

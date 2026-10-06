@@ -17,7 +17,7 @@ import yaml from "js-yaml"
 import { compileObservable } from "./config/utils/ojs/compile.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
-import { IMAGE_OPTIONS, RASTER_IMAGE, copyGeneratedImagesToOutput, copyLinkedOriginalsToOutput, optimizeImagesInHtml } from './config/utils/images.js'
+import { IMAGE_OPTIONS, copyGeneratedImagesToOutput, optimizedImageUrl, optimizeImagesInHtml, optimizeLinkedImages } from './config/utils/images.js'
 import { generateSocialImages, previewImageUrl, socialImageUrl } from './config/utils/social/index.js'
 import { generateMaterialIconURL, getMaterialIconSVG } from './config/utils/material-icon.js'
 
@@ -87,10 +87,6 @@ export default function(eleventyConfig) {
         const count = await copyGeneratedImagesToOutput()
         console.log(`[11ty] Finished copying ${count} generated images to output directory`)
     })
-    eleventyConfig.on('eleventy.after', async ({ dir, results }) => {
-        const count = await copyLinkedOriginalsToOutput(results, dir.output)
-        console.log(`[11ty] Copied ${count} linked original images to output directory`)
-    })
 
     /* Generate the social preview images for blog posts
      *
@@ -131,21 +127,16 @@ export default function(eleventyConfig) {
     eleventyConfig.addWatchTarget('./src/static/scripts/')
     eleventyConfig.addWatchTarget('./src/dance/static/scripts/')
 
-    /* Pass media directory through
+    /* Pass media files through
      *
-     * Raster images in src/media are left out: every reference to one is
-     * rewritten to a generated variant under /media/img/ (by the transform
-     * plugin, the feed's optimizeImages filter, or the preview image lookup),
-     * so the originals would only be dead weight in the deploy — and a
-     * full-resolution camera file can run past Cloudflare's 25MB file limit.
-     * Originals a page links to (rather than embeds) are copied back in after
-     * the build. src/dance/media is copied whole, since its <video> fallback
-     * image is an eleventy:ignore'd original.
+     * Only the kinds of file eleventy-img doesn't handle. Images (SVG
+     * included) are published solely as generated variants under /media/img/,
+     * so originals never reach the deploy, where a full-resolution camera file
+     * can exceed Cloudflare's 25MB file limit. Add an extension here to
+     * publish a new kind of download.
      *-------------------------------------*/
-    eleventyConfig.addPassthroughCopy("src/media", {
-        filter: (file) => !RASTER_IMAGE.test(file)
-    })
-    eleventyConfig.addPassthroughCopy("src/dance/media")
+    eleventyConfig.addPassthroughCopy("src/media/**/*.{csv,mov,mp4,pdf,shortcut,stl,webm,zip}")
+    eleventyConfig.addPassthroughCopy("src/dance/media/*.{mp4,webm}")
 
     /* Other files through
      *-------------------------------------*/
@@ -219,6 +210,7 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("getSEOExcerpt", getSEOExcerpt)
     eleventyConfig.addFilter("getSEOImage", getSEOImage)
     eleventyConfig.addAsyncFilter("optimizeImages", optimizeImagesInHtml)
+    eleventyConfig.addAsyncFilter("imageUrl", function (src) { return optimizedImageUrl(src, this.page.inputPath) })
     eleventyConfig.addFilter("socialImageUrl", socialImageUrl)
     eleventyConfig.addAsyncFilter("previewImageUrl", previewImageUrl)
     eleventyConfig.addFilter("toAbsoluteUrl", toAbsoluteUrl)
@@ -229,9 +221,13 @@ export default function(eleventyConfig) {
     /* Responsive images
      *
      * Rewrites every <img> in the built HTML into a <picture> with generated
-     * webp/jpeg variants. Opt an individual tag out with `eleventy:ignore`.
+     * webp/jpeg variants. The plugin only handles <img>, so links to images
+     * (<a href>) are rewritten to a full-size generated copy separately.
      *-------------------------------------*/
     eleventyConfig.addPlugin(imageTransformPlugin, IMAGE_OPTIONS)
+    eleventyConfig.addTransform("linkedImages", function (content) {
+        return this.page.outputPath?.endsWith(".html") ? optimizeLinkedImages(content) : content
+    })
 
     /* Add renderTemplate shortcode
      *-------------------------------------*/
