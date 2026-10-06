@@ -108,8 +108,28 @@
 
     /* ```lang scroll -- set by transformerScroll in config/markdown.js */
     pre.shiki.scroll {
+        --code-bg: color-mix(in lch, var(--color-background) 95%, black 5%);
+        --scroll-shadow: rgb(0 0 0 / 0.15);
         max-height: calc(var(--scroll-lines) * var(--line-height-base));
         overflow-y: auto;
+        /* Scroll shadows: a shadow pinned to each edge (attachment: scroll),
+         * hidden by a cover in the block's own colour that rides along with
+         * the content (attachment: local). At the top of the scroll range the
+         * top cover sits over the top shadow; scroll down and it moves away.
+         * Likewise at the bottom. A block that doesn't overflow shows none. */
+        background:
+            linear-gradient(var(--code-bg) 50%, transparent) center top / 100% var(--line-height-base) no-repeat local,
+            linear-gradient(transparent, var(--code-bg) 50%) center bottom / 100% var(--line-height-base) no-repeat local,
+            linear-gradient(var(--scroll-shadow), transparent) center top / 100% calc(var(--line-height-base) / 2) no-repeat scroll,
+            linear-gradient(transparent, var(--scroll-shadow)) center bottom / 100% calc(var(--line-height-base) / 2) no-repeat scroll,
+            var(--code-bg) !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        pre.shiki.scroll {
+            --code-bg: var(--shiki-dark-bg);
+            --scroll-shadow: rgb(0 0 0 / 0.6);
+        }
     }
 
     @media (max-width: 640px) {
