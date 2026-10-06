@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 
 import { errorBoundary } from '../config/shortcodes/utils.js'
 import button from '../config/shortcodes/button.js'
+import image from '../config/shortcodes/image.js'
 import imageGrid from '../config/shortcodes/imageGrid.js'
 
 test('errorBoundary passes through the wrapped function result', async () => {
@@ -31,6 +32,17 @@ test('errorBoundary renders an error message when the wrapped function throws', 
   assert.match(output, /color: red/)
 })
 
+test('errorBoundary keeps a synchronous function synchronous', () => {
+  const wrapped = errorBoundary((a, b) => a + b)
+  assert.equal(wrapped(2, 3), 5)
+  assert.match(errorBoundary(() => { throw new Error('boom') })(), /boom/)
+})
+
+test('errorBoundary catches a rejected promise', async () => {
+  const wrapped = errorBoundary(async () => { throw new Error('async boom') })
+  assert.match(await wrapped(), /async boom/)
+})
+
 test('errorBoundary uses a custom error message when provided', async () => {
   const wrapped = errorBoundary(() => { throw new Error('boom') }, 'Custom failure')
   const output = await wrapped()
@@ -50,7 +62,24 @@ test('button appends a modifier class when one is given', () => {
   assert.match(html, /class="button button-primary"/)
 })
 
-const gridContext = { eleventy: { env: {} }, page: { url: '/post/' } }
+const imageContext = { page: { fileSlug: 'post' } }
+
+test('image escapes attribute values', () => {
+  const html = image.call(imageContext, { src: 'a"b.jpg', alt: 'Tiffany & Co. "quoted" <b>' })
+  assert.match(html, /src="\/media\/post\/a&quot;b\.jpg"/)
+  assert.match(html, /alt="Tiffany &amp; Co\. &quot;quoted&quot; &lt;b>"/)
+  assert.match(html, /loading="lazy"/)
+  assert.doesNotMatch(html, /figcaption/)
+})
+
+test('image renders a markdown caption, the same on repeat calls', () => {
+  const img = { src: 'a.jpg', alt: 'A', caption: 'A *caption*' }
+  const first = image.call(imageContext, img)
+  assert.match(first, /<figcaption><p>A <em>caption<\/em><\/p>\n<\/figcaption>/)
+  assert.equal(image.call(imageContext, img), first)
+})
+
+const gridContext ={ eleventy: { env: {} }, page: { url: '/post/' } }
 const renderGrid = (content) => imageGrid.call(gridContext, content)
 
 test('imageGrid wraps each line in a grid item', () => {
