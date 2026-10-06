@@ -21,7 +21,7 @@
     // Bind it to a key with a save first, so Zed reloads the post cleanly
     // instead of reporting a conflict with unsaved edits:
     //
-    //   "ctrl-cmd-v": ["action::Sequence", ["workspace::Save", ["task::Spawn", { "task_name": "blog: insert image" }]]]
+    "ctrl-cmd-v": ["action::Sequence", ["workspace::Save", ["task::Spawn", { "task_name": "blog: insert image" }]]],
     "label": "blog: insert image",
     "command": "node",
     "args": ["scripts/blog.mjs", "image", "$ZED_FILE", "--line", "$ZED_ROW"],
