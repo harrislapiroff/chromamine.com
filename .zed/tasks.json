@@ -1,0 +1,34 @@
+// Project tasks for Zed. See https://zed.dev/docs/tasks
+[
+  {
+    // Migrated from .vscode/tasks.json, where it was the default build task.
+    // Zed has no problem matchers, so 11ty errors show up in the terminal
+    // rather than the diagnostics panel.
+    "label": "Serve blog (live)",
+    "command": "npm",
+    "args": ["run", "serve"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    // Copies the image(s) on the clipboard -- files copied in Finder, or image
+    // data such as a screenshot -- into this post's media directory, converting
+    // HEIC to JPEG and stripping GPS, then embeds them at the cursor line.
+    //
+    // Bind it to a key with a save first, so Zed reloads the post cleanly
+    // instead of reporting a conflict with unsaved edits:
+    //
+    //   "ctrl-cmd-v": ["action::Sequence", ["workspace::Save", ["task::Spawn", { "task_name": "blog: insert image" }]]]
+    "label": "blog: insert image",
+    "command": "node",
+    "args": ["scripts/blog.mjs", "image", "$ZED_FILE", "--line", "$ZED_ROW"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
+  }
+]
