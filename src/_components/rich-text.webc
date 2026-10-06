@@ -106,6 +106,12 @@
         background-color: color-mix(in lch, var(--color-background) 95%, black 5%) !important;
     }
 
+    /* ```lang scroll -- set by transformerScroll in config/markdown.js */
+    pre.shiki.scroll {
+        max-height: calc(var(--scroll-lines) * var(--line-height-base));
+        overflow-y: auto;
+    }
+
     @media (max-width: 640px) {
         pre.shiki, pre.observablehq--md-pre {
             margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2) !important;

@@ -18,6 +18,24 @@ export const mdOptions = {
     html: true,
 }
 
+// Cap a long code block's height and let it scroll: ```yaml scroll shows 15
+// lines, ```yaml scroll=8 shows 8. rich-text.webc turns --scroll-lines into a
+// max-height.
+const DEFAULT_SCROLL_LINES = 15
+export function transformerScroll() {
+    return {
+        name: 'scroll',
+        pre(node) {
+            const match = /(?:^|\s)scroll(?:=(\d+))?(?=\s|$)/.exec(this.options.meta?.__raw ?? '')
+            if (!match) return
+            const lines = Number(match[1] ?? DEFAULT_SCROLL_LINES)
+            this.addClassToHast(node, 'scroll')
+            const style = node.properties.style ? `${node.properties.style};` : ''
+            node.properties.style = `${style}--scroll-lines:${lines}`
+        }
+    }
+}
+
 const shikiPlugin = await ShikiPlugin({
     themes: {
         light: 'github-light',
@@ -39,6 +57,7 @@ const shikiPlugin = await ShikiPlugin({
         // Add the notation word highlight transformer
         // https://shiki.style/packages/transformers#transformernotationwordhighlight
         transformerNotationWordHighlight(),
+        transformerScroll(),
     ]
 })
 
