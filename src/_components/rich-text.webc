@@ -199,6 +199,14 @@
             margin: calc(-1 * var(--line-height-base) / 2) calc(-1 * var(--page-padding)) calc(var(--line-height-base) / 2) !important;
             padding: calc(var(--line-height-base) / 2) var(--page-padding) !important;
         }
+
+        /* Pull the scroll labels out of the wide page padding to sit 2ch from
+         * the edge, as on desktop. They're set at 0.75em, so their ch is
+         * three-quarters of the block's; dividing by 0.75 converts. */
+        pre.shiki.scroll::before,
+        pre.shiki.scroll::after {
+            margin-inline-end: calc((2ch - var(--page-padding)) / 0.75);
+        }
     }
 
     /* ```lang title="file.js" -- set by transformerTitle in config/markdown.js.
