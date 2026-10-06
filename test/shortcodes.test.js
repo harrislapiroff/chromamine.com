@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 
 import { errorBoundary } from '../config/shortcodes/utils.js'
 import button from '../config/shortcodes/button.js'
+import imageGrid from '../config/shortcodes/imageGrid.js'
 
 test('errorBoundary passes through the wrapped function result', async () => {
   const wrapped = errorBoundary((a, b) => a + b)
@@ -47,4 +48,28 @@ test('button renders an anchor with the base button class', () => {
 test('button appends a modifier class when one is given', () => {
   const html = button('Go', '/somewhere', 'primary')
   assert.match(html, /class="button button-primary"/)
+})
+
+const gridContext = { eleventy: { env: {} }, page: { url: '/post/' } }
+const renderGrid = (content) => imageGrid.call(gridContext, content)
+
+test('imageGrid wraps each line in a grid item', () => {
+  const html = renderGrid('\n![One](/a.jpg)\n![Two](/b.jpg)\n')
+  assert.equal(
+    html,
+    '<div class="image-grid">' +
+      '<div class="image-grid__item"><img src="/a.jpg" alt="One"></div>' +
+      '<div class="image-grid__item"><img src="/b.jpg" alt="Two"></div>' +
+      '</div>'
+  )
+})
+
+test('imageGrid ignores indentation and blank lines', () => {
+  const plain = renderGrid('![One](/a.jpg)\n![Two](/b.jpg)')
+  assert.equal(renderGrid('\n\n    ![One](/a.jpg)\n\n\n    ![Two](/b.jpg)\n\n'), plain)
+})
+
+test('imageGrid renders inline markdown without paragraph tags', () => {
+  const html = renderGrid('A *caption*')
+  assert.equal(html, '<div class="image-grid"><div class="image-grid__item">A <em>caption</em></div></div>')
 })
