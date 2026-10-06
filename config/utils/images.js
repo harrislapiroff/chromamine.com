@@ -32,7 +32,7 @@ export const IMAGE_URL_PATH = '/media/img/'
 // are imperceptible overkill for this fixed column width.
 export const IMAGE_WIDTHS = [768, 1536]
 
-// webp + jpeg cover every browser; svg passes through untouched for svg sources.
+// webp + jpeg cover every browser; svg is needed for svgShortCircuit below.
 export const IMAGE_FORMATS = ['webp', 'jpeg', 'svg']
 
 // Every output file eleventy-img decided to produce during this build, so the
@@ -51,6 +51,10 @@ export const IMAGE_OPTIONS = {
   formats: IMAGE_FORMATS,
   urlPath: IMAGE_URL_PATH,
   outputDir: IMAGE_CACHE_DIR,
+  // SVG sources come out as SVG only, with no webp/jpeg rasters alongside.
+  // They are already resolution-independent, so the rasters were dead weight.
+  // https://www.11ty.dev/docs/plugins/image/#skip-raster-formats-for-svg
+  svgShortCircuit: true,
   // Lower webp encoding effort: effort only controls the compression search,
   // not visual quality at a fixed quality value, so this speeds up the build
   // at the cost of marginally larger files.
@@ -73,14 +77,21 @@ export const IMAGE_OPTIONS = {
 // Copy the images generated during this build out of the persistent cache and
 // into the published output directory. In --serve mode nothing is generated up
 // front (eleventy-img serves images on request instead), so this is a no-op.
+//
+// The set is emptied on every call. Under --serve the module lives across
+// rebuilds, and an entry left over from an earlier version of a source image
+// names a file whose dimensions (and so filename) no longer match anything in
+// the cache, so the copy fails with ENOENT on every rebuild that follows.
 export async function copyGeneratedImagesToOutput() {
-  if (generated.size === 0) return 0
+  const filenames = Array.from(generated)
+  generated.clear()
+  if (filenames.length === 0) return 0
   await fs.mkdir(IMAGE_PUBLISH_DIR, { recursive: true })
-  await Promise.all(Array.from(generated, (filename) => fs.copyFile(
+  await Promise.all(filenames.map((filename) => fs.copyFile(
     path.join(IMAGE_CACHE_DIR, filename),
     path.join(IMAGE_PUBLISH_DIR, filename)
   )))
-  return generated.size
+  return filenames.length
 }
 
 // The URL of the largest generated variant of `src`, or null if it cannot be
