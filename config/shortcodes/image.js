@@ -1,11 +1,24 @@
 import { md } from '../markdown.js'
 import { errorBoundary } from './utils.js'
 
-// Escape a value for use inside a double-quoted HTML attribute.
-const attr = (value) => String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
+// Escape a value for use inside a double-quoted HTML attribute, in a
+// single pass over the string.
+const ATTR_ESCAPES = { '&': '&amp;', '"': '&quot;', '<': '&lt;' }
+const attr = (value) => String(value).replace(/[&"<]/g, (char) => ATTR_ESCAPES[char])
+
+// Rendering the caption's markdown is nearly all of this shortcode's cost, and
+// the result depends on nothing but the caption text, so keep each one. A
+// first build renders every caption once either way; the cache pays off on
+// the rebuilds `npm run serve` does after each edit.
+const captionCache = new Map()
+const renderCaption = (caption) => {
+    let html = captionCache.get(caption)
+    if (html === undefined) {
+        html = md.render(caption)
+        captionCache.set(caption, html)
+    }
+    return html
+}
 
 const image = function (imgObj) {
     const fileSlug = this.page.fileSlug
@@ -19,7 +32,7 @@ const image = function (imgObj) {
 
     return `<figure>
         ${imgTag}
-        ${imgObj.caption ? `<figcaption>${md.render(imgObj.caption)}</figcaption>` : ''}
+        ${imgObj.caption ? `<figcaption>${renderCaption(imgObj.caption)}</figcaption>` : ''}
     </figure>`
 }
 
