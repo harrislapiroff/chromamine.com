@@ -22,6 +22,14 @@
             webc:if="getSEOExcerpt($data.content, $data.seoDescription || $data.excerpt)"
             :content="getSEOExcerpt($data.content, $data.seoDescription || $data.excerpt)"
         >
+        <!--- Only when the post wrote its own description, so the story image
+        (config/utils/social/extract.js) can tell one apart from the opening
+        paragraph that og:description falls back to. --->
+        <meta
+            name="description"
+            webc:if="$data.seoDescription || $data.excerpt"
+            :content="$data.seoDescription || $data.excerpt"
+        >
         <meta
             property="og:image"
             :content="previewImageUrl($data.content, $data.page, $data.config.url, $data.seoImage)"

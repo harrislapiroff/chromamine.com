@@ -12,24 +12,26 @@ const textOf = (node) => node?.textContent.replace(/\s+/g, ' ').trim() || ''
 
 /* The opening prose of a post, paragraph by paragraph.
  *
- * How much of it to use is left to the card, which is the only thing that knows
- * how much room there is. Paragraphs carrying an image are skipped, so a post
- * that opens with a photo and its caption is still described by its first real
- * sentence.
+ * A description the post wrote for itself (`seoDescription`, else `excerpt`,
+ * the same order og:description takes them) wins, since it was written to be
+ * shared. post.webc advertises it as the page's description only when the
+ * frontmatter sets one.
+ *
+ * Otherwise how much of the body to use is left to the card, which is the only
+ * thing that knows how much room there is. Paragraphs carrying an image are
+ * skipped, so a post that opens with a photo and its caption is still described
+ * by its first real sentence. Notebook posts build their body on the client, so
+ * without a description they have no prose to read at all.
  */
 function readParagraphs (content, document) {
-  const paragraphs = [...(content?.querySelectorAll(':scope > rich-text > p, :scope > p') ?? [])]
+  const described = document.querySelector('meta[name="description"]')?.content
+    .replace(/\s+/g, ' ').trim()
+  if (described) return [described]
+
+  return [...(content?.querySelectorAll(':scope > rich-text > p, :scope > p') ?? [])]
     .filter((paragraph) => !paragraph.querySelector('img, picture, svg'))
     .map(textOf)
     .filter(Boolean)
-
-  if (paragraphs.length) return paragraphs
-
-  // Notebook posts build their body on the client, so the markup holds no prose
-  // to read; fall back to the description the page already advertises, which
-  // comes from the post's own `excerpt` frontmatter.
-  const described = document.querySelector('meta[property="og:description"]')?.content
-  return described ? [described] : []
 }
 
 /* Everything the cards need from one rendered post page, or null if the page
