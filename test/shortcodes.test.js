@@ -79,7 +79,7 @@ test('image renders a markdown caption, the same on repeat calls', () => {
   assert.equal(image.call(imageContext, img), first)
 })
 
-const gridContext ={ eleventy: { env: {} }, page: { url: '/post/' } }
+const gridContext = { eleventy: { env: {} }, page: { url: '/post/' } }
 const renderGrid = (content) => imageGrid.call(gridContext, content)
 
 test('imageGrid wraps each line in a grid item', () => {
