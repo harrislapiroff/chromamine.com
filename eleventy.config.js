@@ -17,7 +17,7 @@ import yaml from "js-yaml"
 import { compileObservable } from "./config/utils/ojs/compile.js"
 import { md } from './config/markdown.js'
 import shortcodes from './config/shortcodes/index.js'
-import { IMAGE_OPTIONS, copyGeneratedImagesToOutput, optimizeImagesInHtml } from './config/utils/images.js'
+import { IMAGE_OPTIONS, RASTER_IMAGE, copyGeneratedImagesToOutput, copyLinkedOriginalsToOutput, optimizeImagesInHtml } from './config/utils/images.js'
 import { generateSocialImages, previewImageUrl, socialImageUrl } from './config/utils/social/index.js'
 import { generateMaterialIconURL, getMaterialIconSVG } from './config/utils/material-icon.js'
 
@@ -87,6 +87,10 @@ export default function(eleventyConfig) {
         const count = await copyGeneratedImagesToOutput()
         console.log(`[11ty] Finished copying ${count} generated images to output directory`)
     })
+    eleventyConfig.on('eleventy.after', async ({ dir, results }) => {
+        const count = await copyLinkedOriginalsToOutput(results, dir.output)
+        console.log(`[11ty] Copied ${count} linked original images to output directory`)
+    })
 
     /* Generate the social preview images for blog posts
      *
@@ -128,8 +132,19 @@ export default function(eleventyConfig) {
     eleventyConfig.addWatchTarget('./src/dance/static/scripts/')
 
     /* Pass media directory through
+     *
+     * Raster images in src/media are left out: every reference to one is
+     * rewritten to a generated variant under /media/img/ (by the transform
+     * plugin, the feed's optimizeImages filter, or the preview image lookup),
+     * so the originals would only be dead weight in the deploy — and a
+     * full-resolution camera file can run past Cloudflare's 25MB file limit.
+     * Originals a page links to (rather than embeds) are copied back in after
+     * the build. src/dance/media is copied whole, since its <video> fallback
+     * image is an eleventy:ignore'd original.
      *-------------------------------------*/
-    eleventyConfig.addPassthroughCopy("src/media")
+    eleventyConfig.addPassthroughCopy("src/media", {
+        filter: (file) => !RASTER_IMAGE.test(file)
+    })
     eleventyConfig.addPassthroughCopy("src/dance/media")
 
     /* Other files through
