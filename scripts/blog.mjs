@@ -22,6 +22,19 @@ import {
   today,
   writeNewFile
 } from './lib/content.js'
+import {
+  convertToJpeg,
+  insertBlocks,
+  isSupportedImage,
+  makeTempDir,
+  markdownImage,
+  needsConversion,
+  readClipboard,
+  targetFilename,
+  uniqueFilename
+} from './lib/media.js'
+import { exiftoolVersion, findLocation, stripLocation } from './lib/location.js'
+import { format } from 'date-fns'
 
 const __filename = fileURLToPath(import.meta.url)
 
@@ -231,6 +244,103 @@ program.command('publish <slug>')
     if (remaining.length) {
       console.log(`  still TBD: ${remaining.map((x) => x.label).join(', ')}`)
     }
+  })
+
+program.command('image <post> [files...]')
+  .description('Add images to a post\'s media directory and embed them (default: from the clipboard)')
+  .option('-l, --line <n>', 'Line to embed at, 1-based (default: end of the post)')
+  .option('--pasteboard <name>', 'Read from a named pasteboard instead of the clipboard (for testing)')
+  .addHelpText('after', `
+<post> is a slug or a path to the post file. With no files, takes whatever is
+on the clipboard: files copied in Finder, or image data such as a screenshot.
+HEIC, TIFF and raw files are converted to JPEG; GPS metadata is stripped.`)
+  .action((post, files, { line, pasteboard }) => {
+    const postPath = fs.existsSync(post) ? path.resolve(post) : findPost(post)
+    if (!postPath) return fail(`No post found for "${post}"`)
+
+    let slug
+    try {
+      slug = assertSafeSlug(path.basename(postPath, path.extname(postPath)))
+    } catch (err) {
+      return fail(err.message)
+    }
+
+    const lineNumber = line === undefined ? Infinity : Number(line)
+    if (lineNumber !== Infinity && !(Number.isInteger(lineNumber) && lineNumber >= 1)) return fail(`--line must be a positive integer, got "${line}"`)
+
+    const tmpDir = makeTempDir()
+    let error = null
+    try {
+      let sources = files.map((file) => ({ kind: 'file', path: path.resolve(file) }))
+      if (!sources.length) sources = readClipboard({ dataDir: tmpDir, pasteboard })
+      if (!sources.length) throw new Error('The clipboard has no files or image data on it.')
+
+      const unsupported = sources.filter((source) => !isSupportedImage(source.path))
+      if (unsupported.length) {
+        throw new Error(`Not an image format this can handle:\n  ${unsupported.map((s) => s.path).join('\n  ')}`)
+      }
+      const missing = sources.filter((source) => !fs.existsSync(source.path))
+      if (missing.length) throw new Error(`File not found:\n  ${missing.map((s) => s.path).join('\n  ')}`)
+
+      // Check the insertion point before copying anything, so a bad cursor
+      // position does not leave orphaned files behind.
+      const raw = fs.readFileSync(postPath, 'utf-8')
+      insertBlocks(raw, lineNumber, [''])
+
+      const mediaDir = path.join(MEDIA_DIR, slug)
+      fs.mkdirSync(mediaDir, { recursive: true })
+
+      const added = []
+      for (const source of sources) {
+        // Pasted data has no name of its own; date it so it sorts sensibly.
+        const named = source.kind === 'data'
+          ? path.join(path.dirname(source.path), `image-${format(new Date(), 'yyyyMMdd-HHmmss')}${path.extname(source.path)}`)
+          : source.path
+
+        // A file already in the media directory (say, dropped there through
+        // Zed's project panel) only needs embedding, unless it needs converting.
+        if (path.dirname(source.path) === mediaDir && !needsConversion(source.path)) {
+          added.push({ filename: path.basename(source.path), copied: false })
+          continue
+        }
+
+        const filename = uniqueFilename(mediaDir, targetFilename(named))
+        const destination = path.join(mediaDir, filename)
+        if (needsConversion(source.path)) convertToJpeg(source.path, destination)
+        else fs.copyFileSync(source.path, destination, fs.constants.COPYFILE_EXCL)
+        added.push({ filename, copied: true, converted: needsConversion(source.path), from: source.kind === 'file' ? source.path : 'clipboard' })
+      }
+
+      // The pre-commit hook would catch location data anyway, but cleaning it
+      // here means the file on disk is never the one carrying it.
+      const copied = added.filter((item) => item.copied).map((item) => path.join(mediaDir, item.filename))
+      let stripped = []
+      if (copied.length) {
+        if (exiftoolVersion()) {
+          stripped = findLocation(copied).map((hit) => path.basename(hit.file))
+          stripLocation(stripped.map((name) => path.join(mediaDir, name)))
+        } else {
+          console.warn('Warning: exiftool is not installed, so GPS data was not checked. The pre-commit hook will refuse to commit these until it is.')
+        }
+      }
+
+      const snippets = added.map((item) => markdownImage(slug, item.filename))
+      fs.writeFileSync(postPath, insertBlocks(fs.readFileSync(postPath, 'utf-8'), lineNumber, snippets))
+
+      for (const item of added) {
+        const notes = []
+        if (item.converted) notes.push('converted to JPEG')
+        if (stripped.includes(item.filename)) notes.push('GPS removed')
+        const from = item.copied ? ` <- ${item.from}` : ''
+        console.log(`${path.relative(process.cwd(), path.join(mediaDir, item.filename))}${from}${notes.length ? ` (${notes.join(', ')})` : ''}`)
+      }
+      console.log(`Embedded ${added.length} image(s) in ${path.basename(postPath)}. Remember the alt text.`)
+    } catch (err) {
+      error = err
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true })
+    }
+    if (error) fail(error.message)
   })
 
 // Split a file into [frontmatter, rest] so edits stay inside the frontmatter
