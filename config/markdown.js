@@ -36,6 +36,33 @@ export function transformerScroll() {
     }
 }
 
+// Label a code block with a filename: ```js title="eleventy.config.js" wraps
+// the <pre> in a <figure> captioned with the title.
+export function transformerTitle() {
+    return {
+        name: 'title',
+        root(node) {
+            const match = /(?:^|\s)title=(?:"([^"]*)"|'([^']*)')/.exec(this.options.meta?.__raw ?? '')
+            if (!match) return
+            const title = match[1] ?? match[2]
+            node.children = [{
+                type: 'element',
+                tagName: 'figure',
+                properties: { class: 'code-block' },
+                children: [
+                    {
+                        type: 'element',
+                        tagName: 'figcaption',
+                        properties: {},
+                        children: [{ type: 'text', value: title }]
+                    },
+                    ...node.children
+                ]
+            }]
+        }
+    }
+}
+
 const shikiPlugin = await ShikiPlugin({
     themes: {
         light: 'github-light',
@@ -58,6 +85,7 @@ const shikiPlugin = await ShikiPlugin({
         // https://shiki.style/packages/transformers#transformernotationwordhighlight
         transformerNotationWordHighlight(),
         transformerScroll(),
+        transformerTitle(),
     ]
 })
 
@@ -71,6 +99,19 @@ export const md = markdownIt(mdOptions)
         allowedAttributes: ['rel'],
     })
     .use(shikiPlugin)
+
+// markdown-it only passes highlighter output through untouched when it starts
+// with <pre>, and wraps anything else in another <pre><code>. Let the <figure>
+// from transformerTitle through as well.
+const defaultFenceRenderer = md.renderer.rules.fence
+md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+    const token = tokens[idx]
+    const info = token.info ? md.utils.unescapeAll(token.info).trim() : ''
+    const [lang, , ...attrs] = info.split(/(\s+)/g)
+    const highlighted = options.highlight(token.content, lang, attrs.join(''))
+    if (/^<(pre|figure)\b/.test(highlighted)) return highlighted + '\n'
+    return defaultFenceRenderer(tokens, idx, options, env, self)
+}
 
 // Render footnotes simply in an ordered list
 md.renderer.rules.footnote_block_open = () => '<ol class="footnotes">'

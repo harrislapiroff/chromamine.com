@@ -119,6 +119,23 @@
         }
     }
 
+    /* ```lang title="file.js" -- set by transformerTitle in config/markdown.js */
+    figure.code-block {
+        margin: calc(var(--line-height-base) / 2) 0;
+    }
+
+    figure.code-block > figcaption {
+        margin: 0;
+        font-style: normal;
+        font-weight: var(--font-weight-bold);
+        font-size: 0.875em;
+    }
+
+    figure.code-block > pre.shiki {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
     pre.shiki > code,
     pre.observablehq--md-pre,
     pre.observablehq--md-pre > code {
