@@ -8,6 +8,7 @@ import markdownAbbr from "markdown-it-abbr"
 import markdownItAttrs from "markdown-it-attrs"
 
 import ShikiPlugin from "@shikijs/markdown-it"
+import { getMaterialIconSVG } from "./utils/material-icon.js"
 import {
     transformerNotationHighlight,
     transformerNotationWordHighlight,
@@ -37,7 +38,11 @@ export function transformerScroll() {
 }
 
 // Label a code block with a filename: ```js title="eleventy.config.js" wraps
-// the <pre> in a <figure> captioned with the title.
+// the <pre> in a <figure> captioned with a file icon and the title. The icon
+// comes from the same code as the <material-icon> component; markdown-it
+// renders synchronously, so it is fetched once here.
+const fileIconSvg = await getMaterialIconSVG('description', { weight: 300, style: 'sharp' })
+const EMPTY_ICON_SLOT = /(<span class="code-block-icon" aria-hidden="true">)(<\/span>)/
 export function transformerTitle() {
     return {
         name: 'title',
@@ -45,20 +50,37 @@ export function transformerTitle() {
             const match = /(?:^|\s)title=(?:"([^"]*)"|'([^']*)')/.exec(this.options.meta?.__raw ?? '')
             if (!match) return
             const title = match[1] ?? match[2]
+            // Shiki sets the dark theme's background inline on the <pre>; copy
+            // it up so the caption can be shaded relative to it.
+            const pre = node.children.find((child) => child.tagName === 'pre')
+            const darkBg = /--shiki-dark-bg:[^;]+/.exec(pre?.properties.style ?? '')
             node.children = [{
                 type: 'element',
                 tagName: 'figure',
-                properties: { class: 'code-block' },
+                properties: { class: 'code-block', style: darkBg?.[0] },
                 children: [
                     {
                         type: 'element',
                         tagName: 'figcaption',
                         properties: {},
-                        children: [{ type: 'text', value: title }]
+                        children: [
+                            {
+                                type: 'element',
+                                tagName: 'span',
+                                properties: { class: 'code-block-icon', ariaHidden: 'true' },
+                                children: []
+                            },
+                            { type: 'text', value: title }
+                        ]
                     },
                     ...node.children
                 ]
             }]
+        },
+        // Shiki escapes raw HTML in the tree, so the icon goes in after
+        // serialization
+        postprocess(html) {
+            return html.replace(EMPTY_ICON_SLOT, `$1${fileIconSvg}$2`)
         }
     }
 }
