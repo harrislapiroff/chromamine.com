@@ -85,6 +85,12 @@ This is an [Eleventy](https://www.11ty.dev/) static site generator project for H
   Renders are cached under `.cache/social-images/`, keyed by both the post
   content and a hash of the renderer's own source, so design edits invalidate
   the cache on their own.
+- **Code block options** - After the language on a fenced code block,
+  `title="file.js"` labels it with a filename (and a file icon), and `scroll`
+  caps a long block at 15 lines with "Scroll ↑/↓" hints (`scroll=8` for 8
+  lines; a block that already fits is left alone). They combine:
+  ```` ```js title="eleventy.config.js" scroll=10 ````. Implemented as Shiki
+  transformers in `config/markdown.js`, styled in `rich-text.webc`.
 
 ### Location Metadata
 
