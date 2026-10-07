@@ -43,7 +43,7 @@ So instead I specced out a system for writing out journal page templates *in cod
 [claude]: https://claude.com/product/claude-code
 [vibe coded]: https://en.wikipedia.org/wiki/Vibe_coding
 
-I printed a week's worth of pages, iterated on the design based on how using them felt, tried it for a few more weeks, iterated some more and then added some weekly pages, working my way out from the more granular daily journaling to broader swaths of 
+I printed a week's worth of pages, iterated on the design based on how using them felt, tried it for a few more weeks, iterated some more and then added some weekly pages, working my way out from the more granular daily journaling to broader swaths of time.
 
 {% imagegrid %}
   ![Daily page front side with morning and evening mood logging, reflection, task lists, and gratitude](/media/introducing-journalkit/daily-recto.svg)
