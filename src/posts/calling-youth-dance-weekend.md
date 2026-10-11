@@ -15,6 +15,8 @@ Last week, at [Youth Dance Weekend](https://youthdanceweekend.org)[^1] in Fairle
 
 {% button "Jump to program ↓" "#the-program" %}
 
+![A crowded wooden dance floor seen from above, with dozens of young contra dancers engaged mid-dance, taking hands in rings of four. A big stone fireplace fills one wall, and sunlight from the windows gleams on the floor.](/media/calling-youth-dance-weekend/dscf2105.jpg)
+
 It nicely caps off the five years of calling I've just had. When [reflecting on two years of calling](/2024/02/contra-calling-2022-2023/) in 2024, I wrote, "I really like doing this. I think I’ve gotten pretty good at it and I’m determined to get better." I didn't write posts reflecting emotionally on 2024 and 2025 but, had I done so, I might have written something like:
 
 [NEFFA]: https://neffa.org/festival-home/
