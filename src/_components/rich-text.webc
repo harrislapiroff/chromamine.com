@@ -86,6 +86,19 @@
         text-decoration-color: var(--color-base);
     }
 
+    /* The heading a link jumps to stops a line short of the top of the window
+       and is briefly highlighted, so it's easy to spot after the scroll. */
+    :is(h1, h2, h3, h4, h5, h6):target {
+        scroll-margin-top: var(--line-height-base);
+        animation: target-highlight 3s ease-out;
+    }
+
+    @keyframes target-highlight {
+        from, 40% {
+            background-color: color-mix(in lch, var(--color-link) 15%, transparent);
+        }
+    }
+
     h3 {
         color: var(--color-text-striking);
         font-weight: var(--font-weight-bold);

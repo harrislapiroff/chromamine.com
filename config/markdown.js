@@ -144,11 +144,14 @@ export const md = markdownIt(mdOptions)
         allowedAttributes: ['rel'],
     })
     .use(shikiPlugin)
-    // Give every heading an id and wrap its text in a link to itself. Slugs
-    // come from the same library as Eleventy's built-in slugify filter.
+    // Give every heading an id and wrap its text in a link to itself
     .use(markdownItAnchor, {
         slugify: (s) => slugify(s, { decamelize: false }),
         permalink: markdownItAnchor.permalink.headerLink(),
+        // Browsers already move the keyboard's position to a link's target;
+        // a tabindex would make them focus the heading and draw a focus ring
+        // around it, even after a mouse click.
+        tabIndex: false,
     })
 
 // markdown-it only passes highlighter output through untouched when it starts
