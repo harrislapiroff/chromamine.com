@@ -86,7 +86,7 @@ test('code blocks without a title are a bare pre', () => {
 
 test('headings get a slug id and link to themselves', () => {
   const html = md.render('## What’s *next*?\n\n## What’s next?')
-  assert.match(html, /<h4 id="whats-next" tabindex="-1"><a class="header-anchor" href="#whats-next">What’s <em>next<\/em>\?<\/a><\/h4>/)
+  assert.match(html, /<h4 id="whats-next"><a class="header-anchor" href="#whats-next">What’s <em>next<\/em>\?<\/a><\/h4>/)
   // A repeated heading gets a distinct id
   assert.match(html, /<h4 id="whats-next-1"/)
 })
