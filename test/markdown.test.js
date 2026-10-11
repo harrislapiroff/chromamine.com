@@ -83,3 +83,10 @@ test('code blocks without a title are a bare pre', () => {
   assert.match(fence('js'), /^<pre class="shiki/)
   assert.match(fence(''), /^<pre class="shiki/)
 })
+
+test('headings get a slug id and link to themselves', () => {
+  const html = md.render('## What’s *next*?\n\n## What’s next?')
+  assert.match(html, /<h4 id="whats-next" tabindex="-1"><a class="header-anchor" href="#whats-next">What’s <em>next<\/em>\?<\/a><\/h4>/)
+  // A repeated heading gets a distinct id
+  assert.match(html, /<h4 id="whats-next-1"/)
+})

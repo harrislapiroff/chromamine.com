@@ -6,6 +6,8 @@ import markdownFootnotes from "markdown-it-footnote"
 import markdownContainer from "markdown-it-container"
 import markdownAbbr from "markdown-it-abbr"
 import markdownItAttrs from "markdown-it-attrs"
+import markdownItAnchor from "markdown-it-anchor"
+import slugify from "@sindresorhus/slugify"
 
 import ShikiPlugin from "@shikijs/markdown-it"
 import { getMaterialIconSVG } from "./utils/material-icon.js"
@@ -142,6 +144,12 @@ export const md = markdownIt(mdOptions)
         allowedAttributes: ['rel'],
     })
     .use(shikiPlugin)
+    // Give every heading an id and wrap its text in a link to itself. Slugs
+    // come from the same library as Eleventy's built-in slugify filter.
+    .use(markdownItAnchor, {
+        slugify: (s) => slugify(s, { decamelize: false }),
+        permalink: markdownItAnchor.permalink.headerLink(),
+    })
 
 // markdown-it only passes highlighter output through untouched when it starts
 // with <pre>, and wraps anything else in another <pre><code>. Let the <figure>
