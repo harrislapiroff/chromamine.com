@@ -11,7 +11,7 @@ excerpt: This past week, at Youth Dance Weekend in Fairlee VT, I called my first
 #     url: TBD
 ---
 
-This past week, at Youth Dance Weekend[^1] in Fairlee VT, I called my first full dance festival.
+Last week, at [Youth Dance Weekend](https://youthdanceweekend.org)[^1] in Fairlee VT, I called my first full dance festival.
 
 {% button "Jump to program ↓" "#the-program" %}
 
@@ -28,7 +28,7 @@ So it's nice, in 2026, to feel like I'm back on the upswing – largely feeling 
 
 And I think I did well this weekend! I made some small errors, nothing major, and I got a lot of positive feedback from dancers. Some of them had not done much English dancing at all before and nevertheless navigated my program, which was not overly simple!
 
-It was a pleasure to work with the other staff, especially my English band and friends, Jacob Chen and Audrey Jaber, but also to collaborate with the contra staff Hannah Chamberlain and Cojiro (and some stray musicians from the YDW committee) on an ambitious English-Contra medley Saturday night[^3].
+It was a pleasure to work with the other staff, especially my English band and friends, [Jacob Chen](https://www.jacobchenmusic.com) and [Audrey Jaber](https://audreyleighjaber.com), but also to collaborate with the contra staff [Hannah Chamberlain](https://hannahchamb.com) and [Cojiro](https://cojiroduo.bandcamp.com/) (and some stray musicians from the YDW committee) on an ambitious English-contra medley Saturday night[^3].
 
 [^2]: Though I can't announce it yet because contracts haven't been signed and promotion hasn't started, I do have another weekend lined up!
 [^3]: Inspired by Adina Gordon undertaking a similar feat at YDW a number of years ago.
