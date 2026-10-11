@@ -71,9 +71,9 @@ Here is the complete YDW program for 2026. Much thanks to Hannah Chamberlain (co
 
 *Led by Kat Dutton*
 
-1. **Lords of the Wind**
-2. **Zytglogge**
-3. **Loon Mountain Reel**
+1. **Lords of the Wind**, Iain Boyd, *Lord of the Rings Collection*
+2. **Zytglogge**, Terry Blackburn, *Collecta Ursis*
+3. **Loon Mountain Reel**, Alan Smith, *Start Dancing!*
 
 ### Saturday Morning ContraLab, 10:30–11:45AM
 
