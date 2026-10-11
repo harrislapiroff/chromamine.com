@@ -3,6 +3,7 @@ title: Youth Dance Weekend 2026
 date: 2026-10-10
 categories: [Dance]
 tags: [contra, ECD, calling]
+excerpt: This past week, at Youth Dance Weekend in Fairlee VT, I called my first full dance festival. It nicely caps off the five years of calling I've just had.
 # xposts:
 #   - label: Mastodon
 #     url: TBD
@@ -27,7 +28,7 @@ So it's nice, in 2026, to feel like I'm back on the upswing – largely feeling 
 
 And I think I did well this weekend! I made some small errors, nothing major, and I got a lot of positive feedback from dancers. Some of them had not done much English dancing at all before and nevertheless navigated my program, which was not overly simple!
 
-It was a pleasure to work with the other staff, especially my English band and friends, Jacob Chen and Audrey Jaber, but also to collaborate with the contra staff Hannah Chamberlain and Cojiro (and some stray rockstar musicians) on an ambitious English-Contra medley Saturday night[^3].
+It was a pleasure to work with the other staff, especially my English band and friends, Jacob Chen and Audrey Jaber, but also to collaborate with the contra staff Hannah Chamberlain and Cojiro (and some stray musicians from the YDW committee) on an ambitious English-Contra medley Saturday night[^3].
 
 [^2]: Though I can't announce it yet because contracts haven't been signed and promotion hasn't started, I do have another weekend lined up!
 [^3]: Inspired by Adina Gordon undertaking a similar feat at YDW a number of years ago.
@@ -40,7 +41,7 @@ This event was also special to me because of the place YDW has in my heart. I wa
 
 ## The Program
 
-For the curious, here is the complete YDW program for 2026. Much thanks to Hannah Chamberlain (contra caller), Greer Doble (camper caller wrangler), and Kat Dutton (Scottish caller) for their quick responses to my program requests and permission to republish here.
+Here is the complete YDW program for 2026. Much thanks to Hannah Chamberlain (contra caller), Greer Doble (camper caller wrangler), and Kat Dutton (Scottish caller) for their quick responses to my program requests and permission to republish here.
 
 ### Friday Night Contra, 7:30–9PM
 
@@ -67,6 +68,10 @@ For the curious, here is the complete YDW program for 2026. Much thanks to Hanna
 ### Saturday Morning Scottish 9:15AM–10:15AM
 
 *Led by Kat Dutton*
+
+1. **Lords of the Wind**
+2. **Zytglogge**
+3. **Loon Mountain Reel**
 
 ### Saturday Morning ContraLab, 10:30–11:45AM
 
