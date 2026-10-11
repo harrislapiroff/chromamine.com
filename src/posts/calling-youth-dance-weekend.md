@@ -10,7 +10,11 @@ tags: [contra, ECD, calling]
 #     url: TBD
 ---
 
-This past week, at Youth Dance Weekend[^1] in Fairlee VT, I called my first full dance festival. It nicely caps off the five years of calling I've just had. When [reflecting on two years of calling](/2024/02/contra-calling-2022-2023/) in 2024, I wrote, "I really like doing this. I think I’ve gotten pretty good at it and I’m determined to get better." I didn't write posts reflecting emotionally on 2024 and 2025 but, had I done so, I might have written something like:
+This past week, at Youth Dance Weekend[^1] in Fairlee VT, I called my first full dance festival.
+
+{% button "Jump to program ↓" "#the-program" %}
+
+It nicely caps off the five years of calling I've just had. When [reflecting on two years of calling](/2024/02/contra-calling-2022-2023/) in 2024, I wrote, "I really like doing this. I think I’ve gotten pretty good at it and I’m determined to get better." I didn't write posts reflecting emotionally on 2024 and 2025 but, had I done so, I might have written something like:
 
 [NEFFA]: https://neffa.org/festival-home/
 [FolkMADness]: https://folkmads.org/events/camps/folkmadness/
