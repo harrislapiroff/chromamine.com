@@ -2,7 +2,7 @@
 title: Youth Dance Weekend 2026
 date: 2026-10-10
 categories: [Dance]
-tags: [contra, ECD, callings]
+tags: [contra, ECD, calling]
 # xposts:
 #   - label: Mastodon
 #     url: TBD
@@ -10,32 +10,33 @@ tags: [contra, ECD, callings]
 #     url: TBD
 ---
 
-This past week, at Youth Dance Weekend[^1] in Fairlee VT, I called my first full dance festival. I've called one-off sessions at [NEFFA][] and recently called a couple English Country Dance sessions at [FolkMADness][], but this was my first time being one of the headline callers at a dance weekend. It caps off nicely the five years of calling I've just had. When reflecting on two years of calling in 2024, I wrote, "I really like doing this. I think I’ve gotten pretty good at it and I’m determined to get better." I didn't write posts reflecting emotionally on 2024 and 2025 but, had I done so, but I might have written something like:
+This past week, at Youth Dance Weekend[^1] in Fairlee VT, I called my first full dance festival. It nicely caps off the five years of calling I've just had. When [reflecting on two years of calling](/2024/02/contra-calling-2022-2023/) in 2024, I wrote, "I really like doing this. I think I’ve gotten pretty good at it and I’m determined to get better." I didn't write posts reflecting emotionally on 2024 and 2025 but, had I done so, I might have written something like:
 
 [NEFFA]: https://neffa.org/festival-home/
 [FolkMADness]: https://folkmads.org/events/camps/folkmadness/
 
-[^1]: "Youth" is perhaps a bit deceiving here for those not in the know. In this context, *youth* means "young for the folk dance community." The event is 18+ and mostly consists of people in their 20s and early 30s.
+[^1]: "Youth" is perhaps a bit misleading here for those not in the know. In this context, *youth* means "young for the folk dance community." The event is 18+ and mostly consists of people in their 20s and early 30s.
 
-> 2022 and 2023 were years of determination and momentum for me. 2024 and 2025 were years of imposter syndrome. I spent much of them feeling like I am not as good at this as my peer callers. I had many nights where I didn't do as well as I should have and I received some substantial negative feedback on my teaching from an event that was important to me. I feel unsure I deserve to be booked for the bigger events I've been coveting.
+> 2022 and 2023 were years of determination and momentum for me. 2024 and 2025 were years of imposter syndrome. I spent much of them feeling like I wasn't as good at this as my peer callers. I had many nights where I didn't do as well as I should have and I received some substantial negative feedback on my teaching from an event that was important to me. I'm unsure I deserve to be booked for the bigger events I've been coveting.
 
-So it's nice, in 2026, to feel like I'm back on the upswing – largely feeling good after the events I call, better at handling the unexpected, and like my baseline event quality is now "a pretty good night." It's all helped along too by getting the external validation of finally being booked for some of those weekends I've longed to perform at[^2].
+So it's nice, in 2026, to feel like I'm back on the upswing – largely feeling good after the events I call, better at handling the unexpected, and like my baseline event quality is now "a pretty good night." It helps, too, to have the external validation of finally being booked for some of those weekends I've longed to call[^2].
 
-And I think I did a pretty good job this weekend! Some small errors, nothing major, and I got a lot of positive feedback from dancers. Some of them had not done much English dancing at all before and nevertheless navigated my program, which was not overly simple!
+And I think I did well this weekend! I made some small errors, nothing major, and I got a lot of positive feedback from dancers. Some of them had not done much English dancing at all before and nevertheless navigated my program, which was not overly simple!
 
-It was also a pleasure to work with the other staff, especially my English band and friends, Jacob Chen and Audrey Jaber, but also collaborating with Hannah Chamberlain (contra caller), Cojiro (contra band), and some committee musicians on an ambitious English-Contra medley Saturday night[^3].
+It was a pleasure to work with the other staff, especially my English band and friends, Jacob Chen and Audrey Jaber, but also to collaborate with the contra staff Hannah Chamberlain and Cojiro (and some stray rockstar musicians) on an ambitious English-Contra medley Saturday night[^3].
 
 [^2]: Though I can't announce it yet because contracts haven't been signed and promotion hasn't started, I do have another weekend lined up!
 [^3]: Inspired by Adina Gordon undertaking a similar feat at YDW a number of years ago.
 
-This event was also special to me because of the place YDW has in my heart. I was at *the very first* YDW in 2008[^4]. It's likely it was actually the first dance weekend I traveled for. In 2013 I joined the YDW organizing committee and remained on it for six years. The event has meant a lot to me as a dancer and organizer and a surprising number of my [canon events](https://www.merriam-webster.com/slang/canon-event) of adulthood were at or related to it. So, even though I'm squarely outside of YDW's core demographic now, it was meaningful to finally the the stage for an event that is so significant in my life. It may well have been my last time ever at YDW and it was a beautiful way for me to close out that era.
+This event was also special to me because of the place YDW has in my heart. I was at *the very first* YDW in 2008[^4]. It's likely it was actually the first dance weekend I traveled for. In 2013 I joined the YDW organizing committee and remained on it for six years. The event has meant a lot to me as a dancer and organizer and a surprising number of my [canon events](https://www.merriam-webster.com/slang/canon-event) of adulthood were at or related to it. So, even though I'm now squarely outside of YDW's core demographic, it was meaningful to finally take the stage for an event that is so significant in my life. It may well have been my last time ever at YDW and it was a beautiful way for me to close out that era.
 
-[^4]: Which is how you know presence at YDW 2026 strains the definition of *youth*.
+[^4]: Which is how you know my presence at YDW 2026 strains the definition of *youth*.
+
+***
 
 ## The Program
 
-For the curious, here is the complete YDW program for 2026. Much thanks to Hannah Chamberlain (contra caller) and Greer Doble (the camper caller wrangler) for their quick responses in sharing their parts of the program with me and permission to republish.
-
+For the curious, here is the complete YDW program for 2026. Much thanks to Hannah Chamberlain (contra caller), Greer Doble (camper caller wrangler), and Kat Dutton (Scottish caller) for their quick responses to my program requests and permission to republish here.
 
 ### Friday Night Contra, 7:30–9PM
 
@@ -48,7 +49,7 @@ For the curious, here is the complete YDW program for 2026. Much thanks to Hanna
 5. **Chain the Corner**, Chris Page
 6. **Fruit Punch**, Diane Silver
 
-### Friday Night English, 9:30-11PM
+### Friday Night English, 9:30–11PM
 
 *Led by Harris*
 
@@ -73,13 +74,13 @@ For the curious, here is the complete YDW program for 2026. Much thanks to Hanna
 2. **United We Dance**, Bob Isaacs  
    _**Keeping Time:**  Every so often during this dance the band will stop playing for big chunks of time. Keep dancing! You are the rhythm! When we end, the band will tell us our BPMs at the beginning and end of the dance… or we’ll dissolve into complete chaos and that’s okay too._
 
-3. **No Use Crying Over Spilled Milk**, Chris Weiler
+3. **No Use Crying Over Spilled Milk**, Chris Weiler  
    _**Becket Contra Dance Mixer**_
 
-4. **Mad Robin in Love**, Greg Frock
+4. **Mad Robin in Love**, Greg Frock  
    _**Quiet Contra**_
 
-5. **Butter**, Gene Hubert
+5. **Butter**, Gene Hubert  
    _**Respond to the Music:** For this last dance, the band will switch tunes several times. Pay attention to the music and try to fully embody what you’re hearing in each tune._
 
 ### Saturday Afternoon Contra, 2:45–4PM
@@ -113,8 +114,6 @@ For the curious, here is the complete YDW program for 2026. Much thanks to Hanna
 4. **When Laura Smiles**, Orly Krasner (2000)
 5.
 6. **Indian Queen**, Playford (1701)
-
-
 
 ### Saturday Evening Contra, 9:40PM–11PM
 *Led by Hannah*
