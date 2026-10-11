@@ -2,7 +2,7 @@
 <slot></slot>
 
 <style webc:scoped="rich-text">
-    a:visited:not(.button, .footnote-ref) {
+    a:visited:not(.button, .footnote-ref, .header-anchor) {
         color: var(--color-link-visited);
     }
 
@@ -71,6 +71,19 @@
         float: left;
         color: var(--color-text-muted);
         font-style: normal;
+    }
+
+    /* Headings link to themselves -- markdown-it-anchor in config/markdown.js.
+       They keep the heading's own colour, like post titles in page-title.webc. */
+    .header-anchor {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .header-anchor:hover {
+        color: var(--color-link-hover);
+        text-decoration: underline;
+        text-decoration-color: var(--color-base);
     }
 
     h3 {
