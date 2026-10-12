@@ -119,11 +119,11 @@ Here is the complete YDW program for 2026. Much thanks to Hannah Chamberlain (co
 
 *Alternating prompting from Hannah and Harris, each dance run 3–4 times.*
 
-1.
+1. **Punch West**, Dugan Murphy
 2. **Cockle Shells**, Playford (1701)
-3.
+3. **Roll Twelve (var.)**, Chris Page
 4. **When Laura Smiles**, Orly Krasner (2000)
-5.
+5. **Dawn's G——y Dance**, Grant Goodyear
 6. **Indian Queen**, Playford (1701)
 
 ### Saturday Evening Contra, 9:40PM–11PM
