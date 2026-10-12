@@ -4,12 +4,11 @@ date: 2026-10-05
 categories: [Software]
 tags: [life, writing, machine learning]
 excerpt: "Journalkit is a piece of software for a specific kind of person: someone who wants to design their own physical daily journal for handwriting in, but prefers to think in code, modules, and measurements while doing so."
-# eleventyExcludeFromCollections: true
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/117396660421281310
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0Dih8P2MM4ozeBqTtHLC9yv4w1a6hCYH62pkqmwcBHb5fxRhmj35PyNU5Xj1MSqw1l
 ---
 
 JournalKit is a piece of software for a specific need and a specific kind of person: someone who wants to design their own physical daily journal for writing in, but prefers to think in code, modules, and measurements while doing so.

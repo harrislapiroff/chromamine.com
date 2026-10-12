@@ -4,11 +4,11 @@ date: 2026-10-10
 categories: [Dance]
 tags: [contra, ECD, calling]
 excerpt: This past week, at Youth Dance Weekend in Fairlee VT, I called my first full dance festival. It nicely caps off the five years of calling I've just had.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/117425296989705628
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid02QS6ZdkFiDfgjNno7JpDWQcLMSu7P5LsFg1gMABopzkYVYRnHjUEENcEMtJwcUhD8l
 ---
 
 Last week, at [Youth Dance Weekend](https://youthdanceweekend.org)[^1] in Fairlee VT, I called my first full dance festival.
