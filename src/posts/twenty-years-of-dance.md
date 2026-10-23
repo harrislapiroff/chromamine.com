@@ -28,15 +28,11 @@ images:
 
 Twenty years ago this month, in my first year of college, someone I had a crush on invited me to a contra dance. We had already missed the beginner workshop, so she gave me an impromptu lesson on how to perform the contra dance swing in [Tappan Square](https://en.wikipedia.org/wiki/Tappan_Square). I was immediately captivated and consumed.
 
-I grew up feeling physically awkward and out of touch with my body. The grace I finally felt able to summon while contra dancing was intoxicating[^1]. Contra became a gateway to other forms of movement. I dabbled in swing, blues, and fusion. I did some waltz. I joined a [rapper sword team](https://en.wikipedia.org/wiki/Rapper_sword) for a time. I've dipped a toe into Scottish Country Dance and Scandinavian dances and who can remember what else. But contra dance – as well as, more recently, its close relative English Country Dance – has continued to feel like home.
-
-[^1]: Though in retrospect I suspect I was less graceful in those early years than I imagined.
+I grew up feeling physically awkward and out of touch with my body. The grace I finally felt able to summon while contra dancing was intoxicating. (Though in retrospect I suspect I was less graceful in those early years than I imagined.) Contra became a gateway to other forms of movement. I dabbled in swing, blues, and fusion. I did some waltz. I joined a [rapper sword team](https://en.wikipedia.org/wiki/Rapper_sword) for a time. I've dipped a toe into Scottish Country Dance and Scandinavian dances and who can remember what else. But contra dance – as well as, more recently, its close relative English Country Dance – has continued to feel like home.
 
 It's hard to overstate how important contra dance has been to me. I don't know how to love something without wanting to see every side of it, so I became an organizer. The events I've organized ([Romp](https://www.dandelionromp.com), [YDW](https://youthdanceweekend.org), [BIDA](https://www.bidadance.org)) have been some of the proudest accomplishments of my life, ephemeral as they are. I learned how to call dances early on. (And then, much later, I learned how to call dances *well*.) I joined the board of a [folk music and dance camp in the woods](https://pinewoods.org).
 
-The majority of my friends in adulthood have been people I dance with and, with only one or two exceptions[^2], every romantic partner as well. It’s given me a deeper connection to my body, but also to music and the incredible people who love to play it live. I’ve built real intergenerational connections through it. I have friends in most major cities around the country because of it. It’s a community I can see myself growing old in and I can’t think of any other way I’d rather meet people and make friends.
-
-[^2]: In a list of non-trivial length.
+The majority of my friends in adulthood have been people I dance with and, with only one or two exceptions, every romantic partner as well. It’s given me a deeper connection to my body, but also to music and the incredible people who love to play it live. I’ve built real intergenerational connections through it. I have friends in most major cities around the country because of it. It’s a community I can see myself growing old in and I can’t think of any other way I’d rather meet people and make friends.
 
 Social dance has given me a way to pass the time, a community to rely on, a social portal anywhere I go, and – often – even *purpose*. What an incredible twenty years it has been.
 
