@@ -19,6 +19,7 @@ import { charsPerLine, clampToLines, fitFontSize, fitProse, linesInHeight, takeL
 import {
   BASE_LINE_HEIGHT,
   BASE_FONT_SIZE,
+  BORDER_RADIUS_REM,
   colors,
   fontFamily,
   weightBold,
@@ -37,6 +38,24 @@ export const STORY_SIZE = { width: 1080, height: 1920 }
 
 const el = (style, children) => ({ type: 'div', props: { style: { display: 'flex', ...style }, children } })
 const text = (style, children) => ({ type: 'span', props: { style, children } })
+const img = ({ src, width, height }, style) => ({ type: 'img', props: { src, width, height, style } })
+
+/* Scale a photo to fit inside `box`, keeping its proportions, and encode it for
+ * Satori, which only takes images inline.
+ *
+ * The frame is drawn at its final pixel size, so the photo is resized to
+ * exactly the size it is shown at rather than handing Satori the full variant
+ * to scale down.
+ */
+async function fitImage (file, box) {
+  const { data, info } = await sharp(file)
+    .rotate()
+    .resize({ ...box, fit: 'inside' })
+    .jpeg({ quality: 85 })
+    .toBuffer({ resolveWithObject: true })
+
+  return { src: `data:image/jpeg;base64,${data.toString('base64')}`, width: info.width, height: info.height }
+}
 
 /* "Hi, I'm Harris Lapiroff." — src/_components/site-header.webc.
  *
@@ -169,12 +188,15 @@ export function renderOpenGraphCard ({ title, categories = [], date }) {
 /* A 1080×1920 story frame, generated for every post: the same header and title,
  * plus enough of the opening prose to be worth reading on its own.
  *
+ * A post with an image of its own — the one it advertises in og:image — shows
+ * it between the date and the prose, and the prose gets whatever room is left.
+ *
  * Everything is set at one size — a story is read up close, so the frame reads
  * as a page of the site rather than as a poster. The title still takes at most
  * half the frame, so a long headline shortens the quotation rather than pushing
  * it off the bottom of the image.
  */
-export function renderStoryCard ({ title, categories = [], date, paragraphs = [] }) {
+export async function renderStoryCard ({ title, categories = [], date, paragraphs = [], image = null }) {
   // Instagram lays its own chrome — the account header, the reply bar — over
   // the top and bottom of a story, so the card keeps well clear of both. The
   // left padding also has to clear the title's hanging pilcrow.
@@ -189,8 +211,15 @@ export function renderStoryCard ({ title, categories = [], date, paragraphs = []
   // longer opening paragraph is cut short with an ellipsis instead.
   const MAX_EXCERPT_LINES = 12
 
+  // The image is held to this share of the frame, so a tall photo still leaves
+  // a few lines of the post under it.
+  const MAX_IMAGE_SHARE = 0.4
+
   const metaLines = (categories.length ? 1 : 0) + (date ? 1 : 0)
   const title_ = fitTitle(title, { width: measure, height: available / 2, sizes: [body] })
+  const picture = image
+    ? await fitImage(image.file, { width: measure, height: Math.floor(available * MAX_IMAGE_SHARE) })
+    : null
 
   const prose = fitProse(paragraphs, {
     width: measure,
@@ -199,7 +228,9 @@ export function renderStoryCard ({ title, categories = [], date, paragraphs = []
       MAX_EXCERPT_LINES,
       linesInHeight(
         available - lineBox(body) * 2 - metaLines * (lineBox(body) + gap) -
-          title_.height - gap - excerptGap,
+          title_.height - gap - excerptGap -
+          // The image is one more flex child, so it brings a gap of its own.
+          (picture ? gap + excerptGap + picture.height : 0),
         body,
         LINE_HEIGHT
       )
@@ -215,6 +246,9 @@ export function renderStoryCard ({ title, categories = [], date, paragraphs = []
         // separates the title from the prose under it.
         postTitle(title_, weightBold),
         ...(date ? [oneLine(date, body)] : []),
+        // Rounded as the site rounds images, scaled with the type: the card's
+        // rem is its body size, not the site's 16px.
+        ...(picture ? [img(picture, { marginTop: excerptGap, borderRadius: BORDER_RADIUS_REM * body })] : []),
         ...(prose.length
           ? [el(
               {

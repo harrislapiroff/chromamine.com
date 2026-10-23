@@ -37,6 +37,9 @@ export const weightBold = 600
 export const BASE_FONT_SIZE = 16
 export const BASE_LINE_HEIGHT = 25
 
+// --border-radius-base, in rem, which rich-text.webc rounds images with.
+export const BORDER_RADIUS_REM = 0.4
+
 // The peonies backdrop: 0.1 opacity, painted in --color-base, fading to
 // transparent down the element (see the body::before rule in _global.sass).
 export const backdropOpacity = 0.1
