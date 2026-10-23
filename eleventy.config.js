@@ -28,6 +28,7 @@ import {
     slugify,
     markdown as markdownFilter,
     pluralize,
+    sortPostsByDate,
     getSEOExcerpt,
     getSEOImage,
     toAbsoluteUrl,
@@ -207,6 +208,7 @@ export default function(eleventyConfig) {
     eleventyConfig.addFilter("slugify", slugify)
     eleventyConfig.addFilter("markdown", markdownFilter)
     eleventyConfig.addFilter("pluralize", pluralize)
+    eleventyConfig.addFilter("sortPostsByDate", sortPostsByDate)
     eleventyConfig.addFilter("getSEOExcerpt", getSEOExcerpt)
     eleventyConfig.addFilter("getSEOImage", getSEOImage)
     eleventyConfig.addAsyncFilter("optimizeImages", optimizeImagesInHtml)

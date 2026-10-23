@@ -19,12 +19,12 @@
             <main slot="main">
                 <section>
                     <section-header>Featured Posts</section-header>
-                    <blog-post-grid-micro :@posts="featuredPosts"></blog-post-grid-micro>
+                    <blog-post-grid-micro :@posts="sortPostsByDate($data.collections.posts.filter(p => $data.config.featured.includes(p.data.title)))"></blog-post-grid-micro>
                 </section>
                 <section>
                     <section-header>Latest Posts</section-header>
                     <blog-post
-                        webc:for="post of posts"
+                        webc:for="post of sortPostsByDate($data.collections.posts).slice(0, 1)"
                         :@headerlink="true"
                         :@post="post"
                     ></blog-post>
@@ -32,7 +32,7 @@
                 <section>
                     <section-header>Older Posts</section-header>
                     <blog-post-list-compact
-                        :@posts="morePosts"
+                        :@posts="sortPostsByDate($data.collections.posts).slice(1, 6)"
                     ></blog-post-list-compact>
                     <a href="/archive" class="archive-link">All <span class="archive-count" @raw="$data.collections.posts.length"></span> older posts →</a>
                 </section>
@@ -56,22 +56,3 @@
     }
 </style>
 
-<script webc:setup>
-    const FULL_POST_COUNT = 1
-    const MORE_POST_COUNT = 5
-
-    const posts = $data.collections.posts
-        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
-        .sort((a, b) => b.date - a.date)
-        .slice(0, FULL_POST_COUNT)
-
-    const morePosts = $data.collections.posts
-        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
-        .sort((a, b) => b.date - a.date)
-        .slice(FULL_POST_COUNT, FULL_POST_COUNT + MORE_POST_COUNT)
-
-    const featuredPosts = $data.collections.posts
-        .filter(p => $data.config.featured.includes(p.data.title))
-        .map(p => ({...p, ...p.data, date: new Date(p.date)}))
-        .sort((a, b) => b.date - a.date)
-</script>

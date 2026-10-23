@@ -35,6 +35,20 @@ export const markdown = function (value) {
     return markdownIt(mdOptions).render(value)
 }
 
+// Posts flattened with their data and sorted newest first, for listing pages.
+//
+// This is a filter, not a value computed in a WebC page's <script webc:setup>,
+// for two reasons:
+//
+// 1. webc:setup runs once per component and its result is kept for the life of
+//    `eleventy --serve`, so lists computed there go stale when a post changes.
+// 2. Components with webc:root="override" re-evaluate their host's attributes
+//    in their own scope, so a prop expression can only call functions that
+//    every scope can see. Filters are registered as global WebC helpers.
+export const sortPostsByDate = (posts) => posts
+    .map(p => ({...p, ...p.data, date: new Date(p.date)}))
+    .sort((a, b) => b.date - a.date)
+
 export const pluralize = (value, singular = '', plural = 's') => value === 1 ? singular : plural
 
 /* Parse rendered page content, remembering the last document parsed.
