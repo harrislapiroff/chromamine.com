@@ -19,9 +19,11 @@
     // HEIC to JPEG and stripping GPS, then embeds them at the cursor line.
     //
     // Bind it to a key with a save first, so Zed reloads the post cleanly
-    // instead of reporting a conflict with unsaved edits:
+    // instead of reporting a conflict with unsaved edits. Zed has no
+    // project-level keymaps, so this goes in ~/.config/zed/keymap.json, in a
+    // block with "context": "Editor && extension == md":
     //
-    "ctrl-cmd-v": ["action::Sequence", ["workspace::Save", ["task::Spawn", { "task_name": "blog: insert image" }]]],
+    //   "ctrl-cmd-v": ["action::Sequence", ["workspace::Save", ["task::Spawn", { "task_name": "blog: insert image" }]]]
     "label": "blog: insert image",
     "command": "node",
     "args": ["scripts/blog.mjs", "image", "$ZED_FILE", "--line", "$ZED_ROW"],
