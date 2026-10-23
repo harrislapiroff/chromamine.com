@@ -131,7 +131,9 @@ Every build draws two images per blog post, into `_site/media/social/`:
   `og:image`. It is only generated for posts that have no image of their own; a
   post that leads with a photo advertises the photo instead.
 * `story/<slug>.png` — a 1080×1920 frame sized for an Instagram story, carrying
-  the title and the opening of the post. Generated for every post.
+  the title and the opening of the post. Generated for every post. A post with
+  an image of its own (its `seoImage`, else the first image in it — whatever
+  `og:image` advertises) shows that image above the opening text.
 
 The two kinds sit in separate directories rather than being told apart by a
 filename suffix, so a post slugged `foo-story` can't collide with the story

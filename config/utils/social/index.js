@@ -20,7 +20,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 import { getSEOImage, toAbsoluteUrl } from '../../filters.js'
-import { optimizedImageUrl } from '../images.js'
+import { IMAGE_CACHE_DIR, IMAGE_URL_PATH, optimizedImageUrl } from '../images.js'
 import { renderOpenGraphCard, renderStoryCard } from './cards.js'
 import { readPost } from './extract.js'
 import { rendererFingerprint } from './fingerprint.js'
@@ -95,7 +95,37 @@ const KINDS = {
   story: {
     directory: 'story',
     render: renderStoryCard,
-    inputs: ({ title, categories, date, paragraphs }) => ({ title, categories, date, paragraphs })
+    inputs: ({ title, categories, date, paragraphs, image }) => ({ title, categories, date, paragraphs, image })
+  }
+}
+
+/* The file behind the image a post advertises as its own, for the story frame
+ * to show, or null when the post advertises a generated card instead.
+ *
+ * og:image normally names a variant that optimizedImageUrl generated, and it
+ * writes those into the image cache before returning their URL, so the file is
+ * there by the time this hook runs, even under --serve, where the cache is never
+ * copied into _site. An image that could not be optimized is advertised as the
+ * original under src/media.
+ *
+ * The file's contents are hashed into the result, so the cached frame is redrawn
+ * when the photo changes but the path does not.
+ */
+async function storyImageOf (openGraphImage, slug) {
+  if (!openGraphImage || openGraphImage.endsWith(socialImageUrl(slug, 'opengraph'))) return null
+
+  const { pathname } = new URL(openGraphImage)
+  const file = pathname.startsWith(IMAGE_URL_PATH)
+    ? path.join(IMAGE_CACHE_DIR, decodeURIComponent(pathname.slice(IMAGE_URL_PATH.length)))
+    : path.join('./src', decodeURIComponent(pathname))
+
+  try {
+    const hash = crypto.createHash('sha256').update(await fs.readFile(file)).digest('hex').slice(0, KEY_LENGTH)
+    return { file, hash }
+  } catch {
+    // An image hosted elsewhere, or a reference that does not resolve: the
+    // frame is drawn without it rather than failing the build.
+    return null
   }
 }
 
@@ -202,6 +232,7 @@ export async function generateSocialImages (results) {
     if (!post) return 0
 
     const slug = slugOf(inputPath)
+    post.image = await storyImageOf(post.openGraphImage, slug)
 
     // Every post gets a story image; only posts with no image of their own get
     // a generated link preview.
