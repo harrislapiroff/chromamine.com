@@ -11,7 +11,7 @@ tags: [writing, poetry, autoarcheology]
 #     url: TBD
 ---
 
-I used to write poetry. I don’t know that I ever had any special talent for it. I do miss it sometimes, as a way to express myself, but, also, I think it had some ineffable beneficial effect on my disposition.
+I used to write poetry. I don’t know that I ever had any special talent for it. I do miss it sometimes, as a way to express myself, but, also, I think looking through a poet's lens on the world had some positive effect on my disposition that I can't quite articulate.
 
 Anyway, I was revisiting some old files, and I found three short love poems from my youth that I actually still like. (Do not ask me how many I found that I don’t like.) Since they’re no longer available anywhere, I thought I’d publish them here. I have made some minor edits to them, grinding off some of my youthful inconsistencies.
 
