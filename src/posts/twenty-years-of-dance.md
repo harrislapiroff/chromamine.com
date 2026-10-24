@@ -17,11 +17,11 @@ images:
     src: contra-harris-2.jpg
     alt: Dozens of young people sitting in small groups on the wood floor of a large hall, talking. In the foreground a dancer in a brown shirt and teal skirt leans in, gesturing, toward a person in glasses kneeling across from them.
     caption: Sitting down for announcements.
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/117487954863555978
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0eqtbYDeuaCaWL6xBwbzgpfQGQ4vY77mNTsSADMPpKQfrLp5aP2bvQE8wXvvL1p9vl
 ---
 
 {% image images.circle %}

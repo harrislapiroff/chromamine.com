@@ -4,11 +4,11 @@ date: 2026-10-24
 categories: [Life]
 excerpt: I used to write poetry. I don’t know that I ever had any special talent for it. I was revisiting some old files, and I found three short love poems from my youth that I actually still like. Since they’re no longer available anywhere, I thought I’d publish them here.
 tags: [writing, poetry, autoarcheology]
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/117497031138811806
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid0VVLMmN8ZSB9h9HjZVF8aDqD5iYimTTdAgSZ5nPqhjvbGe4wU2Mfa9F6JiYXkdEYgl
 ---
 
 I used to write poetry. I don’t know that I ever had any special talent for it. I do miss it sometimes, as a way to express myself, but, also, I think looking through a poet's lens on the world had some positive effect on my disposition that I can't quite articulate.
