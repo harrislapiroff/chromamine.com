@@ -2,7 +2,7 @@
 title: Old Love Poems
 date: 2026-10-24
 categories: [Life]
-excerpt: I used to write poetry. I don’t know that I ever had any special talent for it. I do miss it sometimes, as a way to express myself, but, also, I think it had some ineffable beneficial effect on my disposition.
+excerpt: I used to write poetry. I don’t know that I ever had any special talent for it. I was revisiting some old files, and I found three short love poems from my youth that I actually still like. Since they’re no longer available anywhere, I thought I’d publish them here.
 tags: [writing, poetry, autoarcheology]
 # xposts:
 #   - label: Mastodon
