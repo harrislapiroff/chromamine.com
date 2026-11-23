@@ -155,8 +155,14 @@ export default function(eleventyConfig) {
      *-------------------------------------*/
     eleventyConfig.addCollection("posts", function(collection) {
         // Add all files whose path matches a blog post glob
-        const arrs = blogPostGlobs.map(g => collection.getFilteredByGlob(g)).flat()
-        return arrs
+        // Each glob comes back sorted on its own, so the concatenation is
+        // grouped by format, not by date. Re-sort the whole list oldest to
+        // newest: the feed and the footer's year range both read
+        // the order straight from this collection.
+        return blogPostGlobs
+            .map(g => collection.getFilteredByGlob(g))
+            .flat()
+            .sort((a, b) => a.date - b.date || a.inputPath.localeCompare(b.inputPath))
     })
 
     /* Put dance events in a collection
