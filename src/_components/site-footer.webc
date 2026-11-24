@@ -25,8 +25,10 @@
 </footer>
 
 <script webc:setup>
-    const getOldestPostYear = collections => collections.posts[0].date.getFullYear()
-    const getNewestPostYear = collections => collections.posts[collections.posts.length - 1].date.getFullYear()
+    // collections.posts is not sorted by date
+    const getPostYears = collections => collections.posts.map(p => p.date.getFullYear())
+    const getOldestPostYear = collections => Math.min(...getPostYears(collections))
+    const getNewestPostYear = collections => Math.max(...getPostYears(collections))
 </script>
 
 <style webc:scoped="site-footer">
