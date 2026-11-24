@@ -13,11 +13,11 @@ images:
     src: dscf2653.jpg
     alt: Harris, smiling at the camera, stands among translucent blue and teal fabric streamers blowing in the wind in a sunny, grassy park. Harris has long dark hair and is wearing clear-framed glasses, a patterned cap, a dark plaid shirt, and blue nail polish.
     caption: Photo by [Ruthie Byers](https://www.ruthiebyers.com)
-# xposts:
-#   - label: Mastodon
-#     url: TBD
-#   - label: Facebook
-#     url: TBD
+xposts:
+  - label: Mastodon
+    url: https://social.coop/@harris/117673480587439212
+  - label: Facebook
+    url: https://www.facebook.com/harrislap/posts/pfbid035BEEu3H95uSTjqA6UBXkm2ejzVRoMYSjdkUNPKy7eZEMeTxKdfhdABVwPCNdx1cpl
 ---
 
 {% image images.amperharris %}
