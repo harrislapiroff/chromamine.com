@@ -1,8 +1,9 @@
 ---
 title: Thirty Eight
 date: 2026-11-24
-categories: [Miscellany]
-tags: []
+categories: [Life]
+tags: [time, family, autoarcheology]
+excerpt: Today, I celebrate 38 revolutions around the sun. In ASCII, 38 maps to the ampersand &. I find this delightful.
 images:
   amperharris:
     src: amperharris.jpg
@@ -21,13 +22,13 @@ images:
 
 {% image images.amperharris %}
 
-Today, I celebrate 38 revolutions around the sun. The prime components of 38 are 2 and 19. In binary, the language of information, 38 is represented as 100110 – one 32, one 4, and one 2. In ASCII, an early character encoding, mapping binary codes to letters and symbols, this maps to the ampersand &. I find this delightful.
+Today, I celebrate 38 revolutions around the sun. In binary, the language of information, 38 is represented as 100110 – one 32, one 4, and one 2. In ASCII – an early character encoding that assigns binary codes to numbers, letters, and symbols – this maps to the ampersand, &. I find this delightful.
 
-I have a soft spot in my heart for ampersands. I think all typographers (if it’s not too presumptuous or haughty to call myself such a thing) do. In typography, a *[ligature][]* is the joining of two letterforms for ease of writing, harmonious flow, or as an aesthetic flourish. In modern typography, you’ll often see ligatures for fi, fl, and ff, as some common examples. The ampersand is itself a ligature, derived from the Latin *et*. It may be hard to see the E and T in the modern “roman” ampersand, but type designers often go all out for their italic counterparts, making them clearly visible.
+I have a soft spot in my heart for ampersands. I think all typographers (if it’s not too presumptuous or haughty to call myself such a thing) do. In typography, a *[ligature][]* is the joining of two or more letterforms for ease of writing, harmonious flow, or as an aesthetic flourish. Today, you’ll often see ligatures for [fi, fl](https://commons.wikimedia.org/wiki/File:Ligature_drawing.svg), and ff, which prevent the shapes from colliding with each other. The ampersand is itself a ligature, derived from the Latin *et*. It may be hard to see the E and T in the modern “roman” ampersand, but type designers often go all out for their italic counterparts, making them clearly visible.
 
 [ligature]: https://en.wikipedia.org/wiki/Ligature_(writing)
 
-The ampersand is a ligature that reached escape velocity, becoming an entity unto itself. It joins the words on either side of it, as well, into a single entity. It is a construction for joining and it is itself a joined thing. I find this, too, delightful.
+The ampersand is a ligature that reached escape velocity, becoming an entity unto itself. In usage, it joins the words on either side of it, as well, into a single cohesive entity. It is a construction for joining and it is itself a joined thing. I find this, too, delightful.
 
 There’s no real point to any of the above, except to say that I want to mark my birthday and I *really* like ampersands.
 
@@ -38,15 +39,15 @@ There’s no real point to any of the above, except to say that I want to mark m
 
 ***
 
-Age 37 was the most challenging year of my life followed closely only by age 36 before it. I spent much of both years taking care of my sick father in California and watching him eventually pass away in a hospital bed. Caregiving is, bar nothing, the hardest thing I’ve ever done. I keep meaning to write something about it, but every time I sit down to do so, my mind draws a blank at where to start or how to even capture the depth and scope of it. Maybe I’ll write something yet, or maybe this short paragraph will have to suffice. The year since has been easier, but nevertheless full of big ups and downs.
+Age 37 was the most challenging year of my life, followed closely only by age 36 before it. I spent much of both years taking care of my sick father in California and watching him eventually pass away in a hospital bed. Caregiving is, bar nothing, the hardest thing I’ve ever done. I keep meaning to write something about it, but every time I sit down to do so, my mind draws a blank at where to start or how to even capture the depth and scope of it. Maybe I’ll write something yet, or maybe this short paragraph will have to suffice. The time since has been easier, but nevertheless full of big ups and downs.
 
-But I find myself gliding into 38 on an updraft. My father’s affairs are largely wrapped up, with only small loose ends left to wrangle. My relationships feel as strong as ever and in the very near future I’m looking forward to my immediate polycule all living in a two block line. I’ve been working on a habit of reconnecting with old friends, which has been astonishingly rewarding[^1]. I’ve been using my body more[^2], eating better[^3], and maintaining a regular social life of drinking hot cider and mulled wine with friends in my living room[^4]. I know I’ll go through dark periods again, but after a challenging couple years, it feels like emerging into light.
+But I find myself gliding into 38 on an updraft. My father’s affairs are largely wrapped up, with only small loose ends left to wrangle. My relationships feel as strong as ever, and in the very near future I’m looking forward to my immediate polycule all living in a two-block line. I’ve been working on a habit of reconnecting with old friends, which has been exceptionally rewarding[^1]. I’ve been using my body more[^2], eating better[^3], and maintaining a regular social life of drinking hot cider and mulled wine with friends in my living room[^4]. I know I’ll go through dark periods again, but after a challenging couple years, it feels like emerging into light.
 
-[^1]: If you haven’t tried this lately, I really recommend it. Pick out a friend you haven’t talked to in a while, maybe from a long distant phase of your life, and send them a text, “Hey, I was thinking of you recently. Want to schedule a call and catch up?”
+[^1]: If you haven’t tried this lately, I really recommend it. Pick out a friend you haven’t talked to in a while, maybe from a distant phase of your life, and send them a text, “Hey, I was thinking of you recently. Want to schedule a call and catch up?”
 [^2]: I have a gym membership for the first time in my life!
 [^3]: Fewer of my CSA veggies are rotting in my fridge than ever before!
 [^4]: Which is an extremely good social location for me, personally.
 
-I’m looking forward to the coming year being a dynamic one. I remain in (to quote myself 😅) that "[long chapter of adulthood with its routines and gradual changes](https://chromamine.com/2024/01/season-of-tidiness/)". Yet lots of things are changing in the world. I don’t really know where all of that – war, AI, politics, &c. – is going to land, which certainly gives me a lot of anxiety! But lots of things have also been changing inside of me and my thinking on how I want to spend my time and energy. I’ve been conservative about making big changes to my life in the year following my father’s death, but there's something inside me pushing up from beneath the surface. I’ve been thinking, planning, and feeling and I’ve got some big ideas for 38. Thank you for being my flockmates on the journey in whatever ways, large or small.
+I’m looking forward to the coming year being a dynamic one. I remain in that "[long chapter of adulthood with its routines and gradual changes](/2024/01/season-of-tidiness/)" (to quote myself 😅). Lots of things are changing in the world. I don’t really know where all of that – war, AI, politics, &c. – is going to land, which certainly gives me a lot of anxiety! And lots of things have also been changing inside of me and in my thinking on how I want to spend my time and energy. I’ve been conservative about making big changes to my life in the year following my father’s death, but there’s things inside me pushing up from beneath the surface. I’ve been thinking, planning, and feeling, and I’ve got some big ideas for 38. Thank you for being my flockmates on the journey in whatever ways, large or small.
 
 {% image images.streamers %}
