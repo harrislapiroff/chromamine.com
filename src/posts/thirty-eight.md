@@ -1,5 +1,5 @@
 ---
-title: Thirty-Eight
+title: Thirty & Eight
 date: 2026-11-24
 categories: [Life]
 tags: [time, family, autoarcheology]
@@ -22,10 +22,11 @@ images:
 
 {% image images.amperharris %}
 
-Today, I celebrate 38 revolutions around the sun. In binary, the language of information, 38 is represented as 100110 – one 32, one 4, and one 2. In ASCII – an early character encoding that assigns binary codes to numbers, letters, and symbols – this maps to the ampersand, &. I find this delightful.
+Today, I celebrate 38 revolutions around the sun. In binary, the language of information, 38 is represented as 100110 – one 32, one 4, and one 2. In [ASCII][] – an early character encoding that assigns binary codes to numbers, letters, and symbols – this maps to the ampersand, &. I find this delightful.
 
 I have a soft spot in my heart for ampersands. I think all typographers (if it’s not too presumptuous or haughty to call myself such a thing) do. In typography, a *[ligature][]* is the joining of two or more letterforms for ease of writing, harmonious flow, or as an aesthetic flourish. Today, you’ll often see ligatures for [fi, fl](https://commons.wikimedia.org/wiki/File:Ligature_drawing.svg), and ff, which prevent the shapes from colliding with each other. The ampersand is itself a ligature, derived from the Latin *et*. It may be hard to see the E and T in the modern “roman” ampersand, but type designers often go all out for their italic counterparts, making them clearly visible.
 
+[ASCII]: https://en.wikipedia.org/wiki/ASCII
 [ligature]: https://en.wikipedia.org/wiki/Ligature_(writing)
 
 The ampersand is a ligature that reached escape velocity, becoming an entity unto itself. In usage, it joins the words on either side of it, as well, into a single cohesive entity. It is a construction for joining and it is itself a joined thing. I find this, too, delightful.
