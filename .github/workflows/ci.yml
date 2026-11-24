@@ -45,3 +45,37 @@ jobs:
 
       - name: Build site
         run: npm run build
+
+  auto-merge:
+    name: Auto-merge Dependabot PRs
+    # Waiting on the test job directly, rather than using `gh pr merge --auto`,
+    # keeps this safe whether or not main has required status checks: without
+    # them, `--auto` either merges before the tests finish or fails outright.
+    needs: test
+    # Only act on Dependabot's own pull requests, and only on runs Dependabot
+    # triggered, so a human's extra commits are not merged automatically.
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      # Retry, because GitHub rejects a merge while another Dependabot PR is
+      # landing ("Base branch was modified"). --match-head-commit ensures only
+      # the commit that was tested can be merged.
+      - name: Merge the pull request
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if gh pr merge --squash --match-head-commit "$HEAD_SHA" "$PR_URL"; then
+              exit 0
+            fi
+            sleep $((attempt * 10))
+          done
+          exit 1
