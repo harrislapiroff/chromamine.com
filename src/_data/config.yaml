@@ -2,6 +2,9 @@
 # consumers require (they will not resolve a site-relative image path).
 url: https://chromamine.com
 
+# The years in the footer's copyright notice. Update the end year by hand.
+copyrightYears: "2012–2026"
+
 featured:
   - "Twenty Years of Dance"
   - "Dad"

@@ -3,7 +3,7 @@
     <div class="content">
         <div class="copyright">
             ©
-            <y class="year" @raw="`${getOldestPostYear($data.collections)}–${getNewestPostYear($data.collections)}`" webc:nokeep></y>
+            <y class="year" @raw="$data.config.copyrightYears" webc:nokeep></y>
             Harris Lapiroff
             <div class="copyright-terms">
                 You may republish content from this site provided that you attribute it to me,
@@ -23,11 +23,6 @@
         </div>
     </div>
 </footer>
-
-<script webc:setup>
-    const getOldestPostYear = collections => collections.posts[0].date.getFullYear()
-    const getNewestPostYear = collections => collections.posts[collections.posts.length - 1].date.getFullYear()
-</script>
 
 <style webc:scoped="site-footer">
     :host {
