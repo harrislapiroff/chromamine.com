@@ -1,5 +1,5 @@
 ---
-title: Thirty Eight
+title: Thirty-Eight
 date: 2026-11-24
 categories: [Life]
 tags: [time, family, autoarcheology]
